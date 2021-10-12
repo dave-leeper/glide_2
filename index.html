@@ -23,6 +23,8 @@
             context.lineCap = 'round'
             context.beginPath()
             context.arc(50, yPosition, radius, 0 * 0.0174533, 180 * 0.0174533, true)
+            context.arc(25, yPosition, radius / 2, 0 * 0.0174533, 180 * 0.0174533, true)
+            context.arc(75, yPosition, radius / 2, 0 * 0.0174533, 180 * 0.0174533, false)
             context.stroke()
         }
         function show_trigram(number) {
