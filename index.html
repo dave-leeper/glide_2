@@ -97,6 +97,11 @@
                 trigramNode.appendChild(divnode)
                 divnode.appendChild(textnode)
             }
+            let divspacernode = document.createElement("DIV")
+            let textspacernode = document.createTextNode(' ')
+            divspacernode.id = "spacer"
+            trigramNode.appendChild(divspacernode)
+            divspacernode.appendChild(textspacernode)
             for (let loop = 0; loop < data.hexagrams.length; loop++) {
                 let hexagram = data.hexagrams[loop]
                 let hexagramNumber = hexagram.number
