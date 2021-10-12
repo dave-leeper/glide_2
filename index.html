@@ -38,13 +38,13 @@
             trigramMeaning.innerText = trigram.meaning
         }
         function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
-  var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
+            var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
 
-  return {
-    x: centerX + (radius * Math.cos(angleInRadians)),
-    y: centerY + (radius * Math.sin(angleInRadians))
-  };
-}
+            return {
+                x: centerX + (radius * Math.cos(angleInRadians)),
+                y: centerY + (radius * Math.sin(angleInRadians))
+            };
+        }
 
 function draw_arc(x, y, radius, startAngle, endAngle){
 
@@ -58,6 +58,7 @@ function draw_arc(x, y, radius, startAngle, endAngle){
         "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
     ].join(" ");
 
+    console.log(JSON.stringify(d))
     return d;       
 }        
         function build_symbol_index() {
