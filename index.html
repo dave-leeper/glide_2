@@ -14,12 +14,12 @@
             const yPosition = (elementNumber * radius) + radius
             let gradient = context.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
 
+            canvas.width = 100
+            canvas.height = 100
             gradient.addColorStop(0, '#333');
             gradient.addColorStop(0.5, 'white')
             gradient.addColorStop(1, '#333')
             // context.strokeStyle = gradient
-            context.width = 100
-            context.height = 100
             context.strokeStyle = 'black'
             context.lineWidth = 3
             context.lineCap = 'round'
