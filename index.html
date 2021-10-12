@@ -8,10 +8,9 @@
     </style>
     <script>
         let currentSymbol = 0
-        function drawTrigramSymbol(canvas, elementNumber, symbol) {
+        function drawTrigramSymbol(canvas, symbols) {
             const context = canvas.getContext('2d')
             const radius = 50
-            const yPosition = (elementNumber * radius) + radius
             let gradient = context.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
 
             canvas.width = 100
@@ -23,18 +22,23 @@
             context.strokeStyle = 'black'
             context.lineWidth = 3
             context.lineCap = 'round'
-            context.beginPath()
-            context.arc(50, yPosition, radius, 0 * 0.0174533, 180 * 0.0174533, false)
-            context.stroke()
-            context.beginPath()
-            context.arc(50, yPosition, radius, 0 * 0.0174533, 180 * 0.0174533, true)
-            context.stroke()
-            context.beginPath()
-            context.arc(25, yPosition, radius / 2, 0 * 0.0174533, 180 * 0.0174533, true)
-            context.stroke()
-            context.beginPath()
-            context.arc(75, yPosition, radius / 2, 0 * 0.0174533, 180 * 0.0174533, false)
-            context.stroke()
+            for (let loop = 0; loop < symbols.length; loop++) {
+                let symbol = symbols[loop]
+                let yPosition = (loop * radius) + radius
+
+                context.beginPath()
+                context.arc(50, yPosition, radius, 0 * 0.0174533, 180 * 0.0174533, false)
+                context.stroke()
+                context.beginPath()
+                context.arc(50, yPosition, radius, 0 * 0.0174533, 180 * 0.0174533, true)
+                context.stroke()
+                context.beginPath()
+                context.arc(25, yPosition, radius / 2, 0 * 0.0174533, 180 * 0.0174533, true)
+                context.stroke()
+                context.beginPath()
+                context.arc(75, yPosition, radius / 2, 0 * 0.0174533, 180 * 0.0174533, false)
+                context.stroke()
+            }
         }
         function show_trigram(number) {
             let data = glideData;
@@ -65,9 +69,7 @@
             trigramColorName.innerText = trigram.colorName
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
-            drawTrigramSymbol(trigramCanvas, 0, trigram.symbol[0])
-            drawTrigramSymbol(trigramCanvas, 1, trigram.symbol[1])
-            drawTrigramSymbol(trigramCanvas, 2, trigram.symbol[2])
+            drawTrigramSymbol(trigramCanvas, trigram.symbol)
         }
         function build_symbol_index() {
             let data = glideData;
