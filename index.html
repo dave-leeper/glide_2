@@ -8,6 +8,23 @@
     </style>
     <script>
         let currentSymbol = 0
+        function drawTrigramSymbol(canvas, elementNumber, symbol) {
+            const context = canvas.getContext('2d')
+            const yPosition = elementNumber * 100
+            const radius = 100
+            let gradient = ctx.createRadialGradient(0, 0 ,radius * 0.95, 0, 0, radius * 1.05);
+
+            gradient.addColorStop(0, '#333');
+            gradient.addColorStop(0.5, 'white')
+            gradient.addColorStop(1, '#333')
+            context.strokeStyle = gradient
+            context.lineWidth = radius * 0.1
+            context.lineCap = 'round'
+            ctx.beginPath()
+            ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI)
+            ctx.fillStyle = '#333'
+            ctx.fill()
+        }
         function show_trigram(number) {
             let data = glideData;
             let trigram = data.trigrams[number]
@@ -23,6 +40,7 @@
             let trigramColor = document.getElementById("TrigramColor")
             let trigramWuXing = document.getElementById("TrigramWuXing")
             let trigramMeaning = document.getElementById("TrigramMeaning")
+            let trigramCanvas = document.getElementById("TrigramCanvas")
 
             trigramNumber.innerText = trigram.number
             trigramName.innerText = trigram.name
@@ -36,6 +54,9 @@
             trigramColorName.innerText = trigram.colorName
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
+            drawTrigramSymbol(trigramCanvas, 0, trigram.symbol[0])
+            drawTrigramSymbol(trigramCanvas, 1, trigram.symbol[1])
+            drawTrigramSymbol(trigramCanvas, 2, trigram.symbol[2])
         }
         function build_symbol_index() {
             let data = glideData;
@@ -599,6 +620,7 @@
                 }       
            ]
         }
+        // Wonolo
         </script>  
     </head>
     <body onload="build_symbol_index()" style="font-family: 'Arial Narrow', Arial, sans-serif;">
@@ -621,6 +643,7 @@
                 <div id="TrigramColorName"></div>
                 <div id="TrigramWuXing"></div>
                 <div id="TrigramMeaning"></div>
+                <canvas id="TrigramCanvas" style="width: 300px; height: 300px"></canvas>
             </div>
             <div id="HexagramDiv" style="display: none; flex-direction: column; width: 100%; height: 100%;">
             </div>
