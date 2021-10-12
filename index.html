@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Glide 2.0</title>
+    <style>
+        columns {display: flex; flex-direction: column;}
+        rows {display: flex; flex-direction: row;}
+    </style>
+    <script>
+        let currentSymbol = 0
+        function get_trigram(trigram) {
+            let data = glideData;
+            let trigrams = data.trigrams
+            for (let loop = 0; loop < trigrams.length; loop++) {
+                if (trigram === trigrams[loop].symbol) { return trigrams[loop] }
+            }
+        }
+        function show_trigram(trigramNumber) {
+            /*
+            let data = glideData;
+            let symbol = data.symbols[symbolNumber]
+            let trigrams = data.trigrams
+            let zodiac = data.zodiac
+            let symbolTitle = document.getElementById("SymbolTitle")
+            let symbolTrigram1 = document.getElementById("SymbolTrigram1")
+            let symbolTrigram2 = document.getElementById("SymbolTrigram2")
+            let symbolZodiac1 = document.getElementById("SymbolZodiac1")
+            let symbolZodiac2 = document.getElementById("SymbolZodiac2")
+            let externalTrigram = document.getElementById("ExternalTrigram")
+            let externalZodiac = document.getElementById("ExternalZodiac")
+            let externalDomicile = document.getElementById("ExternalDomicile")
+            let externalDetriment = document.getElementById("ExternalDetriment")
+            let externalExalted = document.getElementById("ExternalExalted")
+            let externalFall = document.getElementById("ExternalFall")
+            let internalTrigram = document.getElementById("InternalTrigram")
+            let internalZodiac = document.getElementById("InternalZodiac")
+            let internalDomicile = document.getElementById("InternalDomicile")
+            let internalDetriment = document.getElementById("InternalDetriment")
+            let internalExalted = document.getElementById("InternalExalted")
+            let internalFall = document.getElementById("InternalFall")
+            let commentary = document.getElementById("Commentary")
+            let meaning = document.getElementById("Meaning")
+            let currentSelected = document.getElementById("symbol" + currentSymbol) 
+            let newSelected = document.getElementById("symbol" + symbolNumber) 
+            let trigram1 = get_trigram(symbol.trigram1)
+            let trigram2 = get_trigram(symbol.trigram2)
+            let zodiac1 = get_zodiac(trigram1.zodiac)
+            let zodiac2 = get_zodiac(trigram2.zodiac)
+            symbolTitle.innerText = symbol.number + '. ' + symbol.name
+            SymbolTrigram1.innerText = symbol.trigram1
+            SymbolTrigram2.innerText = symbol.trigram2
+            symbolZodiac1.innerText = zodiac1.symbol
+            symbolZodiac2.innerText = zodiac2.symbol
+            externalTrigram.innerText = symbol.trigram1 + ' ' + trigram1.name + ' (Earlier Heaven: ' + trigram1.earlier + ', Later Heaven: '  + trigram1.later + ')'
+            externalZodiac.innerText = zodiac1.symbol + ' ' + zodiac1.name + ' (' + zodiac1.energy + ')'
+            externalDomicile.innerText = get_domicile_string(zodiac1.symbol)
+            externalDetriment.innerText = get_detriment_string(zodiac1.symbol)
+            externalExalted.innerText = get_exalted_string(zodiac1.symbol)
+            externalFall.innerText = get_fall_string(zodiac1.symbol)
+            internalTrigram.innerText = symbol.trigram2 + ' ' + trigram2.name + ' (Earlier Heaven: ' + trigram2.earlier + ', Later Heaven: '  + trigram2.later + ')'
+            internalZodiac.innerText = zodiac2.symbol + ' ' + zodiac2.name + ' (' + zodiac2.energy + ')'
+            internalDomicile.innerText = get_domicile_string(zodiac2.symbol)
+            internalDetriment.innerText = get_detriment_string(zodiac2.symbol)
+            internalExalted.innerText = get_exalted_string(zodiac2.symbol)
+            internalFall.innerText = get_fall_string(zodiac2.symbol)
+            meaning.innerText = symbol.meaning
+            commentary.innerText = symbol.commentary
+            currentSelected.style.background = 'white'
+            newSelected.style.background = 'lightgrey'
+            currentSymbol = symbolNumber
+            */
+        }
+        function build_symbol_index() {
+            let data = glideData;
+            let parentNode = document.getElementById('SymbolIndexes')
+            if (!data.trigrams) { return }
+            if (!data.hexagrams) { return }
+            if (!parentNode) { return }
+
+            let trigramNode = document.createElement("DIV")
+            let textnode = document.createTextNode("Trigrams")
+            trigramNode.appendChild(textnode)
+            parentNode.appendChild(trigramNode)
+            let hexagramNode = document.createElement("DIV")
+            textnode = document.createTextNode("Hexagrams")
+            hexagramNode.appendChild(textnode)
+            parentNode.appendChild(hexagramNode)
+            for (let loop = 0; loop < data.trigrams.length; loop++) {
+                let trigram = data.trigrams[loop]
+                let trigramNumber = trigram.number
+                let trigramName = trigram.name
+                let divnode = document.createElement("DIV")
+                let textnode = document.createTextNode(trigramNumber + '. ' + trigramName)
+                divnode.id = "trigram" + loop
+                divnode.style = "cursor: pointer;"
+                divnode.onclick = function() { show_trigram(trigramNumber); }
+                trigramNode.appendChild(divnode)
+                divnode.appendChild(textnode)
+            }
+            for (let loop = 0; loop < data.hexagrams.length; loop++) {
+                let hexagram = data.hexagrams[loop]
+                let hexagramNumber = hexagram.number
+                let hexagramName = hexagram.name
+                let divnode = document.createElement("DIV")
+                let textnode = document.createTextNode(hexagramNumber + '. ' + hexagramName)
+                divnode.id = "hexagram" + loop
+                divnode.style = "cursor: pointer;"
+                divnode.onclick = function() { show_hexagram(hexagramNumber); }
+                hexagramNode.appendChild(divnode)
+                divnode.appendChild(textnode)
+            }
+            show_trigram(0)
+        }
+        
+        var glideData = {
+            "trigrams" : [
+            {
+                    "number" : 0,
+                    "symbol" : "◠ᔐ◡",
+                    "name" : "Dao",
+                    "meaning": "That which causes change",
+                    "verb": "Change",
+                    "letter" : "",
+                    "shape" : "Circle",
+                    "color" : ["#FFFFFF", "#000000"],
+                    "colorName" : ["White", "Black"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 1,
+                    "symbol" : "◠◠◠",
+                    "name" : "Heaven",
+                    "meaning": "Creative",
+                    "verb": "Am",
+                    "letter" : "A",
+                    "shape" : "Triangle, Upper Point",
+                    "color" : ["#0000FF"],
+                    "colorName" : ["Blue"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 2,
+                    "symbol" : "◡◡◡",
+                    "name" : "Earth",
+                    "meaning": "Receptive",
+                    "verb": "Was",
+                    "letter" : "B",
+                    "shape" : "Triangle, Lower Left Point",
+                    "color" : ["#00FF00"],
+                    "colorName" : ["Green"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 3,
+                    "symbol" : "ᔐᔐᔐ",
+                    "name" : "Man",
+                    "meaning": "Choice",
+                    "verb": "Shall Be",
+                    "letter" : "C",
+                    "shape" : "Triangle, Lower Right Point",
+                    "color" : ["#FFFF00"],
+                    "colorName" : ["Yellow"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 4,
+                    "symbol" : "ᔐ◠ᔐ",
+                    "name" : "Heaven in Man",
+                    "meaning": "Terror",
+                    "verb": "Terrify",
+                    "letter" : "D",
+                    "shape" : "Fear/Desire Hexagram, Top Point",
+                    "color" : ["#8B0000"],
+                    "colorName" : ["Dark Red"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 5,
+                    "symbol" : "◠ᔐ◠",
+                    "name" : "Man in Heaven",
+                    "meaning": "Joy",
+                    "verb": "Enjoy",
+                    "letter" : "E",
+                    "shape" : "Fear/Desire Hexagram, Lower Right Point",
+                    "color" : ["#FF00FF"],
+                    "colorName" : ["Magenta"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 6,
+                    "symbol" : "◠◡◠",
+                    "name" : "Earth in Heaven",
+                    "meaning": "Fright",
+                    "verb": "Frighten",
+                    "letter" : "F",
+                    "shape" : "Fear/Desire Hexagram, Upper Left Point",
+                    "color" : ["#FF8C00"],
+                    "colorName" : ["Dark Orange"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 7,
+                    "symbol" : "◡◠◡",
+                    "name" : "Heaven in Earth",
+                    "meaning": "Attraction",
+                    "verb": "Attract",
+                    "letter" : "G",
+                    "shape" : "Fear/Desire Hexagram, Bottom Point",
+                    "color" : ["#5F0A87"],
+                    "colorName" : ["Dark Purple"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 8,
+                    "symbol" : "ᔐ◡ᔐ",
+                    "name" : "Earth in Man",
+                    "meaning": "Aversion",
+                    "verb": "Avert",
+                    "letter" : "H",
+                    "shape" : "Fear/Desire Hexagram, Upper Right Point",
+                    "color" : ["#FFA07A"],
+                    "colorName" : ["Light Salmon"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 9,
+                    "symbol" : "◡ᔐ◡",
+                    "name" : "Man in Earth",
+                    "meaning": "Greed",
+                    "verb": "Crave",
+                    "letter" : "I",
+                    "shape" : "Fear/Desire Hexagram, Lower Left Point",
+                    "color" : ["#D8BFD8"],
+                    "colorName" : ["Thistle"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 10,
+                    "symbol" : "◠◠ᔐ",
+                    "name" : "Heaven Above Man",
+                    "meaning": "Release",
+                    "verb": "Release",
+                    "letter" : "J",
+                    "shape" : "Death/Sex Hexagram, Top Point",
+                    "color" : ["#000000"],
+                    "colorName" : ["Black"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 11,
+                    "symbol" : "ᔐᔐ◠",
+                    "name" : "Man Above Heaven",
+                    "meaning": "Dissolution",
+                    "verb": "Dissolve",
+                    "letter" : "K",
+                    "shape" : "Death/Sex Hexagram, Lower Right Point",
+                    "color" : ["#FFB6C1"],
+                    "colorName" : ["Light Pink"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 12,
+                    "symbol" : "◡◡ᔐ",
+                    "name" : "Earth Above Man",
+                    "meaning": "Destruction",
+                    "verb": "Destroy",
+                    "letter" : "L",
+                    "shape" : "Death/Sex Hexagram, Upper Left Point",
+                    "color" : ["#696969"],
+                    "colorName" : ["Dim Grey"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 13,
+                    "symbol" : "ᔐᔐ◠",
+                    "name" : "Man Above Earth",
+                    "meaning": "Lust",
+                    "verb": "Lust",
+                    "letter" : "M",
+                    "shape" : "Death/Sex Hexagram, Bottom Point",
+                    "color" : ["#FF2400"],
+                    "colorName" : ["Scarlet"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 14,
+                    "symbol" : "◠◠◡",
+                    "name" : "Heaven Above Earth",
+                    "meaning": "Atrophy",
+                    "verb": "Atrophy",
+                    "letter" : "N",
+                    "shape" : "Death/Sex Hexagram, Upper Right Point",
+                    "color" : ["#A9A9A9"],
+                    "colorName" : ["Dark Grey"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 15,
+                    "symbol" : "◡◡◠",
+                    "name" : "Earth Above Heaven",
+                    "meaning": "Frustration",
+                    "verb": "Frustrate",
+                    "letter" : "O",
+                    "shape" : "Death/Sex Hexagram, Lower Left Point",
+                    "color" : ["#A0522D"],
+                    "colorName" : ["Sienna"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 16,
+                    "symbol" : "ᔐ◠◠",
+                    "name" : "Heaven Under Man",
+                    "meaning": "Anger",
+                    "verb": "Anger",
+                    "letter" : "P",
+                    "shape" : "Love/Hate Hexagram, Top Point",
+                    "color" : ["#990000"],
+                    "colorName" : ["Deep Red"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 17,
+                    "symbol" : "◠ᔐᔐ",
+                    "name" : "Man Under Heaven",
+                    "meaning": "Rapture",
+                    "verb": "Rapture",
+                    "letter" : "Q",
+                    "shape" : "Love/Hate Hexagram, Lower Right Point",
+                    "color" : ["#FFFACD"],
+                    "colorName" : ["Lemon Chiffon"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 18,
+                    "symbol" : "◡ᔐᔐ",
+                    "name" : "Man Under Earth",
+                    "meaning": "Aggression",
+                    "verb": "Attack",
+                    "letter" : "R",
+                    "shape" : "Love/Hate Hexagram, Upper Left Point",
+                    "color" : ["#800000"],
+                    "colorName" : ["Maroon"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 19,
+                    "symbol" : "ᔐ◡◡",
+                    "name" : "Earth Under Man",
+                    "meaning": "Passion",
+                    "verb": "Devote",
+                    "letter" : "S",
+                    "shape" : "Love/Hate Hexagram, Bottom Point",
+                    "color" : ["#FFAE42"],
+                    "colorName" : ["Yellow Orange"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 20,
+                    "symbol" : "◡◠◠",
+                    "name" : "Heaven Under Earth",
+                    "meaning": "Loathing",
+                    "verb": "Loath",
+                    "letter" : "T",
+                    "shape" : "Love/Hate Hexagram, Upper Right Point",
+                    "color" : ["#A52A2A"],
+                    "colorName" : ["Brown"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 21,
+                    "symbol" : "◠◡◡",
+                    "name" : "Earth Under Heaven",
+                    "meaning": "Attachment",
+                    "verb": "Attach",
+                    "letter" : "U",
+                    "shape" : "Love/Hate Hexagram, Lower Left Point",
+                    "color" : ["#F0E68C"],
+                    "colorName" : ["Khaki"],
+                    "wuXing" : ""
+                },
+                {
+                    "number" : 22,
+                    "symbol" : "◠◡ᔐ",
+                    "name" : "Sense",
+                    "meaning": "Collecting",
+                    "verb": "Collect",
+                    "letter" : "V",
+                    "shape" : "Wu Xing Pentagram, Lower Left Point",
+                    "color" : ["#FFFFFF"],
+                    "colorName" : ["White"],
+                    "wuXing" : "Metal"
+                },
+                {
+                    "number" : 23,
+                    "symbol" : "ᔐ◠◡",
+                    "name" : "Essence",
+                    "meaning": "Growth",
+                    "verb": "Growth",
+                    "letter" : "W",
+                    "shape" : "Wu Xing Pentagram, Upper Point",
+                    "color" : ["#00FF00"],
+                    "colorName" : ["Green"],
+                    "wuXing" : "Wood"
+                },
+                {
+                    "number" : 24,
+                    "symbol" : "◡◠ᔐ",
+                    "name" : "Vitality",
+                    "meaning": "Primal Energy",
+                    "verb": "Animate",
+                    "letter" : "X",
+                    "shape" : "Wu Xing Pentagram, Upper Left Point",
+                    "color" : ["#0000FF"],
+                    "colorName" : ["Blue"],
+                    "wuXing" : "Water"
+                },
+                {
+                    "number" : 25,
+                    "symbol" : "ᔐ◡◠",
+                    "name" : "Spirit",
+                    "meaning": "Radiance",
+                    "verb": "Radiate",
+                    "letter" : "Y",
+                    "shape" : "Wu Xing Pentagram, Upper Right Point",
+                    "color" : ["#FF0000"],
+                    "colorName" : ["Red"],
+                    "wuXing" : "Fire"
+                },
+                {
+                    "number" : 26,
+                    "symbol" : "◡ᔐ◠",
+                    "name" : "Will",
+                    "meaning": "Will",
+                    "verb": "Will",
+                    "letter" : "Z",
+                    "shape" : "Wu Xing Pentagram, Lower Right Point",
+                    "color" : ["#FFFF00"],
+                    "colorName" : ["Yellow"],
+                    "wuXing" : "Earth"
+                }
+            ],
+            "hexagrams" : [
+            {
+                    "number" : 0, 
+                    "name": "Dao",
+                    "meaning" : "Dao externally. Dao internally. Change.",
+                    "trigram1" : 0, 
+                    "trigram2" : 0
+                },
+                {
+                    "number" : 1, 
+                    "name": "Blessed",
+                    "meaning" : "Dao externally. Heaven internally. Creative ability in abundance.",
+                    "trigram1" : 0, 
+                    "trigram2" : 1
+                },
+                {
+                    "number" : 2, 
+                    "name": "Womb",
+                    "meaning" : "Dao externally. Earth internally. The womb before fertilization.",
+                    "trigram1" : 0, 
+                    "trigram2" : 2
+                },
+                {
+                    "number" : 3, 
+                    "name": "Sage",
+                    "meaning" : "Dao externally. Man internally. Making choices from much potential.",
+                    "trigram1" : 0, 
+                    "trigram2" : 3
+                },
+                {
+                    "number" : 4, 
+                    "name": "Fear of God",
+                    "meaning" : "Dao externally. Heaven in Man internally. Discipline and awe.",
+                    "trigram1" : 0, 
+                    "trigram2" : 4
+                },
+                {
+                    "number" : 5, 
+                    "name": "Reborn",
+                    "meaning" : "Dao externally. Man in Heaven internally. The bliss of a new beginning.",
+                    "trigram1" : 0, 
+                    "trigram2" : 5
+                },
+                {
+                    "number" : 6, 
+                    "name": "Fear of the Unknown",
+                    "meaning" : "Dao externally. Earth in Heaven internally. Fear of the unknown.",
+                    "trigram1" : 0, 
+                    "trigram2" : 6
+                },
+                {
+                    "number" : 7, 
+                    "name": "Charisma",
+                    "meaning" : "Dao externally. Heaven in Earth internally. A man of potential.",
+                    "trigram1" : 0, 
+                    "trigram2" : 7
+                },
+                {
+                    "number" : 8, 
+                    "name": "Concern",
+                    "meaning" : "Dao externally. Earth in Man internally. Avoiding uncertain potentials.",
+                    "trigram1" : 0, 
+                    "trigram2" : 8
+                },
+                {
+                    "number" : 9, 
+                    "name": "Covet",
+                    "meaning" : "Dao externally. Man in Earth internally. Wanting what you don’t have.",
+                    "trigram1" : 0, 
+                    "trigram2" : 9
+                },
+                {
+                    "number" : 10, 
+                    "name": "Nirvana",
+                    "meaning" : "Dao externally. Heaven Above Man internally. Release into endless possibilities.",
+                    "trigram1" : 0, 
+                    "trigram2" : 10
+                },
+                {
+                    "number" : 11, 
+                    "name": "Metamorphosis",
+                    "meaning" : "Dao externally. Man Above Heaven internally. The old form fades, a new form arrives.",
+                    "trigram1" : 0, 
+                    "trigram2" : 11
+                },
+                {
+                    "number" : 12, 
+                    "name": "Suicide",
+                    "meaning" : "Dao externally. Earth Above Man internally. The destruction of self.",
+                    "trigram1" : 0, 
+                    "trigram2" : 12
+                },
+                {
+                    "number" : 13, 
+                    "name": "Whore",
+                    "meaning" : "Dao externally. Man Above Earth internally. Endless lust.",
+                    "trigram1" : 0, 
+                    "trigram2" : 13
+                },
+                {
+                    "number" : 14, 
+                    "name": "Abstinence",
+                    "meaning" : "Dao externally. Heaven Above Earth internally. Decrease due to refusal to partake of the possibilities available.",
+                    "trigram1" : 0, 
+                    "trigram2" : 14
+                },
+                {
+                    "number" : 15, 
+                    "name": "Paradox of Choice",
+                    "meaning" : "Dao externally. Earth Above Heaven internally. Frustration arising from too many choices being available.",
+                    "trigram1" : 0, 
+                    "trigram2" : 15
+                },
+                {
+                    "number" : 16, 
+                    "name": "Rage",
+                    "meaning" : "Dao externally. Heaven Under Man internally. Anger expressed for no reason, or when better responses are available.",
+                    "trigram1" : 0, 
+                    "trigram2" : 16
+                },
+                {
+                    "number" : 17, 
+                    "name": "Ecstasy",
+                    "meaning" : "Dao externally. Man Under Heaven internally. Total involvement with the object of your awareness.",
+                    "trigram1" : 0, 
+                    "trigram2" : 17
+                },
+                {
+                    "number" : 18, 
+                    "name": "War",
+                    "meaning" : "Dao externally. Man Under Earth internally. Transforming potential into aggression.",
+                    "trigram1" : 0, 
+                    "trigram2" : 18
+                },
+                {
+                    "number" : 19, 
+                    "name": "Art",
+                    "meaning" : "Dao externally. Earth Under Man internally. Transforming potential into passion.",
+                    "trigram1" : 0, 
+                    "trigram2" : 19
+                },
+                {
+                    "number" : 20, 
+                    "name": "Misanthropy",
+                    "meaning" : "Dao externally. Heaven Under Earth internally. Hatred of everyone.",
+                    "trigram1" : 0, 
+                    "trigram2" : 20
+                },
+                {
+                    "number" : 21, 
+                    "name": "Clinging",
+                    "meaning" : "Dao externally. Earth Under Heaven internally. Attachment to the things in your life.",
+                    "trigram1" : 0, 
+                    "trigram2" : 21
+                },
+                {
+                    "number" : 22, 
+                    "name": "Maya",
+                    "meaning" : "Dao externally. Sense internally. Illusion.",
+                    "trigram1" : 0, 
+                    "trigram2" : 22
+                },
+                {
+                    "number" : 23, 
+                    "name": "Fecundity",
+                    "meaning" : "Dao externally. Growth internally. Fecundity.",
+                    "trigram1" : 0, 
+                    "trigram2" : 23
+                },
+                {
+                    "number" : 24, 
+                    "name": "Life",
+                    "meaning" : "Dao externally. Vitality internally. Life.",
+                    "trigram1" : 0, 
+                    "trigram2" : 24
+                },
+                {
+                    "number" : 25, 
+                    "name": "Enlightened",
+                    "meaning" : "Dao externally. Spirit internally. Natural knowledge.",
+                    "trigram1" : 0, 
+                    "trigram2" : 25
+                },
+                {
+                    "number" : 26, 
+                    "name": "Magick",
+                    "meaning" : "Dao externally. Will internally. Magick.",
+                    "trigram1" : 0, 
+                    "trigram2" : 26
+                }       
+           ]
+        }
+        </script>  
+    </head>
+  <body onload="build_symbol_index()" style="font-family: 'Arial Narrow', Arial, sans-serif;">
+    <div  style="display: flex; flex-direction: row; width: 100%; height: 100%;">
+        <div id="SymbolIndexes" style="display: flex; flex-direction: column; width: 230px; height: 100%; position: fixed; bottom: 0; overflow-y: auto;"></div>
+        <div id="SymbolData" style="display: flex; flex-direction: column; width: 100%; position: fixed; left: 250px;">
+            <div id="SymbolTitle" style="font-size: 2em; font-weight: bold;"></div>
+            <div style="display: flex; flex-direction: row;">
+                <div id="SymbolTrigram1" style="font-size: 1em; font-weight: bold; padding: 0px 0px 0px 0px;"></div>
+                <div id="SymbolTrigram2" style="font-size: 1em;  font-weight: bold;padding: 0px 10px 0px 0px;"></div>
+                <div id="SymbolZodiac1" style="font-size: 1em; font-weight: bold; padding: 0px 2px 0px 0px;"></div>
+                <div id="SymbolZodiac2" style="font-size: 1em; font-weight: bold; padding: 0px 2px 0px 0px;"></div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div id="ExternalEnergy" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External</div>
+                <div id="ExternalTrigram" style="font-size: 1em; padding: 0px 10px 0px 0px;"></div>
+                <div id="ExternalZodiac" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div id="ExternalDomicileTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External Domicile</div>
+                <div id="ExternalDomicile" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                <div id="ExternalExaltedTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Exalted</div>
+                <div id="ExternalExalted" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                <div id="ExternalDetrimentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Detriment</div>
+                <div id="ExternalDetriment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                <div id="ExternalFallTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Fall</div>
+                <div id="ExternalFall" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div id="InternalEnergy" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal</div>
+                <div id="InternalTrigram" style="font-size: 1em; padding: 0px 10px 0px 0px;"></div>
+                <div id="InternalZodiac" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div id="InternalDomicileTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal Domicile</div>
+                <div id="InternalDomicile" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                <div id="InternalExaltedTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Exalted</div>
+                <div id="InternalExalted" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                <div id="InternalDetrimentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Detriment</div>
+                <div id="InternalDetriment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                <div id="InternalFallTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Fall</div>
+                <div id="InternalFall" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div id="SymbolMeaning" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Meaning</div>
+                <div id="Meaning" style="font-size: 1em; padding: 0px 10px 0px 0px;"></div>
+            </div>
+            <div style="font-size: 1em; font-weight: bold; padding: 10px 0px 0px 0px;">
+                Commentary
+            </div>
+            <div id="Commentary" style="font-size: 1em; font-family: 'Times New Roman', Times, serif; padding: 10px 0px 0px 0px;">
+                TEXT
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
