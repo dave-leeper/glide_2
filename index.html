@@ -8,67 +8,34 @@
     </style>
     <script>
         let currentSymbol = 0
-        function get_trigram(trigram) {
-            let data = glideData;
-            let trigrams = data.trigrams
-            for (let loop = 0; loop < trigrams.length; loop++) {
-                if (trigram === trigrams[loop].symbol) { return trigrams[loop] }
-            }
-        }
         function show_trigram(trigramNumber) {
-            /*
             let data = glideData;
-            let symbol = data.symbols[symbolNumber]
-            let trigrams = data.trigrams
-            let zodiac = data.zodiac
-            let symbolTitle = document.getElementById("SymbolTitle")
-            let symbolTrigram1 = document.getElementById("SymbolTrigram1")
-            let symbolTrigram2 = document.getElementById("SymbolTrigram2")
-            let symbolZodiac1 = document.getElementById("SymbolZodiac1")
-            let symbolZodiac2 = document.getElementById("SymbolZodiac2")
-            let externalTrigram = document.getElementById("ExternalTrigram")
-            let externalZodiac = document.getElementById("ExternalZodiac")
-            let externalDomicile = document.getElementById("ExternalDomicile")
-            let externalDetriment = document.getElementById("ExternalDetriment")
-            let externalExalted = document.getElementById("ExternalExalted")
-            let externalFall = document.getElementById("ExternalFall")
-            let internalTrigram = document.getElementById("InternalTrigram")
-            let internalZodiac = document.getElementById("InternalZodiac")
-            let internalDomicile = document.getElementById("InternalDomicile")
-            let internalDetriment = document.getElementById("InternalDetriment")
-            let internalExalted = document.getElementById("InternalExalted")
-            let internalFall = document.getElementById("InternalFall")
-            let commentary = document.getElementById("Commentary")
-            let meaning = document.getElementById("Meaning")
-            let currentSelected = document.getElementById("symbol" + currentSymbol) 
-            let newSelected = document.getElementById("symbol" + symbolNumber) 
-            let trigram1 = get_trigram(symbol.trigram1)
-            let trigram2 = get_trigram(symbol.trigram2)
-            let zodiac1 = get_zodiac(trigram1.zodiac)
-            let zodiac2 = get_zodiac(trigram2.zodiac)
-            symbolTitle.innerText = symbol.number + '. ' + symbol.name
-            SymbolTrigram1.innerText = symbol.trigram1
-            SymbolTrigram2.innerText = symbol.trigram2
-            symbolZodiac1.innerText = zodiac1.symbol
-            symbolZodiac2.innerText = zodiac2.symbol
-            externalTrigram.innerText = symbol.trigram1 + ' ' + trigram1.name + ' (Earlier Heaven: ' + trigram1.earlier + ', Later Heaven: '  + trigram1.later + ')'
-            externalZodiac.innerText = zodiac1.symbol + ' ' + zodiac1.name + ' (' + zodiac1.energy + ')'
-            externalDomicile.innerText = get_domicile_string(zodiac1.symbol)
-            externalDetriment.innerText = get_detriment_string(zodiac1.symbol)
-            externalExalted.innerText = get_exalted_string(zodiac1.symbol)
-            externalFall.innerText = get_fall_string(zodiac1.symbol)
-            internalTrigram.innerText = symbol.trigram2 + ' ' + trigram2.name + ' (Earlier Heaven: ' + trigram2.earlier + ', Later Heaven: '  + trigram2.later + ')'
-            internalZodiac.innerText = zodiac2.symbol + ' ' + zodiac2.name + ' (' + zodiac2.energy + ')'
-            internalDomicile.innerText = get_domicile_string(zodiac2.symbol)
-            internalDetriment.innerText = get_detriment_string(zodiac2.symbol)
-            internalExalted.innerText = get_exalted_string(zodiac2.symbol)
-            internalFall.innerText = get_fall_string(zodiac2.symbol)
-            meaning.innerText = symbol.meaning
-            commentary.innerText = symbol.commentary
-            currentSelected.style.background = 'white'
-            newSelected.style.background = 'lightgrey'
-            currentSymbol = symbolNumber
-            */
+            let trigram = data.trigrams[trigramNumber]
+            let trigramNumber = document.getElementById("TrigramNumber")
+            let trigramName = document.getElementById("TrigramName")
+            let trigramSymbol1 = document.getElementById("TrigramSymbol1")
+            let trigramSymbol2 = document.getElementById("TrigramSymbol2")
+            let trigramSymbol3 = document.getElementById("TrigramSymbol3")
+            let trigramVerb = document.getElementById("TrigramVerb")
+            let trigramLetter = document.getElementById("TrigramLetter")
+            let trigramShape = document.getElementById("TrigramShape")
+            let trigramColorName = document.getElementById("TrigramColorName")
+            let trigramColor = document.getElementById("TrigramColor")
+            let trigramWuXing = document.getElementById("TrigramWuXing")
+            let trigramMeaning = document.getElementById("TrigramMeaning")
+
+            trigramNumber.innerText = trigram.number
+            trigramName.innerText = trigram.name
+            trigramSymbol1.innerText = trigram.symbol[0]
+            trigramSymbol2.innerText = trigram.symbol[1]
+            trigramSymbol3.innerText = trigram.symbol[2]
+            trigramVerb.innerText = trigram.verb
+            trigramLetter.innerText = trigram.letter
+            trigramShape.innerText = trigram.shape
+            trigramColor.innerText = trigram.color
+            trigramColorName.innerText = trigram.colorName
+            trigramWuXing.innerText = trigram.wuXing
+            trigramMeaning.innerText = trigram.meaning
         }
         function build_symbol_index() {
             let data = glideData;
@@ -635,57 +602,25 @@
         </script>  
     </head>
   <body onload="build_symbol_index()" style="font-family: 'Arial Narrow', Arial, sans-serif;">
-    <div  style="display: flex; flex-direction: row; width: 100%; height: 100%;">
-        <div id="SymbolIndexes" style="display: flex; flex-direction: column; width: 230px; height: 100%; position: fixed; bottom: 0; overflow-y: auto;"></div>
-        <div id="SymbolData" style="display: flex; flex-direction: column; width: 100%; position: fixed; left: 250px;">
-            <div id="SymbolTitle" style="font-size: 2em; font-weight: bold;"></div>
-            <div style="display: flex; flex-direction: row;">
-                <div id="SymbolTrigram1" style="font-size: 1em; font-weight: bold; padding: 0px 0px 0px 0px;"></div>
-                <div id="SymbolTrigram2" style="font-size: 1em;  font-weight: bold;padding: 0px 10px 0px 0px;"></div>
-                <div id="SymbolZodiac1" style="font-size: 1em; font-weight: bold; padding: 0px 2px 0px 0px;"></div>
-                <div id="SymbolZodiac2" style="font-size: 1em; font-weight: bold; padding: 0px 2px 0px 0px;"></div>
+    <div id="TrigramDiv" style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+        <div id="TrigramNumberSymbolName" style="display: flex; flex-direction: row;">
+            <div id="TrigramNumber"></div>
+            <div id="TrigramSymbol" style="display: flex; flex-direction: column;">
+                <div id="TrigramSymbol1"></div>
+                <div id="TrigramSymbol2"></div>
+                <div id="TrigramSymbol3"></div>
             </div>
-            <div style="display: flex; flex-direction: row;">
-                <div id="ExternalEnergy" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External</div>
-                <div id="ExternalTrigram" style="font-size: 1em; padding: 0px 10px 0px 0px;"></div>
-                <div id="ExternalZodiac" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-            </div>
-            <div style="display: flex; flex-direction: row;">
-                <div id="ExternalDomicileTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External Domicile</div>
-                <div id="ExternalDomicile" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                <div id="ExternalExaltedTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Exalted</div>
-                <div id="ExternalExalted" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                <div id="ExternalDetrimentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Detriment</div>
-                <div id="ExternalDetriment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                <div id="ExternalFallTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Fall</div>
-                <div id="ExternalFall" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-            </div>
-            <div style="display: flex; flex-direction: row;">
-                <div id="InternalEnergy" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal</div>
-                <div id="InternalTrigram" style="font-size: 1em; padding: 0px 10px 0px 0px;"></div>
-                <div id="InternalZodiac" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-            </div>
-            <div style="display: flex; flex-direction: row;">
-                <div id="InternalDomicileTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal Domicile</div>
-                <div id="InternalDomicile" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                <div id="InternalExaltedTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Exalted</div>
-                <div id="InternalExalted" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                <div id="InternalDetrimentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Detriment</div>
-                <div id="InternalDetriment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                <div id="InternalFallTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 5px;"> Fall</div>
-                <div id="InternalFall" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-            </div>
-            <div style="display: flex; flex-direction: row;">
-                <div id="SymbolMeaning" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Meaning</div>
-                <div id="Meaning" style="font-size: 1em; padding: 0px 10px 0px 0px;"></div>
-            </div>
-            <div style="font-size: 1em; font-weight: bold; padding: 10px 0px 0px 0px;">
-                Commentary
-            </div>
-            <div id="Commentary" style="font-size: 1em; font-family: 'Times New Roman', Times, serif; padding: 10px 0px 0px 0px;">
-                TEXT
-            </div>
+            <div id="TrigramName"></div>
         </div>
+        <div id="TrigramVerb"></div>
+        <div id="TrigramLetter"></div>
+        <div id="TrigramShape"></div>
+        <div id="TrigramColor"></div>
+        <div id="TrigramColorName"></div>
+        <div id="TrigramWuXing"></div>
+        <div id="TrigramMeaning"></div>
+    </div>
+    <div id="HexagramDiv" style="display: none; flex-direction: column; width: 100%; height: 100%;">
     </div>
   </body>
 </html>
