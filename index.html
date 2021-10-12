@@ -37,6 +37,24 @@
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
         }
+        function draw_arc(cx, cy, radius, max){       
+            let circle = document.getElementById("arc");
+            let e = circle.getAttribute("d");
+            let d = " M "+ (cx + radius) + " " + cy;
+            let angle=0;
+            window.timer = window.setInterval(
+                function() {
+                    let radians= angle * (Math.PI / 180);  // convert degree to radians
+                    let x = cx + Math.cos(radians) * radius;  
+                    let y = cy + Math.sin(radians) * radius;
+
+                    d += " L "+x + " " + y;
+                    circle.setAttribute("d", d)
+                    if(angle==max) window.clearInterval(window.timer);
+                    angle++;
+                }
+            ,5)
+        }     
         function build_symbol_index() {
             let data = glideData;
             let parentNode = document.getElementById('SymbolIndexes')
@@ -78,6 +96,7 @@
                 divnode.appendChild(textnode)
             }
             show_trigram(0)
+            draw_arc(110, 110, 100, 360);
         }
         
         var glideData = {
@@ -624,6 +643,9 @@
             </div>
             <div id="HexagramDiv" style="display: none; flex-direction: column; width: 100%; height: 100%;">
             </div>
+            <svg xmlns="http://www.w3.org/2000/svg" style="width:220; height:220;"> 
+                <path d="" id="arc" fill="none" stroke="red" stroke-width="2" />
+            </svg>
         </div>
     </body>
 </html>
