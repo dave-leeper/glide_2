@@ -10,8 +10,8 @@
         let currentSymbol = 0
         function drawTrigramSymbol(canvas, elementNumber, symbol) {
             const context = canvas.getContext('2d')
-            const yPosition = elementNumber * 100
             const radius = 50
+            const yPosition = (elementNumber * radius) + radius
             let gradient = context.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
 
             gradient.addColorStop(0, '#333');
@@ -22,7 +22,7 @@
             context.lineWidth = 10
             context.lineCap = 'round'
             context.beginPath()
-            context.arc(50, 50, radius, 90, 270)
+            context.arc(50, yPosition, radius, 90, 270)
             context.stroke()
             //context.fillStyle = '#333'
             //context.fill()
@@ -57,8 +57,8 @@
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
             drawTrigramSymbol(trigramCanvas, 0, trigram.symbol[0])
-            // drawTrigramSymbol(trigramCanvas, 1, trigram.symbol[1])
-            // drawTrigramSymbol(trigramCanvas, 2, trigram.symbol[2])
+            drawTrigramSymbol(trigramCanvas, 1, trigram.symbol[1])
+            drawTrigramSymbol(trigramCanvas, 2, trigram.symbol[2])
         }
         function build_symbol_index() {
             let data = glideData;
