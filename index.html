@@ -37,25 +37,29 @@
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
         }
-        function draw_arc(cx, cy, radius, max){       
-            let circle = document.getElementById("arc");
-            let e = circle.getAttribute("d");
-            let d = " M "+ (cx + radius) + " " + cy;
-            let angle=0;
-            window.timer = window.setInterval(
-                function() {
-                    let radians= angle * (Math.PI / 180);  // convert degree to radians
-                    let x = cx + Math.cos(radians) * radius;  
-                    let y = cy + Math.sin(radians) * radius;
+        function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+  var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
 
-                    d += " L "+x + " " + y;
-                    circle.setAttribute("d", d)
-                    if(angle==max) window.clearInterval(window.timer);
-                    angle++;
-                }
-            ,5)
-        }     
-        function build_symbol_index() {
+  return {
+    x: centerX + (radius * Math.cos(angleInRadians)),
+    y: centerY + (radius * Math.sin(angleInRadians))
+  };
+}
+
+function draw_arc(x, y, radius, startAngle, endAngle){
+
+    var start = polarToCartesian(x, y, radius, endAngle);
+    var end = polarToCartesian(x, y, radius, startAngle);
+
+    var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+
+    var d = [
+        "M", start.x, start.y, 
+        "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
+    ].join(" ");
+
+    return d;       
+}        function build_symbol_index() {
             let data = glideData;
             let parentNode = document.getElementById('SymbolIndexes')
             if (!data.trigrams) { return }
@@ -96,7 +100,7 @@
                 divnode.appendChild(textnode)
             }
             show_trigram(0)
-            draw_arc(55, 55, 100, 360);
+            draw_arc(55, 55, 110, 0, 180);
         }
         
         var glideData = {
