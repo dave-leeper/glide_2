@@ -59,7 +59,8 @@ function draw_arc(x, y, radius, startAngle, endAngle){
     ].join(" ");
 
     return d;       
-}        function build_symbol_index() {
+}        
+        function build_symbol_index() {
             let data = glideData;
             let parentNode = document.getElementById('SymbolIndexes')
             if (!data.trigrams) { return }
