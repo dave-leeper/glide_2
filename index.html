@@ -37,30 +37,6 @@
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
         }
-        function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
-            var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
-
-            return {
-                x: centerX + (radius * Math.cos(angleInRadians)),
-                y: centerY + (radius * Math.sin(angleInRadians))
-            };
-        }
-
-function draw_arc(x, y, radius, startAngle, endAngle){
-
-    var start = polarToCartesian(x, y, radius, endAngle);
-    var end = polarToCartesian(x, y, radius, startAngle);
-
-    var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
-
-    var d = [
-        "M", start.x, start.y, 
-        "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
-    ].join(" ");
-
-    console.log(JSON.stringify(d))
-    return d;       
-}        
         function build_symbol_index() {
             let data = glideData;
             let parentNode = document.getElementById('SymbolIndexes')
@@ -102,7 +78,6 @@ function draw_arc(x, y, radius, startAngle, endAngle){
                 divnode.appendChild(textnode)
             }
             show_trigram(0)
-            document.getElementById("arc").setAttribute("d", draw_arc(200, 400, 100, 0, 180));
         }
         
         var glideData = {
@@ -646,9 +621,6 @@ function draw_arc(x, y, radius, startAngle, endAngle){
                 <div id="TrigramColorName"></div>
                 <div id="TrigramWuXing"></div>
                 <div id="TrigramMeaning"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" style="width:220; height:220;"> 
-                    <path d="" id="arc" fill="none" stroke="red" stroke-width="2" />
-                </svg>
             </div>
             <div id="HexagramDiv" style="display: none; flex-direction: column; width: 100%; height: 100%;">
             </div>
