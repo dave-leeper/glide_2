@@ -107,6 +107,15 @@
             trigramShape.innerText = trigram.shape
             trigramColor.style.backgroundColor = trigram.color[0]
             trigramColorName.innerText = trigram.colorName[0]
+            if (1 < trigram.colorName.length) {
+                let trigramColorColumn2 = document.getElementById("TrigramColorColumn2")
+                let trigramColor2 = document.getElementById("TrigramColor2")
+                let trigramColorName2 = document.getElementById("TrigramColorName2")
+
+                trigramColorColumn2.style.display = "flex"
+                trigramColor2.style.backgroundColor = trigram.color[1]
+                trigramColorName2.innerText = trigram.colorName[1]
+            }
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
             draw_trigram(trigramCanvas, trigram.symbol)
