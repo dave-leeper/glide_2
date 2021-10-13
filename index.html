@@ -8,7 +8,14 @@
     </style>
     <script>
         let currentSymbol = 0
-        function drawTrigramSymbol(canvas, symbols) {
+        function get_symbol_data(symbol) {
+            let data = glideData;
+            for (let loop = 0; loop < data.symbols.length; loop++) {
+                if (symbol === data.symbols[loop].symbol) { return data.symbols[loop] }
+            }
+            return null
+        }
+        function draw_glide_logo(canvas) {
             const context = canvas.getContext('2d')
             const radius = 50
             let gradient = context.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
@@ -18,12 +25,11 @@
             gradient.addColorStop(0, '#333');
             gradient.addColorStop(0.5, 'white')
             gradient.addColorStop(1, '#333')
-            // context.strokeStyle = gradient
             context.strokeStyle = 'black'
+            context.strokeStyle = gradient
             context.lineWidth = 3
             context.lineCap = 'round'
-            for (let loop = 0; loop < symbols.length; loop++) {
-                let symbol = symbols[loop]
+            for (let loop = 0; loop < 3; loop++) {
                 let yPosition = (loop * radius) + radius
 
                 context.beginPath()
@@ -40,14 +46,57 @@
                 context.stroke()
             }
         }
+        function draw_symbol(canvas, symbol, currentYLocation) {
+            const context = canvas.getContext('2d')
+            const radius = 50
+            let gradient = context.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+
+            canvas.width = 100
+            canvas.height = 300
+            gradient.addColorStop(0, '#333');
+            gradient.addColorStop(0.5, 'white')
+            gradient.addColorStop(1, '#333')
+            context.strokeStyle = 'black'
+            context.strokeStyle = gradient
+            context.lineWidth = 3
+            context.lineCap = 'round'
+            context.beginPath()
+
+            if (symbol === "◠")  { 
+                context.arc(50, yPosition, radius, 0 * 0.0174533, 180 * 0.0174533, false)
+            }
+            else if (symbol === "◡")  { 
+                context.arc(50, yPosition, radius, 0 * 0.0174533, 180 * 0.0174533, true)
+            }
+            else if (symbol === "ᔐ")  { 
+                context.arc(25, yPosition, radius / 2, 0 * 0.0174533, 180 * 0.0174533, true)
+                context.stroke()
+                context.beginPath()
+                context.arc(75, yPosition, radius / 2, 0 * 0.0174533, 180 * 0.0174533, false)
+            }
+            context.stroke()
+        }
+        function draw_trigram(canvas, symbols) {
+            let previousSymbol = null
+            let currentYLocation = 0
+
+            for (let loop = 0; loop < symbols.length; loop++) {
+                let symbol = symbols[loop]
+                let symbolData = get_symbol_data(symbol)
+                if (!previousSymbol) { currentYLocation = symbolData.topDistance }
+                else if (previousSymbol === "◠")  { currentYLocation += symbolData.previousHeavenDistance }
+                else if (previousSymbol === "◡")  { currentYLocation += symbolData.previousEarthDistance }
+                else if (previousSymbol === "ᔐ")  { currentYLocation += symbolData.previousManDistance }
+                previousSymbol = symbol
+                draw_symbol(canvas, symbol, currentYLocation)
+            }
+        }
         function show_trigram(number) {
             let data = glideData;
             let trigram = data.trigrams[number]
+            let trigramCanvas = document.getElementById("TrigramCanvas")
             let trigramNumber = document.getElementById("TrigramNumber")
             let trigramName = document.getElementById("TrigramName")
-            let trigramSymbol1 = document.getElementById("TrigramSymbol1")
-            let trigramSymbol2 = document.getElementById("TrigramSymbol2")
-            let trigramSymbol3 = document.getElementById("TrigramSymbol3")
             let trigramVerb = document.getElementById("TrigramVerb")
             let trigramLetter = document.getElementById("TrigramLetter")
             let trigramShape = document.getElementById("TrigramShape")
@@ -55,13 +104,10 @@
             let trigramColor = document.getElementById("TrigramColor")
             let trigramWuXing = document.getElementById("TrigramWuXing")
             let trigramMeaning = document.getElementById("TrigramMeaning")
-            let trigramCanvas = document.getElementById("TrigramCanvas")
+            let glideLogoCanvas = document.getElementById("GlideLogoCanvas")
 
             trigramNumber.innerText = trigram.number
             trigramName.innerText = trigram.name
-            trigramSymbol1.innerText = trigram.symbol[0]
-            trigramSymbol2.innerText = trigram.symbol[1]
-            trigramSymbol3.innerText = trigram.symbol[2]
             trigramVerb.innerText = trigram.verb
             trigramLetter.innerText = trigram.letter
             trigramShape.innerText = trigram.shape
@@ -69,7 +115,8 @@
             trigramColorName.innerText = trigram.colorName
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
-            drawTrigramSymbol(trigramCanvas, trigram.symbol)
+            draw_trigram(trigramCanvas, trigram.symbol)
+            draw_glide_logo(glideLogoCanvas)
         }
         function build_symbol_index() {
             let data = glideData;
@@ -115,6 +162,31 @@
         }
         
         var glideData = {
+            "symbols" : [
+            {
+                    "symbol" : "◠",
+                    "name" : "Heaven",
+                    "topDistance" : 50,
+                    "previousHeavenDistance" : 50,
+                    "previousEarthDistance" : 50,
+                    "previousManDistance" : 50
+                },
+                {
+                    "symbol" : "◡",
+                    "name" : "Earth",
+                    "previousHeavenDistance" : 50,
+                    "previousEarthDistance" : 50,
+                    "previousManDistance" : 50
+                },
+                {
+                    "symbol" : "ᔐ",
+                    "name" : "Man",
+                    "topDistance" : 25,
+                    "previousHeavenDistance" : 50,
+                    "previousEarthDistance" : 50,
+                    "previousManDistance" : 10
+                }
+            ],
             "trigrams" : [
             {
                     "number" : 0,
@@ -640,13 +712,10 @@
         <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
             <div id="SymbolIndexes" style="display: flex; flex-direction: column; width: 230px; height: 100%; position: fixed; bottom: 0; overflow-y: auto;"></div>
             <div id="TrigramDiv" style="display: flex; flex-direction: column; width: 100%; position: fixed; left: 250px;"">
+                <div id="TrigramSymbol" style="display: flex; flex-direction: column;">
+                <canvas id="TrigramCanvas" style="width: 100px; height: 150px; border-style: solid;"></canvas>
                 <div id="TrigramNumberSymbolName" style="display: flex; flex-direction: row;">
                     <div id="TrigramNumber"></div>
-                    <div id="TrigramSymbol" style="display: flex; flex-direction: column;">
-                        <div id="TrigramSymbol1"></div>
-                        <div id="TrigramSymbol2"></div>
-                        <div id="TrigramSymbol3"></div>
-                    </div>
                     <div id="TrigramName"></div>
                 </div>
                 <div id="TrigramVerb"></div>
@@ -656,7 +725,7 @@
                 <div id="TrigramColorName"></div>
                 <div id="TrigramWuXing"></div>
                 <div id="TrigramMeaning"></div>
-                <canvas id="TrigramCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
+                <canvas id="GlideLogoCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
             </div>
             <div id="HexagramDiv" style="display: none; flex-direction: column; width: 100%; height: 100%;">
             </div>
