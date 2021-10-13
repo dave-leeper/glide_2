@@ -45,6 +45,7 @@
             const context = canvas.getContext('2d')
             const radius = 50
 
+            console.log(symbol + " " + currentYLocation)
             canvas.width = 100
             canvas.height = 300
             context.strokeStyle = 'black'
@@ -69,7 +70,6 @@
             let previousSymbol = null
             let currentYLocation = 0
 
-            console.log(symbols)
             for (let loop = 0; loop < symbols.length; loop++) {
                 let symbol = symbols[loop]
                 let symbolData = get_symbol_data(symbol)
