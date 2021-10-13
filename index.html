@@ -41,12 +41,9 @@
                 context.stroke()
             }
         }
-        function draw_symbol(canvas, symbol, currentYLocation) {
-            const context = canvas.getContext('2d')
+        function draw_symbol(context, symbol, currentYLocation) {
             const radius = 50
 
-            canvas.width = 100
-            canvas.height = 150
             context.strokeStyle = 'black'
             context.lineWidth = 3
             context.lineCap = 'round'
@@ -71,7 +68,10 @@
         function draw_trigram(canvas, symbols) {
             let previousSymbol = null
             let currentYLocation = 0
+            const context = canvas.getContext('2d')
 
+            canvas.width = 100
+            canvas.height = 150
             for (let loop = 0; loop < symbols.length; loop++) {
                 let symbol = symbols[loop]
                 let symbolData = get_symbol_data(symbol)
@@ -80,7 +80,7 @@
                 else if (previousSymbol === "◡")  { currentYLocation += symbolData.previousEarthDistance }
                 else if (previousSymbol === "ᔐ")  { currentYLocation += symbolData.previousManDistance }
                 previousSymbol = symbol
-                draw_symbol(canvas, symbol, currentYLocation)
+                draw_symbol(context, symbol, currentYLocation)
             }
         }
         function show_trigram(number) {
