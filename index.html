@@ -96,6 +96,7 @@
             let trigramShape = document.getElementById("TrigramShape")
             let trigramColorName = document.getElementById("TrigramColorName")
             let trigramColor = document.getElementById("TrigramColor")
+            let trigramColorColumn2 = document.getElementById("TrigramColorColumn2")
             let trigramWuXing = document.getElementById("TrigramWuXing")
             let trigramMeaning = document.getElementById("TrigramMeaning")
             let glideLogoCanvas = document.getElementById("GlideLogoCanvas")
@@ -108,13 +109,14 @@
             trigramColor.style.backgroundColor = trigram.color[0]
             trigramColorName.innerText = trigram.colorName[0]
             if (1 < trigram.colorName.length) {
-                let trigramColorColumn2 = document.getElementById("TrigramColorColumn2")
                 let trigramColor2 = document.getElementById("TrigramColor2")
                 let trigramColorName2 = document.getElementById("TrigramColorName2")
 
                 trigramColorColumn2.style.display = "flex"
                 trigramColor2.style.backgroundColor = trigram.color[1]
                 trigramColorName2.innerText = trigram.colorName[1]
+            } else {
+                trigramColorColumn2.style.display = "none"
             }
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
@@ -748,7 +750,7 @@
                                 <div id="TrigramColor" style="height: 1em; width: 1em; border-style: solid;"></div>
                                 <div id="TrigramColorName"></div>
                             </div>
-                            <div id="TrigramColorColumn2" style="display: none">
+                            <div id="TrigramColorColumn2" style="display: none; flex-direction: column;">
                                 <div id="TrigramColor2" style="height: 1em; width: 1em; border-style: solid;"></div>
                                 <div id="TrigramColorName2"></div>
                             </div>
