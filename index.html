@@ -105,8 +105,8 @@
             trigramVerb.innerText = trigram.verb
             trigramLetter.innerText = trigram.letter
             trigramShape.innerText = trigram.shape
-            trigramColor.innerText = trigram.color
-            trigramColorName.innerText = trigram.colorName
+            trigramColor.style.backgroundColor = trigram.color[0]
+            trigramColorName.innerText = trigram.colorName[0]
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
             draw_trigram(trigramCanvas, trigram.symbol)
@@ -733,11 +733,18 @@
                             <div id="TrigramShapeTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Shape</div>
                             <div id="TrigramShape" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                         </div>
-                        <div id="TrigramWuXingRow" style="display: flex; flex-direction: column;">
-                            <div id="TrigramColor"></div>
-                            <div id="TrigramColorName"></div>
+                        <div id="TrigramColorsRow" style="display: flex; flex-direction: row;">
+                            <div id="TrigramColorColumn" style="display: flex; flex-direction: column;">
+                                <div id="TrigramColor" style="height: 1em; width: 1em"></div>
+                                <div id="TrigramColorName"></div>
+                            </div>
+                            <div id="TrigramColorColumn2" style="display: none">
+                                <div id="TrigramColor2" style="height: 1em; width: 1em"></div>
+                                <div id="TrigramColorName2"></div>
+                            </div>
                         </div>
-                        <div id="TrigramWuXingRow" style="display: flex; flex-direction: row;">
+                    </div>
+                    <div id="TrigramWuXingRow" style="display: flex; flex-direction: row;">
                             <div id="TrigramWuXingTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Wu Xing</div>
                             <div id="TrigramWuXing" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                         </div>
