@@ -18,15 +18,10 @@
         function draw_glide_logo(canvas) {
             const context = canvas.getContext('2d')
             const radius = 50
-            let gradient = context.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
 
             canvas.width = 100
             canvas.height = 300
-            gradient.addColorStop(0, '#333');
-            gradient.addColorStop(0.5, 'white')
-            gradient.addColorStop(1, '#333')
             context.strokeStyle = 'black'
-            context.strokeStyle = gradient
             context.lineWidth = 3
             context.lineCap = 'round'
             for (let loop = 0; loop < 3; loop++) {
@@ -49,15 +44,10 @@
         function draw_symbol(canvas, symbol, currentYLocation) {
             const context = canvas.getContext('2d')
             const radius = 50
-            let gradient = context.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
 
             canvas.width = 100
             canvas.height = 300
-            gradient.addColorStop(0, '#333');
-            gradient.addColorStop(0.5, 'white')
-            gradient.addColorStop(1, '#333')
             context.strokeStyle = 'black'
-            context.strokeStyle = gradient
             context.lineWidth = 3
             context.lineCap = 'round'
             context.beginPath()
