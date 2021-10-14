@@ -10,7 +10,8 @@
         rows {display: flex; flex-direction: row;}
     </style>
     <script>
-        let currentSymbol = 0
+        let currentTrigramSymbol = 0
+        let currentHexaramSymbol = 0
         function get_symbol_data(symbol) {
             let data = glideData;
             for (let loop = 0; loop < data.symbols.length; loop++) {
@@ -103,6 +104,8 @@
             let trigramWuXing = document.getElementById("TrigramWuXing")
             let trigramMeaning = document.getElementById("TrigramMeaning")
             let glideLogoCanvas = document.getElementById("GlideLogoCanvas")
+            let currentSelected = document.getElementById("trigram" + currentSymbol)
+            let newSelected = document.getElementById("trigram" + number)
 
             trigramNumber.innerText = trigram.number + ". "
             trigramName.innerText = trigram.name
@@ -125,6 +128,9 @@
             trigramMeaning.innerText = trigram.meaning
             draw_trigram(trigramCanvas, trigram.symbol)
             draw_glide_logo(glideLogoCanvas)
+            currentSelected.style.background = 'white'
+            newSelected.style.background = 'lightgrey'
+            currentTrigramSymbol = number
         }
         function build_symbol_index() {
             let data = glideData;
