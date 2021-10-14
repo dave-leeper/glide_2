@@ -98,6 +98,7 @@
             let trigramColorName = document.getElementById("TrigramColorName")
             let trigramColor = document.getElementById("TrigramColor")
             let trigramColorColumn2 = document.getElementById("TrigramColorColumn2")
+            let trigramStone = document.getElementById("TrigramStone")
             let trigramWuXing = document.getElementById("TrigramWuXing")
             let trigramMeaning = document.getElementById("TrigramMeaning")
             let glideLogoCanvas = document.getElementById("GlideLogoCanvas")
@@ -121,6 +122,7 @@
             } else {
                 trigramColorColumn2.style.display = "none"
             }
+            // trigramStone.innerText = trigram.stone
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
             draw_trigram(trigramCanvas, trigram.symbol)
@@ -210,6 +212,7 @@
                     "shape" : "Circle",
                     "color" : ["#FFFFFF", "#000000"],
                     "colorName" : ["White", "Black"],
+                    "stone" : "Diamond (Hardest), Talc (Softest)",
                     "wuXing" : "None"
                 },
                 {
@@ -222,6 +225,7 @@
                     "shape" : "Triangle, Upper Point",
                     "color" : ["#0000FF", "#5F0A87"],
                     "colorName" : ["Blue", "Dark Purple"],
+                    "stone" : "Carnelian (Linked with creativity)",
                     "wuXing" : "None"
                 },
                 {
@@ -234,6 +238,7 @@
                     "shape" : "Triangle, Lower Left Point",
                     "color" : ["#00FF00", "#A52A2A"],
                     "colorName" : ["Green", "Brown"],
+                    "stone" : "Abundance crystals (Bestows nurturing, abundance, and growth)",
                     "wuXing" : "None"
                 },
                 {
@@ -246,6 +251,7 @@
                     "shape" : "Triangle, Lower Right Point",
                     "color" : ["#FFFF00", "#FF0000"],
                     "colorName" : ["Yellow", "Red"],
+                    "stone" : "Citrine (Promotes success in all areas of life)",
                     "wuXing" : "None"
                 },
                 {
@@ -258,6 +264,7 @@
                     "shape" : "Fear/Desire Hexagram, Top Point",
                     "color" : ["#8B0000", "#070707"],
                     "colorName" : ["Dark Red", "Vampire Black"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -270,6 +277,7 @@
                     "shape" : "Fear/Desire Hexagram, Lower Right Point",
                     "color" : ["#FFFACD", "#FFB6C1"],
                     "colorName" : ["Lemon Chiffon", "Light Pink"],
+                    "stone" : "Alexandrite, Emerald (Promotes joy)",
                     "wuXing" : "None"
                 },
                 {
@@ -282,6 +290,7 @@
                     "shape" : "Fear/Desire Hexagram, Upper Left Point",
                     "color" : ["#FF8C00", "#3F4852"],
                     "colorName" : ["Dark Orange", "Outer Space"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -294,6 +303,7 @@
                     "shape" : "Fear/Desire Hexagram, Bottom Point",
                     "color" : ["#C500FF", "#FF459F"],
                     "colorName" : ["Electric Purple", "Wild Strawberry"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -306,6 +316,7 @@
                     "shape" : "Fear/Desire Hexagram, Upper Right Point",
                     "color" : ["#F0E68C", "#D8BFD8"],
                     "colorName" : ["Khaki", "Thistle"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -318,6 +329,7 @@
                     "shape" : "Fear/Desire Hexagram, Lower Left Point",
                     "color" : ["#85BB65", "#3E3E3C"],
                     "colorName" : ["Dollar Bill", "Black Olive"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -330,6 +342,7 @@
                     "shape" : "Death/Sex Hexagram, Top Point",
                     "color" : ["#003366", "#02234D"],
                     "colorName" : ["Dark Midnight Blue", "Oxford Blue"],
+                    "stone" : "Obsidian (As a skry stone, used to release from this plane)",
                     "wuXing" : "None"
                 },
                 {
@@ -342,6 +355,7 @@
                     "shape" : "Death/Sex Hexagram, Lower Right Point",
                     "color" : ["#E4D6BA","#DABF9C"],
                     "colorName" : ["Dutch White", "Dark Vanilla"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -354,6 +368,7 @@
                     "shape" : "Death/Sex Hexagram, Upper Left Point",
                     "color" : ["#4C5236", "613E3E"],
                     "colorName" : ["Rifle Green", "Rose Ebony"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -366,6 +381,7 @@
                     "shape" : "Death/Sex Hexagram, Bottom Point",
                     "color" : ["#FF2400", "#522C72"],
                     "colorName" : ["Scarlet", "Regalia"],
+                    "stone" : "Arizona Agate (Linked with sensuality)",
                     "wuXing" : "None"
                 },
                 {
@@ -378,6 +394,7 @@
                     "shape" : "Death/Sex Hexagram, Upper Right Point",
                     "color" : ["#492815", "#242C30"],
                     "colorName" : ["Bistre", "Charleston Green"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -390,6 +407,7 @@
                     "shape" : "Death/Sex Hexagram, Lower Left Point",
                     "color" : ["#68452E", "#5A755E"],
                     "colorName" : ["Cologne Earth Brown", "Axolotl"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -402,6 +420,7 @@
                     "shape" : "Love/Hate Hexagram, Top Point",
                     "color" : ["#D43B30", "#F66728"],
                     "colorName" : ["Persian Red", "Orange-Red"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -414,6 +433,7 @@
                     "shape" : "Love/Hate Hexagram, Lower Right Point",
                     "color" : ["#F74573", "#FEE303"],
                     "colorName" : ["Infra Red", "Vivid Yellow"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -426,6 +446,7 @@
                     "shape" : "Love/Hate Hexagram, Upper Left Point",
                     "color" : ["#A51318", "#B23020"],
                     "colorName" : ["Animal Blood", "Chinese Brown"],
+                    "stone" : "Fire Agate (Increases assertiveness)",
                     "wuXing" : "None"
                 },
                 {
@@ -438,6 +459,7 @@
                     "shape" : "Love/Hate Hexagram, Bottom Point",
                     "color" : ["#E55146", "#8FC320"],
                     "colorName" : ["Carmine Pink", "Dark Lemon Lime"],
+                    "stone" : "Red Garnet (Inspires passion)",
                     "wuXing" : "None"
                 },
                 {
@@ -450,6 +472,7 @@
                     "shape" : "Love/Hate Hexagram, Lower Left Point",
                     "color" : ["#650F10", "#373737"],
                     "colorName" : ["Organ Blood", "Onyx"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -462,6 +485,7 @@
                     "shape" : "Love/Hate Hexagram, Upper Right Point",
                     "color" : ["#FFFDD0", "#3ABFC9"],
                     "colorName" : ["Cream", "Maximum Blue Green"],
+                    "stone" : "",
                     "wuXing" : "None"
                 },
                 {
@@ -474,6 +498,7 @@
                     "shape" : "Wu Xing Pentagram, Lower Left Point",
                     "color" : ["#FFFFFF", "#C0C0C0"],
                     "colorName" : ["White", "Silver"],
+                    "stone" : "",
                     "wuXing" : "Metal"
                 },
                 {
@@ -486,6 +511,7 @@
                     "shape" : "Wu Xing Pentagram, Upper Point",
                     "color" : ["#00FF00", "#00FFFF"],
                     "colorName" : ["Green", "Cyan"],
+                    "stone" : "Yellow Sapphire (Enhances intellect, knowledge)",
                     "wuXing" : "Wood"
                 },
                 {
@@ -498,6 +524,7 @@
                     "shape" : "Wu Xing Pentagram, Upper Left Point",
                     "color" : ["#0000FF", "#808080"],
                     "colorName" : ["Blue", "Grey"],
+                    "stone" : "Cinnabar (Enhances vigor)",
                     "wuXing" : "Water"
                 },
                 {
@@ -510,6 +537,7 @@
                     "shape" : "Wu Xing Pentagram, Upper Right Point",
                     "color" : ["#FF0000", "#E34234"],
                     "colorName" : ["Red", "Vermilion"],
+                    "stone" : "Selenite (Promotes mental clarity, purity of heart, and spirituality)",
                     "wuXing" : "Fire"
                 },
                 {
@@ -522,6 +550,7 @@
                     "shape" : "Wu Xing Pentagram, Lower Right Point",
                     "color" : ["#FFFF00", "#FFD700"],
                     "colorName" : ["Yellow", "Gold"],
+                    "stone" : "Cat's Eye, Hematite (Builds willpower)",
                     "wuXing" : "Earth"
                 }
             ],
@@ -760,6 +789,10 @@
                                 <div id="TrigramColor2" style="height: 1em; width: 1em; border-style: solid;"></div>
                                 <div id="TrigramColorName2"></div>
                             </div>
+                        </div>
+                        <div id="TrigramStoneRow" style="display: flex; flex-direction: row;">
+                            <div id="TrigramStoneTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Stone</div>
+                            <div id="TrigramStone" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                         </div>
                         <div id="TrigramWuXingRow" style="display: flex; flex-direction: row;">
                             <div id="TrigramWuXingTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Wu Xing</div>
