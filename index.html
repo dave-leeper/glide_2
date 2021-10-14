@@ -104,7 +104,11 @@
             let glideLogoCanvas = document.getElementById("GlideLogoCanvas")
             let currentSelected = document.getElementById("trigram" + currentTrigramSymbol)
             let newSelected = document.getElementById("trigram" + number)
+            let trigramDiv = document.getElementById("TrigramDiv")
+            let hexagramDiv = document.getElementById("HexagramDiv")
 
+            trigramDiv.style.display = "flex"
+            hexagramDiv.style.display = "none"
             trigramNumber.innerText = trigram.number + ". "
             trigramName.innerText = trigram.name
             trigramVerb.innerText = trigram.verb
@@ -130,6 +134,28 @@
             currentSelected.style.background = 'white'
             newSelected.style.background = 'lightgrey'
             currentTrigramSymbol = number
+        }
+        function show_hexagram(number) {
+            let data = glideData;
+            let hexagram = data.hexagrams[number]
+            let hexagramCanvas = document.getElementById("HexagramCanvas")
+            let hexagramNumber = document.getElementById("HexagramNumber")
+            let hexagramName = document.getElementById("HexagramName")
+            let hexagramMeaning = document.getElementById("HexagramMeaning")
+            let currentSelected = document.getElementById("hexagram" + currentHexagramSymbol)
+            let newSelected = document.getElementById("hexagram" + number)
+            let trigramDiv = document.getElementById("TrigramDiv")
+            let hexagramDiv = document.getElementById("HexagramDiv")
+
+            trigramDiv.style.display = "npne"
+            hexagramDiv.style.display = "flex"
+            hexagramNumber.innerText = trigram.number + ". "
+            hexagramName.innerText = trigram.name
+            hexagramMeaning.innerText = trigram.meaning
+            draw_trigram(hexagramCanvas, hexagram.symbol)
+            currentSelected.style.background = 'white'
+            newSelected.style.background = 'lightgrey'
+            currentHexagramSymbol = number
         }
         function build_symbol_index() {
             let data = glideData;
@@ -802,6 +828,21 @@
                 </div>
             </div>
             <div id="HexagramDiv" style="display: none; flex-direction: column; width: 100%; height: 100%;">
+                <div id="HexagramSymbol" style="display: flex; flex-direction: row;">
+                    <div id="HexagramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
+                        <canvas id="HexagramCanvas" style="width: 100px; height: 150px; border-style: solid;"></canvas>
+                    </div>
+                </div>
+                <div id="HexagramInfo" style="display: flex; flex-direction: column; width: 100%;">
+                    <div id="HexagramNumberRow" style="display: flex; flex-direction: row; width: 100%;">
+                        <div id="HexagramNumber" style="font-size: 2em; padding: 0px 7px 0px 0px;"></div>
+                        <div id="HexagramName" style="font-size: 2em; padding: 0px 4px 0px 0px;"></div>
+                    </div>
+                    <div id="HexagramMeaningRow" style="display: flex; flex-direction: row;">
+                        <div id="HexagramMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Meaning</div>
+                        <div id="HexagramMeaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
