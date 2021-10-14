@@ -19,6 +19,13 @@
             }
             return null
         }
+        function get_trigram_data(symbol) {
+            let data = glideData;
+            for (let loop = 0; loop < data.trigrams.length; loop++) {
+                if (symbol === data.trigrams[loop].symbol) { return data.trigrams[loop] }
+            }
+            return null
+        }
         function draw_glide_logo(canvas) {
             const context = canvas.getContext('2d')
             const radius = 50
@@ -138,6 +145,8 @@
         function show_hexagram(number) {
             let data = glideData;
             let hexagram = data.hexagrams[number]
+            let trigram1 = get_trigram_data(hexagram.trigram1)
+            let trigram2 = get_trigram_data(hexagram.trigram2)
             let hexagramCanvas = document.getElementById("HexagramCanvas")
             let hexagramNumber = document.getElementById("HexagramNumber")
             let hexagramName = document.getElementById("HexagramName")
@@ -152,7 +161,7 @@
             hexagramNumber.innerText = hexagram.number + ". "
             hexagramName.innerText = hexagram.name
             hexagramMeaning.innerText = hexagram.meaning
-            draw_trigram(hexagramCanvas, hexagram.symbol)
+            draw_trigram(hexagramCanvas, trigram1.symbol + trigram2.symbol)
             currentSelected.style.background = 'white'
             newSelected.style.background = 'lightgrey'
             currentHexagramSymbol = number
