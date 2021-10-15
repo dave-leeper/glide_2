@@ -152,6 +152,8 @@
             let hexagramCanvas = document.getElementById("HexagramCanvas")
             let hexagramNumber = document.getElementById("HexagramNumber")
             let hexagramName = document.getElementById("HexagramName")
+            let externalTrigramNameAndMeaning = document.getElementById("Trigram1Meaning")
+            let internalTrigramNameAndMeaning = document.getElementById("Trigram2Meaning")
             let hexagramMeaning = document.getElementById("HexagramMeaning")
             let currentSelected = document.getElementById("hexagram" + currentHexagramSymbol)
             let currentSelectedTrigram = document.getElementById("trigram" + currentTrigramSymbol)
@@ -164,6 +166,8 @@
             hexagramNumber.innerText = hexagram.number + ". "
             hexagramName.innerText = hexagram.name
             hexagramMeaning.innerText = hexagram.meaning
+            externalTrigramNameAndMeaning.innerText = trigram1.name + " (" + trigram1.meaning + ")"
+            internalTrigramNameAndMeaning.innerText = trigram2.name + " (" + trigram2.meaning + ")"
             draw_trigram(hexagramCanvas, trigram1.symbol + trigram2.symbol)
             currentSelected.style.background = 'white'
             currentSelectedTrigram.style.background = 'white'
@@ -853,11 +857,11 @@
                     </div>
                     <div id="TrigramsMeaningColumn" style="display: flex; flex-direction: column;">
                         <div id="Trigram1MeaningRow" style="display: flex; flex-direction: row;">
-                            <div id="Trigram1MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External Trigram Meaning</div>
+                            <div id="Trigram1MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External Trigram Name And Meaning</div>
                             <div id="Trigram1Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                         </div>
                         <div id="Trigram2MeaningRow" style="display: flex; flex-direction: row;">
-                            <div id="Trigram2MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal Trigram Meaning</div>
+                            <div id="Trigram2MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal Trigram Name And Meaning</div>
                             <div id="Trigram2Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                         </div>
                     </div>
