@@ -159,6 +159,8 @@
             let externalTrigramNameAndMeaning = document.getElementById("Trigram1Meaning")
             let internalTrigramNameAndMeaning = document.getElementById("Trigram2Meaning")
             let hexagramMeaning = document.getElementById("HexagramMeaning")
+            let hexagramComment = document.getElementById("HexagramComment")
+            let hexagramCommentSource = document.getElementById("HexagramCommentSource")
             let currentSelected = document.getElementById("hexagram" + currentHexagramSymbol)
             let currentSelectedTrigram = document.getElementById("trigram" + currentTrigramSymbol)
             let newSelected = document.getElementById("hexagram" + number)
@@ -170,6 +172,8 @@
             hexagramNumber.innerText = hexagram.number + ". "
             hexagramName.innerText = hexagram.name
             hexagramMeaning.innerText = hexagram.meaning
+            hexagramComment.innerText = hexagram.statement
+            hexagramCommentSource.innerText = hexagram.statementSource
             externalTrigramNameAndMeaning.innerText = trigram1.name + " (" + trigram1.meaning + ")"
             internalTrigramNameAndMeaning.innerText = trigram2.name + " (" + trigram2.meaning + ")"
             draw_trigram(hexagramCanvas, trigram1.symbol + trigram2.symbol)
@@ -941,7 +945,15 @@
                         <div id="HexagramMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Meaning</div>
                         <div id="HexagramMeaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                     </div>
-                </div>
+                    <div id="HexagramCommentColumn" style="display: flex; flex-direction: column; padding: 10px 0px 0px 0px;">
+                        <div id="HexagramCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Comment</div>
+                        <div id="HexagramComment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                        <div id="HexagramCommentSourceRow" style="display: flex; flex-direction: row;">
+                            <div id="HexagramCommentSourceTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Source</div>
+                            <div id="HexagramCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                        </div>
+                    </div>
+            </div>
             </div>
         </div>
     </body>
