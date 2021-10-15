@@ -141,7 +141,7 @@
             trigramMeaning.innerText = trigram.meaning
             trigramComment.innerText = trigram.statement
             trigramCommentSource.innerText = trigram.statementSource
-             draw_trigram(trigramCanvas, trigram.symbol)
+            draw_trigram(trigramCanvas, trigram.symbol)
             draw_glide_logo(glideLogoCanvas)
             currentSelected.style.background = 'white'
             currentSelectedHexagram.style.background = 'white'
@@ -159,6 +159,8 @@
             let externalTrigramNameAndMeaning = document.getElementById("Trigram1Meaning")
             let internalTrigramNameAndMeaning = document.getElementById("Trigram2Meaning")
             let hexagramMeaning = document.getElementById("HexagramMeaning")
+            let hexagramComment = document.getElementById("HexagramComment")
+            let hexaramCommentSource = document.getElementById("HexagramCommentSource")
             let currentSelected = document.getElementById("hexagram" + currentHexagramSymbol)
             let currentSelectedTrigram = document.getElementById("trigram" + currentTrigramSymbol)
             let newSelected = document.getElementById("hexagram" + number)
@@ -170,6 +172,13 @@
             hexagramNumber.innerText = hexagram.number + ". "
             hexagramName.innerText = hexagram.name
             hexagramMeaning.innerText = hexagram.meaning
+            if (hexagram.statement) {
+                hexagramComment.innerText = hexagram.statement
+                hexagramCommentSource.innerText = hexagram.statementSource
+            } else {
+                hexagramComment.innerText = ""
+                hexagramCommentSource.innerText = ""
+            }
             externalTrigramNameAndMeaning.innerText = trigram1.name + " (" + trigram1.meaning + ")"
             internalTrigramNameAndMeaning.innerText = trigram2.name + " (" + trigram2.meaning + ")"
             draw_trigram(hexagramCanvas, trigram1.symbol + trigram2.symbol)
@@ -689,6 +698,8 @@
                 {
                     "number" : 4, 
                     "name": "Fear of God",
+                    "statement" : "And now, Israel, what does the Lord your God require of you, but to fear the Lord your God, to walk in all his ways, to love him, to serve the Lord your God with all your heart and with all your soul, and to keep the commandments and statutes of the Lord, which I am commanding you today for your good?",
+                    "statementSource" : "Deuteronomy 10:12-13",
                     "meaning" : "Discipline and awe.",
                     "trigram1" : 0, 
                     "trigram2" : 4
@@ -697,6 +708,8 @@
                     "number" : 5, 
                     "name": "Reborn",
                     "meaning" : "The bliss of a new beginning.",
+                    "statement" : "Very truly I tell you, no one can enter the kingdom of God unless they are born of water and the Spirit.",
+                    "statementSource" : "John 3:3-5 NIV",
                     "trigram1" : 0, 
                     "trigram2" : 5
                 },
@@ -943,7 +956,6 @@
                         <div id="HexagramMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Meaning</div>
                         <div id="HexagramMeaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                     </div>
-                    <!--
                     <div id="HexagramCommentColumn" style="display: flex; flex-direction: column; padding: 10px 0px 0px 0px;">
                         <div id="HexagramCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Comment</div>
                         <div id="HexagramComment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
@@ -952,7 +964,6 @@
                             <div id="HexagramCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                         </div>
                     </div>
-                    -->
             </div>
             </div>
         </div>
