@@ -110,6 +110,7 @@
             let trigramMeaning = document.getElementById("TrigramMeaning")
             let glideLogoCanvas = document.getElementById("GlideLogoCanvas")
             let currentSelected = document.getElementById("trigram" + currentTrigramSymbol)
+            let currentSelectedHexagram = document.getElementById("hexagram" + currentHexagramSymbol)
             let newSelected = document.getElementById("trigram" + number)
             let trigramDiv = document.getElementById("TrigramDiv")
             let hexagramDiv = document.getElementById("HexagramDiv")
@@ -139,6 +140,7 @@
             draw_trigram(trigramCanvas, trigram.symbol)
             draw_glide_logo(glideLogoCanvas)
             currentSelected.style.background = 'white'
+            currentSelectedHexagram.style.background = 'white'
             newSelected.style.background = 'lightgrey'
             currentTrigramSymbol = number
         }
@@ -152,6 +154,7 @@
             let hexagramName = document.getElementById("HexagramName")
             let hexagramMeaning = document.getElementById("HexagramMeaning")
             let currentSelected = document.getElementById("hexagram" + currentHexagramSymbol)
+            let currentSelectedTrigram = document.getElementById("trigram" + currentTrigramSymbol)
             let newSelected = document.getElementById("hexagram" + number)
             let trigramDiv = document.getElementById("TrigramDiv")
             let hexagramDiv = document.getElementById("HexagramDiv")
@@ -163,6 +166,7 @@
             hexagramMeaning.innerText = hexagram.meaning
             draw_trigram(hexagramCanvas, trigram1.symbol + trigram2.symbol)
             currentSelected.style.background = 'white'
+            currentSelectedTrigram.style.background = 'white'
             newSelected.style.background = 'lightgrey'
             currentHexagramSymbol = number
         }
