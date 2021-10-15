@@ -108,6 +108,8 @@
             let trigramStone = document.getElementById("TrigramStone")
             let trigramWuXing = document.getElementById("TrigramWuXing")
             let trigramMeaning = document.getElementById("TrigramMeaning")
+            let trigramComment = document.getElementById("TrigramComment")
+            let trigramCommentSource = document.getElementById("TrigramCommentSource")
             let glideLogoCanvas = document.getElementById("GlideLogoCanvas")
             let currentSelected = document.getElementById("trigram" + currentTrigramSymbol)
             let currentSelectedHexagram = document.getElementById("hexagram" + currentHexagramSymbol)
@@ -137,7 +139,9 @@
             // trigramStone.innerText = trigram.stone
             trigramWuXing.innerText = trigram.wuXing
             trigramMeaning.innerText = trigram.meaning
-            draw_trigram(trigramCanvas, trigram.symbol)
+            trigramComment.innerText = trigram.statement
+            trigramCommentSource.innerText = trigram.statementSource
+             draw_trigram(trigramCanvas, trigram.symbol)
             draw_glide_logo(glideLogoCanvas)
             currentSelected.style.background = 'white'
             currentSelectedHexagram.style.background = 'white'
@@ -250,6 +254,8 @@
                     "symbol" : "◠ᔐ◡",
                     "name" : "Dao",
                     "meaning": "That which causes change",
+                    "statement" : "The Dao is basically utterly open. Utter openness has no substance. It ends in endlessness, begins in beginninglessness.",
+                    "statementSource" : "The Book of Balance and Harmony, Chapter II",
                     "verb": "Change",
                     "letter" : "None",
                     "shape" : "Circle",
@@ -263,6 +269,8 @@
                     "symbol" : "◠◠◠",
                     "name" : "Heaven",
                     "meaning": "Creative",
+                    "statement" : "Heaven and earth are not humane; they regard all beings as straw dogs.",
+                    "statementSource" : "Dao De Ching. Chapter 5",
                     "verb": "Am",
                     "letter" : "A",
                     "shape" : "Triangle, Upper Point",
@@ -276,6 +284,8 @@
                     "symbol" : "◡◡◡",
                     "name" : "Earth",
                     "meaning": "Receptive",
+                    "statement" : "Heaven is calm and clear, earth is stable and peaceful. Beings who lose these qualities die, while those that emulate them live.",
+                    "statementSource" : "Vitality, Energy, Spirit. Huai-nan-tzu",
                     "verb": "Was",
                     "letter" : "B",
                     "shape" : "Triangle, Lower Left Point",
@@ -289,6 +299,8 @@
                     "symbol" : "ᔐᔐᔐ",
                     "name" : "Man",
                     "meaning": "Choice",
+                    "statement" : "When humans radiate killing potential, heaven and earth overturn.",
+                    "statementSource" : "Vitality, Energy, Spirit. Liu I-ming, Commentary on the Classic of Yin Convergence",
                     "verb": "Shall Be",
                     "letter" : "C",
                     "shape" : "Triangle, Lower Right Point",
@@ -302,6 +314,8 @@
                     "symbol" : "ᔐ◠ᔐ",
                     "name" : "Heaven in Man",
                     "meaning": "Terror",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Terrify",
                     "letter" : "D",
                     "shape" : "Fear/Desire Hexagram, Top Point",
@@ -315,6 +329,8 @@
                     "symbol" : "◠ᔐ◠",
                     "name" : "Man in Heaven",
                     "meaning": "Joy",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Enjoy",
                     "letter" : "E",
                     "shape" : "Fear/Desire Hexagram, Lower Right Point",
@@ -328,6 +344,8 @@
                     "symbol" : "◡◠◡",
                     "name" : "Heaven in Earth",
                     "meaning": "Fright",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Frighten",
                     "letter" : "F",
                     "shape" : "Fear/Desire Hexagram, Upper Left Point",
@@ -341,6 +359,8 @@
                     "symbol" : "◠◡◠",
                     "name" : "Earth in Heaven",
                     "meaning": "Attraction",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Attract",
                     "letter" : "G",
                     "shape" : "Fear/Desire Hexagram, Bottom Point",
@@ -354,6 +374,8 @@
                     "symbol" : "ᔐ◡ᔐ",
                     "name" : "Earth in Man",
                     "meaning": "Aversion",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Avert",
                     "letter" : "H",
                     "shape" : "Fear/Desire Hexagram, Upper Right Point",
@@ -367,6 +389,8 @@
                     "symbol" : "◡ᔐ◡",
                     "name" : "Man in Earth",
                     "meaning": "Greed",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Crave",
                     "letter" : "I",
                     "shape" : "Fear/Desire Hexagram, Lower Left Point",
@@ -380,6 +404,8 @@
                     "symbol" : "◠◠ᔐ",
                     "name" : "Heaven Above Man",
                     "meaning": "Release",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Release",
                     "letter" : "J",
                     "shape" : "Death/Sex Hexagram, Top Point",
@@ -393,6 +419,8 @@
                     "symbol" : "ᔐᔐ◠",
                     "name" : "Man Above Heaven",
                     "meaning": "Dissolution",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Dissolve",
                     "letter" : "K",
                     "shape" : "Death/Sex Hexagram, Lower Right Point",
@@ -406,6 +434,8 @@
                     "symbol" : "◡◡ᔐ",
                     "name" : "Earth Above Man",
                     "meaning": "Destruction",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Destroy",
                     "letter" : "L",
                     "shape" : "Death/Sex Hexagram, Upper Left Point",
@@ -419,6 +449,8 @@
                     "symbol" : "ᔐᔐ◡",
                     "name" : "Man Above Earth",
                     "meaning": "Lust",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Lust",
                     "letter" : "M",
                     "shape" : "Death/Sex Hexagram, Bottom Point",
@@ -432,6 +464,8 @@
                     "symbol" : "◠◠◡",
                     "name" : "Heaven Above Earth",
                     "meaning": "Atrophy",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Atrophy",
                     "letter" : "N",
                     "shape" : "Death/Sex Hexagram, Upper Right Point",
@@ -445,6 +479,8 @@
                     "symbol" : "◡◡◠",
                     "name" : "Earth Above Heaven",
                     "meaning": "Frustration",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Frustrate",
                     "letter" : "O",
                     "shape" : "Death/Sex Hexagram, Lower Left Point",
@@ -458,6 +494,8 @@
                     "symbol" : "ᔐ◠◠",
                     "name" : "Heaven Under Man",
                     "meaning": "Anger",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Anger",
                     "letter" : "P",
                     "shape" : "Love/Hate Hexagram, Top Point",
@@ -471,6 +509,8 @@
                     "symbol" : "◠ᔐᔐ",
                     "name" : "Man Under Heaven",
                     "meaning": "Rapture",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Rapture",
                     "letter" : "Q",
                     "shape" : "Love/Hate Hexagram, Lower Right Point",
@@ -484,6 +524,8 @@
                     "symbol" : "◡ᔐᔐ",
                     "name" : "Man Under Earth",
                     "meaning": "Aggression",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Attack",
                     "letter" : "R",
                     "shape" : "Love/Hate Hexagram, Upper Left Point",
@@ -497,6 +539,8 @@
                     "symbol" : "ᔐ◡◡",
                     "name" : "Earth Under Man",
                     "meaning": "Passion",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Devote",
                     "letter" : "S",
                     "shape" : "Love/Hate Hexagram, Bottom Point",
@@ -510,6 +554,8 @@
                     "symbol" : "◡◠◠",
                     "name" : "Heaven Under Earth",
                     "meaning": "Loathing",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Loath",
                     "letter" : "T",
                     "shape" : "Love/Hate Hexagram, Lower Left Point",
@@ -523,6 +569,8 @@
                     "symbol" : "◠◡◡",
                     "name" : "Earth Under Heaven",
                     "meaning": "Attachment",
+                    "statement" : "",
+                    "statementSource" : "",
                     "verb": "Attach",
                     "letter" : "U",
                     "shape" : "Love/Hate Hexagram, Upper Right Point",
@@ -536,6 +584,8 @@
                     "symbol" : "ᔐ◠◡",
                     "name" : "Sense",
                     "meaning": "Collecting information via the five senses.",
+                    "statement" : "Vitality and sense relate to the body.",
+                    "statementSource" : "The Book of Balance and Harmony. Explanation of the three fives",
                     "verb": "Sense",
                     "letter" : "V",
                     "shape" : "Wu Xing Pentagram, Lower Left Point",
@@ -549,6 +599,8 @@
                     "symbol" : "◠◡ᔐ",
                     "name" : "Essence",
                     "meaning": "Awareness",
+                    "statement" : "Essence and spirit relate to the mind.",
+                    "statementSource" : "The Book of Balance and Harmony. Explanation of the three fives",
                     "verb": "Realize",
                     "letter" : "W",
                     "shape" : "Wu Xing Pentagram, Upper Point",
@@ -562,6 +614,8 @@
                     "symbol" : "◡◠ᔐ",
                     "name" : "Vitality",
                     "meaning": "Primal Energy",
+                    "statement" : "Vitality is the basis of the body.",
+                    "statementSource" : "The Book of Balance and Harmony. Explanation of the three fives",
                     "verb": "Animate",
                     "letter" : "X",
                     "shape" : "Wu Xing Pentagram, Upper Left Point",
@@ -575,6 +629,8 @@
                     "symbol" : "ᔐ◡◠",
                     "name" : "Spirit",
                     "meaning": "Radiance",
+                    "statement" : "In humans, it is the spirit, the light in the eyes, thought in the mind.",
+                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
                     "verb": "Radiate",
                     "letter" : "Y",
                     "shape" : "Wu Xing Pentagram, Upper Right Point",
@@ -588,6 +644,8 @@
                     "symbol" : "◡ᔐ◠",
                     "name" : "Will",
                     "meaning": "Will",
+                    "statement" : "Will is the director of the five forces; it has no partner.",
+                    "statementSource" : "The Book of Balance and Harmony. Explanation of the three fives",
                     "verb": "Will",
                     "letter" : "Z",
                     "shape" : "Wu Xing Pentagram, Lower Right Point",
@@ -623,6 +681,8 @@
                     "number" : 3, 
                     "name": "Sage",
                     "meaning" : "Making choices from much potential.",
+                    "statement" : "The reason sages are sages is because of their application of the Changes.",
+                    "statementSource" : "The Book of Balance and Harmony, Chapter III",
                     "trigram1" : 0, 
                     "trigram2" : 3
                 },
@@ -777,6 +837,8 @@
                     "number" : 25, 
                     "name": "Enlightened",
                     "meaning" : "Natural knowledge.",
+                    "statement" : "Those who know others are wise; those who know themselves are enlightened.",
+                    "statementSource" : "Dao De Ching, Chapter 33",
                     "trigram1" : 0, 
                     "trigram2" : 25
                 },
@@ -784,6 +846,8 @@
                     "number" : 26, 
                     "name": "Magick",
                     "meaning" : "Magick.",
+                    "statement" : "Magick is the Science and Art of causing Change to occur in conformity with Will.",
+                    "statementSource" : "Aleister Crowley, Magick in Theory and Practice",
                     "trigram1" : 0, 
                     "trigram2" : 26
                 }       
@@ -840,6 +904,14 @@
                         <div id="TrigramWuXingRow" style="display: flex; flex-direction: row;">
                             <div id="TrigramWuXingTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Wu Xing</div>
                             <div id="TrigramWuXing" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                        </div>
+                        <div id="TrigramCommentColumn" style="display: flex; flex-direction: column;">
+                            <div id="TrigramCommentTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Comment</div>
+                            <div id="TrigramComment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                            <div id="TrigramCommentSourceRow" style="display: flex; flex-direction: row;">
+                                <div id="TrigramCommentSourceTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Source</div>
+                                <div id="TrigramCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
