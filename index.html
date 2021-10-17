@@ -215,7 +215,15 @@
                 trigramNode.appendChild(divnode)
                 divnode.appendChild(textnode)
             }
-            for (let loop = 0; loop < data.hexagrams.length; loop++) {
+            let divGroupnode = document.createElement("DIV")
+            let textGroupnode = document.createTextNode("Dao")
+            let groupCount = 0
+
+            divGroupnode.id = "DaoGroup"
+            divGroupnode.style = "text-align: right;"
+            hexagramNode.appendChild(divGroupnode)
+            divGroupnode.appendChild(textnode)
+           for (let loop = 0; loop < data.hexagrams.length; loop++) {
                 let hexagram = data.hexagrams[loop]
                 let hexagramNumber = hexagram.number
                 let hexagramName = hexagram.name
