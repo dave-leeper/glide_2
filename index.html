@@ -199,9 +199,11 @@
             trigramNode.appendChild(textnode)
             parentNode.appendChild(trigramNode)
             let hexagramNode = document.createElement("DIV")
+            let hexagramTitleNode = document.createElement("DIV")
             textnode = document.createTextNode("Hexagrams")
             hexagramNode.style = "padding-top: 20px;"
-            hexagramNode.appendChild(textnode)
+            hexagramTitleNode.appendChild(textnode)
+            hexagramNode.appendChild(hexagramTitleNode)
             parentNode.appendChild(hexagramNode)
             for (let loop = 0; loop < data.trigrams.length; loop++) {
                 let trigram = data.trigrams[loop]
@@ -232,7 +234,7 @@
                 divnode.id = "hexagram" + loop
                 divnode.style = "cursor: pointer;"
                 divnode.onclick = function() { show_hexagram(hexagramNumber); }
-                divGroupnode.appendChild(divnode)
+                hexagramNode.appendChild(divnode)
                 divnode.appendChild(textnode)
             }
             show_trigram(0)
