@@ -2,8 +2,7 @@ export class FivesTest extends HTMLElement {
     constructor() {
         super()
         const shadow = this.attachShadow({ mode: 'open' })
-        this.content = this.createElement('div', 'fives-test')
-        this.content.setAttribute('class', 'wrapper');
+        this.content = document.createElement('div', 'wrapper')
         this.content.innerText = 'test'
         const style = document.createElement('style');
         style.textContent = `
@@ -23,6 +22,7 @@ export class FivesTest extends HTMLElement {
         z-index: 3;
      }`;
         this.shadowRoot.append(style, this.content);
+        customElements.define('popup-info', PopUpInfo);
     }
 
     createElement(tag, className) {
