@@ -22,7 +22,7 @@ export class FivesTest extends HTMLElement {
         left: 10px;
         z-index: 3;
      }`;
-        this.shadowRoot.append(style, content);
+        this.shadowRoot.append(style, this.content);
     }
 
     createElement(tag, className) {
