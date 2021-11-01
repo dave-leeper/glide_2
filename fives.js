@@ -4,7 +4,8 @@ export class FivesTest extends HTMLElement {
         const shadow = this.attachShadow({ mode: 'open' })
         this.content = this.createElement('div', 'fives-test')
         this.content.innerText = 'test'
-        tyle.textContent = `
+        const style = document.createElement('style');
+        style.textContent = `
       .wrapper {
         position: relative;
       }
