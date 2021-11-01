@@ -22,7 +22,7 @@ export class FivesTest extends HTMLElement {
         z-index: 3;
      }`;
         this.shadowRoot.append(style, this.content);
-        customElements.define('popup-info', PopUpInfo);
+        customElements.define('fives-test', FivesTest);
     }
 
     createElement(tag, className) {
