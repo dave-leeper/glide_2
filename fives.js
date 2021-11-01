@@ -1,6 +1,6 @@
 import { customElement } from './decorator'
 
-@customElement(fives-test)
+@customElement('fives-test')
 export class FivesTest extends HTMLElement {
     constructor() {
         super()
