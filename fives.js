@@ -3,13 +3,12 @@ export class FivesTest extends HTMLElement {
         super()
         const shadow = this.attachShadow({ mode: 'open' })
         this.content = this.createElement('div', 'fives-test')
+        this.content.setAttribute('class', 'wrapper');
         this.content.innerText = 'test'
         const style = document.createElement('style');
         style.textContent = `
       .wrapper {
         position: relative;
-      }
-      .info {
         font-size: 0.8rem;
         width: 200px;
         display: inline-block;
@@ -22,7 +21,7 @@ export class FivesTest extends HTMLElement {
         bottom: 20px;
         left: 10px;
         z-index: 3;
-      }    `;
+     }`;
         this.shadowRoot.append(style, content);
     }
 
