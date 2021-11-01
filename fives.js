@@ -27,7 +27,7 @@ class FivesTest extends HTMLElement {
       if(this.hasAttribute('img')) {
         imgUrl = this.getAttribute('img');
       } else {
-        imgUrl = 'img/default.png';
+        imgUrl = 'Wu Xing.png';
       }
   
       const img = document.createElement('img');
