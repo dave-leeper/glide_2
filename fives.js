@@ -14,7 +14,7 @@ export class FivesTest extends HTMLElement {
         display: inline-block;
         border: 1px solid black;
         padding: 10px;
-        background: white;
+        background: green;
         border-radius: 10px;
         opacity: 0;
         position: absolute;
