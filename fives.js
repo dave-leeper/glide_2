@@ -35,8 +35,6 @@ class FivesTest extends HTMLElement {
       icon.appendChild(img);
   
       // Attach the created elements to the shadow dom
-      shadow.appendChild(style);
-      console.log(style.isConnected);
       shadow.appendChild(wrapper);
       wrapper.appendChild(icon);
       wrapper.appendChild(info);
