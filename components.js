@@ -47,7 +47,10 @@ export class MeaningCommentSource extends HTMLElement {
 }
 
 export class ColorColumn extends HTMLElement {
-     init(parent, idPrefix) {
+    constructor() {
+        super()
+    }
+    init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.color = document.createElement('div')
         this.colorName = document.createElement('div')
@@ -60,9 +63,9 @@ export class ColorColumn extends HTMLElement {
         this.wrapper.appendChild(this.color)
         this.wrapper.appendChild(this.colorName)
         parent.appendChild(this.wrapper)
-     }
+    }
 
-     setColor(color, colorName) {
+    setColor(color, colorName) {
         this.color.style.backgroundColor = color
         this.colorName.innerText = colorName
     }
