@@ -250,7 +250,48 @@
             }
             show_trigram(0)
         }
-        
+        function set_menu(number) {
+            currentMenuItem = number
+            draw_menu()
+            draw_content()
+        }
+        function draw_menu() {
+            let randomOverTimeMenuItem = document.getElementById("MenuBarRandomOverTime")
+            let loShuMenuItem = document.getElementById("MenuBarLoShu")
+            let octacrossAndTarotMenuItem = document.getElementById("MenuBarOctacrossAndTarot")
+            let listMenuItem = document.getElementById("MenuBarList")
+            let docsMenuItem = document.getElementById("MenuBarDocs")
+
+            if (0 === currentMenuItem) { randomOverTimeMenuItem.style.background = 'lightgrey' }
+            else { randomOverTimeMenuItem.style.background = 'white' }
+            if (1 === currentMenuItem) { loShuMenuItem.style.background = 'lightgrey' }
+            else { loShuMenuItem.style.background = 'white' }
+            if (2 === currentMenuItem) { octacrossAndTarotMenuItem.style.background = 'lightgrey' }
+            else { octacrossAndTarotMenuItem.style.background = 'white' }
+            if (4 === currentMenuItem) { listMenuItem.style.background = 'lightgrey' }
+            else { listMenuItem.style.background = 'white' }
+            if (5 === currentMenuItem) { docsMenuItem.style.background = 'lightgrey' }
+            else { docsMenuItem.style.background = 'white' }
+        }
+        function draw_content() {
+            let randomContent = document.getElementById("RandomContent")
+            let loShuContent = document.getElementById("LoShuContent")
+            let octacrossContent = document.getElementById("OctacrossContent")
+            let listContent = document.getElementById("ListContent")
+            let docsContent = document.getElementById("DocsContent")
+
+            if (0 === currentMenuItem) { randomContent.style.display = 'flex'; update_random_hexagram() }
+            else { randomContent.style.display = 'none' }
+            if (1 === currentMenuItem) { loShuContent.style.display = 'flex';  set_lo_shu_element(currentLoShuElement); }
+            else { loShuContent.style.display = 'none' }
+            if (2 === currentMenuItem) { octacrossContent.style.display = 'flex'; drawOctacross() }
+            else { octacrossContent.style.display = 'none'; deleteOctacross() }
+            if (4 === currentMenuItem) { listContent.style.display = 'flex' }
+            else { listContent.style.display = 'none' }
+            if (5 === currentMenuItem) { docsContent.style.display = 'flex'; }
+            else { docsContent.style.display = 'none' }
+        }
+
         var glideData = {
             "symbols" : [
             {
@@ -911,6 +952,13 @@
         </script>  
     </head>
     <body onload="build_symbol_index()" style="font-family: 'Arial Narrow', Arial, sans-serif;">
+        <div id="MenuBar" style="display: flex; flex-direction: row; gap: 20px; width: 100%; height: 25px; border-bottom: 3px solid black;">
+            <div id="MenuBarRandomOverTime" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(0)">Random Over Time</div>
+            <div id="MenuBarLoShu" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(1)">Lo Shu</div>
+            <div id="MenuBarOctacrossAndTarot" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(2)">Octacross And Tarot</div>
+            <div id="MenuBarList" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(4)">List</div>
+            <div id="MenuBarDocs" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(5)">Documentation</div>
+        </div>
         <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
             <div id="SymbolIndexes" style="display: flex; flex-direction: column; width: 230px; height: 100%; position: fixed; bottom: 0; overflow-y: auto; padding: 0px 5px 0px 0px;"></div>
             <div id="TrigramDiv" style="display: flex; flex-direction: column; width: 100%; position: fixed; left: 250px;"">
