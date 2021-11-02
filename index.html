@@ -40,6 +40,7 @@
             context.lineWidth = 3
             context.lineCap = 'round'
             for (let loop = 0; loop < 3; loop++) {
+                if (1 === loop) { continue }
                 let yPosition = (loop * radius) + radius
 
                 context.beginPath()
