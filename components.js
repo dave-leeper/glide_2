@@ -22,7 +22,7 @@ export class NamedDataRow extends HTMLElement {
 
 export class NamedDataColumn extends NamedDataRow {
     init(parent, idPrefix) {
-        super(parent, idPrefix)
+        super.init(parent, idPrefix)
         this.wrapper.setAttribute('class', 'NamedDataColumn');
         this.wrapper.id(idPrefix + 'NamedDataColumn')
     }
