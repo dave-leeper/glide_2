@@ -18,6 +18,22 @@
 
     --named-data-data-font-size:: 1em; 
 
+    --meaning-comment-source-display: flex;
+    --meaning-comment-source-direction: column;
+
+    --color-column-display: flex;
+    --color-column-direction: column;
+
+    --color-height: 1em;
+    --color-width: 1em;
+    --color-border-style: solid;
+
+    --colors-name-font-size: 1em; 
+    --colors-name-font-weight: bold; 
+
+    --colors-row-display: flex;
+    --colors-row-direction: row;
+
 }
 
 .Title {
@@ -48,3 +64,30 @@
 .NamedDataData {
     font-size:          var(--named-data-data-font-size); 
 }
+
+.MeaningCommentSource {
+    display:            var(--meaning-comment-source-display); 
+    flex-direction:     var(--meaning-comment-source-direction); 
+}
+
+.ColorColumn {
+    display:            var(--color-column-display); 
+    flex-direction:     var(--color-column-direction); 
+}
+
+.Color {
+    height:             var(--color-height); 
+    width:              var(--color-width); 
+    border-style:       var(--color-border-style); 
+}
+
+.ColorsName {
+    font-size:          var(--colors-name-font-size); 
+    font-weight:        var(--colors-name-font-weight); 
+}
+
+.ColorsRow {
+    display:            var(--colors-row-display); 
+    flex-direction:     var(--colors-row-direction); 
+}
+
