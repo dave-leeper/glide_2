@@ -67,7 +67,7 @@ export class ColorColumn {
         this.colorName.innerText = colorName
     }
 }
-let colorColumn = new ColorColumn()
+export let colorColumn = new ColorColumn()
 
 export class ColorsRow {
      init(parent, idPrefix) {
