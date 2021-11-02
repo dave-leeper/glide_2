@@ -98,8 +98,8 @@
             if (!xxx) {
                 tdata = get_trigram_data(0)
                 let td = document.getElementById("TrigramDiv")
-                let c = new ColorColumn(td, "C")
-                c.setColor(tdata.color[0], tdata.colorName[0])
+                colorColumn.init(td, "C")
+                colorColumn.setColor(tdata.color[0], tdata.colorName[0])
             }
         }
         function show_trigram(number) {

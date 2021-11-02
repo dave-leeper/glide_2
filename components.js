@@ -1,6 +1,5 @@
 export class NamedDataRow extends HTMLElement {
-    constructor(parent, idPrefix) {
-        super()
+    init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.name = document.createElement('div')
         this.data = document.createElement('div')
@@ -22,7 +21,7 @@ export class NamedDataRow extends HTMLElement {
 }
 
 export class NamedDataColumn extends NamedDataRow {
-    constructor(parent, idPrefix) {
+    init(parent, idPrefix) {
         super(parent, idPrefix)
         this.wrapper.setAttribute('class', 'NamedDataColumn');
         this.wrapper.id(idPrefix + 'NamedDataColumn')
@@ -30,8 +29,7 @@ export class NamedDataColumn extends NamedDataRow {
 }
 
 export class MeaningCommentSource extends HTMLElement {
-    constructor(parent, idPrefix) {
-        super()
+    init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.meaning = new NamedDataRow(wrapper, idPrefix + "Meaning")
         this.comment = new NamedDataColumn(wrapper, idPrefix + "Comment")
@@ -48,9 +46,8 @@ export class MeaningCommentSource extends HTMLElement {
     }
 }
 
-export default class ColorColumn extends HTMLElement {
-    constructor(parent, idPrefix) {
-        super()
+export class ColorColumn extends HTMLElement {
+     init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.color = document.createElement('div')
         this.colorName = document.createElement('div')
@@ -70,10 +67,10 @@ export default class ColorColumn extends HTMLElement {
         this.colorName.innerText = colorName
     }
 }
+let colorColumn = new ColorColumn()
 
 export class ColorsRow extends HTMLElement {
-    constructor(parent, idPrefix) {
-        super()
+     init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.colorsName = document.createElement('div')
         this.wrapper.setAttribute('class', 'ColorsRow');
@@ -94,8 +91,7 @@ export class ColorsRow extends HTMLElement {
 }
 
 export class TrigramAdditionalInfo extends HTMLElement {
-    constructor(parent, idPrefix) {
-        super()
+    init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.verb = new NamedDataRow(wrapper, idPrefix + "Verb")
         this.letter = new NamedDataRow(wrapper, idPrefix + "Letter")
