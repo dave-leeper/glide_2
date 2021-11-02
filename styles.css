@@ -8,10 +8,10 @@
 }
 
 .Title {
-    display:            var(-title-display); 
-    flex-direction:     var(-title-flex-direction); 
-    gap:                var(-title-gap); 
-    width:              var(-title-width); 
-    color:              var(-title-color); 
-    font-size:          var(-title-font-size); 
+    display:            var(--title-display); 
+    flex-direction:     var(--title-flex-direction); 
+    gap:                var(--title-gap); 
+    width:              var(--title-width); 
+    color:              var(--title-color); 
+    font-size:          var(--title-font-size); 
 }
