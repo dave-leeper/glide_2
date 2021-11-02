@@ -1,4 +1,4 @@
-class NamedDataRow extends HTMLElement {
+export class NamedDataRow extends HTMLElement {
     constructor(parent, idPrefix) {
         super()
         this.wrapper = document.createElement('div')
@@ -21,7 +21,7 @@ class NamedDataRow extends HTMLElement {
     }
 }
 
-class NamedDataColumn extends NamedDataRow {
+export class NamedDataColumn extends NamedDataRow {
     constructor(parent, idPrefix) {
         super(parent, idPrefix)
         this.wrapper.setAttribute('class', 'NamedDataColumn');
@@ -29,7 +29,7 @@ class NamedDataColumn extends NamedDataRow {
     }
 }
 
-class MeaningCommentSource extends HTMLElement {
+export class MeaningCommentSource extends HTMLElement {
     constructor(parent, idPrefix) {
         super()
         this.wrapper = document.createElement('div')
@@ -48,7 +48,7 @@ class MeaningCommentSource extends HTMLElement {
     }
 }
 
-class ColorColumn extends HTMLElement {
+export class ColorColumn extends HTMLElement {
     constructor(parent, idPrefix) {
         super()
         this.wrapper = document.createElement('div')
@@ -71,7 +71,7 @@ class ColorColumn extends HTMLElement {
     }
 }
 
-class ColorsRow extends HTMLElement {
+export class ColorsRow extends HTMLElement {
     constructor(parent, idPrefix) {
         super()
         this.wrapper = document.createElement('div')
@@ -93,7 +93,7 @@ class ColorsRow extends HTMLElement {
     }
 }
 
-class TrigramAdditionalInfo extends HTMLElement {
+export class TrigramAdditionalInfo extends HTMLElement {
     constructor(parent, idPrefix) {
         super()
         this.wrapper = document.createElement('div')
