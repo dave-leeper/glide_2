@@ -5,6 +5,19 @@
     --title-width: 100%;
     --title-color: black;
     --title-font-size: 2em;
+
+    --named-data-row-display: flex; 
+    --named-data-row-flex-direction: row;
+    --named-data-row-gap: 5px;
+
+    --named-data-column-display: flex; 
+    --named-data-column-flex-direction: column;
+
+    --named-data-name-font-size: 1em; 
+    --named-data-name-font-weight: bold; 
+
+    --named-data-data-font-size:: 1em; 
+
 }
 
 .Title {
@@ -14,4 +27,24 @@
     width:              var(--title-width); 
     color:              var(--title-color); 
     font-size:          var(--title-font-size); 
+}
+
+.NamedDataRow {
+    display:            var(--named-data-row-display); 
+    flex-direction:     var(--named-data-row-flex-direction); 
+    gap:                var(--named-data-row-gap); 
+}
+
+.NamedDataColumn {
+    display:            var(--named-data-column-display); 
+    flex-direction:     var(--named-data-column-flex-direction); 
+}
+
+.NamedDataName {
+    font-size:          var(--named-data-name-font-size); 
+    font-weight:        var(--named-data-name-font-weight); 
+}
+
+.NamedDataData {
+    font-size:          var(--named-data-data-font-size); 
 }

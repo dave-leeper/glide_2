@@ -76,6 +76,23 @@ class FivesTest extends HTMLElement {
       wrapper.appendChild(info);
     }
   }
-  
-  // Define the new element
-  customElements.define('fives-test', FivesTest);
+customElements.define('fives-test', FivesTest);
+
+class FivesNamedDataRow extends HTMLElement {
+    constructor() {
+        super()
+        const shadow = this.attachShadow({mode: 'open'})
+        const wrapper = document.createElement('div')
+        const name = document.createElement('div')
+        const data = document.createElement('div')
+        wrapper.classList.add("NamedDataRow")
+        name.classList.add("NamedDataName")
+        data.classList.add("NamedDataData")
+        shadow.appendChild(wrapper)
+        wrapper.appendChild(name)
+        wrapper.appendChild(data)
+        name.innerText = "name"
+        data.innerText = "data"
+    }
+}
+customElements.define('fives-named-data-row', FivesNamedDataRow);
