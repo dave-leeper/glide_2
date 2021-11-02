@@ -30,7 +30,8 @@
         function deleteOctacross() {
 
         }
-        function draw_glide_logo(canvas) {
+        function draw_glide_logo() {
+            let canvas = document.getElementById("GlideLogoCanvas")
             const context = canvas.getContext('2d')
             const radius = 50
 
@@ -115,7 +116,6 @@
             let trigramMeaning = document.getElementById("TrigramMeaning")
             let trigramComment = document.getElementById("TrigramComment")
             let trigramCommentSource = document.getElementById("TrigramCommentSource")
-            let glideLogoCanvas = document.getElementById("GlideLogoCanvas")
             let currentSelected = document.getElementById("trigram" + currentTrigramSymbol)
             let currentSelectedHexagram = document.getElementById("hexagram" + currentHexagramSymbol)
             let newSelected = document.getElementById("trigram" + number)
@@ -147,7 +147,6 @@
             trigramComment.innerText = trigram.statement
             trigramCommentSource.innerText = trigram.statementSource
             draw_trigram(trigramCanvas, trigram.symbol)
-            draw_glide_logo(glideLogoCanvas)
             currentSelected.style.background = 'white'
             currentSelectedHexagram.style.background = 'white'
             newSelected.style.background = 'lightgrey'
@@ -299,7 +298,7 @@
             else { gabbalahContent.style.display = 'none' }
             if (4 === currentMenuItem) { listContent.style.display = 'flex' }
             else { listContent.style.display = 'none' }
-            if (5 === currentMenuItem) { docsContent.style.display = 'flex'; }
+            if (5 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo() }
             else { docsContent.style.display = 'none' }
         }
 
@@ -980,6 +979,7 @@
         <div id="GabbalahContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
         </div>
         <div id="DocsContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+            <canvas id="GlideLogoCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
         </div>
         <div id="ListContent" style="display: flex; flex-direction: row; width: 100%; height: 100%;">
             <div id="SymbolIndexes" style="display: flex; flex-direction: column; width: 230px; height: 100%; position: fixed; top: 37px; bottom: 0; overflow-y: auto; padding: 0px 5px 0px 0px;"></div>
@@ -987,7 +987,6 @@
                 <div id="TrigramSymbol" style="display: flex; flex-direction: row;">
                     <div id="TrigramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
                         <canvas id="TrigramCanvas" style="width: 100px; height: 150px; border-style: solid;"></canvas>
-                        <canvas id="GlideLogoCanvas" style="width: 100px; height: 300px; border-style: solid; margin: 10px 0px 0px 0px;"></canvas>
                     </div>
                     <div id="TrigramInfo" style="display: flex; flex-direction: column; width: 100%;">
                         <div id="TrigramNumberRow" style="display: flex; flex-direction: row; gap: 7px; font-size: 2em; font-weight: bold;">
