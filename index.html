@@ -13,7 +13,6 @@
     <script>
         let currentTrigramSymbol = 0
         let currentHexagramSymbol = 0
-        let xxx
         function get_symbol_data(symbol) {
             let data = glideData;
             for (let loop = 0; loop < data.symbols.length; loop++) {
@@ -93,12 +92,6 @@
                 else if (previousSymbol === "ᔐ")  { currentYLocation += symbolData.previousManDistance }
                 previousSymbol = symbol
                 draw_symbol(context, symbol, currentYLocation)
-            }
-            if (!xxx) {
-                tdata = get_trigram_data(0)
-                let td = document.getElementById("TrigramDiv")
-                colorColumn.init(td, "C")
-                colorColumn.setColor(tdata.color[0], tdata.colorName[0])
             }
         }
         function show_trigram(number) {
