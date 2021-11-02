@@ -220,15 +220,10 @@
                 trigramNode.appendChild(divnode)
                 divnode.appendChild(textnode)
             }
-            let divGroupnode = document.createElement("DIV")
-            let textGroupnode = document.createTextNode("Dao")
-            let groupCount = 0
 
-            divGroupnode.id = "DaoGroup"
-            divGroupnode.style = "text-align: right;"
-            hexagramNode.appendChild(divGroupnode)
-            divGroupnode.appendChild(textGroupnode)
-           for (let loop = 0; loop < data.hexagrams.length; loop++) {
+            let hexagramCount = 0
+            let trigramIndex = 0
+            for (let loop = 0; loop < data.hexagrams.length; loop++) {
                 let hexagram = data.hexagrams[loop]
                 let hexagramNumber = hexagram.number
                 let hexagramName = hexagram.name
@@ -237,8 +232,21 @@
                 divnode.id = "hexagram" + loop
                 divnode.style = "cursor: pointer;"
                 divnode.onclick = function() { show_hexagram(hexagramNumber); }
+                if (27 === hexagramCount) { hexagramCount = 0 }
+                if (0 === hexagramCount) {
+                    let trigram = get_trigram_data(trigramIndex)
+                    let divGroupnode = document.createElement("DIV")
+                    let textGroupnode = document.createTextNode(trigram.name)
+                    
+                    divGroupnode.id = trigram.name + "Group"
+                    divGroupnode.style = "text-align: right;"
+                    hexagramNode.appendChild(divGroupnode)
+                    divGroupnode.appendChild(textGroupnode)
+                    trigramIndex++
+                }
                 hexagramNode.appendChild(divnode)
                 divnode.appendChild(textnode)
+                hexagramCount++
             }
             show_trigram(0)
         }
