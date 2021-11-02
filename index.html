@@ -263,6 +263,7 @@
             let randomOverTimeMenuItem = document.getElementById("MenuBarRandomOverTime")
             let loShuMenuItem = document.getElementById("MenuBarLoShu")
             let octacrossAndTarotMenuItem = document.getElementById("MenuBarOctacrossAndTarot")
+            let gabbalahMenuItem = document.getElementById("MenuBarGabbalah")
             let listMenuItem = document.getElementById("MenuBarList")
             let docsMenuItem = document.getElementById("MenuBarDocs")
 
@@ -272,6 +273,8 @@
             else { loShuMenuItem.style.background = 'white' }
             if (2 === currentMenuItem) { octacrossAndTarotMenuItem.style.background = 'lightgrey' }
             else { octacrossAndTarotMenuItem.style.background = 'white' }
+            if (3 === currentMenuItem) { gabbalahMenuItem.style.background = 'lightgrey' }
+            else { gabbalahMenuItem.style.background = 'white' }
             if (4 === currentMenuItem) { listMenuItem.style.background = 'lightgrey' }
             else { listMenuItem.style.background = 'white' }
             if (5 === currentMenuItem) { docsMenuItem.style.background = 'lightgrey' }
@@ -281,6 +284,7 @@
             let randomContent = document.getElementById("RandomContent")
             let loShuContent = document.getElementById("LoShuContent")
             let octacrossContent = document.getElementById("OctacrossContent")
+            let gabbalahContent = document.getElementById("GabbalahContent")
             let listContent = document.getElementById("ListContent")
             let docsContent = document.getElementById("DocsContent")
 
@@ -290,6 +294,8 @@
             else { loShuContent.style.display = 'none' }
             if (2 === currentMenuItem) { octacrossContent.style.display = 'flex'; drawOctacross() }
             else { octacrossContent.style.display = 'none'; deleteOctacross() }
+            if (3 === currentMenuItem) { gabbalahContent.style.display = 'flex' }
+            else { gabbalahContent.style.display = 'none' }
             if (4 === currentMenuItem) { listContent.style.display = 'flex' }
             else { listContent.style.display = 'none' }
             if (5 === currentMenuItem) { docsContent.style.display = 'flex'; }
@@ -960,6 +966,7 @@
             <div id="MenuBarRandomOverTime" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(0)">Random Over Time</div>
             <div id="MenuBarLoShu" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(1)">Lo Shu</div>
             <div id="MenuBarOctacrossAndTarot" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(2)">Octacross And Tarot</div>
+            <div id="MenuBarGabbalah" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(3)">Gabbalah</div>
             <div id="MenuBarList" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(4)">List</div>
             <div id="MenuBarDocs" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(5)">Documentation</div>
         </div>
@@ -968,6 +975,8 @@
         <div id="LoShuContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
         </div>
         <div id="OctacrossContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+        </div>
+        <div id="GabbalahContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
         </div>
         <div id="DocsContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
         </div>
