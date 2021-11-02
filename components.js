@@ -1,4 +1,4 @@
-export class NamedDataRow extends HTMLElement {
+export class NamedDataRow {
     init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.name = document.createElement('div')
@@ -28,7 +28,7 @@ export class NamedDataColumn extends NamedDataRow {
     }
 }
 
-export class MeaningCommentSource extends HTMLElement {
+export class MeaningCommentSource {
     init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.meaning = new NamedDataRow(wrapper, idPrefix + "Meaning")
@@ -46,9 +46,7 @@ export class MeaningCommentSource extends HTMLElement {
     }
 }
 
-export class ColorColumn extends HTMLElement {
-    constructor() { super() }
-    
+export class ColorColumn {
     init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.color = document.createElement('div')
@@ -71,7 +69,7 @@ export class ColorColumn extends HTMLElement {
 }
 let colorColumn = new ColorColumn()
 
-export class ColorsRow extends HTMLElement {
+export class ColorsRow {
      init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.colorsName = document.createElement('div')
@@ -92,7 +90,7 @@ export class ColorsRow extends HTMLElement {
     }
 }
 
-export class TrigramAdditionalInfo extends HTMLElement {
+export class TrigramAdditionalInfo {
     init(parent, idPrefix) {
         this.wrapper = document.createElement('div')
         this.verb = new NamedDataRow(wrapper, idPrefix + "Verb")
