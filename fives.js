@@ -85,9 +85,9 @@ class FivesNamedDataRow extends HTMLElement {
         const wrapper = document.createElement('div')
         const name = document.createElement('div')
         const data = document.createElement('div')
-        wrapper.classList.add("NamedDataRow")
-        name.classList.add("NamedDataName")
-        data.classList.add("NamedDataData")
+        wrapper.setAttribute('class', 'NamedDataRow');
+        name.setAttribute('class', 'NamedDataName');
+        data.setAttribute('class', 'NamedDataData');
         shadow.appendChild(wrapper)
         wrapper.appendChild(name)
         wrapper.appendChild(data)
