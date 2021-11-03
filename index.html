@@ -23,6 +23,7 @@
         let currentHexagramSymbol = 0
         let currentMenuItem = 4
         let randomId = null
+        let paperObjects = []
         function get_symbol_data(symbol) {
             let data = glideData;
             for (let loop = 0; loop < data.symbols.length; loop++) {
@@ -101,6 +102,7 @@
             update_random_hexagram()
         }
         function drawIcosiheptagon() {
+            /*
             let paper = Raphael("IcosiheptagonPaper", 600, 600)
             let path = ""
             let x = 340
@@ -168,6 +170,7 @@
                     paperObjects.push(line)
                 }
             }
+            */
             // drawIcosiheptagonUnicursalHexagram()
         }
         /*
