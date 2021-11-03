@@ -36,7 +36,7 @@
         }
         function get_random_hexagram() {
             let hexagrams = glideData.hexagrams
-            let randomNumber = Math.floor(Math.random() * hexagrams.length) - 1
+            let randomNumber = Math.floor(Math.random() * hexagrams.length)
             return hexagrams[randomNumber]
         }
         function update_random_hexagram() {
