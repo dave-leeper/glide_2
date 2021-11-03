@@ -180,7 +180,6 @@
             let xArray = []
             let yArray = []
 
-            paperObjects = []
             for (let n = 0; n <= N; n += 1) {
                 // the angle (in radians) as an nth fraction of the whole circle
                 let angle = n / N * 2 * Math.PI
@@ -264,6 +263,7 @@
             return [x, y];
         }
         function deleteIcosiheptagon() {
+            if (!paperObjects) { return }
             for (let loop = 0; loop < paperObjects.length; loop++) {
                 paperObjects[loop].remove()
             }
