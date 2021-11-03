@@ -102,7 +102,6 @@
             update_random_hexagram()
         }
         function drawIcosiheptagon() {
-            /*
             let paper = Raphael("IcosiheptagonPaper", 600, 600)
             let path = ""
             let x = 340
@@ -170,10 +169,8 @@
                     paperObjects.push(line)
                 }
             }
-            */
-            // drawIcosiheptagonUnicursalHexagram()
+            drawIcosiheptagonUnicursalHexagram()
         }
-        /*
         function drawIcosiheptagonUnicursalHexagram() {
             let paper = Raphael("IcosiheptagonUnicuralHexagramPaper", 600, 600)
             let path = ""
@@ -266,7 +263,6 @@
             var y = center[1] + Math.sin(radians) * radius;
             return [x, y];
         }
-        */
         function deleteIcosiheptagon() {
             for (let loop = 0; loop < paperObjects.length; loop++) {
                 paperObjects[loop].remove()
