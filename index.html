@@ -198,8 +198,6 @@
             paperObjects.push(f)
             path = "M" + xArray[1] + "," + yArray[1]
             path += "L" + xArray[7] + "," + yArray[7]
-            path += "L" + xArray[16] + "," + yArray[16]
-            path += "L" + xArray[10] + "," + yArray[10]
             let g = paper.path(path)
             paperObjects.push(g)
             paperObjects.push(g.glow({ color: "blue" }))
