@@ -29,8 +29,7 @@
             return null
         }
         function get_random_hexagram() {
-            let data = iChingData;
-            let hexagrams = data.hexagrams
+            let hexagrams = symbols.hexagrams
             let randomNumber = Math.floor(Math.random() * hexagrams.length) - 1
             return hexagrams[randomNumber]
         }
