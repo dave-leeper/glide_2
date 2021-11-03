@@ -100,8 +100,8 @@
             randomRestartButton.style.display = "none"
             update_random_hexagram()
         }
-        function drawOctacross() {
-            let paper = Raphael("OctacrossPaper", 600, 600)
+        function drawIcosiheptagon() {
+            let paper = Raphael("IcosiheptagonPaper", 600, 600)
             let path = ""
             let x = 340
             let y = 300
@@ -169,7 +169,7 @@
                 }
             }
         }
-        function deleteOctacross() {
+        function deleteIcosiheptagon() {
             for (let loop = 0; loop < paperObjects.length; loop++) {
                 paperObjects[loop].remove()
             }
@@ -427,7 +427,7 @@
         function draw_content() {
             let randomContent = document.getElementById("RandomContent")
             let loShuContent = document.getElementById("LoShuContent")
-            let octacrossContent = document.getElementById("OctacrossContent")
+            let IcosiheptagonContent = document.getElementById("IcosiheptagonContent")
             let gabbalahContent = document.getElementById("GabbalahContent")
             let listContent = document.getElementById("ListContent")
             let docsContent = document.getElementById("DocsContent")
@@ -436,8 +436,8 @@
             else { randomContent.style.display = 'none' }
             if (1 === currentMenuItem) { loShuContent.style.display = 'flex'; set_lo_shu_element(currentLoShuElement); }
             else { loShuContent.style.display = 'none' }
-            if (2 === currentMenuItem) { octacrossContent.style.display = 'flex'; drawOctacross() }
-            else { octacrossContent.style.display = 'none'; deleteOctacross() }
+            if (2 === currentMenuItem) { IcosiheptagonContent.style.display = 'flex'; drawIcosiheptagon() }
+            else { IcosiheptagonContent.style.display = 'none'; deleteIcosiheptagon() }
             if (3 === currentMenuItem) { gabbalahContent.style.display = 'flex' }
             else { gabbalahContent.style.display = 'none' }
             if (4 === currentMenuItem) { listContent.style.display = 'flex' }
@@ -1114,7 +1114,7 @@
         <div id="MenuBarLoShu" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(1)">Lo
             Shu</div>
         <div id="MenuBarOctacrossAndTarot" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
-            onclick="set_menu(2)">Octacross And Tarot</div>
+            onclick="set_menu(2)">Icosiheptagon</div>
         <div id="MenuBarGabbalah" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
             onclick="set_menu(3)">Gabbalah</div>
         <div id="MenuBarList" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(4)">
@@ -1171,8 +1171,8 @@
     </div>
     <div id="LoShuContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
     </div>
-    <div id="OctacrossContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
-        <div id="OctacrossPaper"
+    <div id="IcosiheptagonContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+        <div id="IcosiheptagonPaper"
             style="position: absolute; left: 10px; top: 50px; width: 680px; height:600px; border: 1px solid black;">
         </div>
     </div>
