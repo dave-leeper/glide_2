@@ -27,6 +27,47 @@
             }
             return null
         }
+        function get_random_hexagram() {
+            let data = iChingData;
+            let hexagrams = data.hexagrams
+            let randomNumber = Math.floor(Math.random() * hexagrams.length) - 1
+            return hexagrams[randomNumber]
+        }
+        function update_random_hexagram() {
+            if (null === randomId) { 
+                random_hexagram()
+                randomId = setInterval(random_hexagram, 5000); 
+            }
+            function random_hexagram() {
+                let randomContent = document.getElementById("RandomContent")
+                let randomCanvas = document.getElementById("RandomCanvas")
+                let randomNumber = document.getElementById("RandomNumber")
+                let randomName = document.getElementById("RandomName")
+                let randomTrigram1Meaning = document.getElementById("RandomTrigram1Meaning")
+                let randomTrigram2Meaning = document.getElementById("RandomTrigram2Meaning")
+                let randomCommentary = document.getElementById("RandomCommentary")
+                let randomMeaning = document.getElementById("RandomMeaning")
+                let randomCommentSource = document.getElementById("RandomCommentSource")
+                let hexagram = get_random_hexagram()
+                let trigram1 = get_trigram(hexagram.trigram1)
+                let trigram2 = get_trigram(hexagram.trigram2)
+
+                randomNumber.innerText = hexagram.number + ". "
+                randomName.innerText = hexagram.name
+
+                randomMeaning.innerText = hexagram.meaning
+                if (hexagram.statement) {
+                    randomCommentary.innerText = hexagram.statement
+                    randomCommentSource.innerText = hexagram.statementSource
+                } else {
+                    randomCommentary.innerText = ""
+                    randomCommentSource.innerText = ""
+                }
+                randomTrigram1Meaning.innerText = trigram1.name + " (" + trigram1.meaning + ")"
+                randomTrigram2Meaning.innerText = trigram2.name + " (" + trigram2.meaning + ")"
+                draw_trigram(randomCanvas, trigram1.symbol + trigram2.symbol)
+            }
+        }
         function deleteOctacross() {
 
         }
@@ -971,6 +1012,39 @@
             <div id="MenuBarDocs" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(5)">Documentation</div>
         </div>
         <div id="RandomContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+            <div id="HexagramSymbol" style="display: flex; flex-direction: row;">
+                <div id="RandomCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
+                    <canvas id="RandomCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
+                </div>
+            </div>
+            <div id="RandomInfo" style="display: flex; flex-direction: column; width: 100%;">
+                <div id="RandomNumberRow" style="display: flex; flex-direction: row; width: 100%;">
+                    <div id="RandomNumber" style="font-size: 2em; padding: 0px 7px 0px 0px;"></div>
+                    <div id="RandomName" style="font-size: 2em; padding: 0px 4px 0px 0px;"></div>
+                </div>
+                <div id="RandomTrigramsMeaningColumn" style="display: flex; flex-direction: column;">
+                    <div id="RandomTrigram1MeaningRow" style="display: flex; flex-direction: row;">
+                        <div id="RandomTrigram1MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External Trigram Name And Meaning</div>
+                        <div id="RandomTrigram1Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    </div>
+                    <div id="RandomTrigram2MeaningRow" style="display: flex; flex-direction: row;">
+                        <div id="RandomTrigram2MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal Trigram Name And Meaning</div>
+                        <div id="RandomTrigram2Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    </div>
+                </div>
+                <div id="RandomMeaningRow" style="display: flex; flex-direction: row;">
+                    <div id="RandomMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Meaning</div>
+                    <div id="RandomMeaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="RandomCommentColumn" style="display: flex; flex-direction: column;  width: 70%; padding: 10px 0px 0px 0px;">
+                    <div id="RandomCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Comment</div>
+                    <div id="RandomCommentary" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    <div id="RandomCommentSourceRow" style="display: flex; flex-direction: row;">
+                        <div id="RandomCommentSourceTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Source</div>
+                        <div id="RandomCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="LoShuContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
         </div>
@@ -1072,7 +1146,7 @@
                             <div id="HexagramCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                         </div>
                     </div>
-            </div>
+                </div>
             </div>
         </div>
     </body>
