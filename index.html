@@ -168,6 +168,30 @@
                     paperObjects.push(line)
                 }
             }
+            paper.path(arc([100, 100], 80, 0, 270));  // draw an arc 
+                                                    // centered at (100, 100),
+                                                    // radius 80, starting at degree 0,
+                                                    // beginning at coordinate (80, 0)
+                                                    //   which is relative to the center
+                                                    //   of the circle,
+                                                    // going clockwise, until 270 degree
+        }
+        function arc(center, radius, startAngle, endAngle) {
+            angle = startAngle;
+            coords = toCoords(center, radius, angle);
+            path = "M " + coords[0] + " " + coords[1];
+            while(angle<=endAngle) {
+                coords = toCoords(center, radius, angle);
+                path += " L " + coords[0] + " " + coords[1];
+                angle += 1;
+            }
+            return path;
+        }
+        function toCoords(center, radius, angle) {
+            var radians = (angle/180) * Math.PI;
+            var x = center[0] + Math.cos(radians) * radius;
+            var y = center[1] + Math.sin(radians) * radius;
+            return [x, y];
         }
         function deleteIcosiheptagon() {
             for (let loop = 0; loop < paperObjects.length; loop++) {
