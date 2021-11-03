@@ -119,25 +119,25 @@
             let f = paper.path(path)
             paperObjects.push(f)
             path = "M" + xArray[0] + "," + yArray[0]
-            path += "L" + xArray[3] + "," + yArray[3]
-            path += "L" + xArray[6] + "," + yArray[6]
-            path += "L" + xArray[9] + "," + yArray[9]
-            path += "L" + xArray[12] + "," + yArray[12]
-            path += "L" + xArray[15] + "," + yArray[15]
-            path += "L" + xArray[2] + "," + yArray[2]
-            path += "L" + xArray[5] + "," + yArray[5]
             path += "L" + xArray[8] + "," + yArray[8]
-            path += "L" + xArray[11] + "," + yArray[11]
-            path += "L" + xArray[14] + "," + yArray[14]
-            path += "L" + xArray[1] + "," + yArray[1]
-            path += "L" + xArray[4] + "," + yArray[4]
-            path += "L" + xArray[7] + "," + yArray[7]
-            path += "L" + xArray[10] + "," + yArray[10]
+            path += "L" + xArray[16] + "," + yArray[16]
+            path += "L" + xArray[24] + "," + yArray[24]
+            path += "L" + xArray[5] + "," + yArray[5]
             path += "L" + xArray[13] + "," + yArray[13]
-            path += "L" + xArray[0] + "," + yArray[0]
+            path += "L" + xArray[21] + "," + yArray[21]
+            path += "L" + xArray[2] + "," + yArray[2]
+            path += "L" + xArray[10] + "," + yArray[10]
+            path += "L" + xArray[18] + "," + yArray[18]
+            path += "L" + xArray[26] + "," + yArray[26]
+            path += "L" + xArray[7] + "," + yArray[7]
+            path += "L" + xArray[15] + "," + yArray[15]
+            path += "L" + xArray[23] + "," + yArray[23]
+            path += "L" + xArray[4] + "," + yArray[4]
+            path += "L" + xArray[12] + "," + yArray[12]
+//            path += "L" + xArray[0] + "," + yArray[0]
             let g = paper.path(path)
- //           paperObjects.push(g)
- //           paperObjects.push(g.glow({color: "blue"}))
+            paperObjects.push(g)
+            paperObjects.push(g.glow({color: "blue"}))
 
             for (let loop1 = 0; loop1 < xArray.length; loop1++) {
                 for (let loop2 = 0; loop2 < xArray.length; loop2++) {
