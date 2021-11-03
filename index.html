@@ -165,7 +165,7 @@
                     path = "M" + xArray[loop1] + "," + yArray[loop1]
                     path += "L" + xArray[loop2] + "," + yArray[loop2]
                     let line = paper.path(path)
-                    if (13 === loop2 || 14 === loop2) { line.attr("stroke", "#FFFF00") }
+                    if (13 === loop1 || 14 === loop1) { line.attr("stroke", "#FFFF00") }
                     else { line.attr("stroke", "#000000") }
                     paperObjects.push(line)
                 }
