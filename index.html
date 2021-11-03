@@ -196,13 +196,12 @@
             }
             let f = paper.path(path)
             paperObjects.push(f)
-            paperObjects.push(f.glow({ color: "blue" }))
             path = "M" + xArray[1] + "," + yArray[1]
             path += "L" + xArray[7] + "," + yArray[7]
             path += "L" + xArray[22] + "," + yArray[22]
-            let f = paper.path(path)
-            paperObjects.push(f)
-            paperObjects.push(f.glow({ color: "blue" }))
+            let g = paper.path(path)
+            paperObjects.push(g)
+            paperObjects.push(g.glow({ color: "blue" }))
             paper.path(arc([100, 100], 80, 0, 270));  // draw an arc 
                                                     // centered at (100, 100),
                                                     // radius 80, starting at degree 0,
