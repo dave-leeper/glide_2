@@ -176,7 +176,7 @@
             let path = ""
             let x = 340
             let y = 300
-            let N = 27
+            let N = 18
             let side = 240
             let xArray = []
             let yArray = []
@@ -196,10 +196,13 @@
             }
             let f = paper.path(path)
             paperObjects.push(f)
-            path = "M" + xArray[22] + "," + yArray[22]
+            path = "M" + xArray[0] + "," + yArray[0]
+            path += "L" + xArray[6] + "," + yArray[6]
+            path += "L" + xArray[15] + "," + yArray[15]
+            path += "L" + xArray[9] + "," + yArray[9]
             path += "L" + xArray[3] + "," + yArray[3]
-            path += "M" + xArray[22] + "," + yArray[22]
-            path += "L" + xArray[14] + "," + yArray[14]
+            path += "L" + xArray[12] + "," + yArray[12]
+            path += "L" + xArray[0] + "," + yArray[0]
             let g = paper.path(path)
             paperObjects.push(g)
             paperObjects.push(g.glow({ color: "blue" }))
