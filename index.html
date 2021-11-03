@@ -21,6 +21,12 @@
             }
             return null
         }
+        function get_trigram(trigram) {
+            let trigrams = glideData.trigrams
+            for (let loop = 0; loop < trigrams.length; loop++) {
+                if (trigram === trigrams[loop].symbol) { return trigrams[loop] }
+            }
+        }
         function get_trigram_data(number) {
             let data = glideData;
             for (let loop = 0; loop < data.trigrams.length; loop++) {
