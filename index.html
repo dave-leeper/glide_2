@@ -213,7 +213,7 @@
             path += "L" + xArray[4] + "," + yArray[4]
             path += "L" + xArray[13] + "," + yArray[13]
             path += "L" + xArray[1] + "," + yArray[1]
-            let g = paper.path(path)
+            g = paper.path(path)
             paperObjects.push(g)
             paperObjects.push(g.glow({ color: "yellow" }))
             paper.path(arc([100, 100], 80, 0, 270));  // draw an arc 
