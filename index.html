@@ -3,12 +3,20 @@
     https://namespaceit.com/blog/remote-support-for-password-authentication-was-removed-on-august-13-2021-please-use-a-personal-access-token-instead
 -->
 <html>
-  <head>
+
+<head>
     <title>Glide 2.0</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
     <style>
-        columns {display: flex; flex-direction: column;}
-        rows {display: flex; flex-direction: row;}
+        columns {
+            display: flex;
+            flex-direction: column;
+        }
+
+        rows {
+            display: flex;
+            flex-direction: row;
+        }
     </style>
     <script>
         let currentTrigramSymbol = 0
@@ -41,9 +49,9 @@
             return hexagrams[randomNumber]
         }
         function update_random_hexagram() {
-            if (null === randomId) { 
+            if (null === randomId) {
                 random_hexagram()
-                randomId = setInterval(random_hexagram, 5000); 
+                randomId = setInterval(random_hexagram, 5000);
             }
             function random_hexagram() {
                 let randomContent = document.getElementById("RandomContent")
@@ -76,7 +84,7 @@
             }
         }
         function pauseRandom() {
-            if (null !== randomId) { 
+            if (null !== randomId) {
                 let randomPauseButton = document.getElementById("RandomPauseButton")
                 let randomRestartButton = document.getElementById("RandomRestartButton")
                 randomPauseButton.style.display = "none"
@@ -149,7 +157,7 @@
             path += "L" + xArray[0] + "," + yArray[0]
             let g = paper.path(path)
             paperObjects.push(g)
-            paperObjects.push(g.glow({color: "blue"}))
+            paperObjects.push(g.glow({ color: "blue" }))
 
             for (let loop1 = 0; loop1 < xArray.length; loop1++) {
                 for (let loop2 = 0; loop2 < xArray.length; loop2++) {
@@ -157,7 +165,8 @@
                     path = "M" + xArray[loop1] + "," + yArray[loop1]
                     path += "L" + xArray[loop2] + "," + yArray[loop2]
                     let line = paper.path(path)
-                    line.attr ("stroke", "#0000FF");
+                    if (13 === loop2 || 14 === loop2) { line.attr("stroke", "#FFFF00") }
+                    else { line.attr("stroke", "#000000") }
                     paperObjects.push(line)
                 }
             }
@@ -201,13 +210,13 @@
             const radius = 50
 
             context.beginPath()
-            if (symbol === "◠")  { 
+            if (symbol === "◠") {
                 context.arc(50, currentYLocation, radius, 0 * 0.0174533, 180 * 0.0174533, true)
             }
-            else if (symbol === "◡")  { 
+            else if (symbol === "◡") {
                 context.arc(50, currentYLocation, radius, 0 * 0.0174533, 180 * 0.0174533, false)
             }
-            else if (symbol === "ᔐ")  { 
+            else if (symbol === "ᔐ") {
                 context.arc(25, currentYLocation, radius / 2, 0 * 0.0174533, 180 * 0.0174533, true)
                 context.stroke()
                 context.beginPath()
@@ -221,7 +230,7 @@
             const context = canvas.getContext('2d')
 
             canvas.width = 100
-            canvas.height = (symbols.length === 3)? 150 : 300
+            canvas.height = (symbols.length === 3) ? 150 : 300
             context.strokeStyle = 'black'
             context.lineWidth = 3
             context.lineCap = 'round'
@@ -229,9 +238,9 @@
                 let symbol = symbols[loop]
                 let symbolData = get_symbol_data(symbol)
                 if (!previousSymbol) { currentYLocation = symbolData.topDistance }
-                else if (previousSymbol === "◠")  { currentYLocation += symbolData.previousHeavenDistance }
-                else if (previousSymbol === "◡")  { currentYLocation += symbolData.previousEarthDistance }
-                else if (previousSymbol === "ᔐ")  { currentYLocation += symbolData.previousManDistance }
+                else if (previousSymbol === "◠") { currentYLocation += symbolData.previousHeavenDistance }
+                else if (previousSymbol === "◡") { currentYLocation += symbolData.previousEarthDistance }
+                else if (previousSymbol === "ᔐ") { currentYLocation += symbolData.previousManDistance }
                 previousSymbol = symbol
                 draw_symbol(context, symbol, currentYLocation)
             }
@@ -356,7 +365,7 @@
                 let textnode = document.createTextNode(trigramNumber + '. ' + trigramName)
                 divnode.id = "trigram" + loop
                 divnode.style = "cursor: pointer;"
-                divnode.onclick = function() { show_trigram(trigramNumber); }
+                divnode.onclick = function () { show_trigram(trigramNumber); }
                 trigramNode.appendChild(divnode)
                 divnode.appendChild(textnode)
             }
@@ -371,13 +380,13 @@
                 let textnode = document.createTextNode(hexagramNumber + '. ' + hexagramName)
                 divnode.id = "hexagram" + loop
                 divnode.style = "cursor: pointer;"
-                divnode.onclick = function() { show_hexagram(hexagramNumber); }
+                divnode.onclick = function () { show_hexagram(hexagramNumber); }
                 if (27 === hexagramCount) { hexagramCount = 0 }
                 if (0 === hexagramCount) {
                     let trigram = get_trigram_data(trigramIndex)
                     let divGroupnode = document.createElement("DIV")
                     let textGroupnode = document.createTextNode(trigram.name)
-                    
+
                     divGroupnode.id = trigram.name + "Group"
                     divGroupnode.style = "text-align: right;"
                     hexagramNode.appendChild(divGroupnode)
@@ -427,7 +436,7 @@
 
             if (0 === currentMenuItem) { randomContent.style.display = 'flex'; update_random_hexagram() }
             else { randomContent.style.display = 'none' }
-            if (1 === currentMenuItem) { loShuContent.style.display = 'flex';  set_lo_shu_element(currentLoShuElement); }
+            if (1 === currentMenuItem) { loShuContent.style.display = 'flex'; set_lo_shu_element(currentLoShuElement); }
             else { loShuContent.style.display = 'none' }
             if (2 === currentMenuItem) { octacrossContent.style.display = 'flex'; drawOctacross() }
             else { octacrossContent.style.display = 'none'; deleteOctacross() }
@@ -440,813 +449,862 @@
         }
 
         var glideData = {
-            "symbols" : [
-            {
-                    "symbol" : "◠",
-                    "name" : "Spirit",
-                    "topDistance" : 50,
-                    "previousHeavenDistance" : 10,
-                    "previousEarthDistance" : 100,
-                    "previousManDistance" : 75
+            "symbols": [
+                {
+                    "symbol": "◠",
+                    "name": "Spirit",
+                    "topDistance": 50,
+                    "previousHeavenDistance": 10,
+                    "previousEarthDistance": 100,
+                    "previousManDistance": 75
                 },
                 {
-                    "symbol" : "◡",
-                    "name" : "Vitality",
-                    "topDistance" : 0,
-                    "previousHeavenDistance" : 0,
-                    "previousEarthDistance" : 10,
-                    "previousManDistance" : 0
+                    "symbol": "◡",
+                    "name": "Vitality",
+                    "topDistance": 0,
+                    "previousHeavenDistance": 0,
+                    "previousEarthDistance": 10,
+                    "previousManDistance": 0
                 },
                 {
-                    "symbol" : "ᔐ",
-                    "name" : "Energy",
-                    "topDistance" : 25,
-                    "previousHeavenDistance" : 0,
-                    "previousEarthDistance" : 75,
-                    "previousManDistance" : 10
+                    "symbol": "ᔐ",
+                    "name": "Energy",
+                    "topDistance": 25,
+                    "previousHeavenDistance": 0,
+                    "previousEarthDistance": 75,
+                    "previousManDistance": 10
                 }
             ],
-            "trigrams" : [
-            {
-                    "number" : 0,
-                    "symbol" : "◠ᔐ◡",
-                    "name" : "Dao",
+            "trigrams": [
+                {
+                    "number": 0,
+                    "symbol": "◠ᔐ◡",
+                    "name": "Dao",
                     "meaning": "That which causes change.",
-                    "statement" : "The Dao is basically utterly open. Utter openness has no substance. It ends in endlessness, begins in beginninglessness.",
-                    "statementSource" : "The Book of Balance and Harmony, Chapter II",
+                    "statement": "The Dao is basically utterly open. Utter openness has no substance. It ends in endlessness, begins in beginninglessness.",
+                    "statementSource": "The Book of Balance and Harmony, Chapter II",
                     "verb": "Change",
-                    "letter" : "None",
-                    "shape" : "Circle",
-                    "color" : ["#FFFFFF", "#000000"],
-                    "colorName" : ["White", "Black"],
-                    "stone" : "Diamond (Hardest), Talc (Softest)",
-                    "wuXing" : "None"
+                    "letter": "None",
+                    "shape": "Circle",
+                    "color": ["#FFFFFF", "#000000"],
+                    "colorName": ["White", "Black"],
+                    "stone": "Diamond (Hardest), Talc (Softest)",
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 1,
-                    "symbol" : "◠◠◠",
-                    "name" : "Spirit",
+                    "number": 1,
+                    "symbol": "◠◠◠",
+                    "name": "Spirit",
                     "meaning": "Radiance.",
-                    "statement" : "In humans, it is the spirit, the light in the eyes, thought in the mind.",
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "statement": "In humans, it is the spirit, the light in the eyes, thought in the mind.",
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
                     "verb": "Am",
-                    "letter" : "A",
-                    "shape" : "Triangle, Upper Point",
-                    "color" : ["#FF0000", "#E34234"],
-                    "colorName" : ["Red", "Vermilion"],
-                    "shape" : "Wu Xing Pentagram, Upper Right Point",
-                    "wuXing" : "Fire"
+                    "letter": "A",
+                    "shape": "Triangle, Upper Point",
+                    "color": ["#FF0000", "#E34234"],
+                    "colorName": ["Red", "Vermilion"],
+                    "shape": "Wu Xing Pentagram, Upper Right Point",
+                    "wuXing": "Fire"
                 },
                 {
-                    "number" : 2,
-                    "symbol" : "ᔐᔐᔐ",
-                    "name" : "Energy",
+                    "number": 2,
+                    "symbol": "ᔐᔐᔐ",
+                    "name": "Energy",
                     "meaning": "Energy.",
-                    "statement" : "In humans it is energy, physical movement, activity, speech, and perception; it is the use of the body, the gateway of death and life.",
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "statement": "In humans it is energy, physical movement, activity, speech, and perception; it is the use of the body, the gateway of death and life.",
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
                     "verb": "Shall Be",
-                    "letter" : "B",
-                    "shape" : "",
-                    "color" : ["#03F9FF", "#00C0FF"],
-                    "colorName" : ["Aqua", "Capri"],
-                    "wuXing" : "None"
+                    "letter": "B",
+                    "shape": "",
+                    "color": ["#03F9FF", "#00C0FF"],
+                    "colorName": ["Aqua", "Capri"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 3,
-                    "symbol" : "◡◡◡",
-                    "name" : "Vitality",
+                    "number": 3,
+                    "symbol": "◡◡◡",
+                    "name": "Vitality",
                     "meaning": "Primal Energy.",
-                    "statement" : "Vitality is the basis of the body.",
-                    "statementSource" : "The Book of Balance and Harmony. Explanation of the three fives",
+                    "statement": "Vitality is the basis of the body.",
+                    "statementSource": "The Book of Balance and Harmony. Explanation of the three fives",
                     "verb": "Was",
-                    "letter" : "C",
-                    "shape" : "Wu Xing Pentagram, Upper Left Point",
-                    "color" : ["#0000FF", "#808080"],
-                    "colorName" : ["Blue", "Grey"],
+                    "letter": "C",
+                    "shape": "Wu Xing Pentagram, Upper Left Point",
+                    "color": ["#0000FF", "#808080"],
+                    "colorName": ["Blue", "Grey"],
 
-                    "wuXing" : "Water"
+                    "wuXing": "Water"
                 },
                 {
-                    "number" : 4,
-                    "symbol" : "◡◠ᔐ",
-                    "name" : "Sense",
+                    "number": 4,
+                    "symbol": "◡◠ᔐ",
+                    "name": "Sense",
                     "meaning": "Collecting information via the five senses.",
-                    "statement" : "Vitality and sense relate to the body.",
-                    "statementSource" : "The Book of Balance and Harmony. Explanation of the three fives",
+                    "statement": "Vitality and sense relate to the body.",
+                    "statementSource": "The Book of Balance and Harmony. Explanation of the three fives",
                     "verb": "Sense",
-                    "letter" : "D",
-                    "shape" : "Wu Xing Pentagram, Lower Left Point",
-                    "color" : ["#FFFFFF", "#C0C0C0"],
-                    "colorName" : ["White", "Silver"],
-                    "wuXing" : "Metal"
+                    "letter": "D",
+                    "shape": "Wu Xing Pentagram, Lower Left Point",
+                    "color": ["#FFFFFF", "#C0C0C0"],
+                    "colorName": ["White", "Silver"],
+                    "wuXing": "Metal"
                 },
                 {
-                    "number" : 5,
-                    "symbol" : "ᔐ◡◠",
-                    "name" : "Essence",
+                    "number": 5,
+                    "symbol": "ᔐ◡◠",
+                    "name": "Essence",
                     "meaning": "Awareness.",
-                    "statement" : "Essence and spirit relate to the mind.",
-                    "statementSource" : "The Book of Balance and Harmony. Explanation of the three fives",
+                    "statement": "Essence and spirit relate to the mind.",
+                    "statementSource": "The Book of Balance and Harmony. Explanation of the three fives",
                     "verb": "Realize",
-                    "letter" : "E",
-                    "shape" : "Wu Xing Pentagram, Upper Point",
-                    "color" : ["#00FF00", "#00FFFF"],
-                    "colorName" : ["Green", "Cyan"],
-                    "wuXing" : "Wood"
+                    "letter": "E",
+                    "shape": "Wu Xing Pentagram, Upper Point",
+                    "color": ["#00FF00", "#00FFFF"],
+                    "colorName": ["Green", "Cyan"],
+                    "wuXing": "Wood"
                 },
                 {
-                    "number" : 6,
-                    "symbol" : "◡ᔐ◠",
-                    "name" : "Will",
+                    "number": 6,
+                    "symbol": "◡ᔐ◠",
+                    "name": "Will",
                     "meaning": "Will.",
-                    "statement" : "Will is the director of the five forces; it has no partner.",
-                    "statementSource" : "The Book of Balance and Harmony. Explanation of the three fives",
+                    "statement": "Will is the director of the five forces; it has no partner.",
+                    "statementSource": "The Book of Balance and Harmony. Explanation of the three fives",
                     "verb": "Will",
-                    "letter" : "F",
-                    "shape" : "Wu Xing Pentagram, Lower Right Point",
-                    "color" : ["#FFFF00", "#FFD700"],
-                    "colorName" : ["Yellow", "Gold"],
-                    "wuXing" : "Earth"
+                    "letter": "F",
+                    "shape": "Wu Xing Pentagram, Lower Right Point",
+                    "color": ["#FFFF00", "#FFD700"],
+                    "colorName": ["Yellow", "Gold"],
+                    "wuXing": "Earth"
                 },
                 {
-                    "number" : 7,
-                    "symbol" : "ᔐ◠◡",
-                    "name" : "Wu Wei",
+                    "number": 7,
+                    "symbol": "ᔐ◠◡",
+                    "name": "Wu Wei",
                     "meaning": "Doing nondoing.",
-                    "statement" : "Do nondoing, strive for nonstriving.",
-                    "statementSource" : "Lao-tzu, Dao De Jing, Chapter 63",
+                    "statement": "Do nondoing, strive for nonstriving.",
+                    "statementSource": "Lao-tzu, Dao De Jing, Chapter 63",
                     "verb": "Flow",
-                    "letter" : "G",
-                    "shape" : "",
-                    "color" : ["#DAF4FA", "#FAFAFA"],
-                    "colorName" : ["Water", "Lotion"],
-                    "wuXing" : "None"
+                    "letter": "G",
+                    "shape": "",
+                    "color": ["#DAF4FA", "#FAFAFA"],
+                    "colorName": ["Water", "Lotion"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 8,
-                    "symbol" : "◠◡ᔐ",
-                    "name" : "Uncarved Block",
+                    "number": 8,
+                    "symbol": "◠◡ᔐ",
+                    "name": "Uncarved Block",
                     "meaning": "Simplicity.",
-                    "statement" : "Simple as uncarved wood, open as the valleys.",
-                    "statementSource" : "Lao-tzu, Dao De Jing, Chapter 15",
+                    "statement": "Simple as uncarved wood, open as the valleys.",
+                    "statementSource": "Lao-tzu, Dao De Jing, Chapter 15",
                     "verb": "Simplify",
-                    "letter" : "H",
-                    "shape" : "",
-                    "color" : ["#A46157", "#DEB88C"],
-                    "colorName" : ["Redwood", "Burlywood"],
-                    "wuXing" : "None"
+                    "letter": "H",
+                    "shape": "",
+                    "color": ["#A46157", "#DEB88C"],
+                    "colorName": ["Redwood", "Burlywood"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 9,
-                    "symbol" : "◠◠ᔐ",
-                    "name" : "Spirit Above Energy",
+                    "number": 9,
+                    "symbol": "◠◠ᔐ",
+                    "name": "Spirit Above Energy",
                     "meaning": "Master.",
-                    "statement" : "Good people are teachers of people who are not good.",
-                    "statementSource" : "Lao-tzu, Dao De Jing, Chapter 17",
+                    "statement": "Good people are teachers of people who are not good.",
+                    "statementSource": "Lao-tzu, Dao De Jing, Chapter 17",
                     "verb": "Teach",
-                    "letter" : "I",
-                    "shape" : "Above Hexagram, Top Point",
-                    "color" : ["#F9DEC9", "#8CA2C9"],
-                    "colorName" : ["Unbleached Silk", "Ceil"],
-                    "wuXing" : "None"
+                    "letter": "I",
+                    "shape": "Above Hexagram, Top Point",
+                    "color": ["#F9DEC9", "#8CA2C9"],
+                    "colorName": ["Unbleached Silk", "Ceil"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 10,
-                    "symbol" : "ᔐᔐ◠",
-                    "name" : "Energy Above Spirit",
+                    "number": 10,
+                    "symbol": "ᔐᔐ◠",
+                    "name": "Energy Above Spirit",
                     "meaning": "Student.",
-                    "statement" : "People who are not good are students of people who are good.",
-                    "statementSource" : "Lao-tzu, Dao De Jing, Chapter 17",
+                    "statement": "People who are not good are students of people who are good.",
+                    "statementSource": "Lao-tzu, Dao De Jing, Chapter 17",
                     "verb": "Study",
-                    "letter" : "J",
-                    "shape" : "Above Hexagram, Lower Right Point",
-                    "color" : ["#EE4B0F","#07458E"],
-                    "colorName" : ["Orioles Orange", "Midnight Blue"],
-                    "wuXing" : "None"
+                    "letter": "J",
+                    "shape": "Above Hexagram, Lower Right Point",
+                    "color": ["#EE4B0F", "#07458E"],
+                    "colorName": ["Orioles Orange", "Midnight Blue"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 11,
-                    "symbol" : "◠◠◡",
-                    "name" : "Spirit Above Vitality",
+                    "number": 11,
+                    "symbol": "◠◠◡",
+                    "name": "Spirit Above Vitality",
                     "meaning": "Experience.",
-                    "statement" : "The Great Way is like a level road. If you do not proceed to traverse the level road by way of true consciousness, you will fall into sidetracks.",
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "statement": "The Great Way is like a level road. If you do not proceed to traverse the level road by way of true consciousness, you will fall into sidetracks.",
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
                     "verb": "Experience",
-                    "letter" : "K",
-                    "shape" : "Above Hexagram, Upper Left Point",
-                    "color" : ["#AAE8FC", "#E8F5DF"],
-                    "colorName" : ["Fresh Air", "Nyanza"],
-                    "wuXing" : "None"
+                    "letter": "K",
+                    "shape": "Above Hexagram, Upper Left Point",
+                    "color": ["#AAE8FC", "#E8F5DF"],
+                    "colorName": ["Fresh Air", "Nyanza"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 12,
-                    "symbol" : "◡◡◠",
-                    "name" : "Vitality Above Spirit",
+                    "number": 12,
+                    "symbol": "◡◡◠",
+                    "name": "Vitality Above Spirit",
                     "meaning": "Confusion",
-                    "statement" : "When people get mixed up in any of the countless cults, even if they are admonished they can rarely wake up, and even if there is true guidance they do not follow it.",
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "statement": "When people get mixed up in any of the countless cults, even if they are admonished they can rarely wake up, and even if there is true guidance they do not follow it.",
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
                     "verb": "Confuse.",
-                    "letter" : "L",
-                    "shape" : "Above Hexagram, Bottom Point",
-                    "color" : ["#C54F6B", "#5AC5A9"],
-                    "colorName" : ["Popstar", "Medium Aquamarine"],
-                    "wuXing" : "None"
+                    "letter": "L",
+                    "shape": "Above Hexagram, Bottom Point",
+                    "color": ["#C54F6B", "#5AC5A9"],
+                    "colorName": ["Popstar", "Medium Aquamarine"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 13,
-                    "symbol" : "ᔐᔐ◡",
-                    "name" : "Energy Above Vitality",
+                    "number": 13,
+                    "symbol": "ᔐᔐ◡",
+                    "name": "Energy Above Vitality",
                     "meaning": "Routine.",
-                    "statement" : "For learning you gain daily; for the Way you lose daily.",
-                    "statementSource" : "Lao-tzu, Dao De Jing, Chapter 48",
+                    "statement": "For learning you gain daily; for the Way you lose daily.",
+                    "statementSource": "Lao-tzu, Dao De Jing, Chapter 48",
                     "verb": "Routinize",
-                    "letter" : "M",
-                    "shape" : "Above Hexagram, Upper Right Point",
-                    "color" : ["#D7B73F", "#EBE8BA"],
-                    "colorName" : ["Old Gold", "Pale Spring Bud"],
-                    "wuXing" : "None"
+                    "letter": "M",
+                    "shape": "Above Hexagram, Upper Right Point",
+                    "color": ["#D7B73F", "#EBE8BA"],
+                    "colorName": ["Old Gold", "Pale Spring Bud"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 14,
-                    "symbol" : "◡◡ᔐ",
-                    "name" : "Vitality Above Energy",
+                    "number": 14,
+                    "symbol": "◡◡ᔐ",
+                    "name": "Vitality Above Energy",
                     "meaning": "Dreams.",
-                    "statement" : "He didn't know whether Chou had dreamed he was a butterfly, or if a butterfly were dreaming it was Chou.",
-                    "statementSource" : "Chuang-tzu, Chapter 2",
+                    "statement": "He didn't know whether Chou had dreamed he was a butterfly, or if a butterfly were dreaming it was Chou.",
+                    "statementSource": "Chuang-tzu, Chapter 2",
                     "verb": "Dream",
-                    "letter" : "N",
-                    "shape" : "Above Hexagram, Lower Left Point",
-                    "color" : ["#C5CEF3", "#CDAED4"],
-                    "colorName" : ["Soap", "Pink Lavender"],
-                    "wuXing" : "None"
+                    "letter": "N",
+                    "shape": "Above Hexagram, Lower Left Point",
+                    "color": ["#C5CEF3", "#CDAED4"],
+                    "colorName": ["Soap", "Pink Lavender"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 15,
-                    "symbol" : "ᔐ◠ᔐ",
-                    "name" : "Spirit in Energy",
+                    "number": 15,
+                    "symbol": "ᔐ◠ᔐ",
+                    "name": "Spirit in Energy",
                     "meaning": "Combat.",
-                    "statement" : "A kung fu man lives without being dependant on the opinions of others, and a master, unlike the beginner, holds himself in reserve. He is quiet and unassuming, with no desire to show off.",
-                    "statementSource" : "Bruce Lee",
+                    "statement": "A kung fu man lives without being dependant on the opinions of others, and a master, unlike the beginner, holds himself in reserve. He is quiet and unassuming, with no desire to show off.",
+                    "statementSource": "Bruce Lee",
                     "verb": "Fight",
-                    "letter" : "O",
-                    "shape" : "In Hexagram, Top Point",
-                    "color" : ["#91967F", "#BAB79F"],
-                    "colorName" : ["Artichoke", "Laurel Green"],
-                    "wuXing" : "None"
+                    "letter": "O",
+                    "shape": "In Hexagram, Top Point",
+                    "color": ["#91967F", "#BAB79F"],
+                    "colorName": ["Artichoke", "Laurel Green"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 16,
-                    "symbol" : "◠ᔐ◠",
-                    "name" : "Energy in Spirit",
+                    "number": 16,
+                    "symbol": "◠ᔐ◠",
+                    "name": "Energy in Spirit",
                     "meaning": "Contemplation.",
-                    "statement" : "When the function of the eyes is inside, the mind remains inside along with it.",
-                    "statementSource" : "Taoist Meditation, Anthology of Cultivation of Realization",
+                    "statement": "When the function of the eyes is inside, the mind remains inside along with it.",
+                    "statementSource": "Taoist Meditation, Anthology of Cultivation of Realization",
                     "verb": "Contemplate",
-                    "letter" : "P",
-                    "shape" : "In Hexagram, Lower Right Point",
-                    "color" : ["#FFF2DE", "#DBEEE1"],
-                    "colorName" : ["Cornsilk", "Chinese White"],
-                    "wuXing" : "None"
+                    "letter": "P",
+                    "shape": "In Hexagram, Lower Right Point",
+                    "color": ["#FFF2DE", "#DBEEE1"],
+                    "colorName": ["Cornsilk", "Chinese White"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 17,
-                    "symbol" : "◡◠◡",
-                    "name" : "Spirit in Vitality",
+                    "number": 17,
+                    "symbol": "◡◠◡",
+                    "name": "Spirit in Vitality",
                     "meaning": "Intuition.",
-                    "statement" : "They saw without using their eyes, heard without using their ears.",
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "statement": "They saw without using their eyes, heard without using their ears.",
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
                     "verb": "Intuit",
-                    "letter" : "Q",
-                    "shape" : "In Hexagram, Upper Left Point",
-                    "color" : ["#D94A39", "#EF7E63"],
-                    "colorName" : ["Cinnabar", "Coral Reef"],
-                    "wuXing" : "None"
+                    "letter": "Q",
+                    "shape": "In Hexagram, Upper Left Point",
+                    "color": ["#D94A39", "#EF7E63"],
+                    "colorName": ["Cinnabar", "Coral Reef"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 18,
-                    "symbol" : "◠◡◠",
-                    "name" : "Vitality in Spirit",
+                    "number": 18,
+                    "symbol": "◠◡◠",
+                    "name": "Vitality in Spirit",
                     "meaning": "Judgement.",
-                    "statement" : "Superior people observe things in terms of principle - right or wrong, good or bad, they deal with them accordingly.",
-                    "statementSource" : "Taoist Meditation, Anthology of Cultivation of Realization",
+                    "statement": "Superior people observe things in terms of principle - right or wrong, good or bad, they deal with them accordingly.",
+                    "statementSource": "Taoist Meditation, Anthology of Cultivation of Realization",
                     "verb": "Judge",
-                    "letter" : "R",
-                    "shape" : "In Hexagram, Bottom Point",
-                    "color" : ["#C8BAAA", "#88858B"],
-                    "colorName" : ["Dark Vanilla", "Taupe Gray"],
-                    "wuXing" : "None"
+                    "letter": "R",
+                    "shape": "In Hexagram, Bottom Point",
+                    "color": ["#C8BAAA", "#88858B"],
+                    "colorName": ["Dark Vanilla", "Taupe Gray"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 19,
-                    "symbol" : "◡ᔐ◡",
-                    "name" : "Energy in Vitality",
+                    "number": 19,
+                    "symbol": "◡ᔐ◡",
+                    "name": "Energy in Vitality",
                     "meaning": "Preservation.",
-                    "statement" : "Nurtue the spirit, be sparing with energy,\nAs though holding a full bowl.",
-                    "statementSource" : "Immortal Sisters, Poetry of Female Real People, Sun Bu-Er",
+                    "statement": "Nurtue the spirit, be sparing with energy,\nAs though holding a full bowl.",
+                    "statementSource": "Immortal Sisters, Poetry of Female Real People, Sun Bu-Er",
                     "verb": "Preserve",
-                    "letter" : "S",
-                    "shape" : "In Hexagram, Upper Right Point",
-                    "color" : ["#819569", "#01493D"],
-                    "colorName" : ["Moss Green", "Blue-Green"],
-                    "wuXing" : "None"
+                    "letter": "S",
+                    "shape": "In Hexagram, Upper Right Point",
+                    "color": ["#819569", "#01493D"],
+                    "colorName": ["Moss Green", "Blue-Green"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 20,
-                    "symbol" : "ᔐ◡ᔐ",
-                    "name" : "Vitality in Energy",
+                    "number": 20,
+                    "symbol": "ᔐ◡ᔐ",
+                    "name": "Vitality in Energy",
                     "meaning": "Empathy.",
-                    "statement" : "You need companions to travel to the Isle of Immortals - it is hard to climb the azure cliffs alone.",
-                    "statementSource" : "Immortal Sisters, Poetry of Female Real People, Sun Bu-Er",
+                    "statement": "You need companions to travel to the Isle of Immortals - it is hard to climb the azure cliffs alone.",
+                    "statementSource": "Immortal Sisters, Poetry of Female Real People, Sun Bu-Er",
                     "verb": "Care",
-                    "letter" : "T",
-                    "shape" : "In Hexagram, Lower Left Point",
-                    "color" : ["#F6F7D4", "#C7E8B5"],
-                    "colorName" : ["Light Goldenrod Yellow", "Tea Green"],
-                    "wuXing" : "None"
+                    "letter": "T",
+                    "shape": "In Hexagram, Lower Left Point",
+                    "color": ["#F6F7D4", "#C7E8B5"],
+                    "colorName": ["Light Goldenrod Yellow", "Tea Green"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 21,
-                    "symbol" : "ᔐᔐ◠",
-                    "name" : "Spirit Below Energy",
+                    "number": 21,
+                    "symbol": "ᔐᔐ◠",
+                    "name": "Spirit Below Energy",
                     "meaning": "Anger.",
-                    "statement" : "When you are angery, energy rises.",
-                    "statementSource" : "Taoist Meditation, Anthology of Cultivation of Realization",
+                    "statement": "When you are angery, energy rises.",
+                    "statementSource": "Taoist Meditation, Anthology of Cultivation of Realization",
                     "verb": "Anger",
-                    "letter" : "U",
-                    "shape" : "Below Hexagram, Top Point",
-                    "color" : ["#660001", "#E20000"],
-                    "colorName" : ["Blood Red", "Electric Red"],
-                    "wuXing" : "None"
+                    "letter": "U",
+                    "shape": "Below Hexagram, Top Point",
+                    "color": ["#660001", "#E20000"],
+                    "colorName": ["Blood Red", "Electric Red"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 22,
-                    "symbol" : "◠ᔐᔐ",
-                    "name" : "Energy Below Spirit",
+                    "number": 22,
+                    "symbol": "◠ᔐᔐ",
+                    "name": "Energy Below Spirit",
                     "meaning": "Peace.",
-                    "statement" : "A proverb says that sages accomplish the ultimate human attainment based on calmness. The ultimate attainment is great balance as a human being.",
-                    "statementSource" : "Taoist Meditation, Anthology of Cultivation of Realization",
+                    "statement": "A proverb says that sages accomplish the ultimate human attainment based on calmness. The ultimate attainment is great balance as a human being.",
+                    "statementSource": "Taoist Meditation, Anthology of Cultivation of Realization",
                     "verb": "Pacify",
-                    "letter" : "V",
-                    "shape" : "Below Hexagram, Lower Right Point",
-                    "color" : ["#ACF5E1", "#4A8BCE"],
-                    "colorName" : ["Pale Aquamarine", "Celestial Blue"],
-                    "wuXing" : "None"
+                    "letter": "V",
+                    "shape": "Below Hexagram, Lower Right Point",
+                    "color": ["#ACF5E1", "#4A8BCE"],
+                    "colorName": ["Pale Aquamarine", "Celestial Blue"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 23,
-                    "symbol" : "◡◠◠",
-                    "name" : "Spirit Below Vitality",
+                    "number": 23,
+                    "symbol": "◡◠◠",
+                    "name": "Spirit Below Vitality",
                     "meaning": "Lust.",
-                    "statement" : "When people are emotionally attached to objects, objects play with people.",
-                    "statementSource" : "Taoist Meditation, Anthology of Cultivation of Realization",
+                    "statement": "When people are emotionally attached to objects, objects play with people.",
+                    "statementSource": "Taoist Meditation, Anthology of Cultivation of Realization",
                     "verb": "Lust",
-                    "letter" : "W",
-                    "shape" : "Below Hexagram, Upper Left Point",
-                    "color" : ["#EE2D1F", "#522C72"],
-                    "colorName" : ["Lust", "Regalia"],
-                    "wuXing" : "None"
+                    "letter": "W",
+                    "shape": "Below Hexagram, Upper Left Point",
+                    "color": ["#EE2D1F", "#522C72"],
+                    "colorName": ["Lust", "Regalia"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 24,
-                    "symbol" : "◠◡◡",
-                    "name" : "Vitality Below Spirit",
+                    "number": 24,
+                    "symbol": "◠◡◡",
+                    "name": "Vitality Below Spirit",
                     "meaning": "Intelligence.",
-                    "statement" : "When thinking and learning are both employed, what path cannot be attained?",
-                    "statementSource" : "Taoist Meditation, Anthology of Cultivation of Realization",
+                    "statement": "When thinking and learning are both employed, what path cannot be attained?",
+                    "statementSource": "Taoist Meditation, Anthology of Cultivation of Realization",
                     "verb": "Think",
-                    "letter" : "X",
-                    "shape" : "Below Hexagram, Bottom Point",
-                    "color" : ["#00A9E2", "#EAEBF0"],
-                    "colorName" : ["Vivid Cerulean", "Bright Gray"],
-                    "wuXing" : "None"
+                    "letter": "X",
+                    "shape": "Below Hexagram, Bottom Point",
+                    "color": ["#00A9E2", "#EAEBF0"],
+                    "colorName": ["Vivid Cerulean", "Bright Gray"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 25,
-                    "symbol" : "◡ᔐᔐ",
-                    "name" : "Energy Below Vitality",
+                    "number": 25,
+                    "symbol": "◡ᔐᔐ",
+                    "name": "Energy Below Vitality",
                     "meaning": "Exhaustion.",
-                    "statement" : "Energy is not to be drained casually; forget words and keep centered and energy is not drained.",
-                    "statementSource" : "Taoist Meditation, Anthology of Cultivation of Realization",
+                    "statement": "Energy is not to be drained casually; forget words and keep centered and energy is not drained.",
+                    "statementSource": "Taoist Meditation, Anthology of Cultivation of Realization",
                     "verb": "Exhaust",
-                    "letter" : "Y",
-                    "shape" : "Below Hexagram, Lower Left Point",
-                    "color" : ["#E3D8CE", "#BBA786"],
-                    "colorName" : ["Bone", "Ecru"],
-                    "wuXing" : "None"
+                    "letter": "Y",
+                    "shape": "Below Hexagram, Lower Left Point",
+                    "color": ["#E3D8CE", "#BBA786"],
+                    "colorName": ["Bone", "Ecru"],
+                    "wuXing": "None"
                 },
                 {
-                    "number" : 26,
-                    "symbol" : "ᔐ◡◡",
-                    "name" : "Vitality Below Energy",
+                    "number": 26,
+                    "symbol": "ᔐ◡◡",
+                    "name": "Vitality Below Energy",
                     "meaning": "Enthusiastic.",
-                    "statement" : "Blindly following another practitioner's method when you don't understand the rationale will dilute the power and effect of the sigil you intend to craft. What gives a sigil its potency is you, and therefore every step of craft must be meaningful to you.",
-                    "statementSource" : "Benebell Wen, The Tao of Craft, Appendix H, Beginner Sigil Charging Ritual",
+                    "statement": "Blindly following another practitioner's method when you don't understand the rationale will dilute the power and effect of the sigil you intend to craft. What gives a sigil its potency is you, and therefore every step of craft must be meaningful to you.",
+                    "statementSource": "Benebell Wen, The Tao of Craft, Appendix H, Beginner Sigil Charging Ritual",
                     "verb": "Enthuse",
-                    "letter" : "Z",
-                    "shape" : "Below Hexagram, Upper Right Point",
-                    "color" : ["#FFE4EB", "#FBF5F7"],
-                    "colorName" : ["Piggy Pink", "Cultured"],
-                    "wuXing" : "None"
+                    "letter": "Z",
+                    "shape": "Below Hexagram, Upper Right Point",
+                    "color": ["#FFE4EB", "#FBF5F7"],
+                    "colorName": ["Piggy Pink", "Cultured"],
+                    "wuXing": "None"
                 }
             ],
-            "hexagrams" : [
-            {
-                    "number" : 0, 
+            "hexagrams": [
+                {
+                    "number": 0,
                     "name": "The Great Way",
-                    "meaning" : "The Great Way.",
-                    "statement" : "If we see the universe and emulate its purity, this is not different from the Great Way.",
-                    "statementSource" : "Taoist Meditation, Anthology of Cultivation of Realization",
-                    "trigram1" : 0, 
-                    "trigram2" : 0
+                    "meaning": "The Great Way.",
+                    "statement": "If we see the universe and emulate its purity, this is not different from the Great Way.",
+                    "statementSource": "Taoist Meditation, Anthology of Cultivation of Realization",
+                    "trigram1": 0,
+                    "trigram2": 0
                 },
                 {
-                    "number" : 1, 
+                    "number": 1,
                     "name": "Enlightenment",
-                    "meaning" : "Natural knowledge.",
-                    "statement" : "Those who know others are wise; those who know themselves are enlightened.",
-                    "statementSource" : "Lao-tzu, Dao De Jing, Chapter 33",
-                    "trigram1" : 0, 
-                    "trigram2" : 1
+                    "meaning": "Natural knowledge.",
+                    "statement": "Those who know others are wise; those who know themselves are enlightened.",
+                    "statementSource": "Lao-tzu, Dao De Jing, Chapter 33",
+                    "trigram1": 0,
+                    "trigram2": 1
                 },
                 {
-                    "number" : 2, 
+                    "number": 2,
                     "name": "Mysterious Pass",
-                    "meaning" : "Calming the body's energy.",
-                    "statement" : "This requires freedom from craving, clear openness and serenity, not acting impulsively. The energy is to be placed in the mysterious pass, where it is brought to be nurtured and calmed.",
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
-                    "trigram1" : 0, 
-                    "trigram2" : 2
+                    "meaning": "Calming the body's energy.",
+                    "statement": "This requires freedom from craving, clear openness and serenity, not acting impulsively. The energy is to be placed in the mysterious pass, where it is brought to be nurtured and calmed.",
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "trigram1": 0,
+                    "trigram2": 2
                 },
                 {
-                    "number" : 3, 
+                    "number": 3,
                     "name": "Isle of the Immortals",
-                    "meaning" : "Immortality.",
-                    "statement" : "At the right time, just out of the valley,\nYou rise lightly into the spiritual firmament.\nThe jade girl rides a blue phoenix,\nThe gold boy offers a scarlet peach.\nOne strums a brocade lute amidst the flowers,\nOne plays jewel pipes under the moon.\nOne day immortal and mortal are seperated,\nAnd you cooly cross the ocean.",
-                    "statementSource" : "Immortal Sisters, Sun Bu-er",
-                    "trigram1" : 0, 
-                    "trigram2" : 3
+                    "meaning": "Immortality.",
+                    "statement": "At the right time, just out of the valley,\nYou rise lightly into the spiritual firmament.\nThe jade girl rides a blue phoenix,\nThe gold boy offers a scarlet peach.\nOne strums a brocade lute amidst the flowers,\nOne plays jewel pipes under the moon.\nOne day immortal and mortal are seperated,\nAnd you cooly cross the ocean.",
+                    "statementSource": "Immortal Sisters, Sun Bu-er",
+                    "trigram1": 0,
+                    "trigram2": 3
                 },
                 {
-                    "number" : 4, 
+                    "number": 4,
                     "name": "Reification",
-                    "meaning" : "Illusion.",
-                    "statement" : "Those obstructed by reification cling to their partial principle; while they act in illusory situations, deal with illusory affairs, and see illusory persons, they take them all to actually exist.",
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
-                    "trigram1" : 0, 
-                    "trigram2" : 4
+                    "meaning": "Illusion.",
+                    "statement": "Those obstructed by reification cling to their partial principle; while they act in illusory situations, deal with illusory affairs, and see illusory persons, they take them all to actually exist.",
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "trigram1": 0,
+                    "trigram2": 4
                 },
                 {
-                    "number" : 5, 
+                    "number": 5,
                     "name": "Beginningless",
-                    "meaning" : "Beginningless.",
-                    "statement" : "This essence is rooted in the beginningless, espied in the absolute, and becomes fragmented in the temporal.",
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
-                    "trigram1" : 0, 
-                    "trigram2" : 5
+                    "meaning": "Beginningless.",
+                    "statement": "This essence is rooted in the beginningless, espied in the absolute, and becomes fragmented in the temporal.",
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "trigram1": 0,
+                    "trigram2": 5
                 },
                 {
-                    "number" : 6, 
+                    "number": 6,
                     "name": "Deliberation",
-                    "meaning" : "Choosing from many possibilities.",
-                    "statement" : "If something can and should be done, it will not do to excuse yourself - shirkers achieve nothing. Something that cannot be done should not be forced - doing things by force brings failure.",
-                    "statementSource" : "Taoist Meditation, Anthology of Cultivation of Realization",
-                    "trigram1" : 0,
-                    "trigram2" : 6
+                    "meaning": "Choosing from many possibilities.",
+                    "statement": "If something can and should be done, it will not do to excuse yourself - shirkers achieve nothing. Something that cannot be done should not be forced - doing things by force brings failure.",
+                    "statementSource": "Taoist Meditation, Anthology of Cultivation of Realization",
+                    "trigram1": 0,
+                    "trigram2": 6
                 },
                 {
-                    "number" : 7, 
+                    "number": 7,
                     "name": "Spontaneity",
-                    "meaning" : "Spontaneity.",
-                    "statement" : "Serenely accord with spontaneity; don't act willfully, or you'll lose the fundemental.",
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
-                    "trigram1" : 0, 
-                    "trigram2" : 7
+                    "meaning": "Spontaneity.",
+                    "statement": "Serenely accord with spontaneity; don't act willfully, or you'll lose the fundemental.",
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "trigram1": 0,
+                    "trigram2": 7
                 },
                 {
-                    "number" : 8, 
+                    "number": 8,
                     "name": "Uncontrived",
-                    "meaning" : "Uncontrived.",
-                    "statement" : "Nature should be clear as water,\nMind should be as still as a mountain.",
-                    "statementSource" : "Immortal Sisters, Sun Bu-er",
-                    "trigram1" : 0, 
-                    "trigram2" : 8
+                    "meaning": "Uncontrived.",
+                    "statement": "Nature should be clear as water,\nMind should be as still as a mountain.",
+                    "statementSource": "Immortal Sisters, Sun Bu-er",
+                    "trigram1": 0,
+                    "trigram2": 8
                 },
                 {
-                    "number" : 9, 
+                    "number": 9,
                     "name": "Explanation",
-                    "meaning" : "Explanation.",
-                    "statement" : "Now there is a saying about this, but I don't know if it's in the same category or not. If being in the same category and not being in the same category are considered as being in the same category with each other, then there is no difference. In any case, let me try to say it.\n\nThere is a beginning, there is never beginning to have a beginning. There is existence, there is nonexistence. There is never beginning the existence of nonexistence, there is never beginning never beginning the existence of nonexistence. Suddenly there are existence and nonexistence, but we don't know if existence or nonexistence actually exist or not.\n\nNow I have said something, but I don't know if what I have said says anything or not.",
-                    "statementSource" : "Chuang-tzu, Chapter 2",
-                    "trigram1" : 0, 
-                    "trigram2" : 9
+                    "meaning": "Explanation.",
+                    "statement": "Now there is a saying about this, but I don't know if it's in the same category or not. If being in the same category and not being in the same category are considered as being in the same category with each other, then there is no difference. In any case, let me try to say it.\n\nThere is a beginning, there is never beginning to have a beginning. There is existence, there is nonexistence. There is never beginning the existence of nonexistence, there is never beginning never beginning the existence of nonexistence. Suddenly there are existence and nonexistence, but we don't know if existence or nonexistence actually exist or not.\n\nNow I have said something, but I don't know if what I have said says anything or not.",
+                    "statementSource": "Chuang-tzu, Chapter 2",
+                    "trigram1": 0,
+                    "trigram2": 9
                 },
                 {
-                    "number" : 10, 
+                    "number": 10,
                     "name": "Breathing",
-                    "meaning" : "Breathing.",
-                    "statement" : "On the whole, beginners suffer from two kinds of problems: oblivion and distraction. There is a device to get rid of them, which is simply to rest the mind on the breath.",
-                    "statementSource" : "The Secret of the Golden Flower, Chapter IV, Turning the Light Around and Tuning the Breathing",
-                    "trigram1" : 0,
-                    "trigram2" : 10
+                    "meaning": "Breathing.",
+                    "statement": "On the whole, beginners suffer from two kinds of problems: oblivion and distraction. There is a device to get rid of them, which is simply to rest the mind on the breath.",
+                    "statementSource": "The Secret of the Golden Flower, Chapter IV, Turning the Light Around and Tuning the Breathing",
+                    "trigram1": 0,
+                    "trigram2": 10
                 },
                 {
-                    "number" : 11, 
+                    "number": 11,
                     "name": "Golden Efflorescence",
-                    "meaning" : "Positive harmony.",
-                    "statement" : "When there is uninterrupted continuity in quiet, the spirit and feelings are joyful and happy, as if one were intoxicated, or in a bath. This is called positive harmony pervading the body, its golden efflorescence suddenly blooming.",
-                    "statementSource" : "The Secret of the Golden Flower, Chapter VI, Authenticating Experiences of Turning the Light Around",
-                    "trigram1" : 0, 
-                    "trigram2" : 11
+                    "meaning": "Positive harmony.",
+                    "statement": "When there is uninterrupted continuity in quiet, the spirit and feelings are joyful and happy, as if one were intoxicated, or in a bath. This is called positive harmony pervading the body, its golden efflorescence suddenly blooming.",
+                    "statementSource": "The Secret of the Golden Flower, Chapter VI, Authenticating Experiences of Turning the Light Around",
+                    "trigram1": 0,
+                    "trigram2": 11
                 },
                 {
-                    "number" : 12, 
+                    "number": 12,
                     "name": "Master Becoming the Servant",
-                    "meaning" : "Following random thoughts. Bad influences. Addiction.",
-                    "statement" : "Once you have gone into quietude and all sorts of loose ends come to you for no apparent reason, you find you cannot turn them away if you want to, and you even feel comfortable going along with them. This is called the master becoming the servent.",
-                    "statementSource" : "The Secret of the Golden Flower, Chapter V, Errors in Turning the Light Around",
-                    "trigram1" : 0, 
-                    "trigram2" : 12
+                    "meaning": "Following random thoughts. Bad influences. Addiction.",
+                    "statement": "Once you have gone into quietude and all sorts of loose ends come to you for no apparent reason, you find you cannot turn them away if you want to, and you even feel comfortable going along with them. This is called the master becoming the servent.",
+                    "statementSource": "The Secret of the Golden Flower, Chapter V, Errors in Turning the Light Around",
+                    "trigram1": 0,
+                    "trigram2": 12
                 },
                 {
-                    "number" : 13, 
+                    "number": 13,
                     "name": "Building the Foundation",
-                    "meaning" : "Building the Foundation.",
-                    "statement" : "Turn it around for a hundred days, and the vital energy will naturally be sufficient for true yang to rise spontaneously, so that there is true fire naturally existing in water.",
-                    "statementSource" : "The Secret of the Golden Flower, Chapter IX, Setting Up the Foundation in a Hundred Days",
-                    "trigram1" : 0, 
-                    "trigram2" : 13
+                    "meaning": "Building the Foundation.",
+                    "statement": "Turn it around for a hundred days, and the vital energy will naturally be sufficient for true yang to rise spontaneously, so that there is true fire naturally existing in water.",
+                    "statementSource": "The Secret of the Golden Flower, Chapter IX, Setting Up the Foundation in a Hundred Days",
+                    "trigram1": 0,
+                    "trigram2": 13
                 },
                 {
-                    "number" : 14, 
+                    "number": 14,
                     "name": "Sleep",
-                    "meaning" : "Sleep.",
-                    "statement" : "In sleep, the soul communes; on waking, the body acts out. Mutual contact creates a pull, day by day struggling with the mind, slowly, deeply, insidiously.",
-                    "statementSource" : "Chuang-tzu, Chapter 2",
-                    "trigram1" : 0, 
-                    "trigram2" : 14
+                    "meaning": "Sleep.",
+                    "statement": "In sleep, the soul communes; on waking, the body acts out. Mutual contact creates a pull, day by day struggling with the mind, slowly, deeply, insidiously.",
+                    "statementSource": "Chuang-tzu, Chapter 2",
+                    "trigram1": 0,
+                    "trigram2": 14
                 },
                 {
-                    "number" : 15, 
+                    "number": 15,
                     "name": "War",
-                    "meaning" : "War.",
-                    "statement" : "When humans radiate killing potential, heaven and earth overturn.",
-                    "statementSource" : "Vitality, Energy, Spirit. Liu I-ming, Commentary on the Classic of Yin Convergence",
-                    "trigram1" : 0, 
-                    "trigram2" : 15
-                 },
+                    "meaning": "War.",
+                    "statement": "When humans radiate killing potential, heaven and earth overturn.",
+                    "statementSource": "Vitality, Energy, Spirit. Liu I-ming, Commentary on the Classic of Yin Convergence",
+                    "trigram1": 0,
+                    "trigram2": 15
+                },
                 {
-                    "number" : 16, 
+                    "number": 16,
                     "name": "The Celestial Mind",
-                    "meaning" : "The Celestial Mind.",
-                    "statement" : "Naturalness is called the Way. The Way has no name or form; it's just the essence, just the primal spirit.",
-                    "statementSource" : "The Secret of the Golden Flower, Chapter I, The Celestial Mind",
-                    "trigram1" : 0, 
-                    "trigram2" : 16
+                    "meaning": "The Celestial Mind.",
+                    "statement": "Naturalness is called the Way. The Way has no name or form; it's just the essence, just the primal spirit.",
+                    "statementSource": "The Secret of the Golden Flower, Chapter I, The Celestial Mind",
+                    "trigram1": 0,
+                    "trigram2": 16
                 },
                 {
-                    "number" : 17, 
+                    "number": 17,
                     "name": "True Seeing",
-                    "meaning" : "True Seeing.",
-                    "statement" : "True seeing is the foresight of the wise, the perspicacity of the able, finding out what calamity or fortune may come, understanding whether action or stllness is auspicious or inauspicious.",
-                    "statementSource" : "Taoist Meditation, Treatise on Sitting Forgetting",
-                    "trigram1" : 0, 
-                    "trigram2" : 17
+                    "meaning": "True Seeing.",
+                    "statement": "True seeing is the foresight of the wise, the perspicacity of the able, finding out what calamity or fortune may come, understanding whether action or stllness is auspicious or inauspicious.",
+                    "statementSource": "Taoist Meditation, Treatise on Sitting Forgetting",
+                    "trigram1": 0,
+                    "trigram2": 17
                 },
                 {
-                    "number" : 18, 
+                    "number": 18,
                     "name": "Uncompromising",
-                    "meaning" : "Uncompromising.",
-                    "statement" : "There are people who clearly distinguish between duty and gain, and have no selfishness, whom others consider too conservative, but I consider uncompromising.",
-                    "statementSource" : "Vitality, Energy, Spirit. Chang San-feng, On Human Character",
-                    "trigram1" : 0, 
-                    "trigram2" : 18
+                    "meaning": "Uncompromising.",
+                    "statement": "There are people who clearly distinguish between duty and gain, and have no selfishness, whom others consider too conservative, but I consider uncompromising.",
+                    "statementSource": "Vitality, Energy, Spirit. Chang San-feng, On Human Character",
+                    "trigram1": 0,
+                    "trigram2": 18
                 },
                 {
-                    "number" : 19, 
+                    "number": 19,
                     "name": "Turn the Waterwheel",
-                    "meaning" : "Turn the Waterwheel.",
-                    "statement" : "Where the source of essence is clear,\nThe foundation of life is firm;\nTurn the waterwheel nine times,\nAnd the nine cauldron's complete.\nThe gold tiger and jade dragon\nMeet together and join;\nThe three flowers offer forth\nA little spirit immortal.",
-                    "statementSource" : "Immortal Sisters, Poetry of Female Real People, Cui Shaoxuan",
-                    "trigram1" : 0, 
-                    "trigram2" : 19
+                    "meaning": "Turn the Waterwheel.",
+                    "statement": "Where the source of essence is clear,\nThe foundation of life is firm;\nTurn the waterwheel nine times,\nAnd the nine cauldron's complete.\nThe gold tiger and jade dragon\nMeet together and join;\nThe three flowers offer forth\nA little spirit immortal.",
+                    "statementSource": "Immortal Sisters, Poetry of Female Real People, Cui Shaoxuan",
+                    "trigram1": 0,
+                    "trigram2": 19
                 },
                 {
-                    "number" : 20, 
+                    "number": 20,
                     "name": "Entering the Dao",
-                    "meaning" : "Sincerity",
-                    "statement" : 'When you reach complete sincerity, the Dao is not far off. Therefore a classic says "Before practicing the way of immortality, first practice the way of humanity." What does practicing the way of humanity mean? The Dao is fundamentally empty, yet fills the universe. People should embody the Dao in action, making the extent of their minds reach everywhere and encompass everything, so that all living creatures are embraced within the mind of the individual.',
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
-                    "trigram1" : 0, 
-                    "trigram2" : 20
+                    "meaning": "Sincerity",
+                    "statement": 'When you reach complete sincerity, the Dao is not far off. Therefore a classic says "Before practicing the way of immortality, first practice the way of humanity." What does practicing the way of humanity mean? The Dao is fundamentally empty, yet fills the universe. People should embody the Dao in action, making the extent of their minds reach everywhere and encompass everything, so that all living creatures are embraced within the mind of the individual.',
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "trigram1": 0,
+                    "trigram2": 20
                 },
                 {
-                    "number" : 21, 
+                    "number": 21,
                     "name": "Killing",
-                    "meaning" : "Killing.",
-                    "statement" : "Now in order to kill the enemy, our men must be roused to anger; that there may be advantage from defeating the enemy, they must have their rewards.",
-                    "statementSource" : "Sun Tzu, The Art of War, Chapter II, Waging War",
-                    "trigram1" : 0, 
-                    "trigram2" : 21
+                    "meaning": "Killing.",
+                    "statement": "Now in order to kill the enemy, our men must be roused to anger; that there may be advantage from defeating the enemy, they must have their rewards.",
+                    "statementSource": "Sun Tzu, The Art of War, Chapter II, Waging War",
+                    "trigram1": 0,
+                    "trigram2": 21
                 },
                 {
-                    "number" : 22, 
+                    "number": 22,
                     "name": "Forget",
-                    "meaning" : "Forgetting.",
-                    "statement" : "Externally, if you forget fame and profit, your body will be at peace. Inwardly, if you forget cognition and rumination, your mind will be at peace.",
-                    "statementSource" : "Taoist Meditation, Anthology of Cultivation of Realization",
-                    "trigram1" : 0, 
-                    "trigram2" : 22
+                    "meaning": "Forgetting.",
+                    "statement": "Externally, if you forget fame and profit, your body will be at peace. Inwardly, if you forget cognition and rumination, your mind will be at peace.",
+                    "statementSource": "Taoist Meditation, Anthology of Cultivation of Realization",
+                    "trigram1": 0,
+                    "trigram2": 22
                 },
                 {
-                    "number" : 23, 
+                    "number": 23,
                     "name": "Craving",
-                    "meaning" : "Craving.",
-                    "statement" : "But the seed of all emotion is craving. Why is this? Because craving is at the root of emotions. If you don't crave anything, you don't want anything; if you don't want anything, how can you be attracted to anything? If you are not attracted to anything, you are not repulsed by anything; if you have neither attraction nor repulsion, what anger can there be? When there is no anger, fear does not occur; without fear, sadness disappears.",
-                    "statementSource" : "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
-                    "trigram1" : 0, 
-                    "trigram2" : 23
+                    "meaning": "Craving.",
+                    "statement": "But the seed of all emotion is craving. Why is this? Because craving is at the root of emotions. If you don't crave anything, you don't want anything; if you don't want anything, how can you be attracted to anything? If you are not attracted to anything, you are not repulsed by anything; if you have neither attraction nor repulsion, what anger can there be? When there is no anger, fear does not occur; without fear, sadness disappears.",
+                    "statementSource": "Vitality, Energy, Spirit. Ancestor Lü, Sayings",
+                    "trigram1": 0,
+                    "trigram2": 23
                 },
                 {
-                    "number" : 24, 
+                    "number": 24,
                     "name": "Awakened",
-                    "meaning" : "Awakened.",
-                    "statement" : "There are people who concentrate on purity and do not know scriptures or ceremonies, whom others consider ignorant, but I consider awakened.",
-                    "statementSource" : "Vitality, Energy, Spirit. Chang San-feng, On Human Character",
-                    "trigram1" : 0, 
-                    "trigram2" : 24
+                    "meaning": "Awakened.",
+                    "statement": "There are people who concentrate on purity and do not know scriptures or ceremonies, whom others consider ignorant, but I consider awakened.",
+                    "statementSource": "Vitality, Energy, Spirit. Chang San-feng, On Human Character",
+                    "trigram1": 0,
+                    "trigram2": 24
                 },
                 {
-                    "number" : 25, 
+                    "number": 25,
                     "name": "Exploitation",
-                    "meaning" : "Exploitation.",
-                    "statement" : "Yet the kings take away one part of that food, and the aristocrats take away another part. Soldiers and officers take away one part, and wars take away yet another. Artisans take a part, merchants take a part, Daoist and Buddhist clergy take a part.\n\nWhen the harvest is good they take a part, and they take a part in lean years too. This is why the people are wearing burlap when the silk making has just finished, and people are already living on chestnuts when the harvest has just finished.",
-                    "statementSource" : "Vitality, Energy, Spirit. Extracts From Contemplative Literature, Transformational Writings",
-                    "trigram1" : 0, 
-                    "trigram2" : 25
+                    "meaning": "Exploitation.",
+                    "statement": "Yet the kings take away one part of that food, and the aristocrats take away another part. Soldiers and officers take away one part, and wars take away yet another. Artisans take a part, merchants take a part, Daoist and Buddhist clergy take a part.\n\nWhen the harvest is good they take a part, and they take a part in lean years too. This is why the people are wearing burlap when the silk making has just finished, and people are already living on chestnuts when the harvest has just finished.",
+                    "statementSource": "Vitality, Energy, Spirit. Extracts From Contemplative Literature, Transformational Writings",
+                    "trigram1": 0,
+                    "trigram2": 25
                 },
                 {
-                    "number" : 26, 
+                    "number": 26,
                     "name": "Celebration",
-                    "meaning" : "Celebration.",
-                    "statement" : "We magically produce\nMillions of bodies,\nEternally celebrating mystic virtues\nForever inexhaustable.",
-                    "statementSource" : "Immortal Sisters, Sun Bu-Er",
-                    "trigram1" : 0, 
-                    "trigram2" : 26
-                }       
-           ]
+                    "meaning": "Celebration.",
+                    "statement": "We magically produce\nMillions of bodies,\nEternally celebrating mystic virtues\nForever inexhaustable.",
+                    "statementSource": "Immortal Sisters, Sun Bu-Er",
+                    "trigram1": 0,
+                    "trigram2": 26
+                }
+            ]
         }
         // Wonolo
-        </script>  
-    </head>
-    <body onload="build_symbol_index()" style="font-family: 'Arial Narrow', Arial, sans-serif;">
-        <div id="MenuBar" style="display: flex; flex-direction: row; gap: 20px; width: 100%; height: 25px; border-bottom: 3px solid black;">
-            <div id="MenuBarRandomOverTime" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(0)">Random Over Time</div>
-            <div id="MenuBarLoShu" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(1)">Lo Shu</div>
-            <div id="MenuBarOctacrossAndTarot" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(2)">Octacross And Tarot</div>
-            <div id="MenuBarGabbalah" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(3)">Gabbalah</div>
-            <div id="MenuBarList" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(4)">List</div>
-            <div id="MenuBarDocs" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(5)">Documentation</div>
-        </div>
-        <div id="RandomContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
-            <div id="HexagramSymbol" style="display: flex; flex-direction: row;">
-                <div id="RandomCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
-                    <canvas id="RandomCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
-                </div>
-            </div>
-            <div id="RandomInfo" style="display: flex; flex-direction: column; width: 100%;">
-                <div id="RandomNumberRow" style="display: flex; flex-direction: row; width: 100%;">
-                    <div id="RandomNumber" style="font-size: 2em; padding: 0px 7px 0px 0px;"></div>
-                    <div id="RandomName" style="font-size: 2em; padding: 0px 4px 0px 0px;"></div>
-                </div>
-                <div id="RandomTrigramsMeaningColumn" style="display: flex; flex-direction: column;">
-                    <div id="RandomTrigram1MeaningRow" style="display: flex; flex-direction: row;">
-                        <div id="RandomTrigram1MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External Trigram Name And Meaning</div>
-                        <div id="RandomTrigram1Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                    </div>
-                    <div id="RandomTrigram2MeaningRow" style="display: flex; flex-direction: row;">
-                        <div id="RandomTrigram2MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal Trigram Name And Meaning</div>
-                        <div id="RandomTrigram2Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                    </div>
-                </div>
-                <div id="RandomMeaningRow" style="display: flex; flex-direction: row;">
-                    <div id="RandomMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Meaning</div>
-                    <div id="RandomMeaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                </div>
-                <div id="RandomCommentColumn" style="display: flex; flex-direction: column;  width: 70%; padding: 10px 0px 0px 0px;">
-                    <div id="RandomCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Comment</div>
-                    <div id="RandomCommentary" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                    <div id="RandomCommentSourceRow" style="display: flex; flex-direction: row;">
-                        <div id="RandomCommentSourceTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Source</div>
-                        <div id="RandomCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                    </div>
-                </div>
-                <button id="RandomPauseButton" type="button" style="display: block; width: 30px; margin: 10px 0px 0px 0px;" onclick="pauseRandom()">⏸</button>
-                <button id="RandomRestartButton" type="button" style="display: none; width: 30px; margin: 10px 0px 0px 0px;" onclick="restartRandom()">⏩</button>
+    </script>
+</head>
+
+<body onload="build_symbol_index()" style="font-family: 'Arial Narrow', Arial, sans-serif;">
+    <div id="MenuBar"
+        style="display: flex; flex-direction: row; gap: 20px; width: 100%; height: 25px; border-bottom: 3px solid black;">
+        <div id="MenuBarRandomOverTime" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
+            onclick="set_menu(0)">Random Over Time</div>
+        <div id="MenuBarLoShu" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(1)">Lo
+            Shu</div>
+        <div id="MenuBarOctacrossAndTarot" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
+            onclick="set_menu(2)">Octacross And Tarot</div>
+        <div id="MenuBarGabbalah" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
+            onclick="set_menu(3)">Gabbalah</div>
+        <div id="MenuBarList" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(4)">
+            List</div>
+        <div id="MenuBarDocs" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(5)">
+            Documentation</div>
+    </div>
+    <div id="RandomContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+        <div id="HexagramSymbol" style="display: flex; flex-direction: row;">
+            <div id="RandomCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
+                <canvas id="RandomCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
             </div>
         </div>
-        <div id="LoShuContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
-        </div>
-        <div id="OctacrossContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
-            <div id="OctacrossPaper" style="position: absolute; left: 10px; top: 50px; width: 680px; height:600px; border: 1px solid black;"></div>
-        </div>
-        <div id="GabbalahContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
-        </div>
-        <div id="DocsContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
-            <canvas id="GlideLogoCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
-            <div style="display: flex; flex-direction: column; width: 100%; height: 100%; padding: 0px 0px 0px 5px;">
-                <div>The original version of the Glide Oracle was developed by Diana Slattery. It was modeled after the I Ching using symbols made from a deconstucted yin and yang symbol. Slatter refered to these symbols as a languange. It was claimed the symbols were recieved from aliens. The interpretation of the symbols' meaning seemed to be based off of a stream of consciousness impression made by each symbol.</div>
-                <div style="margin: 10px 0px 0px 0px;">Version 2.0 reinterpretes the symbols based on Daoism, which is where the yin and yang symbol is from. This reinterpretation consists of basing the 27 possible trigrams on existing Daoist principles. These 27 trigrams are then combined to form 729 hexagrams. The meanings of these hexagrams are built from the meanings of the two trigrams they contain. The top trigram represents external influences, while the bottom trigram represents internal influences.</div>
+        <div id="RandomInfo" style="display: flex; flex-direction: column; width: 100%;">
+            <div id="RandomNumberRow" style="display: flex; flex-direction: row; width: 100%;">
+                <div id="RandomNumber" style="font-size: 2em; padding: 0px 7px 0px 0px;"></div>
+                <div id="RandomName" style="font-size: 2em; padding: 0px 4px 0px 0px;"></div>
             </div>
-        </div>
-        <div id="ListContent" style="display: flex; flex-direction: row; width: 100%; height: 100%;">
-            <div id="SymbolIndexes" style="display: flex; flex-direction: column; width: 230px; height: 100%; position: fixed; top: 37px; bottom: 0; overflow-y: auto; padding: 0px 5px 0px 0px;"></div>
-            <div id="TrigramDiv" style="display: flex; flex-direction: column; width: 100%; position: fixed; top: 37px; left: 250px;"">
-                <div id="TrigramSymbol" style="display: flex; flex-direction: row;">
-                    <div id="TrigramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
-                        <canvas id="TrigramCanvas" style="width: 100px; height: 150px; border-style: solid;"></canvas>
-                    </div>
-                    <div id="TrigramInfo" style="display: flex; flex-direction: column; width: 100%;">
-                        <div id="TrigramNumberRow" style="display: flex; flex-direction: row; gap: 7px; font-size: 2em; font-weight: bold;">
-                            <div id="TrigramNumber"></div>
-                            <div id="TrigramName"></div>
-                        </div>
-                        <div id="TrigramMeaningRow" style="display: flex; flex-direction: row;">
-                            <div id="TrigramMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 5px 5px 0px 0px;">Meaning</div>
-                            <div id="TrigramMeaning" style="font-size: 1em; padding: 5px 2px 0px 0px;"></div>
-                        </div>
-                        <div id="TrigramCommentColumn" style="display: flex; flex-direction: column; width: 70%; padding: 0px 0px 0px 0px;">
-                            <div id="TrigramCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Comment</div>
-                            <div id="TrigramComment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                            <div id="TrigramCommentSourceRow" style="display: flex; flex-direction: row;">
-                                <div id="TrigramCommentSourceTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Source</div>
-                                <div id="TrigramCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                            </div>
-                        </div>
-                        <div id="TrigramVerbRow" style="display: flex; flex-direction: row;">
-                            <div id="TrigramVerbTitle" style="font-size: 1em; font-weight: bold; padding: 10px 5px 0px 0px;">Verb</div>
-                            <div id="TrigramVerb" style="font-size: 1em; padding: 10px 2px 0px 0px;"></div>
-                        </div>
-                        <div id="TrigramLetterRow" style="display: flex; flex-direction: row;">
-                            <div id="TrigramLetterTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Letter</div>
-                            <div id="TrigramLetter" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                        </div>
-                        <div id="TrigramShapeRow" style="display: flex; flex-direction: row;">
-                            <div id="TrigramShapeTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Shape</div>
-                            <div id="TrigramShape" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                        </div>
-                        <div id="TrigramWuXingRow" style="display: flex; flex-direction: row;">
-                            <div id="TrigramWuXingTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Wu Xing</div>
-                            <div id="TrigramWuXing" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                        </div>
-                        <div id="TrigramColorsRow" style="display: flex; flex-direction: row;">
-                            <div id="TrigramColorTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Color</div>
-                            <div id="TrigramColorColumn" style="display: flex; flex-direction: column; padding: 0px 5px 0px 0px;">
-                                <div id="TrigramColor" style="height: 1em; width: 1em; border-style: solid;"></div>
-                                <div id="TrigramColorName"></div>
-                            </div>
-                            <div id="TrigramColorColumn2" style="display: none; flex-direction: column;">
-                                <div id="TrigramColor2" style="height: 1em; width: 1em; border-style: solid;"></div>
-                                <div id="TrigramColorName2"></div>
-                            </div>
-                        </div>
-                   </div>
+            <div id="RandomTrigramsMeaningColumn" style="display: flex; flex-direction: column;">
+                <div id="RandomTrigram1MeaningRow" style="display: flex; flex-direction: row;">
+                    <div id="RandomTrigram1MeaningTitle"
+                        style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External Trigram Name And
+                        Meaning</div>
+                    <div id="RandomTrigram1Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="RandomTrigram2MeaningRow" style="display: flex; flex-direction: row;">
+                    <div id="RandomTrigram2MeaningTitle"
+                        style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal Trigram Name And
+                        Meaning</div>
+                    <div id="RandomTrigram2Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                 </div>
             </div>
-            <div id="HexagramDiv" style="display: none; flex-direction: row; width: 100%; position: fixed; top: 37px; left: 250px;">
-                <div id="HexagramSymbol" style="display: flex; flex-direction: row;">
-                    <div id="HexagramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
-                        <canvas id="HexagramCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
+            <div id="RandomMeaningRow" style="display: flex; flex-direction: row;">
+                <div id="RandomMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                    Meaning</div>
+                <div id="RandomMeaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+            </div>
+            <div id="RandomCommentColumn"
+                style="display: flex; flex-direction: column;  width: 70%; padding: 10px 0px 0px 0px;">
+                <div id="RandomCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                    Comment</div>
+                <div id="RandomCommentary" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                <div id="RandomCommentSourceRow" style="display: flex; flex-direction: row;">
+                    <div id="RandomCommentSourceTitle"
+                        style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Source</div>
+                    <div id="RandomCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+            </div>
+            <button id="RandomPauseButton" type="button" style="display: block; width: 30px; margin: 10px 0px 0px 0px;"
+                onclick="pauseRandom()">⏸</button>
+            <button id="RandomRestartButton" type="button" style="display: none; width: 30px; margin: 10px 0px 0px 0px;"
+                onclick="restartRandom()">⏩</button>
+        </div>
+    </div>
+    <div id="LoShuContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+    </div>
+    <div id="OctacrossContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+        <div id="OctacrossPaper"
+            style="position: absolute; left: 10px; top: 50px; width: 680px; height:600px; border: 1px solid black;">
+        </div>
+    </div>
+    <div id="GabbalahContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+    </div>
+    <div id="DocsContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+        <canvas id="GlideLogoCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
+        <div style="display: flex; flex-direction: column; width: 100%; height: 100%; padding: 0px 0px 0px 5px;">
+            <div>The original version of the Glide Oracle was developed by Diana Slattery. It was modeled after the I
+                Ching using symbols made from a deconstucted yin and yang symbol. Slatter refered to these symbols as a
+                languange. It was claimed the symbols were recieved from aliens. The interpretation of the symbols'
+                meaning seemed to be based off of a stream of consciousness impression made by each symbol.</div>
+            <div style="margin: 10px 0px 0px 0px;">Version 2.0 reinterpretes the symbols based on Daoism, which is where
+                the yin and yang symbol is from. This reinterpretation consists of basing the 27 possible trigrams on
+                existing Daoist principles. These 27 trigrams are then combined to form 729 hexagrams. The meanings of
+                these hexagrams are built from the meanings of the two trigrams they contain. The top trigram represents
+                external influences, while the bottom trigram represents internal influences.</div>
+        </div>
+    </div>
+    <div id="ListContent" style="display: flex; flex-direction: row; width: 100%; height: 100%;">
+        <div id="SymbolIndexes"
+            style="display: flex; flex-direction: column; width: 230px; height: 100%; position: fixed; top: 37px; bottom: 0; overflow-y: auto; padding: 0px 5px 0px 0px;">
+        </div>
+        <div id="TrigramDiv"
+            style="display: flex; flex-direction: column; width: 100%; position: fixed; top: 37px; left: 250px;"">
+                <div id=" TrigramSymbol" style="display: flex; flex-direction: row;">
+            <div id="TrigramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
+                <canvas id="TrigramCanvas" style="width: 100px; height: 150px; border-style: solid;"></canvas>
+            </div>
+            <div id="TrigramInfo" style="display: flex; flex-direction: column; width: 100%;">
+                <div id="TrigramNumberRow"
+                    style="display: flex; flex-direction: row; gap: 7px; font-size: 2em; font-weight: bold;">
+                    <div id="TrigramNumber"></div>
+                    <div id="TrigramName"></div>
+                </div>
+                <div id="TrigramMeaningRow" style="display: flex; flex-direction: row;">
+                    <div id="TrigramMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 5px 5px 0px 0px;">
+                        Meaning</div>
+                    <div id="TrigramMeaning" style="font-size: 1em; padding: 5px 2px 0px 0px;"></div>
+                </div>
+                <div id="TrigramCommentColumn"
+                    style="display: flex; flex-direction: column; width: 70%; padding: 0px 0px 0px 0px;">
+                    <div id="TrigramCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                        Comment</div>
+                    <div id="TrigramComment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    <div id="TrigramCommentSourceRow" style="display: flex; flex-direction: row;">
+                        <div id="TrigramCommentSourceTitle"
+                            style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Source</div>
+                        <div id="TrigramCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                     </div>
                 </div>
-                <div id="HexagramInfo" style="display: flex; flex-direction: column; width: 100%;">
-                    <div id="HexagramNumberRow" style="display: flex; flex-direction: row; width: 100%;">
-                        <div id="HexagramNumber" style="font-size: 2em; padding: 0px 7px 0px 0px;"></div>
-                        <div id="HexagramName" style="font-size: 2em; padding: 0px 4px 0px 0px;"></div>
+                <div id="TrigramVerbRow" style="display: flex; flex-direction: row;">
+                    <div id="TrigramVerbTitle" style="font-size: 1em; font-weight: bold; padding: 10px 5px 0px 0px;">
+                        Verb</div>
+                    <div id="TrigramVerb" style="font-size: 1em; padding: 10px 2px 0px 0px;"></div>
+                </div>
+                <div id="TrigramLetterRow" style="display: flex; flex-direction: row;">
+                    <div id="TrigramLetterTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                        Letter</div>
+                    <div id="TrigramLetter" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="TrigramShapeRow" style="display: flex; flex-direction: row;">
+                    <div id="TrigramShapeTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                        Shape</div>
+                    <div id="TrigramShape" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="TrigramWuXingRow" style="display: flex; flex-direction: row;">
+                    <div id="TrigramWuXingTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">
+                        Wu Xing</div>
+                    <div id="TrigramWuXing" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="TrigramColorsRow" style="display: flex; flex-direction: row;">
+                    <div id="TrigramColorTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                        Color</div>
+                    <div id="TrigramColorColumn"
+                        style="display: flex; flex-direction: column; padding: 0px 5px 0px 0px;">
+                        <div id="TrigramColor" style="height: 1em; width: 1em; border-style: solid;"></div>
+                        <div id="TrigramColorName"></div>
                     </div>
-                    <div id="TrigramsMeaningColumn" style="display: flex; flex-direction: column;">
-                        <div id="Trigram1MeaningRow" style="display: flex; flex-direction: row;">
-                            <div id="Trigram1MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External Trigram Name And Meaning</div>
-                            <div id="Trigram1Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                        </div>
-                        <div id="Trigram2MeaningRow" style="display: flex; flex-direction: row;">
-                            <div id="Trigram2MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal Trigram Name And Meaning</div>
-                            <div id="Trigram2Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                        </div>
-                    </div>
-                    <div id="HexagramMeaningRow" style="display: flex; flex-direction: row;">
-                        <div id="HexagramMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Meaning</div>
-                        <div id="HexagramMeaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                    </div>
-                    <div id="HexagramCommentColumn" style="display: flex; flex-direction: column;  width: 70%; padding: 10px 0px 0px 0px;">
-                        <div id="HexagramCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Comment</div>
-                        <div id="HexagramComment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                        <div id="HexagramCommentSourceRow" style="display: flex; flex-direction: row;">
-                            <div id="HexagramCommentSourceTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Source</div>
-                            <div id="HexagramCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-                        </div>
+                    <div id="TrigramColorColumn2" style="display: none; flex-direction: column;">
+                        <div id="TrigramColor2" style="height: 1em; width: 1em; border-style: solid;"></div>
+                        <div id="TrigramColorName2"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+    <div id="HexagramDiv"
+        style="display: none; flex-direction: row; width: 100%; position: fixed; top: 37px; left: 250px;">
+        <div id="HexagramSymbol" style="display: flex; flex-direction: row;">
+            <div id="HexagramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
+                <canvas id="HexagramCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
+            </div>
+        </div>
+        <div id="HexagramInfo" style="display: flex; flex-direction: column; width: 100%;">
+            <div id="HexagramNumberRow" style="display: flex; flex-direction: row; width: 100%;">
+                <div id="HexagramNumber" style="font-size: 2em; padding: 0px 7px 0px 0px;"></div>
+                <div id="HexagramName" style="font-size: 2em; padding: 0px 4px 0px 0px;"></div>
+            </div>
+            <div id="TrigramsMeaningColumn" style="display: flex; flex-direction: column;">
+                <div id="Trigram1MeaningRow" style="display: flex; flex-direction: row;">
+                    <div id="Trigram1MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                        External Trigram Name And Meaning</div>
+                    <div id="Trigram1Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="Trigram2MeaningRow" style="display: flex; flex-direction: row;">
+                    <div id="Trigram2MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                        Internal Trigram Name And Meaning</div>
+                    <div id="Trigram2Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+            </div>
+            <div id="HexagramMeaningRow" style="display: flex; flex-direction: row;">
+                <div id="HexagramMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                    Meaning</div>
+                <div id="HexagramMeaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+            </div>
+            <div id="HexagramCommentColumn"
+                style="display: flex; flex-direction: column;  width: 70%; padding: 10px 0px 0px 0px;">
+                <div id="HexagramCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                    Comment</div>
+                <div id="HexagramComment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                <div id="HexagramCommentSourceRow" style="display: flex; flex-direction: row;">
+                    <div id="HexagramCommentSourceTitle"
+                        style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Source</div>
+                    <div id="HexagramCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
 </html>
