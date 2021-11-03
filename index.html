@@ -55,8 +55,8 @@
                 let randomMeaning = document.getElementById("RandomMeaning")
                 let randomCommentSource = document.getElementById("RandomCommentSource")
                 let hexagram = get_random_hexagram()
-                let trigram1 = get_trigram(hexagram.trigram1)
-                let trigram2 = get_trigram(hexagram.trigram2)
+                let trigram1 = get_trigram_data(hexagram.trigram1)
+                let trigram2 = get_trigram_data(hexagram.trigram2)
 
                 randomNumber.innerText = hexagram.number + ". "
                 randomName.innerText = hexagram.name
