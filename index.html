@@ -97,7 +97,7 @@
             let path = ""
             let x = 340
             let y = 300
-            let N = 16
+            let N = 18
             let side = 240
             let xArray = []
             let yArray = []
@@ -136,8 +136,8 @@
             path += "L" + xArray[13] + "," + yArray[13]
             path += "L" + xArray[0] + "," + yArray[0]
             let g = paper.path(path)
-            paperObjects.push(g)
-            paperObjects.push(g.glow({color: "blue"}))
+ //           paperObjects.push(g)
+ //           paperObjects.push(g.glow({color: "blue"}))
 
             for (let loop1 = 0; loop1 < xArray.length; loop1++) {
                 for (let loop2 = 0; loop2 < xArray.length; loop2++) {
