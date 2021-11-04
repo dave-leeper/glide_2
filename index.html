@@ -101,8 +101,8 @@
             randomRestartButton.style.display = "none"
             update_random_hexagram()
         }
-        function drawIcosiheptagon() {
-            let paper = Raphael("IcosiheptagonPaper", 600, 600)
+        function drawShapes() {
+            let paper = Raphael("ShapesPaper", 600, 600)
             let path = ""
             let x = 340
             let y = 300
@@ -426,7 +426,7 @@
         function draw_menu() {
             let randomOverTimeMenuItem = document.getElementById("MenuBarRandomOverTime")
             let loShuMenuItem = document.getElementById("MenuBarLoShu")
-            let octacrossAndTarotMenuItem = document.getElementById("MenuBarIcosiheptagon")
+            let octacrossAndTarotMenuItem = document.getElementById("MenuBarShapes")
             let gabbalahMenuItem = document.getElementById("MenuBarGabbalah")
             let listMenuItem = document.getElementById("MenuBarList")
             let docsMenuItem = document.getElementById("MenuBarDocs")
@@ -447,7 +447,7 @@
         function draw_content() {
             let randomContent = document.getElementById("RandomContent")
             let loShuContent = document.getElementById("LoShuContent")
-            let IcosiheptagonContent = document.getElementById("IcosiheptagonContent")
+            let ShapesContent = document.getElementById("ShapesContent")
             let gabbalahContent = document.getElementById("GabbalahContent")
             let listContent = document.getElementById("ListContent")
             let docsContent = document.getElementById("DocsContent")
@@ -456,8 +456,8 @@
             else { randomContent.style.display = 'none' }
             if (1 === currentMenuItem) { loShuContent.style.display = 'flex'; set_lo_shu_element(currentLoShuElement); }
             else { loShuContent.style.display = 'none' }
-            if (2 === currentMenuItem) { IcosiheptagonContent.style.display = 'flex'; drawIcosiheptagon() }
-            else { IcosiheptagonContent.style.display = 'none'; deleteIcosiheptagon() }
+            if (2 === currentMenuItem) { ShapesContent.style.display = 'flex'; drawShapes() }
+            else { ShapesContent.style.display = 'none'; deleteIcosiheptagon() }
             if (3 === currentMenuItem) { gabbalahContent.style.display = 'flex' }
             else { gabbalahContent.style.display = 'none' }
             if (4 === currentMenuItem) { listContent.style.display = 'flex' }
@@ -1133,7 +1133,7 @@
             onclick="set_menu(0)">Random Over Time</div>
         <div id="MenuBarLoShu" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(1)">Lo
             Shu</div>
-        <div id="MenuBarIcosiheptagon" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
+        <div id="MenuBarShapes" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
             onclick="set_menu(2)">Icosiheptagon</div>
         <div id="MenuBarGabbalah" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
             onclick="set_menu(3)">Gabbalah</div>
@@ -1191,9 +1191,9 @@
     </div>
     <div id="LoShuContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
     </div>
-    <div id="IcosiheptagonContent" style="display: none; flex-direction: column; width: 100%; height: 100%;">
+    <div id="ShapesContent" style="display: none; flex-direction: column; width: 100%; height: 100%;">
         <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
-            <div id="IcosiheptagonPaper" style="position: absolute; left: 10px; top: 50px; width: 680px; height:600px; border: 1px solid black;"></div>
+            <div id="ShapesPaper" style="position: absolute; left: 10px; top: 50px; width: 680px; height:600px; border: 1px solid black;"></div>
             <div style="position: absolute; left: 700px; top: 50px;">The Icosiheptagon and Icosiheptagram created from the 27 trigrams, along with lines connecting each point. Each line represents two hexagrams. Each of the 27 points represents 1 hexagram.</div>
         </div>
         <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
