@@ -157,6 +157,7 @@
             path += "L" + xArray[19] + "," + yArray[19]
             path += "L" + xArray[0] + "," + yArray[0]
             let g = paper.path(path)
+            g.attr ("stroke", "#0000FF");
             paperObjects.push(g)
             paperObjects.push(g.glow({ color: "blue" }))
 
@@ -166,75 +167,11 @@
                     path = "M" + xArray[loop1] + "," + yArray[loop1]
                     path += "L" + xArray[loop2] + "," + yArray[loop2]
                     let line = paper.path(path)
+                    line.attr ("stroke", "#0000FF");
                     paperObjects.push(line)
                 }
             }
             drawIcosiheptagonUnicursalHexagram()
-        }
-        function drawIcosiheptagonUnicursalHexagram() {
-            /*
-            let paper = Raphael("IcosiheptagonUnicuralHexagramPaper", 600, 600)
-            let path = ""
-            let x = 340
-            let y = 300
-            let N = 18
-            let side = 240
-            let xArray = []
-            let yArray = []
-
-            for (let n = 0; n <= N; n += 1) {
-                // the angle (in radians) as an nth fraction of the whole circle
-                let angle = n / N * 2 * Math.PI
-                // The starting x value of the point adjusted by the angle
-                let temp_x = x + Math.cos(angle) * side
-                // The starting y value of the point adjusted by the angle
-                let temp_y = y + Math.sin(angle) * side
-
-                // Start with "M" if it's the first point, otherwise L
-                path += (n === 0 ? "M" : "L") + temp_x + "," + temp_y
-                xArray.push(temp_x)
-                yArray.push(temp_y)
-            }
-            let f = paper.path(path)
-            paperObjects.push(f)
-            path = "M" + xArray[0] + "," + yArray[0]
-            path += "L" + xArray[6] + "," + yArray[6]
-            path += "L" + xArray[15] + "," + yArray[15]
-            path += "L" + xArray[9] + "," + yArray[9]
-            path += "L" + xArray[3] + "," + yArray[3]
-            path += "L" + xArray[12] + "," + yArray[12]
-            path += "L" + xArray[0] + "," + yArray[0]
-            let g = paper.path(path)
-            paperObjects.push(g)
-            paperObjects.push(g.glow({ color: "blue" }))
-            path = "M" + xArray[1] + "," + yArray[1]
-            path += "L" + xArray[7] + "," + yArray[7]
-            path += "L" + xArray[16] + "," + yArray[16]
-            path += "L" + xArray[10] + "," + yArray[10]
-            path += "L" + xArray[4] + "," + yArray[4]
-            path += "L" + xArray[13] + "," + yArray[13]
-            path += "L" + xArray[1] + "," + yArray[1]
-            g = paper.path(path)
-            paperObjects.push(g)
-            paperObjects.push(g.glow({ color: "yellow" }))
-            path = "M" + xArray[2] + "," + yArray[2]
-            path += "L" + xArray[8] + "," + yArray[8]
-            path += "L" + xArray[17] + "," + yArray[17]
-            path += "L" + xArray[11] + "," + yArray[11]
-            path += "L" + xArray[5] + "," + yArray[5]
-            path += "L" + xArray[14] + "," + yArray[14]
-            path += "L" + xArray[2] + "," + yArray[2]
-            g = paper.path(path)
-            paperObjects.push(g)
-            paperObjects.push(g.glow({ color: "red" }))
-            paper.path(arc([100, 100], 80, 0, 270));  // draw an arc 
-                                                    // centered at (100, 100),
-                                                    // radius 80, starting at degree 0,
-                                                    // beginning at coordinate (80, 0)
-                                                    //   which is relative to the center
-                                                    //   of the circle,
-                                                    // going clockwise, until 270 degree
-                                                    */
         }
         function arc(center, radius, startAngle, endAngle) {
             angle = startAngle;
