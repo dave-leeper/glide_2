@@ -157,7 +157,7 @@
             path += "L" + xArray[19] + "," + yArray[19]
             path += "L" + xArray[0] + "," + yArray[0]
             let g = paper.path(path)
-            g.attr ("stroke", "#FF00FF");
+            g.attr ("stroke", "#711B1E");
             paperObjects.push(g)
             paperObjects.push(g.glow({ color: "blue" }))
 
@@ -167,7 +167,7 @@
                     path = "M" + xArray[loop1] + "," + yArray[loop1]
                     path += "L" + xArray[loop2] + "," + yArray[loop2]
                     let line = paper.path(path)
-                    line.attr ("stroke", "#FF00FF");
+                    line.attr ("stroke", "#711B1E");
                     paperObjects.push(line)
                 }
             }
