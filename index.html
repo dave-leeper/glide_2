@@ -197,11 +197,8 @@
             
             function draw_number(canvas, number) {     
                 const context = canvas.getContext('2d')  
-                context.fillStyle = "black"
-                context.strokeStyle = "black"
-                context.font = '50px serif'
-                context.fillText(number, 5, 5);
-                context.strokeText(number, 5, 5)
+                context.fillText(number, 0, 0);
+                context.strokeText(number, 0, 0)
             }
             draw_number(daoCanvas, "0")
             draw_number(spiritCanvas, "1")
