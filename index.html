@@ -196,7 +196,8 @@
             let spiritBelowEnergyCanvas = document.getElementById("IcosiheptagonSpiritBelowEnergyCanvas")
             
             function draw_number(canvas, number) {     
-                const context = canvas.getContext('2d')      
+                const context = canvas.getContext('2d')  
+                ctx.fillStyle = "black";    
                 context.fillText(number, 5, 5);
             }
             draw_number(daoCanvas, "0")
