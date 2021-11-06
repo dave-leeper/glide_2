@@ -203,28 +203,28 @@
                 context.strokeText(number, 0, 0)
             }
 
-            draw_trigram(daoCanvas, "◠ᔐ◡", "0")
-            draw_trigram(spiritCanvas, "◠◠◠", "0")
-            draw_trigram(energyCanvas, "ᔐᔐᔐ", "0")
-            draw_trigram(vitalityCanvas, "◡◡◡", "0")
-            draw_trigram(senseCanvas, "◡◠ᔐ", "0")
-            draw_trigram(essenceCanvas, "ᔐ◡◠", "0")
-            draw_trigram(willCanvas, "◡ᔐ◠", "0")
-            draw_trigram(wuWeiCanvas, "ᔐ◠◡", "0")
-            draw_trigram(uncarvedBlockCanvas, "◠◡ᔐ", "0")
-            draw_trigram(spiritAboveEnergyCanvas, "◠◠ᔐ", "0")
-            draw_trigram(energyAboveSpiritCanvas, "ᔐᔐ◠", "0")
-            draw_trigram(spiritAboveVitalityCanvas, "◠◠◡", "0")
-            draw_trigram(vitalityAboveSpiritCanvas, "◡◡◠", "0")
-            draw_trigram(energyAboveVitalityCanvas, "ᔐᔐ◡", "0")
-            draw_trigram(vitalityAboveEnergyCanvas, "◡◡ᔐ", "0")
-            draw_trigram(spiritInEnergyCanvas, "ᔐ◠ᔐ", "0")
-            draw_trigram(energyInSpiritCanvas, "◠ᔐ◠", "0")
-            draw_trigram(spiritInVitalityCanvas, "◡◠◡", "0")
-            draw_trigram(vitalityInSpiritCanvas, "◠◡◠", "0")
-            draw_trigram(energyInVitalityCanvas, "◡ᔐ◡", "0")
-            draw_trigram(vitalityInEnergyCanvas, "ᔐ◡ᔐ", "0")
-            draw_trigram(spiritBelowEnergyCanvas, "ᔐᔐ◠", "0")
+            draw_trigram(daoCanvas, "◠ᔐ◡")
+            draw_trigram(spiritCanvas, "◠◠◠")
+            draw_trigram(energyCanvas, "ᔐᔐᔐ")
+            draw_trigram(vitalityCanvas, "◡◡◡")
+            draw_trigram(senseCanvas, "◡◠ᔐ")
+            draw_trigram(essenceCanvas, "ᔐ◡◠")
+            draw_trigram(willCanvas, "◡ᔐ◠")
+            draw_trigram(wuWeiCanvas, "ᔐ◠◡")
+            draw_trigram(uncarvedBlockCanvas, "◠◡ᔐ")
+            draw_trigram(spiritAboveEnergyCanvas, "◠◠ᔐ")
+            draw_trigram(energyAboveSpiritCanvas, "ᔐᔐ◠")
+            draw_trigram(spiritAboveVitalityCanvas, "◠◠◡")
+            draw_trigram(vitalityAboveSpiritCanvas, "◡◡◠")
+            draw_trigram(energyAboveVitalityCanvas, "ᔐᔐ◡")
+            draw_trigram(vitalityAboveEnergyCanvas, "◡◡ᔐ")
+            draw_trigram(spiritInEnergyCanvas, "ᔐ◠ᔐ")
+            draw_trigram(energyInSpiritCanvas, "◠ᔐ◠")
+            draw_trigram(spiritInVitalityCanvas, "◡◠◡")
+            draw_trigram(vitalityInSpiritCanvas, "◠◡◠")
+            draw_trigram(energyInVitalityCanvas, "◡ᔐ◡")
+            draw_trigram(vitalityInEnergyCanvas, "ᔐ◡ᔐ")
+            draw_trigram(spiritBelowEnergyCanvas, "ᔐᔐ◠")
         }
         function arc(center, radius, startAngle, endAngle) {
             angle = startAngle;
@@ -278,7 +278,7 @@
             context.font = "24px Arial";
             context.fillText("Glide 2.0", 1, 290);
         }
-        function draw_symbol(context, symbol, currentYLocation, number) {
+        function draw_symbol(context, symbol, currentYLocation) {
             const radius = 50
 
             context.beginPath()
@@ -295,9 +295,8 @@
                 context.arc(75, currentYLocation, radius / 2, 0 * 0.0174533, 180 * 0.0174533, false)
             }
             context.stroke()
-            context.fillText(5, 5, number)
         }
-        function draw_trigram(canvas, symbols, number) {
+        function draw_trigram(canvas, symbols) {
             let previousSymbol = null
             let currentYLocation = 0
             const context = canvas.getContext('2d')
@@ -315,7 +314,7 @@
                 else if (previousSymbol === "◡") { currentYLocation += symbolData.previousEarthDistance }
                 else if (previousSymbol === "ᔐ") { currentYLocation += symbolData.previousManDistance }
                 previousSymbol = symbol
-                draw_symbol(context, symbol, currentYLocation, number)
+                draw_symbol(context, symbol, currentYLocation)
             }
         }
         function show_trigram(number) {
