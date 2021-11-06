@@ -196,15 +196,8 @@
             let spiritBelowEnergyCanvas = document.getElementById("IcosiheptagonSpiritBelowEnergyCanvas")
             let energyBelowSpiritCanvas = document.getElementById("IcosiheptagonEnergyBelowSpiritCanvas")
             let spiritBelowVitalityCanvas = document.getElementById("IcosiheptagonSpiritBelowVitalityCanvas")
+            let vitalityBelowSpiritCanvas = document.getElementById("IcosiheptagonVitalityBelowSpiritCanvas")
             
-            function draw_number(canvas, number) {     
-                canvas.width = 100
-                canvas.height = 150
-                const context = canvas.getContext('2d')  
-                context.fillText(number, 0, 0);
-                context.strokeText(number, 0, 0)
-            }
-
             draw_trigram(daoCanvas, "◠ᔐ◡")
             draw_trigram(spiritCanvas, "◠◠◠")
             draw_trigram(energyCanvas, "ᔐᔐᔐ")
@@ -229,6 +222,7 @@
             draw_trigram(spiritBelowEnergyCanvas, "ᔐᔐ◠")
             draw_trigram(energyBelowSpiritCanvas, "◠ᔐᔐ")
             draw_trigram(spiritBelowVitalityCanvas, "◡◠◠")
+            draw_trigram(vitalityBelowSpiritCanvas, "◠◡◡")
         }
         function arc(center, radius, startAngle, endAngle) {
             angle = startAngle;
@@ -1290,6 +1284,7 @@
                 <canvas id="IcosiheptagonSpiritBelowEnergyCanvas" style="position: absolute; left: 600px; top: 280px; width: 20px; height:30px;"></canvas>
                 <canvas id="IcosiheptagonEnergyBelowSpiritCanvas" style="position: absolute; left: 325px; top: 602px; width: 20px; height:30px;"></canvas>
                 <canvas id="IcosiheptagonSpiritBelowVitalityCanvas" style="position: absolute; left: 90px; top: 247px; width: 20px; height:30px;"></canvas>
+                <canvas id="IcosiheptagonVitalityBelowSpiritCanvas" style="position: absolute; left: 140px; top: 297px; width: 20px; height:30px;"></canvas>
             </div>
         </div>
         <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
