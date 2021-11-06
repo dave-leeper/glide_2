@@ -196,8 +196,10 @@
             let spiritBelowEnergyCanvas = document.getElementById("IcosiheptagonSpiritBelowEnergyCanvas")
             
             function draw_number(canvas, number) {           
-                let textnode = document.createTextNode(number)
-                canvas.appendChild(textnode);
+                const svgns = "http://www.w3.org/2000/svg";
+                ldocument.createElementNS(svgns, number);
+                txt.textContent = counter;
+                svg.appendChild(txt);
             }
             draw_number(daoCanvas, "0")
             draw_number(spiritCanvas, "1")
