@@ -206,6 +206,7 @@
             context.lineCap = 'round'
             */get_trigram_data            
             let textnode = document.createTextNode(number)
+            textnode.style.zIndex = 2
             canvas.appendChild(textnode);
         }
         draw_number(daoCanvas, "0")
