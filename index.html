@@ -195,10 +195,9 @@
             let vitalityInEnergyCanvas = document.getElementById("IcosiheptagonVitalityInEnergyCanvas")
             let spiritBelowEnergyCanvas = document.getElementById("IcosiheptagonSpiritBelowEnergyCanvas")
             
-            function draw_number(canvas, number) {           
-                let txt = document.createElementNS("http://www.w3.org/2000/svg", number);
-                txt.textContent = counter;
-                canvas.appendChild(txt);
+            function draw_number(canvas, number) {     
+                const context = canvas.getContext('2d')      
+                context.fillText(number, 5, 5);
             }
             draw_number(daoCanvas, "0")
             draw_number(spiritCanvas, "1")
