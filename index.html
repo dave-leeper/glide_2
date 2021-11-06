@@ -197,9 +197,9 @@
             
             function draw_number(canvas, number) {           
                 const svgns = "http://www.w3.org/2000/svg";
-                ldocument.createElementNS(svgns, number);
+                let txt = document.createElementNS(svgns, number);
                 txt.textContent = counter;
-                svg.appendChild(txt);
+                canvas.appendChild(txt);
             }
             draw_number(daoCanvas, "0")
             draw_number(spiritCanvas, "1")
