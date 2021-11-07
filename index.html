@@ -1299,6 +1299,13 @@
                     <g style="transform:  translate(00px, 0px) scale(0.4)" >
                         <path stroke="black" fill="blue" opacity="0.5" d="M 300,0 L 558,450 L 300,300 L 486,375 L 300,60 L 114,375 L 300,300 L 42,450 z"/>
                         <path stroke="black" fill="blue" opacity="0.5" d="M 300,600 L 42,150 L 300,300 L 114,225 L 300,540 L 486,225 L 300,300 L 558,150 z"/>
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                            refX="0" refY="3.5" orient="auto">
+                              <polygon points="0 0, 10 3.5, 0 7" />
+                            </marker>
+                          </defs>
+                          <line x1="0" y1="50" x2="250" y2="50" stroke="#000" stroke-width="8" marker-end="url(#arrowhead)" />
                     </g>
                     <g style="transform: translate(320px, 0px) scale(0.4)" >
                         <path stroke="black" fill="orange" opacity="0.5" d="M 300,0 L 558,450 L 300,300 L 486,375 L 300,60 L 114,375 L 300,300 L 42,450 z"/>
