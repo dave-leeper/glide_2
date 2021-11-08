@@ -246,6 +246,11 @@
             vitalityBelowSpiritCanvas = document.getElementById("BelowHexagramVitalityBelowSpiritCanvas")
             energyBelowVitalityCanvas = document.getElementById("BelowHexagramEnergyBelowVitalityCanvas")
             vitalityBelowEnergyCanvas = document.getElementById("BelowHexagramVitalityBelowEnergyCanvas")
+            let wuXingWoodCanvas = document.getElementById("WuXingPentagramWoodCanvas")
+            let wuXingFireCanvas = document.getElementById("WuXingPentagramFireCanvas")
+            let wuXingEarthCanvas = document.getElementById("WuXingPentagramEarthCanvas")
+            let wuXingMetalCanvas = document.getElementById("WuXingPentagramMetalCanvas")
+            let wuXingWaterCanvas = document.getElementById("WuXingPentagramWaterCanvas")
 
             draw_trigram(spiritAboveEnergyCanvas, "◠◠ᔐ")
             draw_trigram(energyAboveSpiritCanvas, "ᔐᔐ◠")
@@ -265,6 +270,11 @@
             draw_trigram(vitalityBelowSpiritCanvas, "◠◡◡")
             draw_trigram(energyBelowVitalityCanvas, "◡ᔐᔐ")
             draw_trigram(vitalityBelowEnergyCanvas, "◡ᔐᔐ")
+            draw_trigram(wuXingWoodCanvas, "ᔐ◡◠")
+            draw_trigram(wuXingFireCanvas, "◠◠◠")
+            draw_trigram(wuXingEarthCanvas, "◡ᔐ◠")
+            draw_trigram(wuXingMetalCanvas, "◡◠ᔐ")
+            draw_trigram(wuXingWaterCanvas, "◡◡◡")
        }
         function arc(center, radius, startAngle, endAngle) {
             angle = startAngle;
@@ -1353,6 +1363,11 @@
             <canvas id="BelowHexagramEnergyBelowVitalityCanvas" style="position: absolute; left: 290px; top: 1095px; width: 20px; height:30px;"></canvas>
             <canvas id="BelowHexagramVitalityBelowEnergyCanvas" style="position: absolute; left: 51px; top: 1225px; width: 20px; height:30px;"></canvas>
             <div style="position: absolute; left: 20px; top: 1020px; font-size: 0.75em;">Below Unicursal Hexagram</div>
+            <canvas id="WuXingPentagramWoodCanvas" style="position: absolute; left: 172px; top: 1020px; width: 20px; height:30px;"></canvas>
+            <canvas id="WuXingPentagramFireCanvas" style="position: absolute; left: 290px; top: 1225px; width: 20px; height:30px;"></canvas>
+            <canvas id="WuXingPentagramEarthCanvas" style="position: absolute; left: 51px; top: 1095px; width: 20px; height:30px;"></canvas>
+            <canvas id="WuXingPentagramMetalCanvas" style="position: absolute; left: 172px; top: 1300px; width: 20px; height:30px;"></canvas>
+            <canvas id="WuXingPentagramWaterCanvas" style="position: absolute; left: 290px; top: 1095px; width: 20px; height:30px;"></canvas>
             <div style="position: absolute; left: 370px; top: 1020px; font-size: 0.75em;">Wu Xing Pentagram</div>
             <svg style="position: absolute; left: 10px; top: 665px; border: 1px solid black;" height="680" width="680">
                 <defs> 
