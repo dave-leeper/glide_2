@@ -313,7 +313,37 @@
             draw_trigram(vitalityBelowSpiritCanvas, "◠◡◡")
             draw_trigram(energyBelowVitalityCanvas, "◡ᔐᔐ")
             draw_trigram(vitalityBelowEnergyCanvas, "◡ᔐᔐ")
-       }
+
+            daoCanvas = document.getElementById("TableDaoCanvas")
+            spiritCanvas = document.getElementById("TableSpiritCanvas")
+            energyCanvas = document.getElementById("TableEnergyCanvas")
+            vitalityCanvas = document.getElementById("TableVitalityCanvas")
+            senseCanvas = document.getElementById("TableSenseCanvas")
+            essenceCanvas = document.getElementById("TableEssenceCanvas")
+            willCanvas = document.getElementById("TableWillCanvas")
+            wuWeiCanvas = document.getElementById("TableWuWeiCanvas")
+            uncarvedBlockCanvas = document.getElementById("TableUncarvedBlockCanvas")
+            spiritAboveEnergyCanvas = document.getElementById("TableSpiritAboveEnergyCanvas")
+            energyAboveSpiritCanvas = document.getElementById("TableEnergyAboveSpiritCanvas")
+            spiritAboveVitalityCanvas = document.getElementById("TableSpiritAboveVitalityCanvas")
+            vitalityAboveSpiritCanvas = document.getElementById("TableVitalityAboveSpiritCanvas")
+            energyAboveVitalityCanvas = document.getElementById("TableEnergyAboveVitalityCanvas")
+
+            draw_trigram(daoCanvas, "◠ᔐ◡")
+            draw_trigram(spiritCanvas, "◠◠◠")
+            draw_trigram(energyCanvas, "ᔐᔐᔐ")
+            draw_trigram(vitalityCanvas, "◡◡◡")
+            draw_trigram(senseCanvas, "◡◠ᔐ")
+            draw_trigram(essenceCanvas, "ᔐ◡◠")
+            draw_trigram(willCanvas, "◡ᔐ◠")
+            draw_trigram(wuWeiCanvas, "◠◡ᔐ")
+            draw_trigram(uncarvedBlockCanvas, "ᔐ◠◡")
+            draw_trigram(spiritAboveEnergyCanvas, "◠◠ᔐ")
+            draw_trigram(energyAboveSpiritCanvas, "ᔐᔐ◠")
+            draw_trigram(spiritAboveVitalityCanvas, "◠◠◡")
+            draw_trigram(vitalityAboveSpiritCanvas, "◡◡◠")
+            draw_trigram(energyAboveVitalityCanvas, "ᔐᔐ◡")
+        }
         function arc(center, radius, startAngle, endAngle) {
             angle = startAngle;
             coords = toCoords(center, radius, angle);
