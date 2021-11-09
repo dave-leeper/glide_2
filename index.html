@@ -275,6 +275,44 @@
             draw_trigram(wuXingEarthCanvas, "◡ᔐ◠")
             draw_trigram(wuXingMetalCanvas, "◡◠ᔐ")
             draw_trigram(wuXingWaterCanvas, "◡◡◡")
+
+            spiritAboveEnergyCanvas = document.getElementById("OctadecagonSpiritAboveEnergyCanvas")
+            energyAboveSpiritCanvas = document.getElementById("OctadecagonEnergyAboveSpiritCanvas")
+            spiritAboveVitalityCanvas = document.getElementById("OctadecagonSpiritAboveVitalityCanvas")
+            vitalityAboveSpiritCanvas = document.getElementById("OctadecagonVitalityAboveSpiritCanvas")
+            energyAboveVitalityCanvas = document.getElementById("OctadecagonEnergyAboveVitalityCanvas")
+            vitalityAboveEnergyCanvas = document.getElementById("OctadecagonVitalityAboveEnergyCanvas")
+            spiritInEnergyCanvas = document.getElementById("OctadecagonSpiritInEnergyCanvas")
+            energyInSpiritCanvas = document.getElementById("OctadecagonEnergyInSpiritCanvas")
+            spiritInVitalityCanvas = document.getElementById("OctadecagonSpiritInVitalityCanvas")
+            vitalityInSpiritCanvas = document.getElementById("OctadecagonVitalityInSpiritCanvas")
+            energyInVitalityCanvas = document.getElementById("OctadecagonEnergyInVitalityCanvas")
+            vitalityInEnergyCanvas = document.getElementById("OctadecagonVitalityInEnergyCanvas")
+            spiritBelowEnergyCanvas = document.getElementById("OctadecagonSpiritBelowEnergyCanvas")
+            energyBelowSpiritCanvas = document.getElementById("OctadecagonEnergyBelowSpiritCanvas")
+            spiritBelowVitalityCanvas = document.getElementById("OctadecagonSpiritBelowVitalityCanvas")
+            vitalityBelowSpiritCanvas = document.getElementById("OctadecagonVitalityBelowSpiritCanvas")
+            energyBelowVitalityCanvas = document.getElementById("OctadecagonEnergyBelowVitalityCanvas")
+            vitalityBelowEnergyCanvas = document.getElementById("OctadecagonVitalityBelowEnergyCanvas")
+            
+            draw_trigram(spiritAboveEnergyCanvas, "◠◠ᔐ")
+            draw_trigram(energyAboveSpiritCanvas, "ᔐᔐ◠")
+            draw_trigram(spiritAboveVitalityCanvas, "◠◠◡")
+            draw_trigram(vitalityAboveSpiritCanvas, "◡◡◠")
+            draw_trigram(energyAboveVitalityCanvas, "ᔐᔐ◡")
+            draw_trigram(vitalityAboveEnergyCanvas, "◡◡ᔐ")
+            draw_trigram(spiritInEnergyCanvas, "ᔐ◠ᔐ")
+            draw_trigram(energyInSpiritCanvas, "◠ᔐ◠")
+            draw_trigram(spiritInVitalityCanvas, "◡◠◡")
+            draw_trigram(vitalityInSpiritCanvas, "◠◡◠")
+            draw_trigram(energyInVitalityCanvas, "◡ᔐ◡")
+            draw_trigram(vitalityInEnergyCanvas, "ᔐ◡ᔐ")
+            draw_trigram(spiritBelowEnergyCanvas, "ᔐᔐ◠")
+            draw_trigram(energyBelowSpiritCanvas, "◠ᔐᔐ")
+            draw_trigram(spiritBelowVitalityCanvas, "◡◠◠")
+            draw_trigram(vitalityBelowSpiritCanvas, "◠◡◡")
+            draw_trigram(energyBelowVitalityCanvas, "◡ᔐᔐ")
+            draw_trigram(vitalityBelowEnergyCanvas, "◡ᔐᔐ")
        }
         function arc(center, radius, startAngle, endAngle) {
             angle = startAngle;
@@ -1902,7 +1940,25 @@
                     <path style="transform-origin: 50% 50%; transform: rotate(180deg) translate(399px, 390px) scale(0.250);" d="M90 90 A40 40 0 10 10 90 180" stroke="black" stroke-width="6" fill="none"/>
                 </g>
             </svg>
-            <div style="position: absolute; left: 700px; top: 1365px;">
+            <canvas id="OctadecagonSpiritAboveEnergyCanvas" style="position: absolute; left: 122px; top: 489px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonEnergyAboveSpiritCanvas" style="position: absolute; left: 270px; top: 92px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonSpiritAboveVitalityCanvas" style="position: absolute; left: 603px; top: 340px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonVitalityAboveSpiritCanvas" style="position: absolute; left: 265px; top: 591px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonEnergyAboveVitalityCanvas" style="position: absolute; left: 125px; top: 193px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonVitalityAboveEnergyCanvas" style="position: absolute; left: 548px; top: 174px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonSpiritInEnergyCanvas" style="position: absolute; left: 442px; top: 582px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonEnergyInSpiritCanvas" style="position: absolute; left: 80px; top: 367px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonSpiritInVitalityCanvas" style="position: absolute; left: 385px; top: 72px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonVitalityInSpiritCanvas" style="position: absolute; left: 580px; top: 451px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonEnergyInVitalityCanvas" style="position: absolute; left: 160px; top: 532px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonVitalityInEnergyCanvas" style="position: absolute; left: 212px; top: 107px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonSpiritBelowEnergyCanvas" style="position: absolute; left: 600px; top: 280px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonEnergyBelowSpiritCanvas" style="position: absolute; left: 325px; top: 602px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonSpiritBelowVitalityCanvas" style="position: absolute; left: 90px; top: 247px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonVitalityBelowSpiritCanvas" style="position: absolute; left: 497px; top: 126px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonEnergyBelowVitalityCanvas" style="position: absolute; left: 503px; top: 550px; width: 20px; height:30px;"></canvas>
+            <canvas id="OctadecagonVitalityBelowEnergyCanvas" style="position: absolute; left: 92px; top: 429px; width: 20px; height:30px;"></canvas>
+        <div style="position: absolute; left: 700px; top: 1365px;">
                 The three unicursal hexagrams of the trigrams (Above, In, and Below) can have their points placed on the points of an octadecagon. This octadecagon can further be dissected into 144 rhombi parallelograms, providing a home for the 144 hexagrams of the <a href="https://dave-leeper.github.io/zodiac_i_ching/">Zodiac I Ching.</a> Each of the Zodiac I Ching trigrams can interact with the Glide 2.0 trigrams to form a hexagram. This will be examined in more detail in a future update.
             </div>
         </div>
