@@ -461,6 +461,16 @@
             draw_trigram(vitalityBelowSpiritCanvas, "◠◡◡")
             draw_trigram(energyBelowVitalityCanvas, "◡ᔐᔐ")
             draw_trigram(vitalityBelowEnergyCanvas, "◡ᔐᔐ")
+
+            daoCanvas = document.getElementById("CircleDaoCanvas")
+            energyCanvas = document.getElementById("TriangleEnergyCanvas")
+            wuWeiCanvas = document.getElementById("TriangleWuWeiCanvas")
+            uncarvedBlockCanvas = document.getElementById("TriangleUncarvedBlockCanvas")
+
+            draw_trigram(daoCanvas, "◠ᔐ◡")
+            draw_trigram(energyCanvas, "ᔐᔐᔐ")
+            draw_trigram(wuWeiCanvas, "◠◡ᔐ")
+            draw_trigram(uncarvedBlockCanvas, "ᔐ◠◡")
         }
         function arc(center, radius, startAngle, endAngle) {
             angle = startAngle;
@@ -1900,6 +1910,10 @@
                     <g style="transform: scale(0.3) translate(250px, 250px)"><path d="M990,924.3H10L500,75.7L990,924.3z M117.3,862.4h765.3L500,199.6L117.3,862.4z"/></g>
                     <g style="transform: scale(0.3) translate(1750px, 250px)"><path d="M500,990C229.8,990,10,770.2,10,500C10,229.8,229.8,10,500,10c270.2,0,490,219.8,490,490C990,770.2,770.2,990,500,990z M500,71.4C263.7,71.4,71.4,263.7,71.4,500c0,236.3,192.3,428.6,428.6,428.6c236.3,0,428.6-192.3,428.6-428.6C928.6,263.7,736.3,71.4,500,71.4z"/></g>
                 </svg>
+                <canvas id="TriangleUncarvedBlockCanvas" style="left: 225px; top: 500px; width: 20px; height:30px;"></canvas>
+                <canvas id="TriangleEnergyCanvas" style="left: 225px; top: 600px; width: 20px; height:30px;"></canvas>
+                <canvas id="TriangleWuWeiCanvas" style="left: 225px; top: 700px; width: 20px; height:30px;"></canvas>
+                <canvas id="CircleDaoCanvas" style="left: 1500px; top: 500px; width: 20px; height:30px;"></canvas>
             </div>
             <div  style="position: absolute; left: 700px; top: 1365px;">
                 Words
