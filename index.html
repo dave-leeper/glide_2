@@ -328,6 +328,19 @@
             spiritAboveVitalityCanvas = document.getElementById("TableSpiritAboveVitalityCanvas")
             vitalityAboveSpiritCanvas = document.getElementById("TableVitalityAboveSpiritCanvas")
             energyAboveVitalityCanvas = document.getElementById("TableEnergyAboveVitalityCanvas")
+            vitalityAboveEnergyCanvas = document.getElementById("TableVitalityAboveEnergyCanvas")
+            spiritInEnergyCanvas = document.getElementById("TableSpiritInEnergyCanvas")
+            energyInSpiritCanvas = document.getElementById("TableEnergyInSpiritCanvas")
+            spiritInVitalityCanvas = document.getElementById("TableSpiritInVitalityCanvas")
+            vitalityInSpiritCanvas = document.getElementById("TableVitalityInSpiritCanvas")
+            energyInVitalityCanvas = document.getElementById("TableEnergyInVitalityCanvas")
+            vitalityInEnergyCanvas = document.getElementById("TableVitalityInEnergyCanvas")
+            spiritBelowEnergyCanvas = document.getElementById("TableSpiritBelowEnergyCanvas")
+            energyBelowSpiritCanvas = document.getElementById("TableEnergyBelowSpiritCanvas")
+            spiritBelowVitalityCanvas = document.getElementById("TableSpiritBelowVitalityCanvas")
+            vitalityBelowSpiritCanvas = document.getElementById("TableVitalityBelowSpiritCanvas")
+            energyBelowVitalityCanvas = document.getElementById("TableEnergyBelowVitalityCanvas")
+            vitalityBelowEnergyCanvas = document.getElementById("TableVitalityBelowEnergyCanvas")
 
             draw_trigram(daoCanvas, "◠ᔐ◡")
             draw_trigram(spiritCanvas, "◠◠◠")
@@ -343,6 +356,19 @@
             draw_trigram(spiritAboveVitalityCanvas, "◠◠◡")
             draw_trigram(vitalityAboveSpiritCanvas, "◡◡◠")
             draw_trigram(energyAboveVitalityCanvas, "ᔐᔐ◡")
+            draw_trigram(vitalityAboveEnergyCanvas, "◡◡ᔐ")
+            draw_trigram(spiritInEnergyCanvas, "ᔐ◠ᔐ")
+            draw_trigram(energyInSpiritCanvas, "◠ᔐ◠")
+            draw_trigram(spiritInVitalityCanvas, "◡◠◡")
+            draw_trigram(vitalityInSpiritCanvas, "◠◡◠")
+            draw_trigram(energyInVitalityCanvas, "◡ᔐ◡")
+            draw_trigram(vitalityInEnergyCanvas, "ᔐ◡ᔐ")
+            draw_trigram(spiritBelowEnergyCanvas, "ᔐᔐ◠")
+            draw_trigram(energyBelowSpiritCanvas, "◠ᔐᔐ")
+            draw_trigram(spiritBelowVitalityCanvas, "◡◠◠")
+            draw_trigram(vitalityBelowSpiritCanvas, "◠◡◡")
+            draw_trigram(energyBelowVitalityCanvas, "◡ᔐᔐ")
+            draw_trigram(vitalityBelowEnergyCanvas, "◡ᔐᔐ")
         }
         function arc(center, radius, startAngle, endAngle) {
             angle = startAngle;
@@ -1392,42 +1418,74 @@
                     <th>Dao</th>
                     <th><canvas id="TableSpiritCanvas" style="width: 20px; height:30px;"></canvas></th>
                     <th>Spirit</th>
-                </tr>
-                <tr>
                     <td><canvas id="TableEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
                     <td>Energy</td>
+                </tr>
+                <tr>
                     <td><canvas id="TableVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
                     <td>Vitality</td>
+                    <td><canvas id="TableSenseCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Sense</td>
+                    <td><canvas id="TableEssenceCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Essence</td>
+                  </tr>
+                <tr>
+                    <td><canvas id="TableWillCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Will</td>
+                    <td><canvas id="TableWuWeiCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Wu Wei</td>
+                    <td><canvas id="TableUncarvedBlockCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Uncarved Block</td>
+                    </tr>
+                <tr>
+                    <td><canvas id="TableSpiritAboveEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Spirit Above Energy</td>
+                    <td><canvas id="TableEnergyAboveSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Energy Above Spirit</td>
+                    <td><canvas id="TableSpiritAboveVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Spirit Above Vitality</td>
+                    </tr>
+                <tr>
+                    <td><canvas id="TableVitalityAboveSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Vitality Above Spirit</td>
+                    <td><canvas id="TableEnergyAboveVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Energy Above Vitality</td>
+                    <td><canvas id="TableVitalityAboveEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Vitality Above Energy</td>
+                  </tr>
+                  <tr>
+                    <td><canvas id="TableSpiritInEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Spirit In Energy</td>
+                    <td><canvas id="TableEnergyInSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Energy In Spirit</td>
+                    <td><canvas id="TableSpiritInVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Spirit In Vitality</td>
                 </tr>
                 <tr>
-                  <td><canvas id="TableSenseCanvas" style="width: 20px; height:30px;"></canvas></td>
-                  <td>Sense</td>
-                  <td><canvas id="TableEssenceCanvas" style="width: 20px; height:30px;"></canvas></td>
-                  <td>Essence</td>
+                    <td><canvas id="TableVitalityInSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Vitality In Spirit</td>
+                    <td><canvas id="TableEnergyInVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Energy In Vitality</td>
+                    <td><canvas id="TableVitalityInEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Vitality In Energy</td>
+                  </tr>
                 </tr>
                 <tr>
-                  <td><canvas id="TableWillCanvas" style="width: 20px; height:30px;"></canvas></td>
-                  <td>Will</td>
-                  <td><canvas id="TableWuWeiCanvas" style="width: 20px; height:30px;"></canvas></td>
-                  <td>Wu Wei</td>
+                    <td><canvas id="TableSpiritBelowEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Spirit Below Energy</td>
+                    <td><canvas id="TableEnergyBelowSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Energy Below Spirit</td>
+                    <td><canvas id="TableSpiritBelowVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Spirit Below Vitality</td>
                 </tr>
                 <tr>
-                  <td><canvas id="TableUncarvedBlockCanvas" style="width: 20px; height:30px;"></canvas></td>
-                  <td>Uncarved Block</td>
-                  <td><canvas id="TableSpiritAboveEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
-                  <td>Spirit Above Energy</td>
-                </tr>
-                <tr>
-                  <td><canvas id="TableEnergyAboveSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
-                  <td>Energy Above Spirit</td>
-                  <td><canvas id="TableSpiritAboveVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
-                  <td>Spirit Above Vitality</td>
-                </tr>
-                <tr>
-                  <td><canvas id="TableVitalityAboveSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
-                  <td>Vitality Above Spirit</td>
-                  <td><canvas id="TableEnergyAboveVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
-                  <td>Energy Above Vitality</td>
+                    <td><canvas id="TableVitalityBelowSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Vitality Below Spirit</td>
+                    <td><canvas id="TableEnergyBelowVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Energy Below Vitality</td>
+                    <td><canvas id="TableVitalityBelowEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                    <td>Vitality Below Energy</td>
+                  </tr>
                 </tr>
             </table>
             <div id="IcosiheptagonTrigramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
