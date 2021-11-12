@@ -685,11 +685,10 @@
             else { loShuSpiritContext.fillStyle = 'white' }
             if (3 === currentLoShuElement) { loShuEnergyContext.fillStyle = 'lightgrey' }
             else { loShuEnergyContext.fillStyle = 'white' }
-            loShuTrigramsContext.fill()
-            loShuDaoContext.fillRect(0, 0, 20, 30);
-            loShuSpiritContext.fillRect(0, 0, 20, 30);
-            loShuEnergyContext.fillRect(0, 0, 20, 30);
-            loShuTrigramsContext.fillRect(0, 0, 20, 30);
+            loShuTrigramsContext.fillRect(0, 0, loShuTrigramsCanvas.width, loShuTrigramsCanvas.height)
+            loShuDaoContext.fillRect(0, 0, loShuDaoCanvas.width, loShuDaoCanvas.height)
+            loShuSpiritContext.fillRect(0, 0, loShuSpiritCanvas.width, loShuSpiritCanvas.height)
+            loShuEnergyContext.fillRect(0, 0, loShuEnergyCanvas.width, loShuEnergyCanvas.height)
             draw_trigram(loShuDaoCanvas, "◠ᔐ◡")
             draw_trigram(loShuSpiritCanvas, "◠◠◠")
             draw_trigram(loShuEnergyCanvas, "ᔐᔐᔐ")
