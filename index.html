@@ -537,26 +537,28 @@
             context.font = "24px Arial";
             context.fillText("Glide 2.0", 1, 290);
         }
-        function draw_symbol(context, symbol, currentYLocation, fillColor) {
+        function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
+            let xOffset = offsetX? offsetX: 0
+            let yOffset = offsetY? offsetY: 0
 
             context.fillStyle = fillColor? fillColor : "#FFFFFF00"
             context.beginPath()
             if (symbol === "◠") {
-                context.arc(50, currentYLocation, radius, 0 * 0.0174533, 180 * 0.0174533, true)
+                context.arc(50 + xOffset, currentYLocation + yOffset, radius, 0 * 0.0174533, 180 * 0.0174533, true)
             }
             else if (symbol === "◡") {
-                context.arc(50, currentYLocation, radius, 0 * 0.0174533, 180 * 0.0174533, false)
+                context.arc(50+ xOffset, currentYLocation + yOffset, radius, 0 * 0.0174533, 180 * 0.0174533, false)
             }
             else if (symbol === "ᔐ") {
-                context.arc(25, currentYLocation, radius / 2, 0 * 0.0174533, 180 * 0.0174533, true)
+                context.arc(25 + xOffset, currentYLocation + yOffset, radius / 2, 0 * 0.0174533, 180 * 0.0174533, true)
                 context.stroke()
                 context.beginPath()
-                context.arc(75, currentYLocation, radius / 2, 0 * 0.0174533, 180 * 0.0174533, false)
+                context.arc(75 + xOffset, currentYLocation + yOffset, radius / 2, 0 * 0.0174533, 180 * 0.0174533, false)
             }
             context.stroke()
         }
-        function draw_trigram(canvas, symbols, fillColor) {
+        function draw_trigram(canvas, symbols, fillColor, offsetX, offsetY) {
             let previousSymbol = null
             let currentYLocation = 0
             const context = canvas.getContext('2d')
@@ -577,7 +579,7 @@
                 else if (previousSymbol === "◡") { currentYLocation += symbolData.previousEarthDistance }
                 else if (previousSymbol === "ᔐ") { currentYLocation += symbolData.previousManDistance }
                 previousSymbol = symbol
-                draw_symbol(context, symbol, currentYLocation)
+                draw_symbol(context, symbol, currentYLocation, offsetX, offsetY)
             }
         }
         function show_trigram(number) {
@@ -678,9 +680,9 @@
             let loShuTrigramDao = document.getElementById("LoShuTrigramDao")
 
             currentLoShuElement = number
-            draw_trigram(loShuDaoCanvas, "◠ᔐ◡", (1 === currentLoShuElement)? "lightgrey" : "white")
-            draw_trigram(loShuSpiritCanvas, "◠◠◠", (2 === currentLoShuElement)? "lightgrey" : "white")
-            draw_trigram(loShuEnergyCanvas, "ᔐᔐᔐ", (3 === currentLoShuElement)? "lightgrey" : "white")
+            draw_trigram(loShuDaoCanvas, "◠ᔐ◡", (1 === currentLoShuElement)? "lightgrey" : "white", 0, 3)
+            draw_trigram(loShuSpiritCanvas, "◠◠◠", (2 === currentLoShuElement)? "lightgrey" : "white", 0, 3)
+            draw_trigram(loShuEnergyCanvas, "ᔐᔐᔐ", (3 === currentLoShuElement)? "lightgrey" : "white", 0, 3)
 
             // build_lo_shu_table(number)
         }
