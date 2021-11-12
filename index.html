@@ -579,7 +579,7 @@
                 else if (previousSymbol === "◡") { currentYLocation += symbolData.previousEarthDistance }
                 else if (previousSymbol === "ᔐ") { currentYLocation += symbolData.previousManDistance }
                 previousSymbol = symbol
-                draw_symbol(context, symbol, currentYLocation, offsetX, offsetY)
+                draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY)
             }
         }
         function show_trigram(number) {
