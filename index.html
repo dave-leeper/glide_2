@@ -24,6 +24,7 @@
         let currentMenuItem = 0
         let randomId = null
         let paperObjects = []
+        let currentLoShuElement = 0
         function get_symbol_data(symbol) {
             let data = glideData;
             for (let loop = 0; loop < data.symbols.length; loop++) {
@@ -665,6 +666,27 @@
             newSelected.style.background = 'lightgrey'
             currentHexagramSymbol = number
         }
+        function set_lo_shu_element(number) {
+            let loShuTrigramsContext = document.getElementById("LoShuTrigramsCanvas").getContext("2d")
+            let loShuDaoContext = document.getElementById("LoShuDaoCanvas").getContext("2d")
+            let loShuSpiritContext = document.getElementById("LoShuSpiritCanvas").getContext("2d")
+            let loShuEnergyContext = document.getElementById("LoShuEnergyCanvas").getContext("2d")
+
+            currentLoShuElement = number
+            if (0 === currentLoShuElement) { loShuTrigramsContext.fillStyle = 'lightgrey' }
+            else { loShuTrigramsContext.fillStyle = 'white' }
+            if (1 === currentLoShuElement) { loShuDaoContext.fillStyle = 'lightgrey' }
+            else { loShuDaoContext.fillStyle = 'white' }
+            if (2 === currentLoShuElement) { loShuSpiritContext.fillStyle = 'lightgrey' }
+            else { loShuSpiritContext.fillStyle = 'white' }
+            if (3 === currentLoShuElement) { loShuEnergyContext.fillStyle = 'lightgrey' }
+            else { loShuEnergyContext.fillStyle = 'white' }
+            loShuTrigramsContext.fill()
+            loShuDaoContext.fill()
+            loShuSpiritContext.fill()
+            loShuEnergyContext.fill()
+            // build_lo_shu_table(number)
+        }
         function build_symbol_index() {
             let data = glideData;
             let parentNode = document.getElementById('SymbolIndexes')
@@ -779,7 +801,7 @@
 
             if (0 === currentMenuItem) { randomContent.style.display = 'flex'; update_random_hexagram() }
             else { randomContent.style.display = 'none' }
-            if (1 === currentMenuItem) { loShuContent.style.display = 'flex'; /* set_lo_shu_element(currentLoShuElement) */}
+            if (1 === currentMenuItem) { loShuContent.style.display = 'flex'; set_lo_shu_element(currentLoShuElement) }
             else { loShuContent.style.display = 'none' }
             if (2 === currentMenuItem) { shapesContent.style.display = 'flex'; drawShapes() }
             else { shapesContent.style.display = 'none'; deleteIcosiheptagon() }
@@ -1515,10 +1537,18 @@
     </div>
     <div id="LoShuContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
         <div style="display: flex; flex-direction: column; width: 5em; height: 100%; position: fixed; top: 39px; bottom: 0; overflow-y: auto;">
-            <div id="LoShuElementFire" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(0);">🜂</div> 
-            <div id="LoShuElementWater" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(1);">🜄</div> 
-            <div id="LoShuElementAir" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(2);">🜁</div> 
-            <div id="LoShuElementEarth" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(3);">🜃</div> 
+            <div id="LoShuTrigramsCanvas" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(0);">
+                Trigrams
+            </div> 
+            <div id="LoShuElementWater" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(1);">
+                <canvas id="LoShuDaoanvas" style="position: absolute; left: 371px; top: 900px; width: 20px; height:30px;"></canvas>
+            </div> 
+            <div id="LoShuElementAir" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(2);">
+                <canvas id="LoShuSpiritCanvas" style="position: absolute; left: 371px; top: 900px; width: 20px; height:30px;"></canvas>
+            </div> 
+            <div id="LoShuElementEarth" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(3);">
+                <canvas id="LoShuEnergyCanvas" style="position: absolute; left: 371px; top: 900px; width: 20px; height:30px;"></canvas>
+            </div> 
         </div>
         <div id="LoShu" style="font-size: 1em; font-family: 'Times New Roman', Times, serif; padding: 10px 0px 0px 5px; position: fixed; left: 5.5em; width: 100%; height: 100%; border: 1px solid black; overflow-y: scroll;"></div>
     </div>
