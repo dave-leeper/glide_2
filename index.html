@@ -1546,17 +1546,17 @@
     </div>
     <div id="LoShuContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
         <div style="display: flex; flex-direction: column; width: 5em; height: 100%; position: fixed; top: 39px; bottom: 0; overflow-y: auto;">
-            <div id="LoShuTrigramsCanvas" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(0);">
-                Trigrams
+            <div style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(0);">
+                <canvas id="LoShuTrigramsCanvas" style="position: absolute; left: 371px; top: 50px; width: 20px; height: 30px;"></canvas>
             </div> 
             <div id="LoShuElementWater" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(1);">
-                <canvas id="LoShuDaoanvas" style="position: absolute; left: 371px; top: 900px; width: 20px; height:30px;"></canvas>
+                <canvas id="LoShuDaoCanvas" style="position: absolute; left: 371px; top: 80px; width: 20px; height: 30px;"></canvas>
             </div> 
             <div id="LoShuElementAir" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(2);">
-                <canvas id="LoShuSpiritCanvas" style="position: absolute; left: 371px; top: 900px; width: 20px; height:30px;"></canvas>
+                <canvas id="LoShuSpiritCanvas" style="position: absolute; left: 371px; top: 110px; width: 20px; height: 30px;"></canvas>
             </div> 
             <div id="LoShuElementEarth" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(3);">
-                <canvas id="LoShuEnergyCanvas" style="position: absolute; left: 371px; top: 900px; width: 20px; height:30px;"></canvas>
+                <canvas id="LoShuEnergyCanvas" style="position: absolute; left: 371px; top: 140px; width: 20px; height: 30px;"></canvas>
             </div> 
         </div>
         <div id="LoShu" style="font-size: 1em; font-family: 'Times New Roman', Times, serif; padding: 10px 0px 0px 5px; position: fixed; left: 5.5em; width: 100%; height: 100%; border: 1px solid black; overflow-y: scroll;"></div>
