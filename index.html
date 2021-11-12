@@ -673,16 +673,11 @@
             let loShuSpiritCanvas = document.getElementById("LoShuSpiritCanvas")
             let loShuEnergyCanvas = document.getElementById("LoShuEnergyCanvas")
             let loShuTrigramDao = document.getElementById("LoShuTrigramDao")
-            let backgroundColor = "white"
 
             currentLoShuElement = number
-            if (0 === currentLoShuElement) { backgroundColor = 'lightgrey' }
-            if (1 === currentLoShuElement) { backgroundColor = 'lightgrey' }
-            if (2 === currentLoShuElement) { backgroundColor = 'lightgrey' }
-            if (3 === currentLoShuElement) { backgroundColor = 'lightgrey' }
-            draw_trigram(loShuDaoCanvas, "◠ᔐ◡", backgroundColor)
-            draw_trigram(loShuSpiritCanvas, "◠◠◠", backgroundColor)
-            draw_trigram(loShuEnergyCanvas, "ᔐᔐᔐ", backgroundColor)
+            draw_trigram(loShuDaoCanvas, "◠ᔐ◡", (1 === currentLoShuElement)? "lightgrey" : "white")
+            draw_trigram(loShuSpiritCanvas, "◠◠◠", "◠ᔐ◡", (2 === currentLoShuElement)? "lightgrey" : "white")
+            draw_trigram(loShuEnergyCanvas, "ᔐᔐᔐ", (13 === currentLoShuElement)? "lightgrey" : "white")
 
             // build_lo_shu_table(number)
         }
