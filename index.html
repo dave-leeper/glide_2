@@ -691,8 +691,8 @@
             loShuEnergyContext.fill()
             loShuTrigramsContext.fillText("🚫", 5, 10),
             draw_trigram(loShuDaoCanvas, "◠ᔐ◡")
-            draw_trigram(loShuSpiritContext, "◠◠◠")
-            draw_trigram(loShuEnergyContext, "ᔐᔐᔐ")
+            draw_trigram(loShuSpiritCanvas, "◠◠◠")
+            draw_trigram(loShuEnergyCanvas, "ᔐᔐᔐ")
 
             // build_lo_shu_table(number)
         }
@@ -1549,13 +1549,13 @@
             <div style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(0);">
                 <canvas id="LoShuTrigramsCanvas" style="position: absolute; left: 371px; top: 50px; width: 20px; height: 30px;"></canvas>
             </div> 
-            <div id="LoShuElementWater" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(1);">
+            <div id="LoShuTrigramDao" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(1);">
                 <canvas id="LoShuDaoCanvas" style="position: absolute; left: 371px; top: 80px; width: 20px; height: 30px;"></canvas>
             </div> 
-            <div id="LoShuElementAir" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(2);">
+            <div id="LoShuTrigramSpirit" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(2);">
                 <canvas id="LoShuSpiritCanvas" style="position: absolute; left: 371px; top: 110px; width: 20px; height: 30px;"></canvas>
             </div> 
-            <div id="LoShuElementEarth" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(3);">
+            <div id="LoShuTrigramEnergy" style="width: 1.5em; height: 1.5em; margin: 2px; font-size: 3em; text-align: center; vertical-align: middle; cursor: pointer;" onclick="set_lo_shu_element(3);">
                 <canvas id="LoShuEnergyCanvas" style="position: absolute; left: 371px; top: 140px; width: 20px; height: 30px;"></canvas>
             </div> 
         </div>
