@@ -671,24 +671,16 @@
             let loShuDaoCanvas = document.getElementById("LoShuDaoCanvas")
             let loShuSpiritCanvas = document.getElementById("LoShuSpiritCanvas")
             let loShuEnergyCanvas = document.getElementById("LoShuEnergyCanvas")
-            let loShuTrigramsContext = loShuTrigramsCanvas.getContext("2d")
-            let loShuDaoContext = loShuDaoCanvas.getContext("2d")
-            let loShuSpiritContext = loShuSpiritCanvas.getContext("2d")
-            let loShuEnergyContext = loShuEnergyCanvas.getContext("2d")
 
             currentLoShuElement = number
-            if (0 === currentLoShuElement) { loShuTrigramsContext.fillStyle = 'lightgrey' }
-            else { loShuTrigramsContext.fillStyle = 'white' }
-            if (1 === currentLoShuElement) { loShuDaoContext.fillStyle = 'lightgrey' }
-            else { loShuDaoContext.fillStyle = 'white' }
-            if (2 === currentLoShuElement) { loShuSpiritContext.fillStyle = 'lightgrey' }
-            else { loShuSpiritContext.fillStyle = 'white' }
-            if (3 === currentLoShuElement) { loShuEnergyContext.fillStyle = 'lightgrey' }
-            else { loShuEnergyContext.fillStyle = 'white' }
-            loShuTrigramsContext.fillRect(0, 0, loShuTrigramsCanvas.width, loShuTrigramsCanvas.height)
-            loShuDaoContext.fillRect(0, 0, loShuDaoCanvas.width, loShuDaoCanvas.height)
-            loShuSpiritContext.fillRect(0, 0, loShuSpiritCanvas.width, loShuSpiritCanvas.height)
-            loShuEnergyContext.fillRect(0, 0, loShuEnergyCanvas.width, loShuEnergyCanvas.height)
+            if (0 === currentLoShuElement) { loShuTrigramsContext.style.border = '1px solid lightgrey' }
+            else { loShuTrigramsContext.style.border = '1px solid white' }
+            if (1 === currentLoShuElement) { loShuDaoContext.style.border = '1px solid lightgrey' }
+            else { loShuDaoContext.style.border = '1px solid white' }
+            if (2 === currentLoShuElement) { loShuSpiritContext.style.border = '1px solid lightgrey' }
+            else { loShuSpiritContext.style.border = '1px solid white' }
+            if (3 === currentLoShuElement) { loShuEnergyContext.style.border = '1px solid lightgrey' }
+            else { loShuEnergyContext.style.border = '1px solid white' }
             draw_trigram(loShuDaoCanvas, "◠ᔐ◡")
             draw_trigram(loShuSpiritCanvas, "◠◠◠")
             draw_trigram(loShuEnergyCanvas, "ᔐᔐᔐ")
