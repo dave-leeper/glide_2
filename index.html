@@ -540,8 +540,7 @@
         function draw_symbol(context, symbol, currentYLocation, fillColor) {
             const radius = 50
 
-            context.fillStyle = fillColor? fillColor : "#FFFFFF00"
-            context.fill()
+            context.fillStyle = fillColor? fillColor : "#FFFFFF"
             context.beginPath()
             if (symbol === "◠") {
                 context.arc(50, currentYLocation, radius, 0 * 0.0174533, 180 * 0.0174533, true)
@@ -567,6 +566,8 @@
             context.strokeStyle = 'black'
             context.lineWidth = 3
             context.lineCap = 'round'
+            context.fillStyle = fillColor? fillColor : "#FFFFFF"
+            context.fillRect(0, 0, canvas.width, canvas.height);
 
             for (let loop = 0; loop < symbols.length; loop++) {
                 let symbol = symbols[loop]
