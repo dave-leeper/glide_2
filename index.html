@@ -777,12 +777,13 @@
             let listContent = document.getElementById("ListContent")
             let docsContent = document.getElementById("DocsContent")
 
+            deleteIcosiheptagon()
             if (0 === currentMenuItem) { randomContent.style.display = 'flex'; update_random_hexagram() }
             else { randomContent.style.display = 'none' }
             if (1 === currentMenuItem) { loShuContent.style.display = 'flex'; set_lo_shu_element(currentLoShuElement); }
             else { loShuContent.style.display = 'none' }
             if (2 === currentMenuItem) { shapesContent.style.display = 'flex'; drawShapes() }
-            else { shapesContent.style.display = 'none'; deleteIcosiheptagon() }
+            else { shapesContent.style.display = 'none' }
             if (3 === currentMenuItem) { gabbalahContent.style.display = 'flex' }
             else { gabbalahContent.style.display = 'none' }
             if (4 === currentMenuItem) { listContent.style.display = 'flex' }
