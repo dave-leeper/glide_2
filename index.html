@@ -537,10 +537,10 @@
             context.font = "24px Arial";
             context.fillText("Glide 2.0", 1, 290);
         }
-        function draw_symbol(context, symbol, currentYLocation) {
+        function draw_symbol(context, symbol, currentYLocation, fillColor) {
             const radius = 50
 
-            context.fillStyle = "#FFFFFF00"
+            context.fillStyle = fillColor? fillCOlor : "#FFFFFF00"
             context.beginPath()
             if (symbol === "◠") {
                 context.arc(50, currentYLocation, radius, 0 * 0.0174533, 180 * 0.0174533, true)
@@ -556,7 +556,7 @@
             }
             context.stroke()
         }
-        function draw_trigram(canvas, symbols) {
+        function draw_trigram(canvas, symbols, fillColor) {
             let previousSymbol = null
             let currentYLocation = 0
             const context = canvas.getContext('2d')
@@ -574,7 +574,7 @@
                 else if (previousSymbol === "◡") { currentYLocation += symbolData.previousEarthDistance }
                 else if (previousSymbol === "ᔐ") { currentYLocation += symbolData.previousManDistance }
                 previousSymbol = symbol
-                draw_symbol(context, symbol, currentYLocation)
+                draw_symbol(context, symbol, currentYLocation, fillColor)
             }
         }
         function show_trigram(number) {
@@ -673,19 +673,16 @@
             let loShuSpiritCanvas = document.getElementById("LoShuSpiritCanvas")
             let loShuEnergyCanvas = document.getElementById("LoShuEnergyCanvas")
             let loShuTrigramDao = document.getElementById("LoShuTrigramDao")
+            let backgroundColor = "white"
 
             currentLoShuElement = number
-            if (0 === currentLoShuElement) { loShuTrigramDao.style.backgroundColor = '1px solid lightgrey' }
-            else { loShuTrigramsCanvas.style.border = '1px solid white' }
-            if (1 === currentLoShuElement) { loShuTrigramDao.style.backgroundColor = 'lightgrey' }
-            else { loShuTrigramDao.style.backgroundColor = 'white' }
-            if (2 === currentLoShuElement) { loShuSpiritCanvas.style.border = '1px solid lightgrey' }
-            else { loShuSpiritCanvas.style.border = '1px solid white' }
-            if (3 === currentLoShuElement) { loShuEnergyCanvas.style.border = '1px solid lightgrey' }
-            else { loShuEnergyCanvas.style.border = '1px solid white' }
-            draw_trigram(loShuDaoCanvas, "◠ᔐ◡")
-            draw_trigram(loShuSpiritCanvas, "◠◠◠")
-            draw_trigram(loShuEnergyCanvas, "ᔐᔐᔐ")
+            if (0 === currentLoShuElement) { backgroundColor = 'lightgrey' }
+            if (1 === currentLoShuElement) { backgroundColor = 'lightgrey' }
+            if (2 === currentLoShuElement) { backgroundColor = 'lightgrey' }
+            if (3 === currentLoShuElement) { backgroundColor = 'lightgrey' }
+            draw_trigram(loShuDaoCanvas, "◠ᔐ◡", backgroundColor)
+            draw_trigram(loShuSpiritCanvas, "◠◠◠", backgroundColor)
+            draw_trigram(loShuEnergyCanvas, "ᔐᔐᔐ", backgroundColor)
 
             // build_lo_shu_table(number)
         }
