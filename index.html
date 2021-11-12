@@ -667,10 +667,14 @@
             currentHexagramSymbol = number
         }
         function set_lo_shu_element(number) {
-            let loShuTrigramsContext = document.getElementById("LoShuTrigramsCanvas").getContext("2d")
-            let loShuDaoContext = document.getElementById("LoShuDaoCanvas").getContext("2d")
-            let loShuSpiritContext = document.getElementById("LoShuSpiritCanvas").getContext("2d")
-            let loShuEnergyContext = document.getElementById("LoShuEnergyCanvas").getContext("2d")
+            let loShuTrigramsCanvas = document.getElementById("LoShuTrigramsCanvas")
+            let loShuDaoCanvas = document.getElementById("LoShuDaoCanvas")
+            let loShuSpiritCanvas = document.getElementById("LoShuSpiritCanvas")
+            let loShuEnergyCanvas = document.getElementById("LoShuEnergyCanvas")
+            let loShuTrigramsContext = loShuTrigramsCanvas.getContext("2d")
+            let loShuDaoContext = loShuDaoCanvas.getContext("2d")
+            let loShuSpiritContext = loShuSpiritCanvas.getContext("2d")
+            let loShuEnergyContext = loShuEnergyCanvas.getContext("2d")
 
             currentLoShuElement = number
             if (0 === currentLoShuElement) { loShuTrigramsContext.fillStyle = 'lightgrey' }
@@ -685,6 +689,11 @@
             loShuDaoContext.fill()
             loShuSpiritContext.fill()
             loShuEnergyContext.fill()
+            loShuTrigramsContext.fillText("🚫"),
+            draw_trigram(loShuDaoCanvas, "◠ᔐ◡")
+            draw_trigram(spiritCanvas, "◠◠◠")
+            draw_trigram(loShuEnergyContext, "ᔐᔐᔐ")
+
             // build_lo_shu_table(number)
         }
         function build_symbol_index() {
