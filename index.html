@@ -672,6 +672,186 @@
             newSelected.style.background = 'lightgrey'
             currentHexagramSymbol = number
         }
+        function build_lo_shu_table(number) {
+            let pastExternalHeader = document.getElementById("PastExternalHeader")
+            let presentExternalHeader = document.getElementById("PresentExternalHeader")
+            let futureExternalHeader = document.getElementById("FutureExternalHeader")
+
+            let firePastInternalHeader = document.getElementById("FirePastInternalHeader")
+            let firePastPastData = document.getElementById("FirePastPastData")
+            let firePresentPastData = document.getElementById("FirePresentPastData")
+            let fireFuturePastData = document.getElementById("FireFuturePastData")
+            let firePresentInternalHeader = document.getElementById("FirePresentInternalHeader")
+            let firePastPresentData = document.getElementById("FirePastPresentData")
+            let firePresentPresentData = document.getElementById("FirePresentPresentData")
+            let fireFuturePresentData = document.getElementById("FireFuturePresentData")
+            let fireFutureInternalHeader = document.getElementById("FireFutureInternalHeader")
+            let firePastFutureData = document.getElementById("FirePastFutureData")
+            let firePresentFutureData = document.getElementById("FirePresentFutureData")
+            let fireFutureFutureData = document.getElementById("FireFutureFutureData")
+
+            let waterPastInternalHeader = document.getElementById("WaterPastInternalHeader")
+            let waterPastPastData = document.getElementById("WaterPastPastData")
+            let waterPresentPastData = document.getElementById("WaterPresentPastData")
+            let waterFuturePastData = document.getElementById("WaterFuturePastData")
+            let waterPresentInternalHeader = document.getElementById("WaterPresentInternalHeader")
+            let waterPastPresentData = document.getElementById("WaterPastPresentData")
+            let waterPresentPresentData = document.getElementById("WaterPresentPresentData")
+            let waterFuturePresentData = document.getElementById("WaterFuturePresentData")
+            let waterFutureInternalHeader = document.getElementById("WaterFutureInternalHeader")
+            let waterPastFutureData = document.getElementById("WaterPastFutureData")
+            let waterPresentFutureData = document.getElementById("WaterPresentFutureData")
+            let waterFutureFutureData = document.getElementById("WaterFutureFutureData")
+
+            let airPastInternalHeader = document.getElementById("AirPastInternalHeader")
+            let airPastPastData = document.getElementById("AirPastPastData")
+            let airPresentPastData = document.getElementById("AirPresentPastData")
+            let airFuturePastData = document.getElementById("AirFuturePastData")
+            let airPresentInternalHeader = document.getElementById("AirPresentInternalHeader")
+            let airPastPresentData = document.getElementById("AirPastPresentData")
+            let airPresentPresentData = document.getElementById("AirPresentPresentData")
+            let airFuturePresentData = document.getElementById("AirFuturePresentData")
+            let airFutureInternalHeader = document.getElementById("AirFutureInternalHeader")
+            let airPastFutureData = document.getElementById("AirPastFutureData")
+            let airPresentFutureData = document.getElementById("AirPresentFutureData")
+            let airFutureFutureData = document.getElementById("AirFutureFutureData")
+
+            let earthPastInternalHeader = document.getElementById("EarthPastInternalHeader")
+            let earthPastPastData = document.getElementById("EarthPastPastData")
+            let earthPresentPastData = document.getElementById("EarthPresentPastData")
+            let earthFuturePastData = document.getElementById("EarthFuturePastData")
+            let earthPresentInternalHeader = document.getElementById("EarthPresentInternalHeader")
+            let earthPastPresentData = document.getElementById("EarthPastPresentData")
+            let earthPresentPresentData = document.getElementById("EarthPresentPresentData")
+            let earthFuturePresentData = document.getElementById("EarthFuturePresentData")
+            let earthFutureInternalHeader = document.getElementById("EarthFutureInternalHeader")
+            let earthPastFutureData = document.getElementById("EarthPastFutureData")
+            let earthPresentFutureData = document.getElementById("EarthPresentFutureData")
+            let earthFutureFutureData = document.getElementById("EarthFutureFutureData")
+
+            let data = iChingData;
+            let externalTrigrams = data.loShuGrouping[number]
+            let pastTrigram = get_trigram(externalTrigrams[0])
+            let presentTrigram = get_trigram(externalTrigrams[1])
+            let futureTrigram = get_trigram(externalTrigrams[2])
+
+            pastExternalHeader.innerText = "External " + pastTrigram.symbol + "  " + pastTrigram.zodiac
+            presentExternalHeader.innerText = "External " + presentTrigram.symbol + "  " + presentTrigram.zodiac
+            futureExternalHeader.innerText = "External " + futureTrigram.symbol + "  " + futureTrigram.zodiac
+
+            let pastFireTrigram = get_trigram(data.loShuGrouping[0][0])
+            let presentFireTrigram = get_trigram(data.loShuGrouping[0][1])
+            let futureFireTrigram = get_trigram(data.loShuGrouping[0][2])
+
+            firePastInternalHeader.innerText = pastFireTrigram.symbol + "  " + pastFireTrigram.zodiac
+            firePresentInternalHeader.innerText = presentFireTrigram.symbol + "  " + presentFireTrigram.zodiac
+            fireFutureInternalHeader.innerText = futureFireTrigram.symbol + "  " + futureFireTrigram.zodiac
+
+            let firePastPastHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, pastFireTrigram.symbol)
+            let firePastPresentHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, presentFireTrigram.symbol)
+            let firePastFutureHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, futureFireTrigram.symbol)
+            let firePresentPastHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, pastFireTrigram.symbol)
+            let firePresentPresentHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, presentFireTrigram.symbol)
+            let firePresentFutureHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, futureFireTrigram.symbol)
+            let fireFuturePastHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, pastFireTrigram.symbol)
+            let fireFuturePresentHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, presentFireTrigram.symbol)
+            let fireFutureFutureHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, futureFireTrigram.symbol)
+
+            firePastPastData.innerText = firePastPastHexagram.number + ". " + firePastPastHexagram.name
+            firePastPresentData.innerText = firePastPresentHexagram.number + ". " + firePastPresentHexagram.name
+            firePastFutureData.innerText = firePastFutureHexagram.number + ". " + firePastFutureHexagram.name
+            firePresentPastData.innerText = firePresentPastHexagram.number + ". " + firePresentPastHexagram.name
+            firePresentPresentData.innerText = firePresentPresentHexagram.number + ". " + firePresentPresentHexagram.name
+            firePresentFutureData.innerText = firePresentFutureHexagram.number + ". " + firePresentFutureHexagram.name
+            fireFuturePastData.innerText = fireFuturePastHexagram.number + ". " + fireFuturePastHexagram.name
+            fireFuturePresentData.innerText = fireFuturePresentHexagram.number + ". " + fireFuturePresentHexagram.name
+            fireFutureFutureData.innerText = fireFutureFutureHexagram.number + ". " + fireFutureFutureHexagram.name
+
+            let pastWaterTrigram = get_trigram(data.loShuGrouping[1][0])
+            let presentWaterTrigram = get_trigram(data.loShuGrouping[1][1])
+            let futureWaterTrigram = get_trigram(data.loShuGrouping[1][2])
+
+            waterPastInternalHeader.innerText = pastWaterTrigram.symbol + "  " + pastWaterTrigram.zodiac
+            waterPresentInternalHeader.innerText = presentWaterTrigram.symbol + "  " + presentWaterTrigram.zodiac
+            waterFutureInternalHeader.innerText = futureWaterTrigram.symbol + "  " + futureWaterTrigram.zodiac
+
+            let waterPastPastHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, pastWaterTrigram.symbol)
+            let waterPastPresentHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, presentWaterTrigram.symbol)
+            let waterPastFutureHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, futureWaterTrigram.symbol)
+            let waterPresentPastHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, pastWaterTrigram.symbol)
+            let waterPresentPresentHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, presentWaterTrigram.symbol)
+            let waterPresentFutureHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, futureWaterTrigram.symbol)
+            let waterFuturePastHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, pastWaterTrigram.symbol)
+            let waterFuturePresentHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, presentWaterTrigram.symbol)
+            let waterFutureFutureHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, futureWaterTrigram.symbol)
+
+            waterPastPastData.innerText = waterPastPastHexagram.number + ". " + waterPastPastHexagram.name
+            waterPastPresentData.innerText = waterPastPresentHexagram.number + ". " + waterPastPresentHexagram.name
+            waterPastFutureData.innerText = waterPastFutureHexagram.number + ". " + waterPastFutureHexagram.name
+            waterPresentPastData.innerText = waterPresentPastHexagram.number + ". " + waterPresentPastHexagram.name
+            waterPresentPresentData.innerText = waterPresentPresentHexagram.number + ". " + waterPresentPresentHexagram.name
+            waterPresentFutureData.innerText = waterPresentFutureHexagram.number + ". " + waterPresentFutureHexagram.name
+            waterFuturePastData.innerText = waterFuturePastHexagram.number + ". " + waterFuturePastHexagram.name
+            waterFuturePresentData.innerText = waterFuturePresentHexagram.number + ". " + waterFuturePresentHexagram.name
+            waterFutureFutureData.innerText = waterFutureFutureHexagram.number + ". " + waterFutureFutureHexagram.name
+
+            let pastAirTrigram = get_trigram(data.loShuGrouping[2][0])
+            let presentAirTrigram = get_trigram(data.loShuGrouping[2][1])
+            let futureAirTrigram = get_trigram(data.loShuGrouping[2][2])
+
+            airPastInternalHeader.innerText = pastAirTrigram.symbol + "  " + pastAirTrigram.zodiac
+            airPresentInternalHeader.innerText = presentAirTrigram.symbol + "  " + presentAirTrigram.zodiac
+            airFutureInternalHeader.innerText = futureAirTrigram.symbol + "  " + futureAirTrigram.zodiac
+
+            let airPastPastHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, pastAirTrigram.symbol)
+            let airPastPresentHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, presentAirTrigram.symbol)
+            let airPastFutureHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, futureAirTrigram.symbol)
+            let airPresentPastHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, pastAirTrigram.symbol)
+            let airPresentPresentHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, presentAirTrigram.symbol)
+            let airPresentFutureHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, futureAirTrigram.symbol)
+            let airFuturePastHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, pastAirTrigram.symbol)
+            let airFuturePresentHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, presentAirTrigram.symbol)
+            let airFutureFutureHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, futureAirTrigram.symbol)
+
+            airPastPastData.innerText = airPastPastHexagram.number + ". " + airPastPastHexagram.name
+            airPastPresentData.innerText = airPastPresentHexagram.number + ". " + airPastPresentHexagram.name
+            airPastFutureData.innerText = airPastFutureHexagram.number + ". " + airPastFutureHexagram.name
+            airPresentPastData.innerText = airPresentPastHexagram.number + ". " + airPresentPastHexagram.name
+            airPresentPresentData.innerText = airPresentPresentHexagram.number + ". " + airPresentPresentHexagram.name
+            airPresentFutureData.innerText = airPresentFutureHexagram.number + ". " + airPresentFutureHexagram.name
+            airFuturePastData.innerText = airFuturePastHexagram.number + ". " + airFuturePastHexagram.name
+            airFuturePresentData.innerText = airFuturePresentHexagram.number + ". " + airFuturePresentHexagram.name
+            airFutureFutureData.innerText = airFutureFutureHexagram.number + ". " + airFutureFutureHexagram.name
+
+            let pastEarthTrigram = get_trigram(data.loShuGrouping[3][0])
+            let presentEarthTrigram = get_trigram(data.loShuGrouping[3][1])
+            let futureEarthTrigram = get_trigram(data.loShuGrouping[3][2])
+
+            earthPastInternalHeader.innerText = pastEarthTrigram.symbol + "  " + pastEarthTrigram.zodiac
+            earthPresentInternalHeader.innerText = presentEarthTrigram.symbol + "  " + presentEarthTrigram.zodiac
+            earthFutureInternalHeader.innerText = futureEarthTrigram.symbol + "  " + futureEarthTrigram.zodiac
+
+            let earthPastPastHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, pastEarthTrigram.symbol)
+            let earthPastPresentHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, presentEarthTrigram.symbol)
+            let earthPastFutureHexagram = get_hexagram_from_trigrams(pastTrigram.symbol, futureEarthTrigram.symbol)
+            let earthPresentPastHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, pastEarthTrigram.symbol)
+            let earthPresentPresentHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, presentEarthTrigram.symbol)
+            let earthPresentFutureHexagram = get_hexagram_from_trigrams(presentTrigram.symbol, futureEarthTrigram.symbol)
+            let earthFuturePastHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, pastEarthTrigram.symbol)
+            let earthFuturePresentHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, presentEarthTrigram.symbol)
+            let earthFutureFutureHexagram = get_hexagram_from_trigrams(futureTrigram.symbol, futureEarthTrigram.symbol)
+
+            earthPastPastData.innerText = earthPastPastHexagram.number + ". " + earthPastPastHexagram.name
+            earthPastPresentData.innerText = earthPastPresentHexagram.number + ". " + earthPastPresentHexagram.name
+            earthPastFutureData.innerText = earthPastFutureHexagram.number + ". " + earthPastFutureHexagram.name
+            earthPresentPastData.innerText = earthPresentPastHexagram.number + ". " + earthPresentPastHexagram.name
+            earthPresentPresentData.innerText = earthPresentPresentHexagram.number + ". " + earthPresentPresentHexagram.name
+            earthPresentFutureData.innerText = earthPresentFutureHexagram.number + ". " + earthPresentFutureHexagram.name
+            earthFuturePastData.innerText = earthFuturePastHexagram.number + ". " + earthFuturePastHexagram.name
+            earthFuturePresentData.innerText = earthFuturePresentHexagram.number + ". " + earthFuturePresentHexagram.name
+            earthFutureFutureData.innerText = earthFutureFutureHexagram.number + ". " + earthFutureFutureHexagram.name
+
+            select_lo_shu_hexagram(currentLoShuHexagram)
         function set_lo_shu_element(number) {
             let loShuTrigramsDiv = document.getElementById("LoShuTrigram")
             let loShuDaoCanvas = document.getElementById("LoShuDaoCanvas")
@@ -1548,7 +1728,33 @@
                 <canvas id="LoShuEnergyCanvas" style="position: absolute; left: 5px; top: 170px; width: 60px; height: 90px;"></canvas>
             </div> 
         </div>
-        <div id="LoShu" style="font-size: 1em; font-family: 'Times New Roman', Times, serif; padding: 10px 0px 0px 5px; position: fixed; left: 5.5em; width: 100%; height: 100%; border: 1px solid black; overflow-y: scroll;"></div>
+        <div id="LoShu" style="font-size: 1em; font-family: 'Times New Roman', Times, serif; padding: 10px 0px 0px 5px; position: fixed; left: 5.5em; width: 100%; height: 100%; border: 1px solid black; overflow-y: scroll;">
+            <table style="font-family: 'Arial Narrow', Arial, sans-serif;">
+                <tr>
+                    <th style="width: 5em; height: 1.5em; border: 1px solid black; background-color: GhostWhite; cursor: default;">↓Internal↓</th>
+                    <th id="PastExternalHeader" style="width: 10em; height: 1.5em; border: 1px solid black; background-color: GhostWhite; cursor: default;">Past</th>
+                    <th id="PresentExternalHeader" style="width: 10em; height: 1.5em; border: 1px solid black; background-color: GhostWhite; cursor: default;">Present</th>
+                    <th id="FutureExternalHeader" style="width: 10em; height: 1.5em; border: 1px solid black; background-color: GhostWhite; cursor: default;">Future</th>
+                </tr>
+                <tr>
+                    <th id="FirePastInternalHeader" style="width: 5em; height: 1.5em; border: 1px solid black; background-color: GhostWhite; cursor: default;">Past Fire</th>
+                    <td id="FirePastPastData" style="width: 10em; height: 1.5em; border: 1px solid black; cursor: pointer;" onclick="select_lo_shu_hexagram('FirePastPastData')"></td>
+                    <td id="FirePresentPastData" style="width: 10em; height: 1.5em; border: 1px solid black; cursor: pointer;" onclick="select_lo_shu_hexagram('FirePresentPastData')"></td>
+                    <td id="FireFuturePastData" style="width: 10em; height: 1.5em; border: 1px solid black; cursor: pointer;" onclick="select_lo_shu_hexagram('FireFuturePastData')"></td>
+                </tr>
+                <tr>
+                    <th id="FirePresentInternalHeader" style="width: 5em; height: 1.5em; border: 1px solid black; background-color: GhostWhite; cursor: default;">Present Fire</th>
+                    <td id="FirePastPresentData" style="width: 10em; height: 1.5em; border: 1px solid black; cursor: pointer;" onclick="select_lo_shu_hexagram('FirePastPresentData')"></td>
+                    <td id="FirePresentPresentData" style="width: 10em; height: 1.5em; border: 1px solid black; cursor: pointer;" onclick="select_lo_shu_hexagram('FirePresentPresentData')"></td>
+                    <td id="FireFuturePresentData" style="width: 10em; height: 1.5em; border: 1px solid black; cursor: pointer;" onclick="select_lo_shu_hexagram('FireFuturePresentData')"></td>
+                </tr>
+                <tr>
+                    <th id="FireFutureInternalHeader" style="width: 5em; height: 1.5em; border: 1px solid black; background-color: GhostWhite; cursor: default;">Future Fire</th>
+                    <td id="FirePastFutureData" style="width: 10em; height: 1.5em; border: 1px solid black; cursor: pointer;" onclick="select_lo_shu_hexagram('FirePastFutureData')"></td>
+                    <td id="FirePresentFutureData" style="width: 10em; height: 1.5em; border: 1px solid black; cursor: pointer;" onclick="select_lo_shu_hexagram('FirePresentFutureData')"></td>
+                    <td id="FireFutureFutureData" style="width: 10em; height: 1.5em; border: 1px solid black; cursor: pointer;" onclick="select_lo_shu_hexagram('FireFutureFutureData')"></td>
+                </tr>
+            </table></div>
     </div>
     <div id="ShapesContent" style="display: none; flex-direction: column; width: 100%; height: 100%;">
         <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
@@ -2314,7 +2520,7 @@
                     Much of Glide 2.0 concerns itself with these three facets of Daoism.
                 </div>
             </div>
-            <div style="font-size: 2em; font-weight: bold; width: 100%; margin-top: 7px;" width: 100%;>Vitality, Sense, Spirit, Essense, And Will</div>
+            <div style="font-size: 2em; font-weight: bold; width: 100%; margin-top: 7px; width: 100%;">Vitality, Sense, Spirit, Essense, And Will</div>
             <div style="margin: 10px 0px 0px 0px; width: 100%;">Vitality, Sense, Spirit, Essense, And Will correspond to the ancient Chinese concepts of Water, Metal, Fire, Wood, and Earth of the <a href="https://en.wikipedia.org/wiki/Wuxing_(Chinese_philosophy)" >Wu Xing.</a>
                 Wu Xing translates to "Five Movements" and Water, Metal, Fire, Wood, and Earth represent processes of nature.
                 In the Wu Xing system, each of the movements fosters another movement and each hinders another movement.
