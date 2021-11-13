@@ -483,6 +483,13 @@
             draw_trigram(willCanvas, "◡ᔐ◠")
             draw_trigram(wuWeiCanvas, "◠◡ᔐ")
             draw_trigram(uncarvedBlockCanvas, "ᔐ◠◡")
+
+            
+        }
+        function drawDocumentationShapes() {
+            let daoCanvas = document.getElementById("DocumentationHexagramDao")
+
+            draw_trigram(daoCanvas, "◠ᔐ◡")
         }
         function arc(center, radius, startAngle, endAngle) {
             angle = startAngle;
@@ -787,7 +794,7 @@
             else { gabbalahContent.style.display = 'none' }
             if (3 === currentMenuItem) { listContent.style.display = 'flex' }
             else { listContent.style.display = 'none' }
-            if (4 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo() }
+            if (4 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo(); drawDocumentationShapes() }
             else { docsContent.style.display = 'none' }
         }
 
@@ -2331,7 +2338,7 @@
                                     <g style="transform-origin: 50% 50%; transform: translateX(10px) translateY(170px) rotate(-145deg);">
                                         <line x1="0" y1="50" x2="200" y2="50" stroke="green" stroke-width="8" marker-end="url(#docsgreenarrowhead)" />
                                     </g>
-                                    <g style="transform-origin: 50% 50%; transform: translateX(230px) translateY(175px) rotate(90deg);">
+                                    <g style="transform-origin: 50% 50%; transform: translateX(230px) translateY(180px) rotate(90deg);">
                                         <line x1="0" y1="50" x2="200" y2="50" stroke="green" stroke-width="8" marker-end="url(#docsgreenarrowhead)" />
                                     </g>
                                     <g style="transform-origin: 50% 50%; transform: translateX(0px) translateY(50px) rotate(-90deg);">
