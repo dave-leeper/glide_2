@@ -774,7 +774,7 @@
         function draw_menu() {
             let randomOverTimeMenuItem = document.getElementById("MenuBarRandomOverTime")
             let octacrossAndTarotMenuItem = document.getElementById("MenuBarShapes")
-            let gabbalahMenuItem = document.getElementById("MenuBarGabbalah")
+            let kabalaMenuItem = document.getElementById("MenuBarKabala")
             let listMenuItem = document.getElementById("MenuBarList")
             let docsMenuItem = document.getElementById("MenuBarDocs")
 
@@ -782,8 +782,8 @@
             else { randomOverTimeMenuItem.style.background = 'white' }
             if (1 === currentMenuItem) { octacrossAndTarotMenuItem.style.background = 'lightgrey' }
             else { octacrossAndTarotMenuItem.style.background = 'white' }
-            if (2 === currentMenuItem) { gabbalahMenuItem.style.background = 'lightgrey' }
-            else { gabbalahMenuItem.style.background = 'white' }
+            if (2 === currentMenuItem) { kabalaMenuItem.style.background = 'lightgrey' }
+            else { kabalaMenuItem.style.background = 'white' }
             if (3 === currentMenuItem) { listMenuItem.style.background = 'lightgrey' }
             else { listMenuItem.style.background = 'white' }
             if (4 === currentMenuItem) { docsMenuItem.style.background = 'lightgrey' }
@@ -792,7 +792,7 @@
         function draw_content() {
             let randomContent = document.getElementById("RandomContent")
             let shapesContent = document.getElementById("ShapesContent")
-            let gabbalahContent = document.getElementById("GabbalahContent")
+            let kabalaContent = document.getElementById("KabalaContent")
             let listContent = document.getElementById("ListContent")
             let docsContent = document.getElementById("DocsContent")
 
@@ -800,8 +800,8 @@
             else { randomContent.style.display = 'none' }
             if (1 === currentMenuItem) { shapesContent.style.display = 'flex'; drawShapes() }
             else { shapesContent.style.display = 'none'; deleteIcosiheptagon() }
-            if (2 === currentMenuItem) { gabbalahContent.style.display = 'flex' }
-            else { gabbalahContent.style.display = 'none' }
+            if (2 === currentMenuItem) { kabalaContent.style.display = 'flex' }
+            else { kabalaContent.style.display = 'none' }
             if (3 === currentMenuItem) { listContent.style.display = 'flex' }
             else { listContent.style.display = 'none' }
             if (4 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo(); drawDocumentationShapes() }
@@ -1474,7 +1474,7 @@
             onclick="set_menu(0)">Random Over Time</div>
         <div id="MenuBarShapes" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
             onclick="set_menu(1)">Shapes</div>
-        <div id="MenuBarGabbalah" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
+        <div id="MenuBarKabala" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
             onclick="set_menu(2)">Gabbalah</div>
         <div id="MenuBarList" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(3)">
             List</div>
@@ -2263,7 +2263,7 @@
             </table>
         </div>
     </div>
-    <div id="GabbalahContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+    <div id="KabalaContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
     </div>
     <div id="DocsContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
         <canvas id="GlideLogoCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
@@ -2383,13 +2383,22 @@
                 <div style="font-size: 1.5em;">Story Telling and Character Arcs Using the Wu Xing</div>
                 <div style="position: relative; display: flex; flex-direction: row; width: 100%;">
                     <svg style="border: 1px solid black;" height="370" width="370">
+                        <defs> 
+                            <marker id="docsarrowhead" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto"> <polygon points="0 0, 5 2.5, 0 5" /> </marker>
+                            <marker id="docsgreenarrowhead" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto"> <polygon fill="green" points="0 0, 5 2.5, 0 5" /> </marker>
+                        </defs>
                         <g id="layer1" transform="scale(2.5) translate(-345,-430)">
+                            <text x="-45" y="-40">External Trigram</text>
+                            <text x="-45" y="-20">Dao</text>
                             <path
                                 d="M 414.59555,470.01859 L 437.87869,541.67672 L 376.92264,497.38956 L 452.26846,497.38956 L 391.31241,541.67673 L 414.59555,470.01859 z"
                                 id="path4329"
                                 style="fill:none;stroke-width:5.16698313;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.56000006;"
                                 stroke="green" opacity="0.5" />
-                        </g>
+                            <g style="transform-origin: 50% 50%; transform: translateX(0px) translateY(0px) rotate(0deg);">
+                                <line x1="0" y1="50" x2="300" y2="50" stroke="#000" stroke-width="8" marker-end="url(#docsarrowhead)" />
+                            </g>
+                    </g>
                     </svg>
                     <br><br>
                     See the Shapes section for additional information about how Wu Xing is used in Glide 2.0.
