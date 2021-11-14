@@ -487,9 +487,22 @@
             
         }
         function drawDocumentationShapes() {
-            let daoCanvas = document.getElementById("DocumentationHexagramDao")
+            let daoCanvas = document.getElementById("DocumentationTrigramDao")
+            let spiritBelowEnergyCanvas = document.getElementById("DocumentationTrigramSpiritBelowEnergy")
+            let energyBelowVitalityCanvas = document.getElementById("DocumentationTrigramEnergyBelowVitality")
+            let energyBelowSpiritCanvas = document.getElementById("DocumentationTrigramEnergyBelowSpirit")
+            let vitalityBelowSpiritCanvas = document.getElementById("DocumentationTrigramVitalityBelowSpirit")
+            let vitalityBelowEnergyCanvas = document.getElementById("DocumentationTrigramVitalityBelowEnergy")
+            let spiritBelowVitalityCanvas = document.getElementById("DocumentationTrigramSpiritBelowVitality")
 
             draw_trigram(daoCanvas, "◠ᔐ◡")
+            draw_trigram(vitalityInEnergyCanvas, "ᔐ◡ᔐ")
+            draw_trigram(spiritBelowEnergyCanvas, "ᔐᔐ◠")
+            draw_trigram(energyBelowSpiritCanvas, "◠ᔐᔐ")
+            draw_trigram(spiritBelowVitalityCanvas, "◡◠◠")
+            draw_trigram(vitalityBelowSpiritCanvas, "◠◡◡")
+            draw_trigram(energyBelowVitalityCanvas, "◡ᔐᔐ")
+            draw_trigram(vitalityBelowEnergyCanvas, "◡ᔐᔐ")
         }
         function arc(center, radius, startAngle, endAngle) {
             angle = startAngle;
@@ -2283,7 +2296,13 @@
                     <br><br>
                     <div style="font-size: 1.5em;">Story Telling and Character Arcs Using the Unicursal Hexagrams</div>
                     <div style="position: relative; display: flex; flex-direction: row; width: 100%;">
-                        <canvas id="DocumentationHexagramDao" style="position: absolute; top: 25px; left: 40px; width: 20px; height:30px; z-index: 1;"></canvas>
+                        <canvas id="DocumentationTrigramDao" style="position: absolute; top: 25px; left: 40px; width: 20px; height:30px; z-index: 1;"></canvas>
+                        <canvas id="DocumentationTrigramSpiritBelowEnergy" style="position: absolute; top: 15px; left: 40px; width: 20px; height:30px; z-index: 1;"></canvas>
+                        <canvas id="DocumentationTrigramEnergyBelowVitality" style="position: absolute; top: 100px; left: 40px; width: 20px; height:30px; z-index: 1;"></canvas>
+                        <canvas id="DocumentationTrigramEnergyBelowSpirit" style="position: absolute; top: 220px; left: 40px; width: 20px; height:30px; z-index: 1;"></canvas>
+                        <canvas id="DocumentationTrigramVitalityBelowSpirit" style="position: absolute; top: 280px; left: 40px; width: 20px; height:30px; z-index: 1;"></canvas>
+                        <canvas id="DocumentationTrigramVitalityBelowEnergy" style="position: absolute; top: 220px; left: 40px; width: 20px; height:30px; z-index: 1;"></canvas>
+                        <canvas id="DocumentationTrigramSpiritBelowVitality" style="position: absolute; top: 100px; left: 40px; width: 20px; height:30px; z-index: 1;"></canvas>
                         <svg style="border: 1px solid black;" height="370" width="370">
                             <defs> 
                                 <marker id="docsarrowhead" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto"> <polygon points="0 0, 5 2.5, 0 5" /> </marker>
