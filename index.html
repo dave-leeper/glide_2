@@ -671,7 +671,7 @@
             let hexagramCanvas = document.getElementById("HexagramCanvas")
             let hexagramNumber = document.getElementById("HexagramNumber")
             let hexagramName = document.getElementById("HexagramName")
-            let hexagramShapeTitle = document.getElementById("HexagramShapeTitle")  
+            let hexagramShape = document.getElementById("HexagramShape")  
             let externalTrigramNameAndMeaning = document.getElementById("Trigram1Meaning")
             let internalTrigramNameAndMeaning = document.getElementById("Trigram2Meaning")
             let hexagramMeaning = document.getElementById("HexagramMeaning")
@@ -697,7 +697,7 @@
             }
             externalTrigramNameAndMeaning.innerText = trigram1.name + " (" + trigram1.meaning + ")"
             internalTrigramNameAndMeaning.innerText = trigram2.name + " (" + trigram2.meaning + ")"
-            hexagramShapeTitle.innerText = trigram2.shape
+            hexagramShape.innerText = trigram2.shape
             draw_trigram(hexagramCanvas, trigram1.symbol + trigram2.symbol)
             currentSelected.style.background = 'white'
             currentSelectedTrigram.style.background = 'white'
@@ -2308,7 +2308,7 @@
                         As the three centers interact, the quality and proportion of their mutual influence relate directly to the total state of mental and physical well-being.
                     </i>
                     <br><br>
-                    Much of Glide 2.0 concerns itself with these three facets of Daoism. Each gets its own trigrams. 
+                    Much of Glide 2.0 concerns itself with these three facets of Daoism. Each gets its own trigram. 
                     Additionally, there are three groups of these forces interacting with one another.
                     These groupings form unicursal hexagrams, known as the Above, In, and Below Unicursal Hexagrams.
                     <br><br>
@@ -2612,11 +2612,6 @@
                 <div id="HexagramNumber" style="font-size: 2em; padding: 0px 7px 0px 0px;"></div>
                 <div id="HexagramName" style="font-size: 2em; padding: 0px 4px 0px 0px;"></div>
             </div>
-            <div id="HexagramShapeRow" style="display: flex; flex-direction: row;">
-                <div id="HexagramShapeTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
-                    Shape</div>
-                <div id="HexagramShape" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
-            </div>
             <div id="TrigramsMeaningColumn" style="display: flex; flex-direction: column;">
                 <div id="Trigram1MeaningRow" style="display: flex; flex-direction: row;">
                     <div id="Trigram1MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
@@ -2629,6 +2624,12 @@
                     </div>
                     <div id="Trigram2Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
                 </div>
+            </div>
+            <div id="HexagramShapeRow" style="display: flex; flex-direction: row;">
+                <div id="HexagramShapeTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                    Shape
+                </div>
+                <div id="HexagramShape" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
             </div>
             <div id="HexagramMeaningRow" style="display: flex; flex-direction: row;">
                 <div id="HexagramMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
