@@ -848,6 +848,18 @@
                 addTo: unicursalHexagramGroup1,
                 rotate: { z: Zdog.TAU * 1/2 },
             })
+            let topUnicursalhexagram2 = new Zdog.Shape({
+                addTo: unicursalHexagramGroup2,
+                path: [ 
+                    { x:   0,           y:  -100,       z: 0 },
+                    { x:   86.60254,    y:   50,        z: 0 },
+                    { x:   0,           y:    0,        z: 0 },
+                    { x:  -86.60254,    y:   50,        z: 0 },
+                ],
+                translate: { z: 0 },
+                stroke: 9,
+                color: '#bf5a5a',                            
+            });
             let topUnicursalhexagram2 = topUnicursalhexagram1.copy({
                 addTo: unicursalHexagramGroup2,
                 color: '#bf5a5a',                            
