@@ -810,7 +810,7 @@
             new Zdog.Shape({
                 addTo: anchor,
                 path: [
-                    { x:    0, y: -80, z: 0 },
+                    { x:   0,   y:  -80, z: 0 },
                     { x:  46.2, y:    0, z: 0 },
                     { x: -46.2, y:    0, z: 0 },
                 ],
@@ -865,11 +865,29 @@
                 rotate: { z: Zdog.TAU * 1/2 },
             })
 
+            let pentagram = Zdog.Shape({
+                addTo: anchor,
+                path: [
+                    { x: 414.59555, y: 470.01859, z: 0 },
+                    { x: 437.87869, y: 541.67672, z: 0 },
+                    { x: 376.92264, y: 497.38956, z: 0 },
+                    { x: 452.26846, y: 497.38956, z: 0 },
+                    { x: 391.31241, y: 541.67673, z: 0 },
+                    { x: 414.59555, y: 470.01859, z: 0 },
+                ],
+            })
+            /*
+                M 414.59555,470.01859 
+                L 437.87869,541.67672 
+                L 376.92264,497.38956 
+                L 452.26846,497.38956 
+                L 391.31241,541.67673 
+                L 414.59555,470.01859       
+                */     
             function animate() {
                 rotationAnchor.rotate.y += 0.003;
                 illo.updateRenderGraph();
                 requestAnimationFrame( animate );
-            }
 
             animate();
         }
