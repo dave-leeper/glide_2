@@ -783,6 +783,7 @@
             show_trigram(0)
             set_menu(currentMenuItem)
         }
+        /*
         function draw_kabala() {
             const illo = new Zdog.Illustration({
                 element: '.KabalaCanvas',
@@ -890,6 +891,7 @@
 
             animate();
         }
+        */
         function set_menu(number) {
             currentMenuItem = number
             draw_menu()
@@ -898,7 +900,6 @@
         function draw_menu() {
             let randomOverTimeMenuItem = document.getElementById("MenuBarRandomOverTime")
             let octacrossAndTarotMenuItem = document.getElementById("MenuBarShapes")
-            let kabalaMenuItem = document.getElementById("MenuBarKabala")
             let listMenuItem = document.getElementById("MenuBarList")
             let docsMenuItem = document.getElementById("MenuBarDocs")
 
@@ -906,17 +907,14 @@
             else { randomOverTimeMenuItem.style.background = 'white' }
             if (1 === currentMenuItem) { octacrossAndTarotMenuItem.style.background = 'lightgrey' }
             else { octacrossAndTarotMenuItem.style.background = 'white' }
-            if (2 === currentMenuItem) { kabalaMenuItem.style.background = 'lightgrey' }
-            else { kabalaMenuItem.style.background = 'white' }
-            if (3 === currentMenuItem) { listMenuItem.style.background = 'lightgrey' }
+            if (2 === currentMenuItem) { listMenuItem.style.background = 'lightgrey' }
             else { listMenuItem.style.background = 'white' }
-            if (4 === currentMenuItem) { docsMenuItem.style.background = 'lightgrey' }
+            if (3 === currentMenuItem) { docsMenuItem.style.background = 'lightgrey' }
             else { docsMenuItem.style.background = 'white' }
         }
         function draw_content() {
             let randomContent = document.getElementById("RandomContent")
             let shapesContent = document.getElementById("ShapesContent")
-            let kabalaContent = document.getElementById("KabalaContent")
             let listContent = document.getElementById("ListContent")
             let docsContent = document.getElementById("DocsContent")
 
@@ -924,11 +922,9 @@
             else { randomContent.style.display = 'none' }
             if (1 === currentMenuItem) { shapesContent.style.display = 'flex'; drawShapes() }
             else { shapesContent.style.display = 'none'; deleteIcosiheptagon() }
-            if (2 === currentMenuItem) { kabalaContent.style.display = 'flex'; draw_kabala() }
-            else { kabalaContent.style.display = 'none' }
-            if (3 === currentMenuItem) { listContent.style.display = 'flex' }
+            if (2 === currentMenuItem) { listContent.style.display = 'flex' }
             else { listContent.style.display = 'none' }
-            if (4 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo(); drawDocumentationShapes() }
+            if (3 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo(); drawDocumentationShapes() }
             else { docsContent.style.display = 'none' }
         }
 
@@ -1598,11 +1594,9 @@
             onclick="set_menu(0)">Random Over Time</div>
         <div id="MenuBarShapes" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
             onclick="set_menu(1)">Shapes</div>
-        <div id="MenuBarKabala" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;"
-            onclick="set_menu(2)">Kabala</div>
-        <div id="MenuBarList" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(3)">
+        <div id="MenuBarList" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(2)">
             List</div>
-        <div id="MenuBarDocs" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(4)">
+        <div id="MenuBarDocs" style="height: 25px; padding: 0px 5px 0px 5px; cursor: pointer;" onclick="set_menu(3)">
             Documentation</div>
     </div>
     <div id="RandomContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
@@ -2386,9 +2380,6 @@
                 </tr>
             </table>
         </div>
-    </div>
-    <div id="KabalaContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
-        <canvas id="KabalaCanvas" class="KabalaCanvas" width="680" height="680" style="width: 680px; height:680px; border: 1px solid black;"></canvas>
     </div>
     <div id="DocsContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
         <canvas id="GlideLogoCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
