@@ -7,6 +7,8 @@
 <head>
     <title>Glide 2.0</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
+    <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+    <script src="zdog-demo.js"></script>
     <style>
         columns {
             display: flex;
@@ -782,6 +784,23 @@
             show_trigram(0)
             set_menu(currentMenuItem)
         }
+        function draw_kabala() {
+            let illo = new Zdog.Illustration({
+            // set canvas with selector
+            element: '.KabalaCanvas',
+            });
+
+            // add circle
+            new Zdog.Ellipse({
+            addTo: illo,
+            diameter: 80,
+            stroke: 20,
+            color: '#636',
+            });
+
+            // update & render
+            illo.updateRenderGraph();
+        }
         function set_menu(number) {
             currentMenuItem = number
             draw_menu()
@@ -817,7 +836,7 @@
             if (1 === currentMenuItem) { shapesContent.style.display = 'flex'; drawShapes() }
             else { shapesContent.style.display = 'none'; deleteIcosiheptagon() }
             if (2 === currentMenuItem) { kabalaContent.style.display = 'flex' }
-            else { kabalaContent.style.display = 'none' }
+            else { kabalaContent.style.display = 'none'; draw_kabala() }
             if (3 === currentMenuItem) { listContent.style.display = 'flex' }
             else { listContent.style.display = 'none' }
             if (4 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo(); drawDocumentationShapes() }
@@ -2280,6 +2299,7 @@
         </div>
     </div>
     <div id="KabalaContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
+        <canvas id="KabalaCanvas" class="KabalaCanvas" style="width: 680px; height:680px;"></canvas>
     </div>
     <div id="DocsContent" style="display: none; flex-direction: row; width: 100%; height: 100%;">
         <canvas id="GlideLogoCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
