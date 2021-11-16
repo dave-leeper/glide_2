@@ -810,9 +810,9 @@
             new Zdog.Shape({
                 addTo: rotationAnchor,
                 path: [
-                    { x:   0, y:  70, z:  40 },
-                    { x:  40, y:  70, z: -40 },
-                    { x: -40, y:  70, z: -40 },
+                    { x:   0, y:  20, z:  40 },
+                    { x:  40, y:  0, z: -40 },
+                    { x: -40, y:  0, z: -40 },
                 ],
                 translate: { y: -200 },
                 color: 'green',
@@ -820,6 +820,7 @@
                 fill: false,
             });
 
+            /*
             var unicursalHexagramGroup1 = new Zdog.Group({
                 addTo: rotationAnchor,
                 translate: { z: 0 },
@@ -866,6 +867,7 @@
                 addTo: unicursalHexagramGroup3,
                 rotate: { z: Zdog.TAU * 1/2 },
             })
+            */
 
             function animate() {
                 rotationAnchor.rotate.y += 0.003;
