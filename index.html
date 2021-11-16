@@ -808,7 +808,7 @@
 
             // triangle
             new Zdog.Shape({
-                addTo: rotationAnchor,
+                addTo: anchor,
                 path: [
                     { x:    0,   y: -240, z: 0 },
                     { x:  138.6, y:    0, z: 0 },
@@ -820,7 +820,6 @@
                 fill: false,
             });
 
-            /*
             var unicursalHexagramGroup1 = new Zdog.Group({
                 addTo: rotationAnchor,
                 translate: { z: 0 },
@@ -867,10 +866,9 @@
                 addTo: unicursalHexagramGroup3,
                 rotate: { z: Zdog.TAU * 1/2 },
             })
-            */
 
             function animate() {
-                //rotationAnchor.rotate.y += 0.003;
+                rotationAnchor.rotate.y += 0.003;
                 illo.updateRenderGraph();
                 requestAnimationFrame( animate );
             }
