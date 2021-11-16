@@ -837,6 +837,10 @@
                 addTo: unicursalHexagramGroup,
                 rotate: { z: Zdog.TAU * 1/2 },
             })
+            let unicursalHexagramGroup2 = unicursalHexagramGroup.copyGraph({
+                addTo: anchor,
+                rotate: { y: Zdog.TAU * 1/3 },
+            })
 
             function animate() {
                 illo.updateRenderGraph();
