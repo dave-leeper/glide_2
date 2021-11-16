@@ -8,7 +8,6 @@
     <title>Glide 2.0</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script>
     <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
-    <script src="zdog-demo.js"></script>
     <style>
         columns {
             display: flex;
@@ -798,7 +797,7 @@
             new Zdog.Ellipse({
                 addTo: anchor,
                 diameter: 80,
-                translate: { z: -40 },
+                translate: { z: -20 },
                 stroke: 20,
                 color: '#636',
             });
@@ -807,9 +806,9 @@
             new Zdog.Shape({
                 addTo: anchor,
                 path: [
-                    { x:   0, y: -32, z: 10 },
-                    { x:  32, y:  32, z: 10 },
-                    { x: -32, y:  32, z: 10 },
+                    { x:   0, y: -40, z: -40 },
+                    { x:  40, y:  40, z: 0 },
+                    { x: -40, y:  40, z: 0 },
                 ],
                 translate: { z: 40 },
                 color: '#E62',
