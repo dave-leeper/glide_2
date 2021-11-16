@@ -817,12 +817,22 @@
                 fill: false,
             });
 
-            var unicursalHexagramGroup = new Zdog.Group({
+            var unicursalHexagramGroup1 = new Zdog.Group({
                 addTo: anchor,
                 translate: { z: 0 },
             });
-            let topUnicursalhexagram = new Zdog.Shape({
-                addTo: unicursalHexagramGroup,
+            let unicursalHexagramGroup2 = new Zdog.Group({
+                addTo: anchor,
+                translate: { x: -10, z: -15 },
+                rotate: { y: Zdog.TAU * 1/3 },
+            })
+            let unicursalHexagramGroup3 = new Zdog.Group({
+                addTo: anchor,
+                translate: { x: 10, z: -15 },
+                rotate: { y: Zdog.TAU * 2/3 },
+            })
+            let topUnicursalhexagram1 = new Zdog.Shape({
+                addTo: unicursalHexagramGroup1,
                 path: [ 
                     { x:   0,           y:  -100,       z: 40 },
                     { x:   86.60254,    y:   50,        z: 40 },
@@ -833,21 +843,25 @@
                 stroke: 9,
                 color: '#5a5aff',                            
             });
-            let bottomUnicursalhexagram = topUnicursalhexagram.copy({
-                addTo: unicursalHexagramGroup,
+            let bottomUnicursalhexagram1 = topUnicursalhexagram1.copy({
+                addTo: unicursalHexagramGroup1,
                 rotate: { z: Zdog.TAU * 1/2 },
             })
-            let unicursalHexagramGroup2 = unicursalHexagramGroup.copyGraph({
-                addTo: anchor,
-                translate: { x: -10, z: -15 },
-                rotate: { y: Zdog.TAU * 1/3 },
+            let topUnicursalhexagram2 = topUnicursalhexagram1.copy({
+                addTo: unicursalHexagramGroup2,
                 color: '#bf5a5a',                            
             })
-            let unicursalHexagramGroup3 = unicursalHexagramGroup.copyGraph({
-                addTo: anchor,
-                translate: { x: 10, z: -15 },
-                rotate: { y: Zdog.TAU * 2/3 },
+            let bottomUnicursalhexagram2 = topUnicursalhexagram2.copy({
+                addTo: unicursalHexagramGroup2,
+                rotate: { z: Zdog.TAU * 1/2 },
+            })
+            let topUnicursalhexagram3 = topUnicursalhexagram1.copy({
+                addTo: unicursalHexagramGroup3,
                 color: 'black',                            
+            })
+            let bottomUnicursalhexagram3 = topUnicursalhexagram2.copy({
+                addTo: unicursalHexagramGroup3,
+                rotate: { z: Zdog.TAU * 1/2 },
             })
 
             function animate() {
