@@ -817,7 +817,7 @@
                 fill: true,
             });
 
-            new Zdog.Shape({
+            let topUnicursalhexagram = new Zdog.Shape({
                 addTo: anchor,
                 path: [ 
                     { x:   0,           y:  -100,       z:  40 },
@@ -829,6 +829,7 @@
                 stroke: 9,
                 color: '#C25',
             });
+            let bottomUnicursalhexagram = topUnicursalhexagram.copy({rotate: { y: TAU * 1/4 }})
 
             function animate() {
                 illo.updateRenderGraph();
