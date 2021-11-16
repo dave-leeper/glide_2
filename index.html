@@ -790,13 +790,11 @@
             element: '.KabalaCanvas',
             });
 
-            // add circle
-            new Zdog.Ellipse({
-            addTo: illo,
-            diameter: 80,
-            stroke: 20,
-            color: '#636',
-            });
+            let anchor = new Zdog.Anchor({ addTo: illo, });
+            // add triangle to anchor
+            let triangle = new Zdog.Shape({ addTo: anchor, translate: { z: 40 }, });
+            // add circle to anchor
+            let circle = new Zdog.Ellipse({ addTo: anchor, translate: { z: -40 }, });
 
             // update & render
             illo.updateRenderGraph();
