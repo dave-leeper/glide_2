@@ -783,115 +783,6 @@
             show_trigram(0)
             set_menu(currentMenuItem)
         }
-        /*
-        function draw_kabala() {
-            const illo = new Zdog.Illustration({
-                element: '.KabalaCanvas',
-                dragRotate: true,
-            });
-            illo.setSize(680, 680)
-
-            const anchor = new Zdog.Anchor({
-                addTo: illo,
-            });
-            const rotationAnchor = new Zdog.Anchor({
-                addTo: anchor,
-            });
-
-            // circle
-            new Zdog.Ellipse({
-                addTo: anchor,
-                diameter: 320,
-                translate: { z: 0 },
-                stroke: 12,
-                color: 'black',
-            });
-
-            // triangle
-            new Zdog.Shape({
-                addTo: anchor,
-                path: [
-                    { x:   0,   y:  -80, z: 0 },
-                    { x:  46.2, y:    0, z: 0 },
-                    { x: -46.2, y:    0, z: 0 },
-                ],
-                translate: { y: -200 },
-                color: 'green',
-                stroke: 12,
-                fill: false,
-            });
-
-            var unicursalHexagramGroup1 = new Zdog.Group({
-                addTo: rotationAnchor,
-                translate: { z: 0 },
-            });
-            let unicursalHexagramGroup2 = new Zdog.Group({
-                addTo: rotationAnchor,
-                rotate: { y: Zdog.TAU * 1/3 },
-            })
-            let unicursalHexagramGroup3 = new Zdog.Group({
-                addTo: rotationAnchor,
-                rotate: { y: Zdog.TAU * 2/3 },
-            })
-            let topUnicursalhexagram1 = new Zdog.Shape({
-                addTo: unicursalHexagramGroup1,
-                path: [ 
-                    { x:   0,           y:  -100,       z: 0 },
-                    { x:   86.60254,    y:   50,        z: 0 },
-                    { x:   0,           y:    0,        z: 0 },
-                    { x:  -86.60254,    y:   50,        z: 0 },
-                ],
-                translate: { z: 0 },
-                stroke: 12,
-                color: '#5a5aff',                            
-            });
-            let bottomUnicursalhexagram1 = topUnicursalhexagram1.copy({
-                addTo: unicursalHexagramGroup1,
-                rotate: { z: Zdog.TAU * 1/2 },
-            })
-            let topUnicursalhexagram2 = topUnicursalhexagram1.copy({
-                addTo: unicursalHexagramGroup2,
-                color: '#bf5a5a',                            
-            })
-            let bottomUnicursalhexagram2 = topUnicursalhexagram2.copy({
-                addTo: unicursalHexagramGroup2,
-                rotate: { z: Zdog.TAU * 1/2 },
-            })
-            let topUnicursalhexagram3 = topUnicursalhexagram1.copy({
-                addTo: unicursalHexagramGroup3,
-                color: 'black',                            
-            })
-            let bottomUnicursalhexagram3 = topUnicursalhexagram3.copy({
-                addTo: unicursalHexagramGroup3,
-                rotate: { z: Zdog.TAU * 1/2 },
-            })
-
-            let pentagram = new Zdog.Shape({
-                addTo: anchor,
-                path: [
-                    { x: 0.765392949407297, y: 0.867710506966028, z: 0 },
-                    { x: 0.808376409302279, y: 1, z: 0 },
-                    { x: 0.695844253822755, y: 0.91824058973329, z: 0 },
-                    { x: 0.834941644991839, y: 0.91824058973329, z: 0 },
-                    { x: 0.722409489512315, y: 1, z: 0 },
-                    { x: 0.765392949407297, y: 0.867710506966028, z: 0 },
-                ],
-                translate: { x: -400, y: -350 },
-                scale: { x: 600, y: 600 },
-                color: 'green',
-                stroke: 12,
-                fill: false,
-            });
-
-            function animate() {
-                rotationAnchor.rotate.y += 0.003;
-                illo.updateRenderGraph();
-                requestAnimationFrame( animate );
-            }
-
-            animate();
-        }
-        */
         function set_menu(number) {
             currentMenuItem = number
             draw_menu()
@@ -1018,7 +909,7 @@
                     "number": 4,
                     "symbol": "◡◠ᔐ",
                     "name": "Sense",
-                    "meaning": "Collecting information via the five senses.",
+                    "meaning": "The five senses.",
                     "statement": "Vitality and sense relate to the body.",
                     "statementSource": "The Book of Balance and Harmony. Explanation of the three fives",
                     "verb": "Sense",
@@ -2400,7 +2291,7 @@
             <div style="margin: 10px 0px 0px 0px; width: 100%;">What is the Dao? Is it God? Is it an unknowable supernatural force? Is it a principle? Is it a mystical state of mind? For the purposes of Glide 2.0, the Dao is that which causes change.
             </div>
             <div style="font-size: 2em; font-weight: bold; width: 100%; margin-top: 7px;">Vitality, Energy, and Spirit</div>
-            <div style="margin: 10px 0px 0px 0px; width: 100%;">In Daoism, Vitality, Energy, and Spirit play an important role.
+            <div style="margin: 10px 0px 0px 0px; width: 100%;">In Daoism, Vitality (Jing), Energy (Qi), and Spirit (Shen) play an important role.
                 In the book Vitality, Energy, Spirit, Thomas Cleary writes:<br>
                 <div style="margin: 10px 0px 0px 0px; width: 100%;">
                     <i>Vitality is primally associated with creativeity, temporally associated with sexuality. Energy is primally associated with movement, heat, and power, temporally associated with breath, magnetism, and strength.
