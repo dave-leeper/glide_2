@@ -234,6 +234,7 @@
             draw_trigram(energyBelowVitalityCanvas, "◡ᔐᔐ")
             draw_trigram(vitalityBelowEnergyCanvas, "ᔐ◡◡")
 
+            /*
             spiritAboveEnergyCanvas = document.getElementById("AboveHexagramSpiritAboveEnergyCanvas")
             energyAboveSpiritCanvas = document.getElementById("AboveHexagramEnergyAboveSpiritCanvas")
             spiritAboveVitalityCanvas = document.getElementById("AboveHexagramSpiritAboveVitalityCanvas")
@@ -489,6 +490,7 @@
             draw_trigram(willCanvas, "◡ᔐ◠")
             draw_trigram(wuWeiCanvas, "◠◡ᔐ")
             draw_trigram(uncarvedBlockCanvas, "ᔐ◠◡")
+            */
         }
         function drawDocumentationShapes() {
             let daoCanvas = document.getElementById("DocumentationTrigramDao")
@@ -816,11 +818,11 @@
 
             if (0 === currentMenuItem) { randomContent.style.display = 'flex'; update_random_hexagram() }
             else { randomContent.style.display = 'none' }
-            if (1 === currentMenuItem) { shapesContent.style.display = 'flex'; drawShapes() }
+            if (1 === currentMenuItem) { shapesContent.style.display = 'flex' }
             else { shapesContent.style.display = 'none'; deleteIcosiheptagon() }
             if (2 === currentMenuItem) { listContent.style.display = 'flex' }
             else { listContent.style.display = 'none' }
-            if (3 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo(); drawDocumentationShapes() }
+            if (3 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo(); drawDocumentationShapes(); drawShapes() }
             else { docsContent.style.display = 'none' }
         }
 
@@ -1733,124 +1735,6 @@
     </div>
     <div id="ShapesContent" style="display: none; flex-direction: column; width: 100%; height: 100%;">
         <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
-            <div id="ShapesPaper" style="position: absolute; left: 10px; top: 50px; width: 680px; height:600px; border: 1px solid black;"></div>
-            <div style="position: absolute; left: 700px; top: 50px;">The Icosiheptagon and Icosiheptagram created from the 27 trigrams, along with lines connecting each point. Each line represents two hexagrams. Each of the 27 points represents one hexagram.</div>
-            <br><br>
-            <table style="position: absolute; left: 700px; top: 200px; border: 1px solid black;">
-                <tr>
-                    <th>Symbol</th>
-                    <th>Name</th>
-                    <th>Symbol</th>
-                    <th>Name</th>
-                    <th>Symbol</th>
-                    <th>Name</th>
-                </tr>
-                <tr>
-                    <td><canvas id="TableDaoCanvas" style="width: 20px; height:30px;"></canvas></th>
-                    <td>Dao</th>
-                    <td><canvas id="TableSpiritCanvas" style="width: 20px; height:30px;"></canvas></th>
-                    <td>Spirit</th>
-                    <td><canvas id="TableEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Energy</td>
-                </tr>
-                <tr>
-                    <td><canvas id="TableVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Vitality</td>
-                    <td><canvas id="TableSenseCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Sense</td>
-                    <td><canvas id="TableEssenceCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Essence</td>
-                  </tr>
-                <tr>
-                    <td><canvas id="TableWillCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Will</td>
-                    <td><canvas id="TableWuWeiCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Wu Wei</td>
-                    <td><canvas id="TableUncarvedBlockCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Uncarved Block</td>
-                    </tr>
-                <tr>
-                    <td><canvas id="TableSpiritAboveEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Spirit Above Energy</td>
-                    <td><canvas id="TableEnergyAboveSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Energy Above Spirit</td>
-                    <td><canvas id="TableSpiritAboveVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Spirit Above Vitality</td>
-                    </tr>
-                <tr>
-                    <td><canvas id="TableVitalityAboveSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Vitality Above Spirit</td>
-                    <td><canvas id="TableEnergyAboveVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Energy Above Vitality</td>
-                    <td><canvas id="TableVitalityAboveEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Vitality Above Energy</td>
-                  </tr>
-                  <tr>
-                    <td><canvas id="TableSpiritInEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Spirit In Energy</td>
-                    <td><canvas id="TableEnergyInSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Energy In Spirit</td>
-                    <td><canvas id="TableSpiritInVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Spirit In Vitality</td>
-                </tr>
-                <tr>
-                    <td><canvas id="TableVitalityInSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Vitality In Spirit</td>
-                    <td><canvas id="TableEnergyInVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Energy In Vitality</td>
-                    <td><canvas id="TableVitalityInEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Vitality In Energy</td>
-                  </tr>
-                </tr>
-                <tr>
-                    <td><canvas id="TableSpiritBelowEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Spirit Below Energy</td>
-                    <td><canvas id="TableEnergyBelowSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Energy Below Spirit</td>
-                    <td><canvas id="TableSpiritBelowVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Spirit Below Vitality</td>
-                </tr>
-                <tr>
-                    <td><canvas id="TableVitalityBelowSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Vitality Below Spirit</td>
-                    <td><canvas id="TableEnergyBelowVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Energy Below Vitality</td>
-                    <td><canvas id="TableVitalityBelowEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
-                    <td>Vitality Below Energy</td>
-                  </tr>
-                </tr>
-            </table>
-            <div id="IcosiheptagonTrigramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
-                <canvas id="IcosiheptagonDaoCanvas" style="position: absolute; left: 325px; top: 80px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonSpiritCanvas" style="position: absolute; left: 598px; top: 400px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonEnergyCanvas" style="position: absolute; left: 210px; top: 573px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonVitalityCanvas" style="position: absolute; left: 165px; top: 152px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonSenseCanvas" style="position: absolute; left: 583px; top: 225px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonEssenceCanvas" style="position: absolute; left: 385px; top: 598px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonWillCanvas" style="position: absolute; left: 80px; top: 307px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonWuWeiCanvas" style="position: absolute; left: 447px; top: 91px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonUncarvedBlockCanvas" style="position: absolute; left: 543px; top: 505px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonSpiritAboveEnergyCanvas" style="position: absolute; left: 122px; top: 489px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonEnergyAboveSpiritCanvas" style="position: absolute; left: 270px; top: 92px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonSpiritAboveVitalityCanvas" style="position: absolute; left: 603px; top: 340px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonVitalityAboveSpiritCanvas" style="position: absolute; left: 265px; top: 591px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonEnergyAboveVitalityCanvas" style="position: absolute; left: 125px; top: 193px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonVitalityAboveEnergyCanvas" style="position: absolute; left: 548px; top: 174px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonSpiritInEnergyCanvas" style="position: absolute; left: 442px; top: 582px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonEnergyInSpiritCanvas" style="position: absolute; left: 80px; top: 367px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonSpiritInVitalityCanvas" style="position: absolute; left: 385px; top: 72px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonVitalityInSpiritCanvas" style="position: absolute; left: 580px; top: 451px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonEnergyInVitalityCanvas" style="position: absolute; left: 160px; top: 532px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonVitalityInEnergyCanvas" style="position: absolute; left: 212px; top: 107px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonSpiritBelowEnergyCanvas" style="position: absolute; left: 600px; top: 280px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonEnergyBelowSpiritCanvas" style="position: absolute; left: 325px; top: 602px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonSpiritBelowVitalityCanvas" style="position: absolute; left: 90px; top: 247px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonVitalityBelowSpiritCanvas" style="position: absolute; left: 497px; top: 126px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonEnergyBelowVitalityCanvas" style="position: absolute; left: 503px; top: 550px; width: 20px; height:30px;"></canvas>
-                <canvas id="IcosiheptagonVitalityBelowEnergyCanvas" style="position: absolute; left: 92px; top: 429px; width: 20px; height:30px;"></canvas>
-            </div>
-        </div>
-        <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
             <canvas id="AboveHexagramSpiritAboveEnergyCanvas" style="position: absolute; left: 172px; top: 695px; width: 20px; height:30px;"></canvas>
             <canvas id="AboveHexagramEnergyAboveSpiritCanvas" style="position: absolute; left: 290px; top: 900px; width: 20px; height:30px;"></canvas>
             <canvas id="AboveHexagramSpiritAboveVitalityCanvas" style="position: absolute; left: 51px; top: 770px; width: 20px; height:30px;"></canvas>
@@ -2480,6 +2364,124 @@
                 existing Daoist principles. These 27 trigrams are then combined to form 729 hexagrams. The meanings of
                 these hexagrams are built from the meanings of the two trigrams they contain. The top trigram represents
                 external influences, while the bottom trigram represents internal influences.
+            </div>
+            <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
+                <div id="ShapesPaper" style="position: absolute; left: 10px; top: 50px; width: 680px; height:600px; border: 1px solid black;"></div>
+                <div style="position: absolute; left: 700px; top: 50px;">The Icosiheptagon and Icosiheptagram created from the 27 trigrams, along with lines connecting each point. Each line represents two hexagrams. Each of the 27 points represents one hexagram.</div>
+                <br><br>
+                <table style="position: absolute; left: 700px; top: 200px; border: 1px solid black;">
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr>
+                        <td><canvas id="TableDaoCanvas" style="width: 20px; height:30px;"></canvas></th>
+                        <td>Dao</th>
+                        <td><canvas id="TableSpiritCanvas" style="width: 20px; height:30px;"></canvas></th>
+                        <td>Spirit</th>
+                        <td><canvas id="TableEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Energy</td>
+                    </tr>
+                    <tr>
+                        <td><canvas id="TableVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Vitality</td>
+                        <td><canvas id="TableSenseCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Sense</td>
+                        <td><canvas id="TableEssenceCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Essence</td>
+                      </tr>
+                    <tr>
+                        <td><canvas id="TableWillCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Will</td>
+                        <td><canvas id="TableWuWeiCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Wu Wei</td>
+                        <td><canvas id="TableUncarvedBlockCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Uncarved Block</td>
+                        </tr>
+                    <tr>
+                        <td><canvas id="TableSpiritAboveEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Spirit Above Energy</td>
+                        <td><canvas id="TableEnergyAboveSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Energy Above Spirit</td>
+                        <td><canvas id="TableSpiritAboveVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Spirit Above Vitality</td>
+                        </tr>
+                    <tr>
+                        <td><canvas id="TableVitalityAboveSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Vitality Above Spirit</td>
+                        <td><canvas id="TableEnergyAboveVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Energy Above Vitality</td>
+                        <td><canvas id="TableVitalityAboveEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Vitality Above Energy</td>
+                      </tr>
+                      <tr>
+                        <td><canvas id="TableSpiritInEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Spirit In Energy</td>
+                        <td><canvas id="TableEnergyInSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Energy In Spirit</td>
+                        <td><canvas id="TableSpiritInVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Spirit In Vitality</td>
+                    </tr>
+                    <tr>
+                        <td><canvas id="TableVitalityInSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Vitality In Spirit</td>
+                        <td><canvas id="TableEnergyInVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Energy In Vitality</td>
+                        <td><canvas id="TableVitalityInEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Vitality In Energy</td>
+                      </tr>
+                    </tr>
+                    <tr>
+                        <td><canvas id="TableSpiritBelowEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Spirit Below Energy</td>
+                        <td><canvas id="TableEnergyBelowSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Energy Below Spirit</td>
+                        <td><canvas id="TableSpiritBelowVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Spirit Below Vitality</td>
+                    </tr>
+                    <tr>
+                        <td><canvas id="TableVitalityBelowSpiritCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Vitality Below Spirit</td>
+                        <td><canvas id="TableEnergyBelowVitalityCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Energy Below Vitality</td>
+                        <td><canvas id="TableVitalityBelowEnergyCanvas" style="width: 20px; height:30px;"></canvas></td>
+                        <td>Vitality Below Energy</td>
+                      </tr>
+                    </tr>
+                </table>
+                <div id="IcosiheptagonTrigramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
+                    <canvas id="IcosiheptagonDaoCanvas" style="position: absolute; left: 325px; top: 80px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonSpiritCanvas" style="position: absolute; left: 598px; top: 400px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonEnergyCanvas" style="position: absolute; left: 210px; top: 573px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonVitalityCanvas" style="position: absolute; left: 165px; top: 152px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonSenseCanvas" style="position: absolute; left: 583px; top: 225px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonEssenceCanvas" style="position: absolute; left: 385px; top: 598px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonWillCanvas" style="position: absolute; left: 80px; top: 307px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonWuWeiCanvas" style="position: absolute; left: 447px; top: 91px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonUncarvedBlockCanvas" style="position: absolute; left: 543px; top: 505px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonSpiritAboveEnergyCanvas" style="position: absolute; left: 122px; top: 489px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonEnergyAboveSpiritCanvas" style="position: absolute; left: 270px; top: 92px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonSpiritAboveVitalityCanvas" style="position: absolute; left: 603px; top: 340px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonVitalityAboveSpiritCanvas" style="position: absolute; left: 265px; top: 591px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonEnergyAboveVitalityCanvas" style="position: absolute; left: 125px; top: 193px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonVitalityAboveEnergyCanvas" style="position: absolute; left: 548px; top: 174px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonSpiritInEnergyCanvas" style="position: absolute; left: 442px; top: 582px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonEnergyInSpiritCanvas" style="position: absolute; left: 80px; top: 367px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonSpiritInVitalityCanvas" style="position: absolute; left: 385px; top: 72px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonVitalityInSpiritCanvas" style="position: absolute; left: 580px; top: 451px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonEnergyInVitalityCanvas" style="position: absolute; left: 160px; top: 532px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonVitalityInEnergyCanvas" style="position: absolute; left: 212px; top: 107px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonSpiritBelowEnergyCanvas" style="position: absolute; left: 600px; top: 280px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonEnergyBelowSpiritCanvas" style="position: absolute; left: 325px; top: 602px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonSpiritBelowVitalityCanvas" style="position: absolute; left: 90px; top: 247px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonVitalityBelowSpiritCanvas" style="position: absolute; left: 497px; top: 126px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonEnergyBelowVitalityCanvas" style="position: absolute; left: 503px; top: 550px; width: 20px; height:30px;"></canvas>
+                    <canvas id="IcosiheptagonVitalityBelowEnergyCanvas" style="position: absolute; left: 92px; top: 429px; width: 20px; height:30px;"></canvas>
+                </div>
             </div>
             <div style="font-size: 2em; font-weight: bold; width: 100%; margin-top: 7px;">Dao</div>
             <div style="margin: 10px 0px 0px 0px; width: 100%;">What is the Dao? Is it God? Is it an unknowable supernatural force? Is it a principle? Is it a mystical state of mind? For the purposes of Glide 2.0, the Dao is that which causes change.
