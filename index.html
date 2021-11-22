@@ -109,6 +109,9 @@
             update_random_hexagram()
         }
         function drawShapes() {
+
+        }
+        function draw_documentation_shapes() {
             let paper = Raphael("ShapesPaper", 600, 600)
             let path = ""
             let x = 340
@@ -488,8 +491,7 @@
             draw_trigram(willCanvas, "◡ᔐ◠")
             draw_trigram(wuWeiCanvas, "◠◡ᔐ")
             draw_trigram(uncarvedBlockCanvas, "ᔐ◠◡")
-        }
-        function drawDocumentationShapes() {
+            
             let daoCanvas = document.getElementById("DocumentationTrigramDao")
             let spiritBelowEnergyCanvas = document.getElementById("DocumentationTrigramSpiritBelowEnergy")
             let energyBelowVitalityCanvas = document.getElementById("DocumentationTrigramEnergyBelowVitality")
@@ -831,7 +833,7 @@
             else { shapesContent.style.display = 'none'; deleteIcosiheptagon() }
             if (2 === currentMenuItem) { listContent.style.display = 'flex' }
             else { listContent.style.display = 'none' }
-            if (3 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo(); drawDocumentationShapes(); drawShapes() }
+            if (3 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo(); draw_documentation_shapes(); }
             else { docsContent.style.display = 'none' }
         }
         function set_shape_menu(number) {
