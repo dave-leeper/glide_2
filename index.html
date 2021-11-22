@@ -108,9 +108,6 @@
             randomRestartButton.style.display = "none"
             update_random_hexagram()
         }
-        function drawShapes() {
-
-        }
         function draw_documentation_shapes() {
             let paper = Raphael("ShapesPaper", 600, 600)
             let path = ""
@@ -586,6 +583,27 @@
             context.font = "24px Arial";
             context.fillText("Glide 2.0", 1, 290);
         }
+        function draw_shapes_content() {
+            let circleDetail = document.getElementById("CircleDetail")
+            let triangleOfNatureDetail = document.getElementById("TriangleOfNatureDetail")
+            let wuXingDetail = document.getElementById("WuXingDetail")
+            let aboveHexagramDetail = document.getElementById("AboveHexagramDetail")
+            let inHexagramDetail = document.getElementById("InHexagramDetail")
+            let belowHexagramDetail = document.getElementById("BelowHexagramDetail")
+
+            if (0 === currentShapeMenuItem) { circleDetail.style.display = 'block' }
+            else { circleDetail.style.display = 'none' }
+            if (1 === currentShapeMenuItem) { triangleOfNatureDetail.style.display = 'block' }
+            else { triangleOfNatureDetail.style.display = 'none' }
+            if (2 === currentShapeMenuItem) { wuXingDetail.style.display = 'block' }
+            else { wuXingDetail.style.display = 'none' }
+            if (3 === currentShapeMenuItem) { aboveHexagramDetail.style.display = 'block' }
+            else { aboveHexagramDetail.style.display = 'none' }
+            if (4 === currentShapeMenuItem) { inHexagramDetail.style.display = 'block' }
+            else { inHexagramDetail.style.display = 'none' }
+            if (5 === currentShapeMenuItem) { belowHexagramShape.style.display = 'block' }
+            else { belowHexagramShape.style.display = 'none' }
+        }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
             let xOffset = offsetX? offsetX: 0
@@ -857,6 +875,9 @@
             else { inHexagramShape.style.background = 'white' }
             if (5 === currentShapeMenuItem) { belowHexagramShape.style.background = 'lightgrey' }
             else { belowHexagramShape.style.background = 'white' }
+
+            draw_shapes_content()
+            draw_shapes()
         }
 
         var glideData = {
@@ -1857,6 +1878,21 @@
                 <svg style="position: relative; left: 65px; top: 65px; width: 100px; height: 100px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" xml:space="preserve">
                     <circle cx="50" cy="50" r="48" stroke="black" stroke-width="3" fill="white" />
                 </svg>
+            </div>
+            <div id="TriangleOfNatureDetail" style="display: none;">
+                TriangleOfNatureDetail
+            </div>
+            <div id="WuXingDetail" style="display: none;">
+                WuXingDetail
+            </div>
+            <div id="AboveHexagramDetail" style="display: none;">
+                AboveHexagramDetail
+            </div>
+            <div id="InHexagramDetail" style="display: none;">
+                InHexagramDetail
+            </div>
+            <div id="BelowHexagramDetail" style="display: none;">
+                BelowHexagramDetail
             </div>
         </div>
     </div>
