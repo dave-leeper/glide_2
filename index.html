@@ -601,8 +601,8 @@
             else { aboveHexagramDetail.style.display = 'none' }
             if (4 === currentShapeMenuItem) { inHexagramDetail.style.display = 'block' }
             else { inHexagramDetail.style.display = 'none' }
-            if (5 === currentShapeMenuItem) { belowHexagramShape.style.display = 'block' }
-            else { belowHexagramShape.style.display = 'none' }
+            if (5 === currentShapeMenuItem) { belowHexagramDetail.style.display = 'block' }
+            else { belowHexagramDetail.style.display = 'none' }
         }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
@@ -852,7 +852,7 @@
             if (2 === currentMenuItem) { listContent.style.display = 'flex' }
             else { listContent.style.display = 'none' }
             if (3 === currentMenuItem) { docsContent.style.display = 'flex'; draw_glide_logo(); draw_documentation_shapes(); }
-            else { docsContent.style.display = 'none' }
+            else { docsContent.style.display = 'none'; deleteIcosiheptagon(); }
         }
         function set_shape_menu(number) {
             let circleShape = document.getElementById("CircleShape")
