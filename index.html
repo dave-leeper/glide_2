@@ -1934,7 +1934,19 @@
         </div>
             <div id="AboveHexagramDetail" style="display: none;; background-color: lightblue;">
                 AboveHexagramDetail
-            </div>
+                <svg style="width: 100px; height: 100px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
+                    <defs> 
+                        <marker id="arrowhead" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto"> <polygon points="0 0, 5 2.5, 0 5" /> </marker>
+                        <marker id="greenarrowhead" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto"> <polygon fill="green" points="0 0, 5 2.5, 0 5" /> </marker>
+                    </defs>
+                    <line x1="50" y1="1" x2="95" y2="75" stroke="#000" stroke-width="3" marker-end="url(#arrowhead)" />
+                    <line x1="95" y1="75" x2="5" y2="25" stroke="#000" stroke-width="3" marker-end="url(#arrowhead)" />
+                    <line x1="5" y1="25" x2="50" y2="99" stroke="#000" stroke-width="3" marker-end="url(#arrowhead)" />
+                    <line x1="50" y1="99" x2="95" y2="25" stroke="#000" stroke-width="3" marker-end="url(#arrowhead)" />
+                    <line x1="95" y1="25" x2="5" y2="75" stroke="#000" stroke-width="3" marker-end="url(#arrowhead)" />
+                    <line x1="5" y1="75" x2="50" y2="1" stroke="#000" stroke-width="3" marker-end="url(#arrowhead)" />
+                </svg>
+        </div>
             <div id="InHexagramDetail" style="display: none;; background-color: lightblue;">
                 InHexagramDetail
             </div>
