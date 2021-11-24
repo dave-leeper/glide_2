@@ -750,6 +750,86 @@
             newSelected.style.background = 'lightgrey'
             currentHexagramSymbol = number
         }
+        function show_shapes_trigram() {
+            let data = glideData;
+            let trigram = data.trigrams[currentInternalTrigram]
+            let trigramCanvas = document.getElementById("ShapesTrigramCanvas")
+            let trigramNumber = document.getElementById("ShapesTrigramNumber")
+            let trigramName = document.getElementById("ShapesTrigramName")
+            let trigramVerb = document.getElementById("ShapesTrigramVerb")
+            let trigramLetter = document.getElementById("ShapesTrigramLetter")
+            let trigramShape = document.getElementById("ShapesTrigramShape")
+            let trigramColorName = document.getElementById("ShapesTrigramColorName")
+            let trigramColor = document.getElementById("ShapesTrigramColor")
+            let trigramColorColumn2 = document.getElementById("ShapesTrigramColorColumn2")
+            let trigramWuXing = document.getElementById("ShapesTrigramWuXing")
+            let trigramMeaning = document.getElementById("ShapesTrigramMeaning")
+            let trigramComment = document.getElementById("ShapesTrigramComment")
+            let trigramCommentSource = document.getElementById("ShapesTrigramCommentSource")
+            let trigramDiv = document.getElementById("ShapesTrigramDiv")
+            let hexagramDiv = document.getElementById("ShapesHexagramDiv")
+
+            trigramDiv.style.display = "flex"
+            hexagramDiv.style.display = "none"
+            trigramNumber.innerText = trigram.number + ". "
+            trigramName.innerText = trigram.name
+            trigramVerb.innerText = trigram.verb
+            trigramLetter.innerText = trigram.letter
+            trigramShape.innerText = trigram.shape
+            trigramColor.style.backgroundColor = trigram.color[0]
+            trigramColorName.innerText = trigram.colorName[0]
+            if (1 < trigram.colorName.length) {
+                let trigramColor2 = document.getElementById("ShapesTrigramColor2")
+                let trigramColorName2 = document.getElementById("ShapesTrigramColorName2")
+
+                trigramColorColumn2.style.display = "flex"
+                trigramColor2.style.backgroundColor = trigram.color[1]
+                trigramColorName2.innerText = trigram.colorName[1]
+            } else {
+                trigramColorColumn2.style.display = "none"
+            }
+            trigramWuXing.innerText = trigram.wuXing
+            trigramMeaning.innerText = trigram.meaning
+            trigramComment.innerText = trigram.statement
+            trigramCommentSource.innerText = trigram.statementSource
+            draw_trigram(trigramCanvas, trigram.symbol)
+        }
+        function show_shapes_hexagram() {
+            let data = glideData;
+            let hexagramIndex = (currentInternalTrigram * 27) + currentInternalTrigram
+            let hexagram = data.hexagrams[hexagramIndex]
+            let trigram1 = get_trigram_data(hexagram.trigram1)
+            let trigram2 = get_trigram_data(hexagram.trigram2)
+            let hexagramCanvas = document.getElementById("ShapesHexagramCanvas")
+            let hexagramNumber = document.getElementById("ShapesHexagramNumber")
+            let hexagramName = document.getElementById("ShapesHexagramName")
+            let hexagramShape = document.getElementById("HexagramShape")  
+            let externalTrigramNameAndMeaning = document.getElementById("ShapesTrigram1Meaning")
+            let internalTrigramNameAndMeaning = document.getElementById("ShapesTrigram2Meaning")
+            let hexagramMeaning = document.getElementById("HShapesexagramMeaning")
+            let hexagramComment = document.getElementById("ShapesHexagramComment")
+            let hexagramCommentSource = document.getElementById("ShapesHexagramCommentSource")
+            let trigramDiv = document.getElementById("ShapesTrigramDiv")
+            let hexagramDiv = document.getElementById("ShapesHexagramDiv")
+
+            trigramDiv.style.display = "none"
+            hexagramDiv.style.display = "flex"
+            hexagramNumber.innerText = hexagram.number + ". "
+            hexagramName.innerText = hexagram.name
+            hexagramMeaning.innerText = hexagram.meaning
+            if (hexagram.statement) {
+                hexagramComment.innerText = hexagram.statement
+                hexagramCommentSource.innerText = hexagram.statementSource
+            } else {
+                hexagramComment.innerText = ""
+                hexagramCommentSource.innerText = ""
+            }
+            externalTrigramNameAndMeaning.innerText = trigram1.name + " (" + trigram1.meaning + ")"
+            internalTrigramNameAndMeaning.innerText = trigram2.name + " (" + trigram2.meaning + ")"
+            hexagramShape.innerText = trigram2.shape
+            draw_trigram(hexagramCanvas, trigram1.symbol + trigram2.symbol)
+            currentHexagramSymbol = number
+        }
         function build_symbol_index() {
             let data = glideData;
             let parentNode = document.getElementById('SymbolIndexes')
@@ -1949,7 +2029,7 @@
                         <text id="WuXingDetailWillMeaning" style="transform: translate(50px, 180px) " >Will</text>
                         </g>
                 </svg>
-        </div>
+            </div>
             <div id="AboveHexagramDetail" style="display: none;; background-color: white;">
                 <svg style="width: 400px; height: 400px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
                     <defs> 
@@ -1985,7 +2065,7 @@
                         <text id="AboveHexagramDetailVitalityAboveSpiritMeaning" style="transform: translate(0px, 180px) " >Confusion</text>
                     </g>
                 </svg>
-        </div>
+            </div>
             <div id="InHexagramDetail" style="display: none;; background-color: white;">
                 <svg style="width: 400px; height: 400px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
                     <defs> 
@@ -2020,7 +2100,8 @@
                         <text id="InHexagramDetailVitalityInSpiritBlockName" style="transform: translate(0px, 165px)">Vitality In Spirit</text>
                         <text id="InHexagramDetailVitalityInSpiritMeaning" style="transform: translate(0px, 180px)">Judgement</text>
                     </g>
-                </svg>            </div>
+                </svg>            
+            </div>
             <div id="BelowHexagramDetail" style="display: none;; background-color: white;">
                 <svg style="width: 400px; height: 400px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
                     <defs> 
@@ -2056,6 +2137,107 @@
                         <text id="BelowHexagramDetailVitalityBelowSpiritMeaning" style="transform: translate(0px, 180px)">Intelligence</text>
                     </g>
                 </svg>            
+            </div>
+        </div>
+        <div id="ShapesTrigramDiv" style="display: flex; flex-direction: column; width: 100%; position: fixed; top: 37px; left: 250px;"">
+            <div id="ShapesTrigramSymbol" style="display: flex; flex-direction: row;">
+            <div id="ShapesTrigramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
+                <canvas id="TrigramCanvas" style="width: 100px; height: 150px; border-style: solid;"></canvas>
+            </div>
+            <div id="ShapesTrigramInfo" style="display: flex; flex-direction: column; width: 100%;">
+                <div id="ShapesTrigramNumberRow"
+                    style="display: flex; flex-direction: row; gap: 7px; font-size: 2em; font-weight: bold;">
+                    <div id="TrigramNumber"></div>
+                    <div id="TrigramName"></div>
+                </div>
+                <div id="ShapesTrigramMeaningRow" style="display: flex; flex-direction: row;">
+                    <div id="TrigramMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 5px 5px 0px 0px;">
+                        Meaning</div>
+                    <div id="TrigramMeaning" style="font-size: 1em; padding: 5px 2px 0px 0px;"></div>
+                </div>
+                <div id="ShapesTrigramCommentColumn"
+                    style="display: flex; flex-direction: column; width: 70%; padding: 0px 0px 0px 0px;">
+                    <div id="TrigramCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                        Comment</div>
+                    <div id="ShapesTrigramComment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    <div id="ShapesTrigramCommentSourceRow" style="display: flex; flex-direction: row;">
+                        <div id="TrigramCommentSourceTitle"
+                            style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Source</div>
+                        <div id="TrigramCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    </div>
+                </div>
+                <div id="ShapesTrigramVerbRow" style="display: flex; flex-direction: row;">
+                    <div id="TrigramVerbTitle" style="font-size: 1em; font-weight: bold; padding: 10px 5px 0px 0px;">
+                        Verb</div>
+                    <div id="ShapesTrigramVerb" style="font-size: 1em; padding: 10px 2px 0px 0px;"></div>
+                </div>
+                <div id="ShapesTrigramLetterRow" style="display: flex; flex-direction: row;">
+                    <div id="TrigramLetterTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                        Letter</div>
+                    <div id="ShapesTrigramLetter" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="ShapesTrigramShapeRow" style="display: flex; flex-direction: row;">
+                    <div id="ShapesTrigramShapeTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                        Shape</div>
+                    <div id="ShapesTrigramShape" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="ShapesTrigramWuXingRow" style="display: flex; flex-direction: row;">
+                    <div id="TrigramWuXingTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">
+                        Wu Xing</div>
+                    <div id="ShapesTrigramWuXing" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="ShapesTrigramColorsRow" style="display: flex; flex-direction: row;">
+                    <div id="ShapesTrigramColorTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">
+                        Color</div>
+                    <div id="ShapesTrigramColorColumn"
+                        style="display: flex; flex-direction: column; padding: 0px 5px 0px 0px;">
+                        <div id="ShapesTrigramColor" style="height: 1em; width: 1em; border-style: solid;"></div>
+                        <div id="ShapesTrigramColorName"></div>
+                    </div>
+                    <div id="ShapesTrigramColorColumn2" style="display: none; flex-direction: column;">
+                        <div id="ShapesTrigramColor2" style="height: 1em; width: 1em; border-style: solid;"></div>
+                        <div id="ShapesTrigramColorName2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ShapesHexagramDiv"  style="display: none; flex-direction: row; width: 100%; position: fixed; top: 37px; left: 250px;">
+            <div id="ShapesHexagramSymbol" style="display: flex; flex-direction: row;">
+                <div id="ShapesHexagramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
+                    <canvas id="ShapesHexagramCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
+                </div>
+            </div>
+            <div id="ShapesHexagramInfo" style="display: flex; flex-direction: column; width: 100%;">
+                <div id="ShapesHexagramNumberRow" style="display: flex; flex-direction: row; width: 100%;">
+                    <div id="ShapesHexagramNumber" style="font-size: 2em; padding: 0px 7px 0px 0px;"></div>
+                    <div id="ShapesHexagramName" style="font-size: 2em; padding: 0px 4px 0px 0px;"></div>
+                </div>
+                <div id="ShapesTrigramsMeaningColumn" style="display: flex; flex-direction: column;">
+                    <div id="ShapesTrigram1MeaningRow" style="display: flex; flex-direction: row;">
+                        <div id="ShapesTrigram1MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">External Trigram Name And Meaning</div>
+                        <div id="ShapesTrigram1Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    </div>
+                    <div id="ShapesTrigram2MeaningRow" style="display: flex; flex-direction: row;">
+                        <div id="ShapesTrigram2MeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Internal Trigram Name And Meaning</div>
+                        <div id="ShapesTrigram2Meaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    </div>
+                </div>
+                <div id="ShapesHexagramShapeRow" style="display: flex; flex-direction: row;">
+                    <div id="ShapesHexagramShapeTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Shape</div>
+                    <div id="ShapesHexagramShape" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="ShapesHexagramMeaningRow" style="display: flex; flex-direction: row;">
+                    <div id="ShapesHexagramMeaningTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Meaning</div>
+                    <div id="ShapesHexagramMeaning" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                </div>
+                <div id="ShapesHexagramCommentColumn" style="display: flex; flex-direction: column;  width: 70%; padding: 10px 0px 0px 0px;">
+                    <div id="ShapesHexagramCommentTitle" style="font-size: 1em; font-weight: bold; padding: 0px 5px 0px 0px;">Comment</div>
+                    <div id="ShapesHexagramComment" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    <div id="ShapesHexagramCommentSourceRow" style="display: flex; flex-direction: row;">
+                        <div id="ShapesHexagramCommentSourceTitle" style="font-size: 1em; font-weight: bold;; padding: 0px 5px 0px 0px;">Source</div>
+                        <div id="ShapesHexagramCommentSource" style="font-size: 1em; padding: 0px 2px 0px 0px;"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -3084,7 +3266,7 @@
         </div>
         <div id="TrigramDiv"
             style="display: flex; flex-direction: column; width: 100%; position: fixed; top: 37px; left: 250px;"">
-                <div id=" TrigramSymbol" style="display: flex; flex-direction: row;">
+                <div id="TrigramSymbol" style="display: flex; flex-direction: row;">
             <div id="TrigramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
                 <canvas id="TrigramCanvas" style="width: 100px; height: 150px; border-style: solid;"></canvas>
             </div>
