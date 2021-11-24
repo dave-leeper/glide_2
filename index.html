@@ -796,7 +796,6 @@
             draw_trigram(trigramCanvas, trigram.symbol)
         }
         function show_shapes_hexagram() {
-            alert("show_shapes_hexagram()")
             let data = glideData;
             let hexagramIndex = (currentInternalTrigram * 27) + currentInternalTrigram
             let hexagram = data.hexagrams[hexagramIndex]
@@ -816,6 +815,8 @@
 
             trigramDiv.style.display = "none"
             hexagramDiv.style.display = "flex"
+            alert(JSON.stringify().style))
+
             hexagramNumber.innerText = hexagram.number + ". "
             hexagramName.innerText = hexagram.name
             hexagramMeaning.innerText = hexagram.meaning
