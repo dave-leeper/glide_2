@@ -800,6 +800,8 @@
             let hexagram = data.hexagrams[hexagramIndex]
             let trigram1 = get_trigram_data(hexagram.trigram1)
             let trigram2 = get_trigram_data(hexagram.trigram2)
+            let shapesTrigramDiv = document.getElementById("ShapesTrigramDiv")
+            let shapesHexagramDiv = document.getElementById("ShapesHexagramDiv")
             let hexagramCanvas = document.getElementById("ShapesHexagramCanvas")
             let hexagramNumber = document.getElementById("ShapesHexagramNumber")
             let hexagramName = document.getElementById("ShapesHexagramName")
@@ -811,6 +813,9 @@
             let hexagramCommentSource = document.getElementById("ShapesHexagramCommentSource")
             let trigramDiv = document.getElementById("ShapesTrigramDiv")
             let hexagramDiv = document.getElementById("ShapesHexagramDiv")
+
+            shapesTrigramDiv.style.display = 'none'
+            shapesHexagramDiv.style.display = 'flex'
 
             trigramDiv.style.display = "none"
             hexagramDiv.style.display = "flex"
@@ -2203,7 +2208,7 @@
                 </div>
             </div>
         </div>
-        <div id="ShapesHexagramDiv"  style="display: none; flex-direction: row; width: 100%; position: fixed; top: 37px; left: 250px;">
+        <div id="ShapesHexagramDiv" style="display: none; flex-direction: row; width: 100%; position: fixed; top: 37px; left: 250px;">
             <div id="ShapesHexagramSymbol" style="display: flex; flex-direction: row;">
                 <div id="ShapesHexagramCanvases" style="display: flex; flex-direction: column; margin: 0px 10px 0px 0px;">
                     <canvas id="ShapesHexagramCanvas" style="width: 100px; height: 300px; border-style: solid;"></canvas>
