@@ -815,7 +815,6 @@
 
             trigramDiv.style.display = "none"
             hexagramDiv.style.display = "flex"
-            alert(hexagramDiv.style.display)
 
             hexagramNumber.innerText = hexagram.number + ". "
             hexagramName.innerText = hexagram.name
@@ -968,6 +967,7 @@
             else { belowHexagramShape.style.background = 'white' }
 
             draw_shapes_content()
+            alert("currentExternalTrigram: " + currentExternalTrigram)
             if (99 === currentExternalTrigram) { show_shapes_trigram() }
             else { show_shapes_hexagram() }
         }
@@ -983,8 +983,6 @@
             let circleShapeDaoCanvas = document.getElementById("CircleShapeDaoCanvas")
             
             currentInternalTrigram = number
-            if (0 === currentInternalTrigram) { circleShapeDaoCanvas.style.border = 'border: 10px solid black;' }
-            else { circleShapeDaoCanvas.style.border = 'border: 1px solid white;' }
             set_shape_menu(currentShapeMenuItem)
         }
 
