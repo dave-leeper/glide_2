@@ -971,8 +971,9 @@
         }
         function update_external_trigram() {
             let shapesContentExternalTrigram = document.getElementById("ShapesContentExternalTrigram")
-            alert("shapesContentExternalTrigram.value: ") + shapesContentExternalTrigram.value
-            currentExternalTrigram = shapesContentExternalTrigram.value
+            let value = shapesContentExternalTrigram.options[shapesContentExternalTrigram.selectedIndex].value;
+            alert("value: ") + value
+            currentExternalTrigram = value
             set_shape_menu(currentShapeMenuItem)
         }
         function update_internal_trigram(number){
