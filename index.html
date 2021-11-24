@@ -976,7 +976,7 @@
             let index = shapesContentExternalTrigram.selectedIndex
             let value = shapesContentExternalTrigram.options[shapesContentExternalTrigram.selectedIndex].value;
             currentExternalTrigramIndex = index
-            currentExternalTrigram = value
+            currentExternalTrigram = parseInt(value)
             set_shape_menu(currentShapeMenuItem)
         }
         function update_internal_trigram(number){
