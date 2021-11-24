@@ -800,8 +800,6 @@
             let hexagram = data.hexagrams[hexagramIndex]
             let trigram1 = get_trigram_data(hexagram.trigram1)
             let trigram2 = get_trigram_data(hexagram.trigram2)
-            let shapesTrigramDiv = document.getElementById("ShapesTrigramDiv")
-            let shapesHexagramDiv = document.getElementById("ShapesHexagramDiv")
             let hexagramCanvas = document.getElementById("ShapesHexagramCanvas")
             let hexagramNumber = document.getElementById("ShapesHexagramNumber")
             let hexagramName = document.getElementById("ShapesHexagramName")
@@ -813,9 +811,6 @@
             let hexagramCommentSource = document.getElementById("ShapesHexagramCommentSource")
             let trigramDiv = document.getElementById("ShapesTrigramDiv")
             let hexagramDiv = document.getElementById("ShapesHexagramDiv")
-
-            shapesTrigramDiv.style.display = 'none'
-            shapesHexagramDiv.style.display = 'flex'
 
             trigramDiv.style.display = "none"
             hexagramDiv.style.display = "flex"
