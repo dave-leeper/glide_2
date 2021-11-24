@@ -973,9 +973,9 @@
             let shapesContentExternalTrigram = document.getElementById("ShapesContentExternalTrigram")
             let index = shapesContentExternalTrigram.selectedIndex
             let value = shapesContentExternalTrigram.options[shapesContentExternalTrigram.selectedIndex].value;
-            alert("index: " + index + ", value: " + value)
             currentExternalTrigramIndex = index
             currentExternalTrigram = value
+            alert("currentExternalTrigramIndex: " + currentExternalTrigramIndex + ", currentExternalTrigram: " + currentExternalTrigram)
             set_shape_menu(currentShapeMenuItem)
         }
         function update_internal_trigram(number){
