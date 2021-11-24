@@ -796,6 +796,7 @@
             draw_trigram(trigramCanvas, trigram.symbol)
         }
         function show_shapes_hexagram() {
+            alert("show_shapes_hexagram()")
             let data = glideData;
             let hexagramIndex = (currentInternalTrigram * 27) + currentInternalTrigram
             let hexagram = data.hexagrams[hexagramIndex]
@@ -966,7 +967,7 @@
             else { belowHexagramShape.style.background = 'white' }
 
             draw_shapes_content()
-            if (0 === currentExternalTrigramIndex) { show_shapes_trigram() }
+            if (99 === currentExternalTrigram) { show_shapes_trigram() }
             else { show_shapes_hexagram() }
         }
         function update_external_trigram() {
@@ -975,7 +976,6 @@
             let value = shapesContentExternalTrigram.options[shapesContentExternalTrigram.selectedIndex].value;
             currentExternalTrigramIndex = index
             currentExternalTrigram = value
-            alert("currentExternalTrigramIndex: " + currentExternalTrigramIndex + ", currentExternalTrigram: " + currentExternalTrigram)
             set_shape_menu(currentShapeMenuItem)
         }
         function update_internal_trigram(number){
