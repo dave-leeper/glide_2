@@ -29,6 +29,7 @@
         let currentHexagramSymbol = 0
         let currentMenuItem = 0
         let currentShapeMenuItem = 0
+        let currentExternalTrigramIndex = 0
         let currentExternalTrigram = 99
         let currentInternalTrigram = 0
         let randomId = null
@@ -607,7 +608,7 @@
             if (5 === currentShapeMenuItem) { belowHexagramDetail.style.display = 'block' }
             else { belowHexagramDetail.style.display = 'none' }
 
-            shapesContentExternalTrigram.value = currentExternalTrigram
+            shapesContentExternalTrigram.selectedIndex = currentExternalTrigramIndex
 
             let circleShapeDaoCanvas = document.getElementById("CircleShapeDaoCanvas")
 
@@ -949,7 +950,6 @@
             let aboveHexagramShape = document.getElementById("AboveHexagramShape")
             let inHexagramShape = document.getElementById("InHexagramShape")
             let belowHexagramShape = document.getElementById("BelowHexagramShape")
-
             
             currentShapeMenuItem = number
             if (0 === currentShapeMenuItem) { circleShape.style.background = 'lightgrey' }
@@ -966,13 +966,15 @@
             else { belowHexagramShape.style.background = 'white' }
 
             draw_shapes_content()
-            if (99 === currentExternalTrigram) { show_shapes_trigram() }
+            if (0 === currentExternalTrigramIndex) { show_shapes_trigram() }
             else { show_shapes_hexagram() }
         }
         function update_external_trigram() {
             let shapesContentExternalTrigram = document.getElementById("ShapesContentExternalTrigram")
+            let index = shapesContentExternalTrigram.selectedIndex
             let value = shapesContentExternalTrigram.options[shapesContentExternalTrigram.selectedIndex].value;
-            alert("value: ") + value
+            alert("index: " + index + ", value: " + value)
+            currentExternalTrigramIndex = index
             currentExternalTrigram = value
             set_shape_menu(currentShapeMenuItem)
         }
