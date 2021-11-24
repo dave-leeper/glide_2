@@ -611,8 +611,7 @@
 
             let circleShapeDaoCanvas = document.getElementById("CircleShapeDaoCanvas")
 
-            draw_trigram(circleShapeDaoCanvas, "◠ᔐ◡")
-
+            draw_trigram(circleShapeDaoCanvas, "◠ᔐ◡", ((0 === currentInternalTrigram)? 'lightgrey' : 'white'))
         }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
