@@ -614,11 +614,17 @@
             let triangleOfNatureShapeUncarvedBlockCanvas = document.getElementById("TriangleOfNatureShapeUncarvedBlockCanvas")
             let triangleOfNatureShapeEnergyCanvas = document.getElementById("TriangleOfNatureShapeEnergyCanvas")
             let triangleOfNatureShapeWuWeiCanvas = document.getElementById("TriangleOfNatureShapeWuWeiCanvas")
+            let wuXingShapeEssenceCanvas = document.getElementById("WuXingShapeEssenceCanvas")
+            let wuXingShapeVitalityCanvas = document.getElementById("WuXingShapeVitalityCanvas")
+            let wuXingShapeSpiritCanvas = document.getElementById("WuXingShapeSpiritCanvas")
 
             draw_trigram(circleShapeDaoCanvas, "◠ᔐ◡", ((0 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(triangleOfNatureShapeUncarvedBlockCanvas, "ᔐ◠◡", ((8 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(triangleOfNatureShapeEnergyCanvas, "ᔐᔐᔐ", ((2 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(triangleOfNatureShapeWuWeiCanvas, "◠◡ᔐ", ((7 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(wuXingShapeEssenceCanvas, "ᔐ◡◠", ((5 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(wuXingShapeVitalityCanvas, "◡◡◡", ((3 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(wuXingShapeSpiritCanvas, "◠◠◠", ((1 === currentInternalTrigram)? 'lightgrey' : 'white'))
         }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
@@ -2012,6 +2018,9 @@
                 </svg>
             </div>
             <div id="WuXingDetail" style="display: none; background-color: white;">
+                <canvas id="WuXingShapeEssenceCanvas" style="position: absolute; left: 120px; top: 210px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(5)"></canvas>
+                <canvas id="WuXingShapeVitalityCanvas" style="position: absolute; left: 177px; top: 70px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(3)"></canvas>
+                <canvas id="WuXingShapeSpiritCanvas" style="position: absolute; left: 240px; top: 210px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(1)"></canvas>
                 <svg style="width: 400px; height: 400px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
                     <defs> 
                         <marker id="arrowhead" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto"> <polygon points="0 0, 5 2.5, 0 5" /> </marker>
