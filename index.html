@@ -635,9 +635,14 @@
             let data = ((trigrams)? glideData.trigrams : glideData.hexagrams)
             let base = (externalOffset * 27)
             let dao = data[base]
+            let spirit = data[base + 1]
             let energy = data[base + 2]
-            let uncarvedBlock = data[base + 8]
+            let vitality = data[base + 3]
+            let sense = data[base + 4]
+            let essence = data[base + 5]
+            let will = data[base + 6]
             let wuWei = data[base + 7]
+            let uncarvedBlock = data[base + 8]
             let circleDetailName = document.getElementById("CircleDetailName").childNodes[0]
             let circleDetailMeaning = document.getElementById("CircleDetailMeaning").childNodes[0]
             let triangleOfNatureDetailEnergyName = document.getElementById("TriangleOfNatureDetailEnergyName").childNodes[0]
@@ -646,6 +651,16 @@
             let triangleOfNatureDetailUncarvedBlockMeaning = document.getElementById("TriangleOfNatureDetailUncarvedBlockMeaning").childNodes[0]
             let triangleOfNatureDetailWuWeiName = document.getElementById("TriangleOfNatureDetailWuWeiName").childNodes[0]
             let triangleOfNatureDetailWuWeiMeaning = document.getElementById("TriangleOfNatureDetailWuWeiMeaning").childNodes[0]
+            let wuXingDetailEssenceName = document.getElementById("WuXingDetailEssenceName").childNodes[0]
+            let wuXingDetailEssenceMeaning = document.getElementById("WuXingDetailEssenceMeaning").childNodes[0]
+            let wuXingDetailVitalityName = document.getElementById("WuXingDetailVitalityName").childNodes[0]
+            let wuXingDetailVitalityMeaning = document.getElementById("WuXingDetailVitalityMeaning").childNodes[0]
+            let wuXingDetailSpiritName = document.getElementById("WuXingDetailSpiritName").childNodes[0]
+            let wuXingDetailSpiritMeaning = document.getElementById("WuXingDetailSpiritMeaning").childNodes[0]
+            let wuXingDetailSenseName = document.getElementById("WuXingDetailSenseName").childNodes[0]
+            let wuXingDetailSenseMeaning = document.getElementById("WuXingDetailSenseMeaning").childNodes[0]
+            let wuXingDetailWillName = document.getElementById("WuXingDetailWillName").childNodes[0]
+            let wuXingDetailWillMeaning = document.getElementById("WuXingDetailWillMeaning").childNodes[0]
 
             circleDetailName.nodeValue = dao.name
             circleDetailMeaning.nodeValue = dao.meaning
@@ -655,6 +670,16 @@
             triangleOfNatureDetailUncarvedBlockMeaning.nodeValue = uncarvedBlock.meaning
             triangleOfNatureDetailWuWeiName.nodeValue = wuWei.name
             triangleOfNatureDetailWuWeiMeaning.nodeValue = wuWei.meaning
+            wuXingDetailEssenceName.nodeValue = essence.name
+            wuXingDetailEssenceMeaning.nodeValue = essence.meaning
+            wuXingDetailVitalityName.nodeValue = vitality.name
+            wuXingDetailVitalityMeaning.nodeValue = vitality.meaning
+            wuXingDetailSpiritName.nodeValue = spirit.name
+            wuXingDetailSpiritMeaning.nodeValue = spirit.meaning
+            wuXingDetailSenseName.nodeValue = sense.name
+            wuXingDetailSenseMeaning.nodeValue = sense.meaning
+            wuXingDetailWillName.nodeValue = will.name
+            wuXingDetailWillMeaning.nodeValue = will.meaning
         }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
