@@ -617,6 +617,8 @@
             let wuXingShapeEssenceCanvas = document.getElementById("WuXingShapeEssenceCanvas")
             let wuXingShapeVitalityCanvas = document.getElementById("WuXingShapeVitalityCanvas")
             let wuXingShapeSpiritCanvas = document.getElementById("WuXingShapeSpiritCanvas")
+            let wuXingShapeSenseCanvas = document.getElementById("WuXingShapeSenseCanvas")
+            let wuXingShapeWillCanvas = document.getElementById("WuXingShapeWillCanvas")
 
             draw_trigram(circleShapeDaoCanvas, "◠ᔐ◡", ((0 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(triangleOfNatureShapeUncarvedBlockCanvas, "ᔐ◠◡", ((8 === currentInternalTrigram)? 'lightgrey' : 'white'))
@@ -625,6 +627,8 @@
             draw_trigram(wuXingShapeEssenceCanvas, "ᔐ◡◠", ((5 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(wuXingShapeVitalityCanvas, "◡◡◡", ((3 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(wuXingShapeSpiritCanvas, "◠◠◠", ((1 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(wuXingShapeSenseCanvas, "◡◠ᔐ", ((4 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(wuXingShapeWillCanvas, "◡ᔐ◠", ((6 === currentInternalTrigram)? 'lightgrey' : 'white'))
         }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
@@ -2021,8 +2025,8 @@
                 <canvas id="WuXingShapeEssenceCanvas" style="position: absolute; left: 180px; top: 110px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(5)"></canvas>
                 <canvas id="WuXingShapeVitalityCanvas" style="position: absolute; left: 109px; top: 180px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(3)"></canvas>
                 <canvas id="WuXingShapeSpiritCanvas" style="position: absolute; left: 255px; top: 180px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(1)"></canvas>
-                <canvas id="WuXingShapeSenseCanvas" style="position: absolute; left: 119px; top: 240px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(3)"></canvas>
-                <canvas id="WuXingShapeWillCanvas" style="position: absolute; left: 245px; top: 240px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(1)"></canvas>
+                <canvas id="WuXingShapeSenseCanvas" style="position: absolute; left: 119px; top: 240px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(4)"></canvas>
+                <canvas id="WuXingShapeWillCanvas" style="position: absolute; left: 245px; top: 240px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(6)"></canvas>
                 <svg style="width: 400px; height: 400px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
                     <defs> 
                         <marker id="arrowhead" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto"> <polygon points="0 0, 5 2.5, 0 5" /> </marker>
