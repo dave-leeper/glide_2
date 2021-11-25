@@ -635,11 +635,26 @@
             let data = ((trigrams)? glideData.trigrams : glideData.hexagrams)
             let base = (externalOffset * 27)
             let dao = data[base]
+            let energy = data[base + 2]
+            let uncarvedBlock = data[base + 8]
+            let wuWei = data[base + 7]
             let circleDetailName = document.getElementById("CircleDetailName").childNodes[0]
             let circleDetailMeaning = document.getElementById("CircleDetailMeaning").childNodes[0]
+            let triangleOfNatureDetailEnergyName = document.getElementById("TriangleOfNatureDetailEnergyName").childNodes[0]
+            let triangleOfNatureDetailEnergyMeaning = document.getElementById("TriangleOfNatureDetailEnergyMeaning").childNodes[0]
+            let triangleOfNatureDetailUncarvedBlockName = document.getElementById("TriangleOfNatureDetailUncarvedBlockName").childNodes[0]
+            let triangleOfNatureDetailUncarvedBlockMeaning = document.getElementById("TriangleOfNatureDetailUncarvedBlockMeaning").childNodes[0]
+            let triangleOfNatureDetailWuWeiName = document.getElementById("TriangleOfNatureDetailWuWeiName").childNodes[0]
+            let triangleOfNatureDetailWuWeiMeaning = document.getElementById("TriangleOfNatureDetailWuWeiMeaning").childNodes[0]
 
             circleDetailName.nodeValue = dao.name
             circleDetailMeaning.nodeValue = dao.meaning
+            triangleOfNatureDetailEnergyName.nodeValue = energy.name
+            triangleOfNatureDetailEnergyMeaning.nodeValue = energy.meaning
+            triangleOfNatureDetailUncarvedBlockName.nodeValue = uncarvedBlock.name
+            triangleOfNatureDetailUncarvedBlockMeaning.nodeValue = uncarvedBlock.meaning
+            triangleOfNatureDetailWuWeiName.nodeValue = wuWei.name
+            triangleOfNatureDetailWuWeiMeaning.nodeValue = wuWei.meaning
         }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
