@@ -804,6 +804,7 @@
         function show_shapes_hexagram() {
             let data = glideData;
             let hexagramIndex = (currentInternalTrigram * 27) + currentInternalTrigram
+            alert("hexagramIndex: " + hexagramIndex)
             let hexagram = data.hexagrams[hexagramIndex]
             let trigram1 = get_trigram_data(hexagram.trigram1)
             let trigram2 = get_trigram_data(hexagram.trigram2)
@@ -1996,9 +1997,9 @@
                 </svg>
             </div>
             <div id="TriangleOfNatureDetail" style="display: none; background-color: white;">
-                <canvas id="TriangleOfNatureShapeUncarvedBlockCanvas" style="position: absolute; left: 172px; top: 30px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(8)"></canvas>
-                <canvas id="TriangleOfNatureShapeEnergyCanvas" style="position: absolute; left: 172px; top: 10px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(2)"></canvas>
-                <canvas id="TriangleOfNatureShapeWuWeiCanvas" style="position: absolute; left: 172px; top: 120px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(7)"></canvas>
+                <canvas id="TriangleOfNatureShapeUncarvedBlockCanvas" style="position: absolute; left: 120px; top: 210px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(8)"></canvas>
+                <canvas id="TriangleOfNatureShapeEnergyCanvas" style="position: absolute; left: 175px; top: 70px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(2)"></canvas>
+                <canvas id="TriangleOfNatureShapeWuWeiCanvas" style="position: absolute; left: 240px; top: 210px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(7)"></canvas>
                 <svg style="width: 400px; height: 400px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
                     <g style="transform: translate(15px, 15px)">
                         <polygon style="transform: translate(20px, 11px) scale(0.25)" stroke="black" stroke-width="3" fill="white" fill-opacity="0.0" points="50 17, 98 98, 2 98"/>
