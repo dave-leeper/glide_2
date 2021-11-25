@@ -629,6 +629,17 @@
             draw_trigram(wuXingShapeSpiritCanvas, "◠◠◠", ((1 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(wuXingShapeSenseCanvas, "◡◠ᔐ", ((4 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(wuXingShapeWillCanvas, "◡ᔐ◠", ((6 === currentInternalTrigram)? 'lightgrey' : 'white'))
+
+            let trigrams = (99 === currentExternalTrigram)
+            let externalOffset = ((trigrams)? 0 : currentExternalTrigram)
+            let data = ((trigrams)? glideData.trigrams : glideData.hexagrams)
+            let base = (externalOffset * 27)
+            let dao = data[base]
+            let circleDetailName = document.getElementById("CircleShapeDaoCanvas").childNodes[0]
+            let circleDetailMeaning = document.getElementById("CircleDetailMeaning").childNodes[0]
+
+            circleDetailName.nodeValue = dao.name
+            circleDetailMeaning.nodeValue = dao.meaning
         }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
