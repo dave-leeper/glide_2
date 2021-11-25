@@ -631,7 +631,6 @@
             draw_trigram(wuXingShapeWillCanvas, "◡ᔐ◠", ((6 === currentInternalTrigram)? 'lightgrey' : 'white'))
 
             let trigrams = (99 === currentExternalTrigram)
-            alert("trigrams? " + trigrams)
             let externalOffset = ((trigrams)? 0 : currentExternalTrigram)
             let data = ((trigrams)? glideData.trigrams : glideData.hexagrams)
             let base = (externalOffset * 27)
