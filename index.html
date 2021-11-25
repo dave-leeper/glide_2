@@ -611,8 +611,14 @@
             shapesContentExternalTrigram.selectedIndex = currentExternalTrigramIndex
 
             let circleShapeDaoCanvas = document.getElementById("CircleShapeDaoCanvas")
+            let triangleOfNatureShapeUncarvedBlockCanvas = document.getElementById("TriangleOfNatureShapeUncarvedBlockCanvas")
+            let triangleOfNatureShapeEnergyCanvas = document.getElementById("TriangleOfNatureShapeEnergyCanvas")
+            let triangleOfNatureShapeWuWeiCanvas = document.getElementById("TriangleOfNatureShapeWuWeiCanvas")
 
             draw_trigram(circleShapeDaoCanvas, "◠ᔐ◡", ((0 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(triangleOfNatureShapeUncarvedBlockCanvas, "ᔐ◠◡", ((8 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(triangleOfNatureShapeEnergyCanvas, "ᔐᔐᔐ", ((2 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(triangleOfNatureShapeWuWeiCanvas, "◠◡ᔐ", ((7 === currentInternalTrigram)? 'lightgrey' : 'white'))
         }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
@@ -1990,6 +1996,9 @@
                 </svg>
             </div>
             <div id="TriangleOfNatureDetail" style="display: none; background-color: white;">
+                <canvas id="TriangleOfNatureShapeUncarvedBlockCanvas" style="position: absolute; left: 172px; top: 30px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(8)"></canvas>
+                <canvas id="TriangleOfNatureShapeEnergyCanvas" style="position: absolute; left: 172px; top: 10px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(2)"></canvas>
+                <canvas id="TriangleOfNatureShapeWuWeiCanvas" style="position: absolute; left: 172px; top: 120px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(7)"></canvas>
                 <svg style="width: 400px; height: 400px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
                     <g style="transform: translate(15px, 15px)">
                         <polygon style="transform: translate(20px, 11px) scale(0.25)" stroke="black" stroke-width="3" fill="white" fill-opacity="0.0" points="50 17, 98 98, 2 98"/>
