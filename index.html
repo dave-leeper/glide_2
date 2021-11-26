@@ -619,6 +619,12 @@
             let wuXingShapeSpiritCanvas = document.getElementById("WuXingShapeSpiritCanvas")
             let wuXingShapeSenseCanvas = document.getElementById("WuXingShapeSenseCanvas")
             let wuXingShapeWillCanvas = document.getElementById("WuXingShapeWillCanvas")
+            let aboveHexagramShapeSpiritAboveEnergyCanvas = document.getElementById("AboveHexagramShapeSpiritAboveEnergyCanvas")
+            let aboveHexagramShapeSpiritAboveVitalityCanvas = document.getElementById("AboveHexagramShapeSpiritAboveVitalityCanvas")
+            let aboveHexagramShapeEnergyAboveVitalityCanvas = document.getElementById("AboveHexagramShapeEnergyAboveVitalityCanvas")
+            let aboveHexagramShapeVitalityAboveEnergyCanvas = document.getElementById("AboveHexagramShapeVitalityAboveEnergyCanvas")
+            let aboveHexagramShapeEnergyAboveSpiritCanvas = document.getElementById("AboveHexagramShapeEnergyAboveSpiritCanvas")
+            let aboveHexagramShapeVitalityAboveSpiritCanvas = document.getElementById("AboveHexagramShapeVitalityAboveSpiritCanvas")
 
             draw_trigram(circleShapeDaoCanvas, "◠ᔐ◡", ((0 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(triangleOfNatureShapeUncarvedBlockCanvas, "ᔐ◠◡", ((8 === currentInternalTrigram)? 'lightgrey' : 'white'))
@@ -629,6 +635,12 @@
             draw_trigram(wuXingShapeSpiritCanvas, "◠◠◠", ((1 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(wuXingShapeSenseCanvas, "◡◠ᔐ", ((4 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(wuXingShapeWillCanvas, "◡ᔐ◠", ((6 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(aboveHexagramShapeSpiritAboveEnergyCanvas, "◠◠ᔐ", ((9 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(aboveHexagramShapeSpiritAboveVitalityCanvas, "◠◠◡", ((11 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(aboveHexagramShapeEnergyAboveVitalityCanvas, "ᔐᔐ◡", ((13 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(aboveHexagramShapeVitalityAboveEnergyCanvas, "◡◡ᔐ", ((14 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(aboveHexagramShapeEnergyAboveSpiritCanvas, "ᔐᔐ◠", ((10 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(aboveHexagramShapeVitalityAboveSpiritCanvas, "◡◡◠", ((12 === currentInternalTrigram)? 'lightgrey' : 'white'))
 
             let trigrams = (99 === currentExternalTrigram)
             let externalOffset = ((trigrams)? 0 : currentExternalTrigram)
@@ -1183,8 +1195,8 @@
                 {
                     "number": 7,
                     "symbol": "◠◡ᔐ",
-                    "name": "Wu Wei",
-                    "meaning": "Doing nondoing.",
+                    "name": "Wú Wéi",
+                    "meaning": "Doing nondoing (无为, Wú Wéi).",
                     "statement": "Do nondoing, strive for nonstriving.",
                     "statementSource": "Lao-tzu, Dao De Jing, Chapter 63",
                     "verb": "Flow",
@@ -1198,7 +1210,7 @@
                     "number": 8,
                     "symbol": "ᔐ◠◡",
                     "name": "Uncarved Block",
-                    "meaning": "Simplicity.",
+                    "meaning": "Simplicity (樸, Pu).",
                     "statement": "Simple as uncarved wood, open as the valleys.",
                     "statementSource": "Lao-tzu, Dao De Jing, Chapter 15",
                     "verb": "Simplify",
@@ -2110,6 +2122,12 @@
                 </svg>
             </div>
             <div id="AboveHexagramDetail" style="display: none;; background-color: white;">
+                <canvas id="AboveHexagramShapeSpiritAboveEnergyCanvas" style="position: absolute; left: 180px; top: 100px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(9)"></canvas>
+                <canvas id="AboveHexagramShapeSpiritAboveVitalityCanvas" style="position: absolute; left: 109px; top: 180px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(11)"></canvas>
+                <canvas id="AboveHexagramShapeEnergyAboveVitalityCanvas" style="position: absolute; left: 255px; top: 180px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(13)"></canvas>
+                <canvas id="AboveHexagramShapeVitalityAboveEnergyCanvas" style="position: absolute; left: 139px; top: 255px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(14)"></canvas>
+                <canvas id="AboveHexagramShapeEnergyAboveSpiritCanvas" style="position: absolute; left: 215px; top: 255px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(10)"></canvas>
+                <canvas id="AboveHexagramShapeVitalityAboveSpiritCanvas" style="position: absolute; left: 215px; top: 275px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(12)"></canvas>
                 <svg style="width: 400px; height: 400px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
                     <defs> 
                         <marker id="arrowhead2" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto"> <polygon points="0 0, 5 2.5, 0 5" /> </marker>
