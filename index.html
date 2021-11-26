@@ -631,6 +631,12 @@
             let inHexagramShapeVitalityInEnergyCanvas = document.getElementById("InHexagramShapeVitalityInEnergyCanvas")
             let inHexagramShapeEnergyInSpiritCanvas = document.getElementById("InHexagramShapeEnergyInSpiritCanvas")
             let inHexagramShapeVitalityInSpiritCanvas = document.getElementById("InHexagramShapeVitalityInSpiritCanvas")
+            let belowHexagramShapeSpiritBelowEnergyCanvas = document.getElementById("BelowHexagramShapeSpiritBelowEnergyCanvas")
+            let belowHexagramShapeSpiritBelowVitalityCanvas = document.getElementById("BelowHexagramShapeSpiritBelowVitalityCanvas")
+            let belowHexagramShapeEnergyBelowVitalityCanvas = document.getElementById("BelowHexagramShapeEnergyBelowVitalityCanvas")
+            let belowHexagramShapeVitalityBelowEnergyCanvas = document.getElementById("BelowHexagramShapeVitalityBelowEnergyCanvas")
+            let belowHexagramShapeEnergyBelowSpiritCanvas = document.getElementById("BelowHexagramShapeEnergyBelowSpiritCanvas")
+            let belowHexagramShapeVitalityBelowSpiritCanvas = document.getElementById("BelowHexagramShapeVitalityBelowSpiritCanvas")
 
             draw_trigram(circleShapeDaoCanvas, "◠ᔐ◡", ((0 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(triangleOfNatureShapeUncarvedBlockCanvas, "ᔐ◠◡", ((8 === currentInternalTrigram)? 'lightgrey' : 'white'))
@@ -653,6 +659,12 @@
             draw_trigram(inHexagramShapeVitalityInEnergyCanvas, "ᔐ◡ᔐ", ((20 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(inHexagramShapeEnergyInSpiritCanvas, "◠ᔐ◠", ((16 === currentInternalTrigram)? 'lightgrey' : 'white'))
             draw_trigram(inHexagramShapeVitalityInSpiritCanvas, "◠◡◠", ((18 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(belowHexagramShapeSpiritBelowEnergyCanvas, "ᔐᔐ◠", ((21 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(belowHexagramShapeSpiritBelowVitalityCanvas, "◡◠◠", ((23 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(belowHexagramShapeEnergyBelowVitalityCanvas, "◡ᔐᔐ", ((25 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(belowHexagramShapeVitalityBelowEnergyCanvas, "ᔐ◡◡", ((26 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(belowHexagramShapeEnergyBelowSpiritCanvas, "◠ᔐᔐ", ((22 === currentInternalTrigram)? 'lightgrey' : 'white'))
+            draw_trigram(belowHexagramShapeVitalityBelowSpiritCanvas, "◠◡◡", ((24 === currentInternalTrigram)? 'lightgrey' : 'white'))
 
             let trigrams = (99 === currentExternalTrigram)
             let externalOffset = ((trigrams)? 0 : currentExternalTrigram)
@@ -679,6 +691,12 @@
             let vitalityInSpirit = data[base + 18]
             let energyInVitality = data[base + 19]
             let vitalityInEnergy = data[base + 20]
+            let spiritIBelowEnergy = data[base + 21]
+            let energyBelowSpirit = data[base + 22]
+            let spiritBelowVitality = data[base + 23]
+            let vitalityBelowSpirit = data[base + 24]
+            let energyBelowVitality = data[base + 25]
+            let vitalityBelowEnergy = data[base + 26]
             let circleDetailName = document.getElementById("CircleDetailName").childNodes[0]
             let circleDetailMeaning = document.getElementById("CircleDetailMeaning").childNodes[0]
             let triangleOfNatureDetailEnergyName = document.getElementById("TriangleOfNatureDetailEnergyName").childNodes[0]
@@ -709,18 +727,30 @@
             let aboveHexagramDetailEnergyAboveSpiritMeaning = document.getElementById("AboveHexagramDetailEnergyAboveSpiritMeaning").childNodes[0]
             let aboveHexagramDetailVitalityAboveSpiritName = document.getElementById("AboveHexagramDetailVitalityAboveSpiritName").childNodes[0]
             let aboveHexagramDetailVitalityAboveSpiritMeaning = document.getElementById("AboveHexagramDetailVitalityAboveSpiritMeaning").childNodes[0]
-            let inHexagramDetailSpiritAboveEnergyName = document.getElementById("InHexagramDetailSpiritInEnergyName").childNodes[0]
-            let inHexagramDetailSpiritAboveEnergyMeaning = document.getElementById("InHexagramDetailSpiritInEnergyMeaning").childNodes[0]
-            let inHexagramDetailSpiritAboveVitalityName = document.getElementById("InHexagramDetailSpiritInVitalityName").childNodes[0]
-            let inHexagramDetailSpiritAboveVitalityMeaning = document.getElementById("InHexagramDetailSpiritInVitalityMeaning").childNodes[0]
-            let inHexagramDetailEnergyAboveVitalityName = document.getElementById("InHexagramDetailEnergyInVitalityName").childNodes[0]
-            let inHexagramDetailEnergyAboveVitalityMeaning = document.getElementById("InHexagramDetailEnergyInVitalityMeaning").childNodes[0]
-            let inHexagramDetailVitalityAboveEnergyName = document.getElementById("InHexagramDetailVitalityInEnergyName").childNodes[0]
-            let inHexagramDetailVitalityAboveEnergyMeaning = document.getElementById("InHexagramDetailVitalityInEnergyMeaning").childNodes[0]
-            let inHexagramDetailEnergyAboveSpiritName = document.getElementById("InHexagramDetailEnergyInSpiritName").childNodes[0]
-            let inHexagramDetailEnergyAboveSpiritMeaning = document.getElementById("InHexagramDetailEnergyInSpiritMeaning").childNodes[0]
-            let inHexagramDetailVitalityAboveSpiritName = document.getElementById("InHexagramDetailVitalityInSpiritName").childNodes[0]
-            let inHexagramDetailVitalityAboveSpiritMeaning = document.getElementById("InHexagramDetailVitalityInSpiritMeaning").childNodes[0]
+            let inHexagramDetailSpiritInEnergyName = document.getElementById("InHexagramDetailSpiritInEnergyName").childNodes[0]
+            let inHexagramDetailSpiritInEnergyMeaning = document.getElementById("InHexagramDetailSpiritInEnergyMeaning").childNodes[0]
+            let inHexagramDetailSpiritInVitalityName = document.getElementById("InHexagramDetailSpiritInVitalityName").childNodes[0]
+            let inHexagramDetailSpiritInVitalityMeaning = document.getElementById("InHexagramDetailSpiritInVitalityMeaning").childNodes[0]
+            let inHexagramDetailEnergyInVitalityName = document.getElementById("InHexagramDetailEnergyInVitalityName").childNodes[0]
+            let inHexagramDetailEnergyInVitalityMeaning = document.getElementById("InHexagramDetailEnergyInVitalityMeaning").childNodes[0]
+            let inHexagramDetailVitalityInEnergyName = document.getElementById("InHexagramDetailVitalityInEnergyName").childNodes[0]
+            let inHexagramDetailVitalityInEnergyMeaning = document.getElementById("InHexagramDetailVitalityInEnergyMeaning").childNodes[0]
+            let inHexagramDetailEnergyInSpiritName = document.getElementById("InHexagramDetailEnergyInSpiritName").childNodes[0]
+            let inHexagramDetailEnergyInSpiritMeaning = document.getElementById("InHexagramDetailEnergyInSpiritMeaning").childNodes[0]
+            let inHexagramDetailVitalityInSpiritName = document.getElementById("InHexagramDetailVitalityInSpiritName").childNodes[0]
+            let inHexagramDetailVitalityInSpiritMeaning = document.getElementById("InHexagramDetailVitalityInSpiritMeaning").childNodes[0]
+            let belowHexagramDetailSpiritBelowEnergyName = document.getElementById("BelowHexagramDetailSpiritBelowEnergyName").childNodes[0]
+            let belowHexagramDetailSpiritBelowEnergyMeaning = document.getElementById("BelowHexagramDetailSpiritBelowEnergyMeaning").childNodes[0]
+            let belowHexagramDetailSpiritBelowVitalityName = document.getElementById("BelowHexagramDetailSpiritBelowVitalityName").childNodes[0]
+            let belowHexagramDetailSpiritBelowVitalityMeaning = document.getElementById("BelowHexagramDetailSpiritBelowVitalityMeaning").childNodes[0]
+            let belowHexagramDetailEnergyBelowVitalityName = document.getElementById("BelowHexagramDetailEnergyBelowVitalityName").childNodes[0]
+            let belowHexagramDetailEnergyABelowVitalityMeaning = document.getElementById("BelowHexagramDetailEnergyBelowVitalityMeaning").childNodes[0]
+            let belowHexagramDetailVitalityBelowEnergyName = document.getElementById("BelowHexagramDetailVitalityBelowEnergyName").childNodes[0]
+            let belowHexagramDetailVitalityBelowEnergyMeaning = document.getElementById("BelowHexagramDetailVitalityBelowEnergyMeaning").childNodes[0]
+            let belowHexagramDetailEnergyBelowSpiritName = document.getElementById("BelowHexagramDetailEnergyBelowSpiritName").childNodes[0]
+            let belowHexagramDetailEnergyBelowSpiritMeaning = document.getElementById("BelowHexagramDetailEnergyBelowSpiritMeaning").childNodes[0]
+            let belowHexagramDetailVitalityBelowSpiritName = document.getElementById("BelowHexagramDetailVitalityBelowSpiritName").childNodes[0]
+            let belowHexagramDetailVitalityBelowSpiritMeaning = document.getElementById("BelowHexagramDetailVitalityBelowSpiritMeaning").childNodes[0]
 
             circleDetailName.nodeValue = dao.name
             circleDetailMeaning.nodeValue = dao.meaning
@@ -752,18 +782,30 @@
             aboveHexagramDetailEnergyAboveSpiritMeaning.nodeValue = energyAboveSpirit.meaning
             aboveHexagramDetailVitalityAboveSpiritName.nodeValue = vitalityAboveSpirit.name
             aboveHexagramDetailVitalityAboveSpiritMeaning.nodeValue = vitalityAboveSpirit.meaning
-            inHexagramDetailSpiritAboveEnergyName.nodeValue = spiritInEnergy.name
-            inHexagramDetailSpiritAboveEnergyMeaning.nodeValue = spiritInEnergy.meaning
-            inHexagramDetailSpiritAboveVitalityName.nodeValue = spiritInVitality.name
-            inHexagramDetailSpiritAboveVitalityMeaning.nodeValue = spiritInVitality.meaning
-            inHexagramDetailEnergyAboveVitalityName.nodeValue = energyInVitality.name
-            inHexagramDetailEnergyAboveVitalityMeaning.nodeValue = energyInVitality.meaning
-            inHexagramDetailVitalityAboveEnergyName.nodeValue = vitalityInEnergy.name
-            inHexagramDetailVitalityAboveEnergyMeaning.nodeValue = vitalityInEnergy.meaning
-            inHexagramDetailEnergyAboveSpiritName.nodeValue = energyInSpirit.name
-            inHexagramDetailEnergyAboveSpiritMeaning.nodeValue = energyInSpirit.meaning
-            inHexagramDetailVitalityAboveSpiritName.nodeValue = vitalityInSpirit.name
-            inHexagramDetailVitalityAboveSpiritMeaning.nodeValue = vitalityInSpirit.meaning
+            inHexagramDetailSpiritInEnergyName.nodeValue = spiritInEnergy.name
+            inHexagramDetailSpiritInEnergyMeaning.nodeValue = spiritInEnergy.meaning
+            inHexagramDetailSpiritInVitalityName.nodeValue = spiritInVitality.name
+            inHexagramDetailSpiritInVitalityMeaning.nodeValue = spiritInVitality.meaning
+            inHexagramDetailEnergyInVitalityName.nodeValue = energyInVitality.name
+            inHexagramDetailEnergyInVitalityMeaning.nodeValue = energyInVitality.meaning
+            inHexagramDetailVitalityInEnergyName.nodeValue = vitalityInEnergy.name
+            inHexagramDetailVitalityInEnergyMeaning.nodeValue = vitalityInEnergy.meaning
+            inHexagramDetailEnergyInSpiritName.nodeValue = energyInSpirit.name
+            inHexagramDetailEnergyInSpiritMeaning.nodeValue = energyInSpirit.meaning
+            inHexagramDetailVitalityInSpiritName.nodeValue = vitalityInSpirit.name
+            inHexagramDetailVitalityInSpiritMeaning.nodeValue = vitalityInSpirit.meaning
+            belowHexagramDetailSpiritBelowEnergyName.nodeValue = spiritBelowEnergy.name
+            belowHexagramDetailSpiritBelowEnergyMeaning.nodeValue = spiritBelowEnergy.meaning
+            belowHexagramDetailSpiritBelowVitalityName.nodeValue = spiritBelowVitality.name
+            belowHexagramDetailSpiritBelowVitalityMeaning.nodeValue = spiritBelowVitality.meaning
+            belowHexagramDetailEnergyBelowVitalityName.nodeValue = energyBelowVitality.name
+            belowHexagramDetailEnergyBelowVitalityMeaning.nodeValue = energyBelowVitality.meaning
+            belowHexagramDetailVitalityBelowEnergyName.nodeValue = vitalityBelowEnergy.name
+            belowHexagramDetailVitalityBelowEnergyMeaning.nodeValue = vitalityBelowEnergy.meaning
+            belowHexagramDetailEnergyBelowSpiritName.nodeValue = energyBelowSpirit.name
+            belowHexagramDetailEnergyBelowSpiritMeaning.nodeValue = energyBelowSpirit.meaning
+            belowHexagramDetailVitalityBelowSpiritName.nodeValue = vitalityBelowSpirit.name
+            belowHexagramDetailVitalityBelowSpiritMeaning.nodeValue = vitalityBelowSpirit.meaning
         }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
@@ -2278,6 +2320,12 @@
                 </svg>            
             </div>
             <div id="BelowHexagramDetail" style="display: none;; background-color: white;">
+                <canvas id="BelowHexagramShapeSpiritBelowEnergyCanvas" style="position: absolute; left: 180px; top: 100px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(21)"></canvas>
+                <canvas id="BelowHexagramShapeSpiritBelowVitalityCanvas" style="position: absolute; left: 109px; top: 160px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(23)"></canvas>
+                <canvas id="BelowHexagramShapeEnergyBelowVitalityCanvas" style="position: absolute; left: 255px; top: 160px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(25)"></canvas>
+                <canvas id="BelowHexagramShapeVitalityBelowEnergyCanvas" style="position: absolute; left: 109px; top: 230px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(26)"></canvas>
+                <canvas id="BelowHexagramShapeEnergyBelowSpiritCanvas" style="position: absolute; left: 255px; top: 230px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(22)"></canvas>
+                <canvas id="BelowHexagramShapeVitalityBelowSpiritCanvas" style="position: absolute; left: 180px; top: 265px; width: 20px; height: 30px; cursor: pointer;" onclick="update_internal_trigram(24)"></canvas>
                 <svg style="width: 400px; height: 400px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
                     <defs> 
                         <marker id="arrowhead3" markerWidth="7" markerHeight="5" refX="0" refY="2.5" orient="auto"> <polygon points="0 0, 5 2.5, 0 5" /> </marker>
