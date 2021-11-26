@@ -655,6 +655,12 @@
             let will = data[base + 6]
             let wuWei = data[base + 7]
             let uncarvedBlock = data[base + 8]
+            let spiritAboveEnergy = data[base + 9]
+            let energyAboveSpirit = data[base + 10]
+            let spiritAboveVitality = data[base + 11]
+            let vitalityAboveSpirit = data[base + 12]
+            let energyAboveVitality = data[base + 13]
+            let vitalityAboveEnergy = data[base + 13]
             let circleDetailName = document.getElementById("CircleDetailName").childNodes[0]
             let circleDetailMeaning = document.getElementById("CircleDetailMeaning").childNodes[0]
             let triangleOfNatureDetailEnergyName = document.getElementById("TriangleOfNatureDetailEnergyName").childNodes[0]
@@ -673,6 +679,18 @@
             let wuXingDetailSenseMeaning = document.getElementById("WuXingDetailSenseMeaning").childNodes[0]
             let wuXingDetailWillName = document.getElementById("WuXingDetailWillName").childNodes[0]
             let wuXingDetailWillMeaning = document.getElementById("WuXingDetailWillMeaning").childNodes[0]
+            let aboveHexagramDetailSpiritAboveEnergyName = document.getElementById("AboveHexagramDetailSpiritAboveEnergyName").childNodes[0]
+            let aboveHexagramDetailSpiritAboveEnergyMeaning = document.getElementById("AboveHexagramDetailSpiritAboveEnergyMeaning").childNodes[0]
+            let aboveHexagramDetailSpiritAboveVitalityName = document.getElementById("AboveHexagramDetailSpiritAboveVitalityName").childNodes[0]
+            let aboveHexagramDetailSpiritAboveVitalityMeaning = document.getElementById("AboveHexagramDetailSpiritAboveVitalityMeaning").childNodes[0]
+            let aboveHexagramDetailEnergyAboveVitalityName = document.getElementById("AboveHexagramDetailEnergyAboveVitalityName").childNodes[0]
+            let aboveHexagramDetailEnergyAboveVitalityMeaning = document.getElementById("AboveHexagramDetailEnergyAboveVitalityMeaning").childNodes[0]
+            let aboveHexagramDetailVitalityAboveEnergyName = document.getElementById("AboveHexagramDetailVitalityAboveEnergyName").childNodes[0]
+            let aboveHexagramDetailVitalityAboveEnergyMeaning = document.getElementById("AboveHexagramDetailVitalityAboveEnergyMeaning").childNodes[0]
+            let aboveHexagramDetailEnergyAboveSpiritName = document.getElementById("AboveHexagramDetailEnergyAboveSpiritName").childNodes[0]
+            let aboveHexagramDetailEnergyAboveSpiritMeaning = document.getElementById("AboveHexagramDetailEnergyAboveSpiritMeaning").childNodes[0]
+            let aboveHexagramDetailVitalityAboveSpiritName = document.getElementById("AboveHexagramDetailVitalityAboveSpiritName").childNodes[0]
+            let aboveHexagramDetailVitalityAboveSpiritMeaning = document.getElementById("AboveHexagramDetailVitalityAboveSpiritMeaning").childNodes[0]
 
             circleDetailName.nodeValue = dao.name
             circleDetailMeaning.nodeValue = dao.meaning
@@ -692,6 +710,18 @@
             wuXingDetailSenseMeaning.nodeValue = sense.meaning
             wuXingDetailWillName.nodeValue = will.name
             wuXingDetailWillMeaning.nodeValue = will.meaning
+            aboveHexagramDetailSpiritAboveEnergyName.nodeValue = spiritAboveEnergy.name
+            aboveHexagramDetailSpiritAboveEnergyMeaning.nodeValue = spiritAboveEnergy.meaning
+            aboveHexagramDetailSpiritAboveVitalityName.nodeValue = spiritAboveVitality.name
+            aboveHexagramDetailSpiritAboveVitalityMeaning.nodeValue = spiritAboveVitality.meaning
+            aboveHexagramDetailEnergyAboveVitalityName.nodeValue = energyAboveVitality.name
+            aboveHexagramDetailEnergyAboveVitalityMeaning.nodeValue = energyAboveVitality.meaning
+            aboveHexagramDetailVitalityAboveEnergyName.nodeValue = vitalityAboveEnergy.name
+            aboveHexagramDetailVitalityAboveEnergyMeaning.nodeValue = vitalityAboveEnergy.meaning
+            aboveHexagramDetailEnergyAboveSpiritName.nodeValue = energyAboveSpirit.name
+            aboveHexagramDetailEnergyAboveSpiritMeaning.nodeValue = energyAboveSpirit.meaning
+            aboveHexagramDetailVitalityAboveSpiritName.nodeValue = vitalityAboveSpirit.name
+            aboveHexagramDetailVitalityAboveSpiritMeaning.nodeValue = vitalityAboveSpirit.meaning
         }
         function draw_symbol(context, symbol, currentYLocation, fillColor, offsetX, offsetY) {
             const radius = 50
